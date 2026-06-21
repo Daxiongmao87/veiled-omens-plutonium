@@ -147,6 +147,146 @@
       "__prop": "race"
     },
     {
+      "name": "Goliath (Ogre-Blooded)",
+      "source": "VeiledOmens",
+      "ability": [
+        {
+          "str": 2,
+          "con": 2,
+          "int": -2,
+          "wis": -2
+        }
+      ],
+      "size": [
+        "L"
+      ],
+      "speed": 30,
+      "creatureTypes": [
+        "humanoid"
+      ],
+      "skillProficiencies": [
+        {
+          "athletics": true
+        }
+      ],
+      "resist": [
+        "cold"
+      ],
+      "traitTags": [
+        "Damage Resistance",
+        "Skill Proficiency"
+      ],
+      "languageProficiencies": [
+        {
+          "common": true,
+          "giant": true
+        }
+      ],
+      "entries": [
+        "Your goliath character has certain characteristics in common with all other goliaths.",
+        {
+          "type": "entries",
+          "name": "Ability Score Increase",
+          "entries": [
+            "Your Strength score increases by 2, and your Constitution score increases by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Age",
+          "entries": [
+            "Goliaths have lifespans comparable to humans. They enter adulthood in their late teens and usually live less than a century."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Alignment",
+          "entries": [
+            "Goliath society, with its clear roles and tasks, has a strong lawful bent. The goliath sense of fairness, balanced with an emphasis on self-sufficiency and personal accountability, pushes them toward neutrality."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": [
+            "Your base walking speed is 30 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Natural Athlete",
+          "entries": [
+            "You have proficiency in the Athletics skill."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Stone's Endurance",
+          "entries": [
+            "You can focus yourself to occasionally shrug off injury. When you take damage, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled, and reduce the damage by that total. After you use this trait, you can't use it again until you finish a short or long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mountain Born",
+          "entries": [
+            "You have resistance to cold damage. You're also acclimated to high altitude, including elevations above 20,000 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Giant."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ogre-Blooded",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Ability Score Increase",
+              "entries": [
+                "Your Constitution score increases by 2 (instead of 1). Your Intelligence score decreases by 2, and your Wisdom score decreases by 2."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Size",
+              "entries": [
+                "Ogre-Blooded Goliaths are between 8 to 10 feet tall and weigh between 400 to 600 pounds. Your size is Large."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Great Physique",
+              "entries": [
+                "You gain +1 hit point per level. You have a +2 bonus to all Constitution checks and Strength checks."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Oversized",
+              "entries": [
+                "Due to your Large size, you cannot wear non-magical equipment designed for Medium or Smaller creatures. Equipment for your size costs 1.5x the original price, and refitting existing equipment will cost half its original price. You treat medium-sized weapons differently due to your large stature. Below is a list of trait changes when wielded by a Large creature.",
+                {
+                  "type": "list",
+                  "items": [
+                    "Two-Handed becomes Versatile",
+                    "Versatile becomes One-Handed",
+                    "Anything else is considered an Improvised Weapon"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "foundryImg": "icons/magic/control/buff-strength-muscle-damage.webp",
+      "__prop": "race"
+    },
+    {
       "name": "Vaetyr (Hearthbound)",
       "source": "VeiledOmens",
       "ability": [

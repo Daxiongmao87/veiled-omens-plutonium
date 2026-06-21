@@ -34,4 +34,5 @@ Then confirm every repository JSON file parses.
 
 - [DEVELOPMENT.md](./DEVELOPMENT.md)
 - [schemas/README.md](./schemas/README.md)
+- [5etools homebrew conventions](./docs/5etools-homebrew-conventions.md)
 - [schemas/plutonium-content-types.md](./schemas/plutonium-content-types.md)

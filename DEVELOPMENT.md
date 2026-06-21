@@ -121,6 +121,19 @@ Primary public references:
 - Subclass reference: `https://wiki.tercept.net/en/Homebrew/TableOfReference/Subclass`
 - Lexicon / Foundry fields: `https://wiki.tercept.net/en/Homebrew/Lexicon`
 
+## Homebrew conventions reference
+
+Use this repository's conventions document for a full crosswalk to TheGiddyLimit/homebrew and Plutonium ingest behavior:
+
+- [5etools homebrew conventions](./docs/5etools-homebrew-conventions.md)
+
+That document covers:
+
+- The adopted and adapted 5etools/homebrew conventions for this repository.
+- content-type directory to top-level `__prop` / array mapping.
+- `_generated` index file semantics.
+- foundry asset transplant workflow (world-relative paths to repo-hosted `img/` files).
+
 Schema repositories and examples may move. When in doubt, inspect the live 5etools/Plutonium data cache and compare against an official race, class, feat, spell, or item that behaves the way the new content should behave.
 
 ## Race/species format

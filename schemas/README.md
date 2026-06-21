@@ -9,6 +9,7 @@ Use these notes to choose the correct top-level array and `__prop` value when ad
 ## Main reference
 
 - `plutonium-content-types.md` — compact reference for supported Plutonium content types, key fields, and authoring notes.
+- `../docs/5etools-homebrew-conventions.md` — source-conventions mapping for TheGiddyLimit/homebrew format, directory names, and Foundry asset transplants.
 
 ## Canonical content file naming
 

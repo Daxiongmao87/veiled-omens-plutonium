@@ -365,6 +365,7 @@
           ]
         }
       ],
+      "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/vaetyr.png",
       "__prop": "race"
     },
     {
@@ -586,6 +587,7 @@
           ]
         }
       ],
+      "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/vaetyr.png",
       "__prop": "race"
     }
   ]

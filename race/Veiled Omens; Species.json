@@ -145,6 +145,448 @@
       ],
       "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/ghost_elf.png",
       "__prop": "race"
+    },
+    {
+      "name": "Vaetyr (Hearthbound)",
+      "source": "VeiledOmens",
+      "ability": [
+        {
+          "con": 2,
+          "int": 1,
+          "wis": 1,
+          "dex": -2,
+          "cha": -1
+        }
+      ],
+      "size": [
+        "S"
+      ],
+      "speed": 25,
+      "darkvision": 60,
+      "skillProficiencies": [
+        {
+          "survival": true
+        }
+      ],
+      "toolProficiencies": [
+        {
+          "navigator's tools": true
+        }
+      ],
+      "languageProficiencies": [
+        {
+          "common": true,
+          "dwarvish": true,
+          "gnomish": true
+        }
+      ],
+      "creatureTypes": [
+        "humanoid"
+      ],
+      "traitTags": [
+        "Darkvision",
+        "Skill Proficiency",
+        "Tool Proficiency",
+        "Uncommon Race"
+      ],
+      "entries": [
+        "Emerging from the icy crags and hidden inlets of secluded their lands, the Vaetyr blend the hardiness of dwarves with the ingenuity of gnomes, all while harboring a unique connection to the sea and the ancient magic of their forebears. Their society, built upon the pillars of rune-craft and hearth-magic, thrives in frigid, isolated realms where they navigate treacherous ice-flows with the skill of seasoned mariners.",
+        {
+          "type": "entries",
+          "name": "Hardy and Wise",
+          "entries": [
+            "Vaetyr are as sturdy as the mountains from which they partly descend, combined with the keen intellect of their gnome heritage. They are shorter and stockier than humans, but their compact stature belies their resilience and mental acuity. Their skin often bears the pallor of the icy landscapes they call home, with hair colors ranging from deep browns to light, frost-touched hues."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Secluded Mariners",
+          "entries": [
+            "Despite their isolation, Vaetyr are adept seafarers, navigating the icy waters that surround their homelands with ease. This dichotomy of seclusion and exploration marks their unique place in the world -- a race of skilled mariners who seldom leave the cold embrace of their frozen realm."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mystical Crafters",
+          "entries": [
+            "The Vaetyr's culture is steeped in the mystical arts of Hearth Magic and Rune Forging. Hearthbound Vaetyr are the keepers of their communities, using their magic to protect and nurture, while Runebound Vaetyr are the crafters and defenders, imbuing objects with magical runes of great power."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Vaetyr Names",
+          "entries": [
+            "A blend of their dual heritage, Vaetyr names reflect both the sturdy traditions of dwarves and the whimsical creativity of gnomes. Their names are often inspired by various elements of their rich culture, from their seafaring exploits and rune crafting skills to their deep connection with hearth magic and the diverse landscapes they inhabit.",
+            "In Vaetyr culture, clan names hold significant meaning, serving as a testament to a family's ancestral legacy. These names are often passed down through generations, each one symbolizing a specific aspect of their heritage, be it their seafaring prowess, mastery of runecraft, or their unwavering connection to the hearth's warmth. A Vaetyr's clan name is not just a label; it's a reflection of their identity and a source of pride within their close-knit communities.",
+            "Male Names: Berend, Brorim, Dornick, Ebermar, Eldar, Fimlin, Garvik, Grilbin, Jorvik, Keldorin, Noran, Norix, Rurik, Thelbin, Tholmin, Ulbor, Varnik, Wilfryn, Zanrik",
+            "Female Names: Adwyna, Berylla, Brynja, Eldeth, Elyndra, Firla, Gwinna, Jasmik, Karyn, Lindryn, Lyrin, Morna, Nitrana, Sylvi, Thalia, Tylira, Vistra, Wistala, Ysmera",
+            "Clan Names: Frostfall, Wavecarver, Runescribe, Emberheart, Deepdelve, Glimmerstone, Seabreach, Windwhisper, Hearthguard, Tidewalker"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Whispers on the Wind",
+          "entries": [
+            "In the isolated reaches where the Vaetyr make their homes, encounters with other races are rare and often marked by the icy veil of their secluded society. Their interactions are shaped by the rhythms of the sea and the solemnity of the frozen landscapes they inhabit. Here are some Vaetyr perspectives on other races, whispered like secrets on the wind:",
+            "**Humans:** \"Quick as a summer gale, humans come and go, their lives a whirlwind of fleeting moments. Their ceaseless ambition and impulsive actions often bewilder us. While we admire their fervor, their haste contrasts sharply with our measured ways.\"",
+            "**Elves:** \"Elves, with their timeless forests, speak a language of nature akin to our own. Yet, their woodlands sing a different tune from our coastal shores. We share a dance of respect at a distance, their eternal elegance a stark contrast to the warmth of our hearths.\"",
+            "**Dwarves:** \"Sturdy as the stone, our dwarf kin delve deep into the earth, much like our own connection to the sea. We share a bond of craftsmanship and resilience, though our artistic expressions differ. In their company, we find a familiar stubbornness, a reliable if unyielding alliance.\"",
+            "**Gnomes:** \"Gnomes, our inventive kin, ignite sparks of creativity that brighten our lives. Their vibrant spirits bring a warmth that stirs the still air of our solitude. Though we tread different paths, the echoes of our shared laughter resonate in the tranquility of our gomes.\"",
+            "**Halflings:** \"Rare as a bloom in snow, halflings bring joy to our lands. Their resilience, cloaked in cheer, is a reminder of life's warmth in the harshest climes. Their visits, though fleeting, leave footprints of happiness in our hearts. We cherish their fleeting presence by the hearth.\"",
+            "**Dragonborn:** \"Dragonborn, with their elemental essence, command respect like a fierce storm. Their strength, a contrast to our serenity, sparks admiration, a kinship rooted in the primal forces of nature. We value their tenacity and power, knowing the importance of balance in our world.\"",
+            "**Tieflings:** \"In tieflings, we see reflections of our own misunderstood nature. Judged by their appearance, they find a semblance of acceptance with us. Their tales, woven with isolation and inner conflict, resonate with the silent songs of our hearths. We share the burden of misjudgment.\""
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ability Score Increase",
+          "entries": [
+            "Your Constitution score increases by 2, your Intelligence score increases by 1, your Wisdom score increases by 1, your Dexterity score decreases by 2, and your Charisma score decreases by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Age",
+          "entries": [
+            "Vaetyr reach adulthood at the same age as humans, but they're considered young until they reach the age of 45. On average, they live about 400 years."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Vaetyr are smaller than humans, averaging around 4 to 4.5 feet in height. Your size is Small."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": [
+            "Your base walking speed is 25 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "Thanks to your gnome and dwarf ancestry, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Seafaring Heritage",
+          "entries": [
+            "You have proficiency in the {@skill Survival} skill and {@item Navigator's Tools|phb|navigator's tools}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Subrace",
+          "entries": [
+            "Hearthbound"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Hearthbound",
+          "entries": [
+            "As a Hearthbound Vaetyr, you have a deep connection to the sanctuary of home and the magic that protects and nurtures those within it. Your abilities grow as you do, reflecting the ever-strengthening bond with your hearth."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Hearth Magic",
+          "entries": [
+            "An innate Vaetyr magical ability, Hearth Magic draws upon their spiritual connection to home and hearth to form minor magic. You gain the following Hearth Magic Ability:",
+            "Enchanted Embers."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Enchanted Embers",
+          "entries": [
+            "You create a magical flame that provides warmth and light in a 10-foot radius, lasting for 8 hours or until you leave. The flame is a symbol of comfort and safety within your home or camp."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Rune Forging",
+          "entries": [
+            "A blend of innate magical potential and centuries-old traditions, Rune Forging is a skill that allows the Vaetyr to craft intricate runes imbued with versatile enchantments. Whenever you finish a long rest, you can touch an object, and you inscribe a different rune onto each of the objects. To be eligible, an object must be a weapon, a suit of armor, a shield, a piece of jewelry, or something else you can wear or hold in a hand. Your rune remains on an object until you finish a long rest, and an object can bear only one of your runes at a time. You learn the following rune:"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fortitude Rune",
+          "entries": [
+            "This rune grants resilience and strength. When inscribed, it imbues the wearer with temporary hit points. The wearer gains 1d4 temporary hit points for each point of their proficiency bonus, bolstering their fortitude in the face of adversity."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Potent Hearth Magic",
+          "entries": [
+            "You are gifted with a profound connection to the magic of the hearth, which manifests in several potent abilities that grow in strength with the Vaetyr. These abilities are deeply rooted in the traditions of nurturing and protection, vital to the well-being of their communities. At their stated levels, you learn the following Hearth Magic Abilities:"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Private Paradise (Level 3)",
+          "entries": [
+            "You can create a comforting illusion within your home or camp (within a 30 foot cube), lasting 8 hours or until you or any allies leave the area. It can make your sanctuary appear as a natural and serene part of the surroundings, concealing you and your allies within. Sound from within the illusion does not escape outside. If a creature other than you or your allies walks into the illusion, the ability fails."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Vitality's Vigor (Level 5)",
+          "entries": [
+            "You can designate a creature sharing your hearth. After rest, the creature gains temporary hit points equal to your character level and a skill check bonus equal to half your character level (rounded down) for 8 hours."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Restful Respite (Level 7)",
+          "entries": [
+            "You can designate a creature sharing your hearth. After rest, the creature loses an extra level of exhaustion and receives the effects of Lesser Restoration."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Second Sanctuary (Level 10)",
+          "entries": [
+            "You gain the ability to designate a short rest area as \"home\" for 1 hour, enabling the use of your Hearth Magic abilities with reduced potency. 8 hour durations are reduced to 1 hour and Restful Respite may only remove a level of exhaustion or provide the benefits of Lesser Restoration, not both."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common, Dwarvish, and Gnomish."
+          ]
+        }
+      ],
+      "__prop": "race"
+    },
+    {
+      "name": "Vaetyr (Runebound)",
+      "source": "VeiledOmens",
+      "ability": [
+        {
+          "con": 2,
+          "int": 1,
+          "wis": 1,
+          "dex": -2,
+          "cha": -1
+        }
+      ],
+      "size": [
+        "S"
+      ],
+      "speed": 25,
+      "darkvision": 60,
+      "skillProficiencies": [
+        {
+          "survival": true
+        }
+      ],
+      "toolProficiencies": [
+        {
+          "navigator's tools": true
+        }
+      ],
+      "languageProficiencies": [
+        {
+          "common": true,
+          "dwarvish": true,
+          "gnomish": true
+        }
+      ],
+      "creatureTypes": [
+        "humanoid"
+      ],
+      "traitTags": [
+        "Darkvision",
+        "Skill Proficiency",
+        "Tool Proficiency",
+        "Uncommon Race"
+      ],
+      "entries": [
+        "Emerging from the icy crags and hidden inlets of secluded their lands, the Vaetyr blend the hardiness of dwarves with the ingenuity of gnomes, all while harboring a unique connection to the sea and the ancient magic of their forebears. Their society, built upon the pillars of rune-craft and hearth-magic, thrives in frigid, isolated realms where they navigate treacherous ice-flows with the skill of seasoned mariners.",
+        {
+          "type": "entries",
+          "name": "Hardy and Wise",
+          "entries": [
+            "Vaetyr are as sturdy as the mountains from which they partly descend, combined with the keen intellect of their gnome heritage. They are shorter and stockier than humans, but their compact stature belies their resilience and mental acuity. Their skin often bears the pallor of the icy landscapes they call home, with hair colors ranging from deep browns to light, frost-touched hues."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Secluded Mariners",
+          "entries": [
+            "Despite their isolation, Vaetyr are adept seafarers, navigating the icy waters that surround their homelands with ease. This dichotomy of seclusion and exploration marks their unique place in the world -- a race of skilled mariners who seldom leave the cold embrace of their frozen realm."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mystical Crafters",
+          "entries": [
+            "The Vaetyr's culture is steeped in the mystical arts of Hearth Magic and Rune Forging. Hearthbound Vaetyr are the keepers of their communities, using their magic to protect and nurture, while Runebound Vaetyr are the crafters and defenders, imbuing objects with magical runes of great power."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Vaetyr Names",
+          "entries": [
+            "A blend of their dual heritage, Vaetyr names reflect both the sturdy traditions of dwarves and the whimsical creativity of gnomes. Their names are often inspired by various elements of their rich culture, from their seafaring exploits and rune crafting skills to their deep connection with hearth magic and the diverse landscapes they inhabit.",
+            "In Vaetyr culture, clan names hold significant meaning, serving as a testament to a family's ancestral legacy. These names are often passed down through generations, each one symbolizing a specific aspect of their heritage, be it their seafaring prowess, mastery of runecraft, or their unwavering connection to the hearth's warmth. A Vaetyr's clan name is not just a label; it's a reflection of their identity and a source of pride within their close-knit communities.",
+            "Male Names: Berend, Brorim, Dornick, Ebermar, Eldar, Fimlin, Garvik, Grilbin, Jorvik, Keldorin, Noran, Norix, Rurik, Thelbin, Tholmin, Ulbor, Varnik, Wilfryn, Zanrik",
+            "Female Names: Adwyna, Berylla, Brynja, Eldeth, Elyndra, Firla, Gwinna, Jasmik, Karyn, Lindryn, Lyrin, Morna, Nitrana, Sylvi, Thalia, Tylira, Vistra, Wistala, Ysmera",
+            "Clan Names: Frostfall, Wavecarver, Runescribe, Emberheart, Deepdelve, Glimmerstone, Seabreach, Windwhisper, Hearthguard, Tidewalker"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Whispers on the Wind",
+          "entries": [
+            "In the isolated reaches where the Vaetyr make their homes, encounters with other races are rare and often marked by the icy veil of their secluded society. Their interactions are shaped by the rhythms of the sea and the solemnity of the frozen landscapes they inhabit. Here are some Vaetyr perspectives on other races, whispered like secrets on the wind:",
+            "**Humans:** \"Quick as a summer gale, humans come and go, their lives a whirlwind of fleeting moments. Their ceaseless ambition and impulsive actions often bewilder us. While we admire their fervor, their haste contrasts sharply with our measured ways.\"",
+            "**Elves:** \"Elves, with their timeless forests, speak a language of nature akin to our own. Yet, their woodlands sing a different tune from our coastal shores. We share a dance of respect at a distance, their eternal elegance a stark contrast to the warmth of our hearths.\"",
+            "**Dwarves:** \"Sturdy as the stone, our dwarf kin delve deep into the earth, much like our own connection to the sea. We share a bond of craftsmanship and resilience, though our artistic expressions differ. In their company, we find a familiar stubbornness, a reliable if unyielding alliance.\"",
+            "**Gnomes:** \"Gnomes, our inventive kin, ignite sparks of creativity that brighten our lives. Their vibrant spirits bring a warmth that stirs the still air of our solitude. Though we tread different paths, the echoes of our shared laughter resonate in the tranquility of our gomes.\"",
+            "**Halflings:** \"Rare as a bloom in snow, halflings bring joy to our lands. Their resilience, cloaked in cheer, is a reminder of life's warmth in the harshest climes. Their visits, though fleeting, leave footprints of happiness in our hearts. We cherish their fleeting presence by the hearth.\"",
+            "**Dragonborn:** \"Dragonborn, with their elemental essence, command respect like a fierce storm. Their strength, a contrast to our serenity, sparks admiration, a kinship rooted in the primal forces of nature. We value their tenacity and power, knowing the importance of balance in our world.\"",
+            "**Tieflings:** \"In tieflings, we see reflections of our own misunderstood nature. Judged by their appearance, they find a semblance of acceptance with us. Their tales, woven with isolation and inner conflict, resonate with the silent songs of our hearths. We share the burden of misjudgment.\""
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ability Score Increase",
+          "entries": [
+            "Your Constitution score increases by 2, your Intelligence score increases by 1, your Wisdom score increases by 1, your Dexterity score decreases by 2, and your Charisma score decreases by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Age",
+          "entries": [
+            "Vaetyr reach adulthood at the same age as humans, but they're considered young until they reach the age of 45. On average, they live about 400 years."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Vaetyr are smaller than humans, averaging around 4 to 4.5 feet in height. Your size is Small."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": [
+            "Your base walking speed is 25 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "Thanks to your gnome and dwarf ancestry, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Seafaring Heritage",
+          "entries": [
+            "You have proficiency in the {@skill Survival} skill and {@item Navigator's Tools|phb|navigator's tools}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Subrace",
+          "entries": [
+            "Runebound"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Runebound",
+          "entries": [
+            "As a Runebound Vaetyr, your affinity for rune magic is unparalleled. Your skills in inscribing ancient runes grant you and your allies enhanced abilities and protections, showcasing the depth of your rune-crafting heritage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Hearth Magic",
+          "entries": [
+            "An innate Vaetyr magical ability, Hearth Magic draws upon their spiritual connection to home and hearth to form minor magic. You gain the following Hearth Magic Ability:",
+            "Enchanted Embers."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Enchanted Embers",
+          "entries": [
+            "You create a magical flame that provides warmth and light in a 10-foot radius, lasting for 8 hours or until you leave. The flame is a symbol of comfort and safety within your home or camp."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Rune Forging",
+          "entries": [
+            "A blend of innate magical potential and centuries-old traditions, Rune Forging is a skill that allows the Vaetyr to craft intricate runes imbued with versatile enchantments. Whenever you finish a long rest, you can touch an object, and you inscribe a different rune onto each of the objects. To be eligible, an object must be a weapon, a suit of armor, a shield, a piece of jewelry, or something else you can wear or hold in a hand. Your rune remains on an object until you finish a long rest, and an object can bear only one of your runes at a time. You learn the following rune:"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fortitude Rune",
+          "entries": [
+            "This rune grants resilience and strength. When inscribed, it imbues the wearer with temporary hit points. The wearer gains 1d4 temporary hit points for each point of their proficiency bonus, bolstering their fortitude in the face of adversity."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Advanced Rune Forging",
+          "entries": [
+            "You possess an innate talent for inscribing magical runes. Your abilities, unlocking as you grow, imbue objects with protective and enhancing powers."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Clarity Rune (Level 3)",
+          "entries": [
+            "This rune offers clarity of senses and mind. When inscribed, it bestows advantage on saving throws against being blinded, deafened, or stunned. Additionally, it enhances these saving throws with a bonus equal to half your proficiency bonus, rounded down."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Vigor Rune (Level 5)",
+          "entries": [
+            "This rune embodies the vitality of the wilds. When applied to a weapon, it allows the wielder to regain hit points equal to their proficiency bonus on a successful hit. This rejuvenating power can be harnessed once per combat."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Guardian Rune (Level 7)",
+          "entries": [
+            "This rune channels the steadfastness of the earth. When inscribed on armor or clothing, it fortifies the wearer, granting a bonus to Armor Class equal to half of your proficiency bonus. This protective power is usable once per long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Augmentation Rune (Level 10)",
+          "entries": [
+            "This rune is a testament to the art of rune mastery. Inscribed alongside another rune, it magnifies its power. Choose a rune you've already inscribed; this chosen rune is then augmented with enhanced capabilities. You may invoke this augmented power once per long rest, limited to augmenting one rune at a time."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common, Dwarvish, and Gnomish."
+          ]
+        }
+      ],
+      "__prop": "race"
     }
   ]
 }

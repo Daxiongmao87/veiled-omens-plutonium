@@ -28,7 +28,7 @@ Do not use URL Sources as the base repository endpoint.
 Valid remote file import examples:
 
 ```text
-https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/race/Patrick%20Richardson%3B%20Veiled%20Omens%20Species.json
+https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/race/Veiled%20Omens%3B%20Species.json
 ```
 
 ## Source identity
@@ -43,7 +43,7 @@ Use this source block for Veiled Omens content unless a file has a specific reas
         "json": "VeiledOmens",
         "abbreviation": "VO",
         "full": "Veiled Omens Campaign Setting",
-        "authors": ["Patrick Richardson"],
+        "authors": ["Daxiongmao87"],
         "version": "0.1.0"
       }
     ]
@@ -73,7 +73,7 @@ Rules:
   |    +--- index-sources.json
   |    +--- index-timestamps.json
   +--- race/
-  |    +--- Patrick Richardson; Veiled Omens Species.json
+  |    +--- Veiled Omens; Species.json
   +--- subraces/
   +--- classes/
   +--- subclasses/
@@ -116,7 +116,7 @@ Minimal pattern:
         "json": "VeiledOmens",
         "abbreviation": "VO",
         "full": "Veiled Omens Campaign Setting",
-        "authors": ["Patrick Richardson"],
+        "authors": ["Daxiongmao87"],
         "version": "0.1.0"
       }
     ]

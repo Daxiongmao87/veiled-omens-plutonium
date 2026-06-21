@@ -22,7 +22,7 @@ Plutonium/5etools homebrew JSON usually wraps content in top-level arrays named 
         "json": "VeiledOmens",
         "abbreviation": "VO",
         "full": "Veiled Omens Campaign Setting",
-        "authors": ["Patrick Richardson"],
+        "authors": ["Daxiongmao87"],
         "version": "0.1.0"
       }
     ]

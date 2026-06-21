@@ -16,7 +16,7 @@ Use this `_meta` source block for Veiled Omens content:
         "json": "VeiledOmens",
         "abbreviation": "VO",
         "full": "Veiled Omens Campaign Setting",
-        "authors": ["Patrick Richardson"],
+        "authors": ["Daxiongmao87"],
         "version": "0.1.0"
       }
     ]
@@ -655,7 +655,7 @@ Adventure core fields:
   "group": "Veiled Omens",
   "cover": "",
   "published": "2026",
-  "author": ["Patrick Richardson"],
+  "author": ["Daxiongmao87"],
   "storyline": "Veiled Omens",
   "level": "1-5",
   "contents": {"chapters": []},
@@ -673,7 +673,7 @@ Book core fields:
   "group": "Veiled Omens",
   "cover": "",
   "published": "2026",
-  "author": ["Patrick Richardson"],
+  "author": ["Daxiongmao87"],
   "contents": {"chapters": []},
   "__prop": "book"
 }

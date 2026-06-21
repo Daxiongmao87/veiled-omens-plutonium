@@ -1,0 +1,150 @@
+{
+  "_meta": {
+    "sources": [
+      {
+        "json": "VeiledOmens",
+        "abbreviation": "VO",
+        "full": "Veiled Omens Campaign Setting",
+        "authors": [
+          "Patrick Richardson"
+        ],
+        "convertedBy": [
+          "ChatGPT"
+        ],
+        "version": "1.0.0-foundry-mechanics"
+      }
+    ],
+    "edition": "classic",
+    "status": "ready",
+    "dateAdded": 1780786407,
+    "dateLastModified": 1780786407
+  },
+  "race": [
+    {
+      "name": "Ghost Elf",
+      "source": "VeiledOmens",
+      "ability": [
+        {
+          "dex": 2,
+          "int": 1,
+          "wis": 1,
+          "con": -1
+        }
+      ],
+      "size": [
+        "M"
+      ],
+      "speed": 30,
+      "darkvision": 60,
+      "skillProficiencies": [
+        {
+          "perception": true
+        }
+      ],
+      "languageProficiencies": [
+        {
+          "common": true,
+          "elvish": true,
+          "any": 1
+        }
+      ],
+      "traitTags": [
+        "Improved Resting",
+        "Skill Proficiency",
+        "Uncommon Race"
+      ],
+      "entries": [
+        "{@i \"We are the light that remembers the world.\"}",
+        "As a ghost elf, you are one of the few truly immortal beings, destined to live until violence or disease ends you. You are delicate and pale, your skin shimmering with a faint light in the dark where you dwell. Most ghost elves are recluses who have no patience for mortal affairs, finding comfort only beneath the ancient canopies that have sheltered their kin for millennia. Some, however, grow weary of endless solitude and venture forth to find meaning beyond the trees.",
+        "Ghost elves are the most reclusive of all elven subraces, dwelling only in the deepest ancient forests where the canopy is so thick that sunlight barely reaches the forest floor. Pale-skinned and silver-haired, they have adapted to life in perpetual twilight, their eyes taking on strange hues ranging from pale pink to deep indigo.",
+        "What truly sets the ghost elves apart from all other elves--and indeed all mortal races--is their true immortality. While other elves may live for centuries, they still eventually fade. The ghost elves, however, do not age after reaching maturity. They are the only elves who are truly immortal, their lives measured not in years but in epochs.",
+        {
+          "type": "entries",
+          "name": "Ability Score Increase",
+          "entries": [
+            "Your Dexterity score increases by 2, your Intelligence score increases by 1, and your Wisdom score increases by 1. However, your Constitution score decreases by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Age",
+          "entries": [
+            "Ghost elves do not age after reaching maturity around 100 years of age. They are truly immortal, unable to die of old age. This does not make them invulnerable--they can still be killed by violence, disease, or magical effects--but the passage of time has no effect on their vitality once they reach their prime."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Alignment",
+          "entries": [
+            "Ghost elves tend toward isolation, often favoring neutral alignments that reflect their detached view of mortal affairs. Many are Neutral or Neutral Good, though some embrace the solitude of Neutral Evil or the freedom of Chaotic Neutral."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Ghost elves are similar in stature to other elves, ranging from 5 to 6 feet tall and slender. Your size is Medium."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": [
+            "Your base walking speed is 30 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "Accustomed to life amid darkness, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You cannot discern color in darkness, only shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Luminescent Skin",
+          "entries": [
+            "Your pale skin emits a faint, ethereal glow. You shed dim light in a 5-foot radius. This light is magical and appears as a soft shimmer in shades of pale blue to white."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Keen Senses",
+          "entries": [
+            "You have proficiency in the {@skill Perception} skill."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fey Ancestry",
+          "entries": [
+            "You have advantage on saving throws against being charmed, and magic cannot put you to sleep."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Trance",
+          "entries": [
+            "Like other elves, ghost elves do not sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through long practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ghost Elf Immortality",
+          "entries": [
+            "You do not age and cannot die of old age."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Elvish, and you can speak, read, and write one extra language of your choice."
+          ]
+        }
+      ],
+      "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/ghost_elf.png",
+      "__prop": "race"
+    }
+  ]
+}

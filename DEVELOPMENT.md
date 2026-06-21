@@ -12,16 +12,23 @@ Set Plutonium's Base Homebrew Repository URL to:
 https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/
 ```
 
-Use `index.json` at the repository root to control which homebrew files Plutonium loads.
+This repository is an indexed Plutonium datasource and must publish these generated files at the root `_generated/` directory:
 
-Example:
+```text
+_generated/index-sources.json
+_generated/index-props.json
+_generated/index-meta.json
+_generated/index-timestamps.json
+```
 
-```json
-{
-  "toImport": [
-    "races/ghost-elf.json"
-  ]
-}
+The Import Wizard "URL Sources" field is for **direct file imports only** and should point to a full JSON file URL.
+
+Do not use URL Sources as the base repository endpoint.
+
+Valid remote file import examples:
+
+```text
+https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/race/Patrick%20Richardson%3B%20Veiled%20Omens%20Species.json
 ```
 
 ## Source identity
@@ -55,21 +62,28 @@ Rules:
 
 ```text
 /
-├─ index.json
-├─ DEVELOPMENT.md
-├─ README.md
-├─ races/
-│  └─ ghost-elf.json
-├─ subraces/
-├─ classes/
-├─ subclasses/
-├─ feats/
-├─ spells/
-├─ items/
-├─ backgrounds/
-├─ optionalfeatures/
-└─ img/
-   └─ icons/
+  +--- DEVELOPMENT.md
+  +--- README.md
+  +--- tools/
+  |    +--- generate-plutonium-indexes.py
+  |    +--- validate-plutonium-datasource.py
+  +--- _generated/
+  |    +--- index-meta.json
+  |    +--- index-props.json
+  |    +--- index-sources.json
+  |    +--- index-timestamps.json
+  +--- race/
+  |    +--- Patrick Richardson; Veiled Omens Species.json
+  +--- subraces/
+  +--- classes/
+  +--- subclasses/
+  +--- feats/
+  +--- spells/
+  +--- items/
+  +--- backgrounds/
+  +--- optionalfeatures/
+  +--- img/
+       +--- icons/
 ```
 
 Git does not preserve empty directories, so add `.gitkeep` files when needed.
@@ -279,7 +293,7 @@ Recommended image policy:
 
 Example:
 
-```json
+```text
 "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/ghost_elf.png"
 ```
 
@@ -289,35 +303,29 @@ Before committing content:
 
 1. Confirm the JSON parses with `jq` or an equivalent validator.
 2. Confirm `_meta.sources[].json` matches every entry's `source` field.
-3. Confirm feature reference strings exactly match the target feature names, class names, source IDs, subclass short names, and levels.
-4. Confirm `index.json` lists the new file.
-5. Import into a disposable Foundry world first.
-6. Confirm Plutonium shows the content under the expected importer.
-7. Confirm item image resolution works.
-8. Confirm rules text appears in the Description tab.
-9. Confirm mechanical choices apply correctly to a test actor.
-10. For races/species, confirm whether Plutonium generated the desired Advancement rows; if not, decide whether direct Foundry item JSON is required.
-
-## Git workflow
-
-Use small commits by content type.
-
-Suggested commit messages:
-
-```text
-Add ghost elf species
-Add occultist class shell
-Fix Veiled Omens source metadata
-Add item icons
-```
+3. Confirm feature reference strings exactly match the names and source IDs of their target records.
+4. Confirm `_generated/index-sources.json` includes the content file path for each source.
+5. Confirm `_generated/index-props.json` includes top-level arrays for every content property in each file.
+6. Confirm each generated path resolves to a file in the repository.
+7. Import into a disposable Foundry world before relying on it in campaign play.
+8. Confirm Plutonium shows the content under the expected importer.
+9. Confirm item image resolution works.
+10. Confirm rules text appears in the Description tab.
+11. Confirm mechanical choices apply correctly to a test actor.
+12. Confirm `python3 tools/validate-plutonium-datasource.py` passes before release.
+13. Confirm generated indexes were produced with `python3 tools/generate-plutonium-indexes.py --check`.
 
 ## Plutonium troubleshooting
 
 If content does not appear:
 
-- Check that `index.json` is valid JSON.
-- Check that `index.json` paths are relative to the repository root.
-- Check the Base Homebrew Repository URL ends with `/main/`.
+- Confirm `_generated/index-sources.json` exists.
+- Confirm `_generated/index-props.json` exists.
+- Confirm `_generated/index-meta.json` exists.
+- Confirm `_generated/index-timestamps.json` exists.
+- Confirm the target files are present and paths are relative to the repository root.
+- Check that the Base Homebrew Repository URL ends with `/main/`.
+- For local testing, check that `index.json` import mode works if you are explicitly using local `index.json` file import.
 - Try loading the exact raw JSON URL in a browser.
 - Clear/reload Plutonium homebrew data.
 - Restart Foundry after changing source metadata.

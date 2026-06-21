@@ -1,0 +1,446 @@
+{
+  "_meta": {
+    "sources": [
+      {
+        "json": "VeiledOmensBarbarianSubclasses",
+        "abbreviation": "VO",
+        "full": "Veiled Omens Campaign Setting: Barbarian Subclasses",
+        "authors": [
+          "Daxiongmao87"
+        ],
+        "convertedBy": [
+          "ChatGPT"
+        ],
+        "version": "1.0.0-foundry-mechanics"
+      }
+    ],
+    "edition": "classic",
+    "status": "ready",
+    "dateAdded": 1782069968,
+    "dateLastModified": 1782069968
+  },
+  "subclass": [
+    {
+      "name": "Path of the Shaman",
+      "shortName": "Shaman",
+      "source": "VeiledOmensBarbarianSubclasses",
+      "className": "Barbarian",
+      "classSource": "PHB",
+      "page": 0,
+      "edition": "classic",
+      "spellcastingAbility": "wis",
+      "spellsKnownProgression": [
+        0,
+        0,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6,
+        7,
+        7,
+        8,
+        8,
+        9,
+        9,
+        10,
+        10,
+        11,
+        11
+      ],
+      "cantripProgression": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "subclassFeatures": [
+        "Spellcasting|Barbarian|PHB|Shaman|VeiledOmensBarbarianSubclasses|3|VeiledOmensBarbarianSubclasses",
+        "Spirit Sight|Barbarian|PHB|Shaman|VeiledOmensBarbarianSubclasses|3|VeiledOmensBarbarianSubclasses",
+        "Spirit Bond|Barbarian|PHB|Shaman|VeiledOmensBarbarianSubclasses|6|VeiledOmensBarbarianSubclasses",
+        "Versatile Casting|Barbarian|PHB|Shaman|VeiledOmensBarbarianSubclasses|10|VeiledOmensBarbarianSubclasses",
+        "Spirit Vessel|Barbarian|PHB|Shaman|VeiledOmensBarbarianSubclasses|14|VeiledOmensBarbarianSubclasses"
+      ],
+      "foundryImg": "systems/dnd5e/icons/classes/barbarian.webp",
+      "__prop": "subclass"
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Spellcasting",
+      "source": "VeiledOmensBarbarianSubclasses",
+      "className": "Barbarian",
+      "classSource": "PHB",
+      "subclassShortName": "Shaman",
+      "subclassSource": "VeiledOmensBarbarianSubclasses",
+      "level": 3,
+      "entries": [
+        "When you choose this path at 3rd level, you gain the ability to cast spells. See chapter 10 of the {@book Player's Handbook|PHB} for the general rules of spellcasting.",
+        {
+          "type": "entries",
+          "name": "Rune Tattoos",
+          "entries": [
+            "You inscribe magical runes upon your flesh through ritual tattooing. These tattoos serve as permanent conduits for both primal and ethereal magic, each one representing a spell you have learned through ritual and meditation. Your rune tattoos function as your spellcasting focus."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Spells Known",
+          "entries": [
+            "You know three 1st-level spells of your choice from the occultist or druid spell lists. The Spells Known column of the Path of the Shaman Spellcasting table shows when you learn more spells of your choice. Each of these spells must be of a level for which you have spell slots. When you gain a level in this class, you can replace one shaman spell you know with another spell from the occultist or druid spell list.",
+            "When you learn a new spell, you must perform a ritual tattooing that takes 8 hours and consumes materials worth 50 gp per spell level. This ritual permanently inscribes a new rune tattoo upon your body."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Spell Slots",
+          "entries": [
+            "The Path of the Shaman Spellcasting table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Spellcasting Ability",
+          "entries": [
+            "Wisdom is your spellcasting ability for your shaman spells, as your magic flows from spiritual awareness and attunement to both the natural world and the Border Ethereal. You use your Wisdom whenever a spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a shaman spell you cast and when making an attack roll with one.",
+            "{@b Spell save DC} = 8 + your proficiency bonus + your Wisdom modifier",
+            "{@b Spell attack modifier} = your proficiency bonus + your Wisdom modifier"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Trance Casting",
+          "entries": [
+            "While you are raging, you can cast your shaman spells, and your rage no longer prevents you from casting spells or maintaining concentration. Instead, your battle trance channels your fury into magical power. When you aren't raging, your rune tattoos lie dormant and cannot channel magic.",
+            "While raging, if you cast a shaman spell on your turn, you are considered to have attacked a hostile creature for the purpose of maintaining your rage.",
+            "When you cast a shaman spell that deals damage while raging, you add your rage damage bonus to one damage roll of that spell."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ritual Casting",
+          "entries": [
+            "You can cast a shaman spell as a ritual if that spell has the ritual tag and you know the spell."
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Path of the Shaman Spellcasting",
+          "colLabels": [
+            "Barbarian Level",
+            "Spells Known",
+            "1st",
+            "2nd",
+            "3rd",
+            "4th",
+            "5th"
+          ],
+          "rows": [
+            [
+              "3rd",
+              "3",
+              "2",
+              "--",
+              "--",
+              "--",
+              "--"
+            ],
+            [
+              "4th",
+              "3",
+              "3",
+              "--",
+              "--",
+              "--",
+              "--"
+            ],
+            [
+              "5th",
+              "4",
+              "4",
+              "2",
+              "--",
+              "--",
+              "--"
+            ],
+            [
+              "6th",
+              "4",
+              "4",
+              "2",
+              "--",
+              "--",
+              "--"
+            ],
+            [
+              "7th",
+              "5",
+              "4",
+              "3",
+              "--",
+              "--",
+              "--"
+            ],
+            [
+              "8th",
+              "5",
+              "4",
+              "3",
+              "--",
+              "--",
+              "--"
+            ],
+            [
+              "9th",
+              "6",
+              "4",
+              "3",
+              "2",
+              "--",
+              "--"
+            ],
+            [
+              "10th",
+              "6",
+              "4",
+              "3",
+              "2",
+              "--",
+              "--"
+            ],
+            [
+              "11th",
+              "7",
+              "4",
+              "3",
+              "3",
+              "--",
+              "--"
+            ],
+            [
+              "12th",
+              "7",
+              "4",
+              "3",
+              "3",
+              "--",
+              "--"
+            ],
+            [
+              "13th",
+              "8",
+              "4",
+              "3",
+              "3",
+              "1",
+              "--"
+            ],
+            [
+              "14th",
+              "8",
+              "4",
+              "3",
+              "3",
+              "1",
+              "--"
+            ],
+            [
+              "15th",
+              "9",
+              "4",
+              "3",
+              "3",
+              "2",
+              "--"
+            ],
+            [
+              "16th",
+              "9",
+              "4",
+              "3",
+              "3",
+              "2",
+              "--"
+            ],
+            [
+              "17th",
+              "10",
+              "4",
+              "3",
+              "3",
+              "3",
+              "1"
+            ],
+            [
+              "18th",
+              "10",
+              "4",
+              "3",
+              "3",
+              "3",
+              "1"
+            ],
+            [
+              "19th",
+              "11",
+              "4",
+              "3",
+              "3",
+              "3",
+              "2"
+            ],
+            [
+              "20th",
+              "11",
+              "4",
+              "3",
+              "3",
+              "3",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "foundryImg": "systems/dnd5e/icons/svg/items/spell.svg",
+      "__prop": "subclassFeature"
+    },
+    {
+      "name": "Spirit Sight",
+      "source": "VeiledOmensBarbarianSubclasses",
+      "className": "Barbarian",
+      "classSource": "PHB",
+      "subclassShortName": "Shaman",
+      "subclassSource": "VeiledOmensBarbarianSubclasses",
+      "level": 3,
+      "entries": [
+        "Also at 3rd level, you learn to touch the souls of beasts, seeing through their eyes and hearing through their ears.",
+        "As an action, you can see through the eyes and hear through the ears of a beast you can see. The connection lasts for up to 10 minutes, and you must maintain concentration (as if concentrating on a spell).",
+        {
+          "type": "list",
+          "items": [
+            "You perceive through the beast's senses, not your own (you are blind and deaf to your own surroundings)",
+            "The beast is charmed by you for the duration",
+            "If the beast is unwilling, it can make a Wisdom saving throw against your spell save DC at the start of each of its turns to end the effect"
+          ]
+        },
+        "You can use this feature a number of times equal to your Wisdom modifier (minimum of 1), regaining all expended uses when you finish a long rest."
+      ],
+      "foundryImg": "icons/magic/nature/stealth-hide-beast-eyes-green.webp",
+      "__prop": "subclassFeature"
+    },
+    {
+      "name": "Spirit Bond",
+      "source": "VeiledOmensBarbarianSubclasses",
+      "className": "Barbarian",
+      "classSource": "PHB",
+      "subclassShortName": "Shaman",
+      "subclassSource": "VeiledOmensBarbarianSubclasses",
+      "level": 6,
+      "entries": [
+        "At 6th level, you can form a permanent spiritual bond with a beast by deeply intertwining your soul with theirs.",
+        {
+          "type": "entries",
+          "name": "Bonding Ritual",
+          "entries": [
+            "While using Spirit Sight on a willing beast, you can extend the connection into an 8-hour bonding ritual of continuous meditation and soul communion. You cannot take any other actions during this time, and if your concentration is broken, the ritual fails.",
+            "At the end of the 8 hours, make an {@skill Animal Handling} check with a DC equal to 10 + the beast's Wisdom score + the beast's CR (rounded down). On a success, the beast becomes your bonded companion and a fragment of your soul is permanently bound to theirs."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Bond Limits and Transfer",
+          "entries": [
+            "You can have only one bonded companion at a time. If you bond with a new beast, the previous soul fragment transfers to the new companion and the old bond ends. If your bonded companion dies, you can bond with a new beast."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Companion Benefits",
+          "entries": [
+            "Your bonded companion gains the following benefits:",
+            {
+              "type": "list",
+              "items": [
+                "Its hit point maximum increases by an amount equal to your {@class Barbarian|PHB} level x 3",
+                "It adds your proficiency bonus to its AC, attack rolls, damage rolls, and saving throws",
+                "When you finish a long rest, your bonded companion regains all its hit points"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Commanding the Bond",
+          "entries": [
+            "Your bonded companion obeys your commands as best it can. It takes its turn on your initiative, though it doesn't take an action unless you command it to. On your turn, you can verbally command the beast where to move (no action required by you). You can use your bonus action to verbally command it to take the Attack, Dash, Disengage, Dodge, or Help action."
+          ]
+        }
+      ],
+      "foundryImg": "icons/creatures/mammals/spirit-deer-herd-blue.webp",
+      "__prop": "subclassFeature"
+    },
+    {
+      "name": "Versatile Casting",
+      "source": "VeiledOmensBarbarianSubclasses",
+      "className": "Barbarian",
+      "classSource": "PHB",
+      "subclassShortName": "Shaman",
+      "subclassSource": "VeiledOmensBarbarianSubclasses",
+      "level": 10,
+      "entries": [
+        "At 10th level, your mastery of shamanic magic allows you to access your power outside of your battle trance.",
+        "You learn two cantrips of your choice from the occultist or druid spell list. You can cast these cantrips at any time.",
+        "Additionally, you can cast shaman spells of 1st or 2nd level even when you are not raging. Spells of 3rd level or higher still require you to be raging to cast."
+      ],
+      "foundryImg": "systems/dnd5e/icons/svg/versatile.svg",
+      "__prop": "subclassFeature"
+    },
+    {
+      "name": "Spirit Vessel",
+      "source": "VeiledOmensBarbarianSubclasses",
+      "className": "Barbarian",
+      "classSource": "PHB",
+      "subclassShortName": "Shaman",
+      "subclassSource": "VeiledOmensBarbarianSubclasses",
+      "level": 14,
+      "entries": [
+        "At 14th level, you achieve the ultimate expression of shamanic soul-binding: the ability to fully transfer your spirit into your bonded companion's body, becoming one with the beast.",
+        "As an action, your spirit leaves your body and takes control of your bonded companion. Your body falls unconscious (but stable) in whatever location you left it.",
+        {
+          "type": "list",
+          "name": "While inhabiting your bonded companion",
+          "items": [
+            "You retain your Intelligence, Wisdom, and Charisma scores, as well as your personality, memories, and identity",
+            "You use the beast's Strength, Dexterity, Constitution, hit points, and physical features",
+            "You retain your class features and proficiencies, but can only use those that the beast's body can physically perform (for example, you can cast spells if the beast has a way to provide somatic and verbal components)",
+            "You can speak if the beast is capable of speech, otherwise you communicate through the beast's natural sounds"
+          ]
+        },
+        "You can return to your body as an action, provided you are on the same plane of existence as your body. Your spirit instantly returns to your body, and you awaken in it.",
+        "{@b If your bonded companion is reduced to 0 hit points while you inhabit it,} your spirit is violently forced back into your body. You immediately take {@dice 4d10} psychic damage. If this damage reduces you to 0 hit points, you are dying.",
+        "{@b If your body is killed while your spirit inhabits your bonded companion,} your spirit becomes permanently bound to the beast. You continue to exist within your bonded companion with your mental ability scores, personality, and class features, but you can never return to humanoid form. You have become the beast, retaining only your mind and soul. The beast's original consciousness accepts your presence, and you share the body as co-inhabitants -- you control the body, but the beast's instincts and nature remain part of you."
+      ],
+      "foundryImg": "icons/creatures/magical/spirit-undead-ghost-blue.webp",
+      "__prop": "subclassFeature"
+    }
+  ]
+}

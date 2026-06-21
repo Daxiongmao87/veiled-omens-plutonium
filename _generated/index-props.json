@@ -1,5 +1,11 @@
 {
   "race": {
     "race/Veiled Omens; Species.json": "race"
+  },
+  "subclass": {
+    "subclass/Veiled Omens; Barbarian Subclasses.json": "subclass"
+  },
+  "subclassFeature": {
+    "subclass/Veiled Omens; Barbarian Subclasses.json": "subclass"
   }
 }

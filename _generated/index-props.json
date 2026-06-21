@@ -4,10 +4,10 @@
   },
   "subclass": {
     "subclass/Veiled Omens; Barbarian Subclasses.json": "subclass",
-    "subclass/Veiled Omens; Fighter Subclasses.json": "subclass"
+    "subclass/Veiled Omens; Occult Knight.json": "subclass"
   },
   "subclassFeature": {
     "subclass/Veiled Omens; Barbarian Subclasses.json": "subclass",
-    "subclass/Veiled Omens; Fighter Subclasses.json": "subclass"
+    "subclass/Veiled Omens; Occult Knight.json": "subclass"
   }
 }

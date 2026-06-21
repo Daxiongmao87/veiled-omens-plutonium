@@ -13,8 +13,10 @@ Use these notes to choose the correct top-level array and `__prop` value when ad
 
 ## Canonical content file naming
 
-- Use content file paths by corpus/content type, not author/account names.
+- Use content file paths by package/homebrew identity and content directory, not author/account names.
 - Canonical species file example: `race/Veiled Omens; Species.json`
+- Single-subclass package example: `subclass/Veiled Omens; Occult Knight.json`
+- Do not use broad bucket filenames for a single package, such as `subclass/Veiled Omens; Fighter Subclasses.json`.
 - Keep author/account identity in JSON metadata (`_meta.sources[].authors`, adventure/book `author`), not in file names.
 
 ## Important distinction
@@ -43,6 +45,11 @@ Plutonium/5etools homebrew JSON usually wraps content in top-level arrays named 
 ```
 
 Individual entries often include `__prop`, but the top-level array name is still what determines where the entry belongs in a homebrew file.
+
+Source IDs also need package-level identity:
+
+- For `subclass/Veiled Omens; Occult Knight.json`, `_meta.sources[].json` should be `VeiledOmensOccultKnight`.
+- Do not set a broad bucket source id such as `VeiledOmens` or `VeiledOmensSubclasses` for that single-package file.
 
 ## Currently documented content types
 

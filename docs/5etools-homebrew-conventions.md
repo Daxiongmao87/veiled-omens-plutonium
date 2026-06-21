@@ -21,7 +21,7 @@ Upstream homebrew conventions used here:
 - The recommended creation path is to copy existing brews as templates and compare against main 5etools data.
 - Repository content is organized by top-level content-type directories such as `race`, `class`, `subclass`, `feat`, `optionalfeature`, `spell`, `item`, and `background`.
 - Files use tabs, LF line endings, and UTF-8 without BOM.
-- Upstream contribution filenames use `Author Name; Homebrew Name.json`.
+- Upstream contribution filenames use package/homebrew identity rather than a broad mechanical class bucket for single packages.
 - `_meta.sources[].json` values are unique source IDs across homebrew.
 - When a source URL is missing, use `https://github.com/TheGiddyLimit/homebrew` as the upstream source URL.
 - Content authors belong in source `author` / `authors` fields; conversion credit belongs in `convertedBy`.
@@ -34,11 +34,15 @@ Patrick-directed local adaptations retained for this repo:
 
 - Canonical species file remains:
   - `race/Veiled Omens; Species.json`
+- Canonical single package subclass file:
+  - `subclass/Veiled Omens; Occult Knight.json`
 - Canonical file placement is content-class based. Do not use Foundry world export filenames as canonical repository filenames.
 - Canonical images are stored in this repository under `img/icons/` and referenced via raw GitHub URLs.
 - Content remains repository-owned where practical; image transplants are performed in-repo instead of re-pointing to foundry-only assets by default.
 - Plutonium URL Source fields need raw JSON files. Do not use GitHub HTML pages or raw GitHub directory roots as URL Sources.
 - Plutonium Base Homebrew Repository URL uses a branch root in the form `https://raw.githubusercontent.com/<user>/<repo>/<branch>`.
+- For a single-package file, source identity in `_meta.sources[].json` should match package content identity (for example, `VeiledOmensOccultKnight` for `subclass/Veiled Omens; Occult Knight.json`).
+- Broad package names like `Veiled Omens; Fighter Subclasses.json` are invalid for single-entry files.
 
 ## Content-type directory to top-level property mapping
 
@@ -70,6 +74,8 @@ Patrick-directed local adaptations retained for this repo:
 `python3 tools/generate-plutonium-indexes.py` regenerates these files.
 
 - `python3 tools/generate-plutonium-indexes.py --check` verifies index consistency.
+
+Naming and source-id conventions are validated against local behavior by checking matching examples in TheGiddyLimit/homebrew first, then re-running the local index checks and parser validation.
 
 ## Asset transplant workflow
 

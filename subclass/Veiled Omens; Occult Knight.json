@@ -6,9 +6,9 @@
     "dateLastModified": 1782071803,
     "sources": [
       {
-        "json": "VeiledOmensFighterSubclasses",
+        "json": "VeiledOmensOccultKnight",
         "abbreviation": "VO",
-        "full": "Veiled Omens Campaign Setting: Fighter Subclasses",
+        "full": "Veiled Omens Campaign Setting: Occult Knight",
         "authors": [
           "Daxiongmao87"
         ],
@@ -23,7 +23,7 @@
     {
       "name": "Occult Knight",
       "shortName": "Occult Knight",
-      "source": "VeiledOmensFighterSubclasses",
+      "source": "VeiledOmensOccultKnight",
       "className": "Fighter",
       "classSource": "PHB",
       "page": 0,
@@ -79,7 +79,7 @@
           "subclasses": [
             {
               "name": "Occult Knight",
-              "source": "VeiledOmensFighterSubclasses"
+              "source": "VeiledOmensOccultKnight"
             }
           ],
           "colLabels": [
@@ -114,7 +114,7 @@
           "subclasses": [
             {
               "name": "Occult Knight",
-              "source": "VeiledOmensFighterSubclasses"
+              "source": "VeiledOmensOccultKnight"
             }
           ],
           "colLabels": [
@@ -148,12 +148,12 @@
         }
       ],
       "subclassFeatures": [
-        "Occult Knight Spellcasting|Fighter|PHB|Occult Knight|VeiledOmensFighterSubclasses|3|VeiledOmensFighterSubclasses",
-        "Mortal Imprint|Fighter|PHB|Occult Knight|VeiledOmensFighterSubclasses|3|VeiledOmensFighterSubclasses",
-        "Sign-Read Imprint|Fighter|PHB|Occult Knight|VeiledOmensFighterSubclasses|7|VeiledOmensFighterSubclasses",
-        "Cursed Strike|Fighter|PHB|Occult Knight|VeiledOmensFighterSubclasses|10|VeiledOmensFighterSubclasses",
-        "Twin Imprint|Fighter|PHB|Occult Knight|VeiledOmensFighterSubclasses|15|VeiledOmensFighterSubclasses",
-        "Mortal Haunt|Fighter|PHB|Occult Knight|VeiledOmensFighterSubclasses|18|VeiledOmensFighterSubclasses"
+        "Occult Knight Spellcasting|Fighter|PHB|Occult Knight|VeiledOmensOccultKnight|3|VeiledOmensOccultKnight",
+        "Mortal Imprint|Fighter|PHB|Occult Knight|VeiledOmensOccultKnight|3|VeiledOmensOccultKnight",
+        "Sign-Read Imprint|Fighter|PHB|Occult Knight|VeiledOmensOccultKnight|7|VeiledOmensOccultKnight",
+        "Cursed Strike|Fighter|PHB|Occult Knight|VeiledOmensOccultKnight|10|VeiledOmensOccultKnight",
+        "Twin Imprint|Fighter|PHB|Occult Knight|VeiledOmensOccultKnight|15|VeiledOmensOccultKnight",
+        "Mortal Haunt|Fighter|PHB|Occult Knight|VeiledOmensOccultKnight|18|VeiledOmensOccultKnight"
       ],
       "foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
       "__prop": "subclass"
@@ -162,11 +162,11 @@
   "subclassFeature": [
     {
       "name": "Occult Knight Spellcasting",
-      "source": "VeiledOmensFighterSubclasses",
+      "source": "VeiledOmensOccultKnight",
       "className": "Fighter",
       "classSource": "PHB",
       "subclassShortName": "Occult Knight",
-      "subclassSource": "VeiledOmensFighterSubclasses",
+      "subclassSource": "VeiledOmensOccultKnight",
       "level": 3,
       "entries": [
         "When you reach 3rd level, you augment your martial prowess with occult magic.",
@@ -209,11 +209,11 @@
     },
     {
       "name": "Mortal Imprint",
-      "source": "VeiledOmensFighterSubclasses",
+      "source": "VeiledOmensOccultKnight",
       "className": "Fighter",
       "classSource": "PHB",
       "subclassShortName": "Occult Knight",
-      "subclassSource": "VeiledOmensFighterSubclasses",
+      "subclassSource": "VeiledOmensOccultKnight",
       "level": 3,
       "entries": [
         "Also at 3rd level, you can bind the Ethereal residue of a traumatic death into a weapon.",
@@ -328,11 +328,11 @@
     },
     {
       "name": "Sign-Read Imprint",
-      "source": "VeiledOmensFighterSubclasses",
+      "source": "VeiledOmensOccultKnight",
       "className": "Fighter",
       "classSource": "PHB",
       "subclassShortName": "Occult Knight",
-      "subclassSource": "VeiledOmensFighterSubclasses",
+      "subclassSource": "VeiledOmensOccultKnight",
       "level": 7,
       "entries": [
         "At 7th level, you learn to read the sign that gathers around a mortal imprint.",
@@ -386,11 +386,11 @@
     },
     {
       "name": "Cursed Strike",
-      "source": "VeiledOmensFighterSubclasses",
+      "source": "VeiledOmensOccultKnight",
       "className": "Fighter",
       "classSource": "PHB",
       "subclassShortName": "Occult Knight",
-      "subclassSource": "VeiledOmensFighterSubclasses",
+      "subclassSource": "VeiledOmensOccultKnight",
       "level": 10,
       "entries": [
         "At 10th level, your imprinted weapon can drive a curse into the wound it opens.",
@@ -404,11 +404,11 @@
     },
     {
       "name": "Twin Imprint",
-      "source": "VeiledOmensFighterSubclasses",
+      "source": "VeiledOmensOccultKnight",
       "className": "Fighter",
       "classSource": "PHB",
       "subclassShortName": "Occult Knight",
-      "subclassSource": "VeiledOmensFighterSubclasses",
+      "subclassSource": "VeiledOmensOccultKnight",
       "level": 15,
       "entries": [
         "At 15th level, your imprinted weapon can bear two Traumas at once.",
@@ -422,11 +422,11 @@
     },
     {
       "name": "Mortal Haunt",
-      "source": "VeiledOmensFighterSubclasses",
+      "source": "VeiledOmensOccultKnight",
       "className": "Fighter",
       "classSource": "PHB",
       "subclassShortName": "Occult Knight",
-      "subclassSource": "VeiledOmensFighterSubclasses",
+      "subclassSource": "VeiledOmensOccultKnight",
       "level": 18,
       "entries": [
         "At 18th level, your imprinted weapon's residue deepens.",

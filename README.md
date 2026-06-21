@@ -15,7 +15,9 @@ Use this as the **Base Homebrew Repository URL**:
 ## Repository layout and naming
 
 - Canonical species file path: `race/Veiled Omens; Species.json`
-- File names use corpus/content identity, not author/account.
+- File names use package/homebrew identity, not author/account or mechanical bucket name.
+- Canonical subclass file example: `subclass/Veiled Omens; Occult Knight.json`
+- Do not use broad content-bucket filenames for single packages (for example, `subclass/Veiled Omens; Fighter Subclasses.json`) unless the file is a real collection containing multiple entries in that collection.
 - Author metadata belongs in `_meta.sources[].authors` and adventure/book `author` fields.
 
 ## Required contributor update flow
@@ -29,6 +31,11 @@ python3 tools/validate-plutonium-datasource.py
 ```
 
 Then confirm every repository JSON file parses.
+
+Conventions validation is part of the same flow:
+
+- Compare the new/changed file naming and source-id pattern against corresponding TheGiddyLimit/homebrew examples in `homebrew/*` before finishing.
+- Ensure the source-id inside `_meta.sources[].json` matches the package name identity for the file content (for example `VeiledOmensOccultKnight` for `subclass/Veiled Omens; Occult Knight.json`).
 
 ## Useful docs
 

@@ -44,6 +44,11 @@ python3 tools/validate-plutonium-datasource.py
 
 Then parse each JSON file to confirm it remains valid.
 
+Conventions validation step before merge:
+
+- Compare package filenames and source IDs against corresponding TheGiddyLimit/homebrew example files in the same directory (`race`, `subclass`, etc.) before final acceptance.
+- Do not treat index/json checks as sufficient if naming and source identity do not match package-level conventions.
+
 ## Source identity
 
 Use this source block for Veiled Omens content unless a file has a specific reason to do otherwise:
@@ -73,11 +78,18 @@ Rules:
 
 ### File naming and metadata class rule
 
-Content file names should describe corpus and content type, not author or account.
+Content file names should describe package/homebrew identity inside a content directory.
 
 - Canonical species file path: `race/Veiled Omens; Species.json`
+- Canonical single-subclass file path: `subclass/Veiled Omens; Occult Knight.json`
 - Author and account attribution belongs in `_meta.sources[].authors` and adventure/book `author` fields.
 - Do not encode author names in content-file names.
+- Do not use broad mechanical bucket file names for a single package (for example, `subclass/Veiled Omens; Fighter Subclasses.json`), unless the file is an actual multi-entry collection package in that bucket.
+
+Source IDs follow the package/homebrew identity, not the content bucket.
+
+- For `subclass/Veiled Omens; Occult Knight.json`, the canonical source id is `VeiledOmensOccultKnight`.
+- Broad source IDs like `VeiledOmens` or `VeiledOmensSubclasses` are not correct for that single-package file.
 
 ## Recommended repository layout
 

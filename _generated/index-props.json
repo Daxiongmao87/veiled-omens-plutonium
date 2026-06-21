@@ -3,9 +3,11 @@
     "race/Veiled Omens; Species.json": "race"
   },
   "subclass": {
-    "subclass/Veiled Omens; Barbarian Subclasses.json": "subclass"
+    "subclass/Veiled Omens; Barbarian Subclasses.json": "subclass",
+    "subclass/Veiled Omens; Fighter Subclasses.json": "subclass"
   },
   "subclassFeature": {
-    "subclass/Veiled Omens; Barbarian Subclasses.json": "subclass"
+    "subclass/Veiled Omens; Barbarian Subclasses.json": "subclass",
+    "subclass/Veiled Omens; Fighter Subclasses.json": "subclass"
   }
 }

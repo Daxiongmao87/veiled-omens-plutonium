@@ -10,6 +10,12 @@ Use these notes to choose the correct top-level array and `__prop` value when ad
 
 - `plutonium-content-types.md` — compact reference for supported Plutonium content types, key fields, and authoring notes.
 
+## Canonical content file naming
+
+- Use content file paths by corpus/content type, not author/account names.
+- Canonical species file example: `race/Veiled Omens; Species.json`
+- Keep author/account identity in JSON metadata (`_meta.sources[].authors`, adventure/book `author`), not in file names.
+
 ## Important distinction
 
 Plutonium/5etools homebrew JSON usually wraps content in top-level arrays named after the content type:

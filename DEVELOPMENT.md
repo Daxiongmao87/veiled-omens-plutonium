@@ -21,15 +21,28 @@ _generated/index-meta.json
 _generated/index-timestamps.json
 ```
 
-The Import Wizard "URL Sources" field is for **direct file imports only** and should point to a full JSON file URL.
+In Plutonium config/data sources, the **Base Homebrew Repository URL** must be the raw repository root shown above.
 
-Do not use URL Sources as the base repository endpoint.
+`URL Sources` and `Additional Homebrew Files` fields are direct JSON file inputs.
+Do not point these fields at the repository root URL. A raw repo root fetch returns HTTP 400.
 
-Valid remote file import examples:
+Direct-file examples:
 
 ```text
 https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/race/Veiled%20Omens%3B%20Species.json
 ```
+
+## Contributor workflow for changes
+
+After changing file paths, content type paths, source metadata, or file names:
+
+```bash
+python3 tools/generate-plutonium-indexes.py
+python3 tools/generate-plutonium-indexes.py --check
+python3 tools/validate-plutonium-datasource.py
+```
+
+Then parse each JSON file to confirm it remains valid.
 
 ## Source identity
 
@@ -57,6 +70,14 @@ Rules:
 - `abbreviation` is the compact label shown in lists.
 - `full` is the human-readable campaign setting/source name.
 - All entries in the file should use `"source": "VeiledOmens"` unless importing third-party material.
+
+### File naming and metadata class rule
+
+Content file names should describe corpus and content type, not author or account.
+
+- Canonical species file path: `race/Veiled Omens; Species.json`
+- Author and account attribution belongs in `_meta.sources[].authors` and adventure/book `author` fields.
+- Do not encode author names in content-file names.
 
 ## Recommended repository layout
 

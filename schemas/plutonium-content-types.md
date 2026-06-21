@@ -30,6 +30,17 @@ All Veiled Omens entries should normally use:
 "source": "VeiledOmens"
 ```
 
+## Content file naming rule
+
+Plutonium content file names should identify corpus and content type, not author.
+
+- Canonical species file path: `race/Veiled Omens; Species.json`
+- File names must keep author/account only in JSON metadata:
+  - `_meta.sources[].authors`
+  - adventure/book `author`
+
+When adding files to `URL Sources` or `Additional Homebrew Files`, use direct file URLs (for example `.../race/Veiled%20Omens%3B%20Species.json`), not the repository root.
+
 ## Race / species
 
 Top-level array: `race`

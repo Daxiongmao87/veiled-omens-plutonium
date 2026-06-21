@@ -3,11 +3,11 @@
     "race/Veiled Omens; Species.json": "race"
   },
   "subclass": {
-    "subclass/Veiled Omens; Barbarian Subclasses.json": "subclass",
-    "subclass/Veiled Omens; Occult Knight.json": "subclass"
+    "subclass/Veiled Omens; Occult Knight.json": "subclass",
+    "subclass/Veiled Omens; Path of the Shaman.json": "subclass"
   },
   "subclassFeature": {
-    "subclass/Veiled Omens; Barbarian Subclasses.json": "subclass",
-    "subclass/Veiled Omens; Occult Knight.json": "subclass"
+    "subclass/Veiled Omens; Occult Knight.json": "subclass",
+    "subclass/Veiled Omens; Path of the Shaman.json": "subclass"
   }
 }

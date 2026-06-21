@@ -2,9 +2,9 @@
   "_meta": {
     "sources": [
       {
-        "json": "VeiledOmensBarbarianSubclasses",
+        "json": "VeiledOmensPathOfTheShaman",
         "abbreviation": "VO",
-        "full": "Veiled Omens Campaign Setting: Barbarian Subclasses",
+        "full": "Veiled Omens Campaign Setting: Path of the Shaman",
         "authors": [
           "Daxiongmao87"
         ],
@@ -23,7 +23,7 @@
     {
       "name": "Path of the Shaman",
       "shortName": "Shaman",
-      "source": "VeiledOmensBarbarianSubclasses",
+      "source": "VeiledOmensPathOfTheShaman",
       "className": "Barbarian",
       "classSource": "PHB",
       "page": 0,
@@ -74,11 +74,11 @@
         2
       ],
       "subclassFeatures": [
-        "Spellcasting|Barbarian|PHB|Shaman|VeiledOmensBarbarianSubclasses|3|VeiledOmensBarbarianSubclasses",
-        "Spirit Sight|Barbarian|PHB|Shaman|VeiledOmensBarbarianSubclasses|3|VeiledOmensBarbarianSubclasses",
-        "Spirit Bond|Barbarian|PHB|Shaman|VeiledOmensBarbarianSubclasses|6|VeiledOmensBarbarianSubclasses",
-        "Versatile Casting|Barbarian|PHB|Shaman|VeiledOmensBarbarianSubclasses|10|VeiledOmensBarbarianSubclasses",
-        "Spirit Vessel|Barbarian|PHB|Shaman|VeiledOmensBarbarianSubclasses|14|VeiledOmensBarbarianSubclasses"
+        "Spellcasting|Barbarian|PHB|Shaman|VeiledOmensPathOfTheShaman|3|VeiledOmensPathOfTheShaman",
+        "Spirit Sight|Barbarian|PHB|Shaman|VeiledOmensPathOfTheShaman|3|VeiledOmensPathOfTheShaman",
+        "Spirit Bond|Barbarian|PHB|Shaman|VeiledOmensPathOfTheShaman|6|VeiledOmensPathOfTheShaman",
+        "Versatile Casting|Barbarian|PHB|Shaman|VeiledOmensPathOfTheShaman|10|VeiledOmensPathOfTheShaman",
+        "Spirit Vessel|Barbarian|PHB|Shaman|VeiledOmensPathOfTheShaman|14|VeiledOmensPathOfTheShaman"
       ],
       "foundryImg": "systems/dnd5e/icons/classes/barbarian.webp",
       "__prop": "subclass"
@@ -87,11 +87,11 @@
   "subclassFeature": [
     {
       "name": "Spellcasting",
-      "source": "VeiledOmensBarbarianSubclasses",
+      "source": "VeiledOmensPathOfTheShaman",
       "className": "Barbarian",
       "classSource": "PHB",
       "subclassShortName": "Shaman",
-      "subclassSource": "VeiledOmensBarbarianSubclasses",
+      "subclassSource": "VeiledOmensPathOfTheShaman",
       "level": 3,
       "entries": [
         "When you choose this path at 3rd level, you gain the ability to cast spells. See chapter 10 of the {@book Player's Handbook|PHB} for the general rules of spellcasting.",
@@ -325,11 +325,11 @@
     },
     {
       "name": "Spirit Sight",
-      "source": "VeiledOmensBarbarianSubclasses",
+      "source": "VeiledOmensPathOfTheShaman",
       "className": "Barbarian",
       "classSource": "PHB",
       "subclassShortName": "Shaman",
-      "subclassSource": "VeiledOmensBarbarianSubclasses",
+      "subclassSource": "VeiledOmensPathOfTheShaman",
       "level": 3,
       "entries": [
         "Also at 3rd level, you learn to touch the souls of beasts, seeing through their eyes and hearing through their ears.",
@@ -349,11 +349,11 @@
     },
     {
       "name": "Spirit Bond",
-      "source": "VeiledOmensBarbarianSubclasses",
+      "source": "VeiledOmensPathOfTheShaman",
       "className": "Barbarian",
       "classSource": "PHB",
       "subclassShortName": "Shaman",
-      "subclassSource": "VeiledOmensBarbarianSubclasses",
+      "subclassSource": "VeiledOmensPathOfTheShaman",
       "level": 6,
       "entries": [
         "At 6th level, you can form a permanent spiritual bond with a beast by deeply intertwining your soul with theirs.",
@@ -400,11 +400,11 @@
     },
     {
       "name": "Versatile Casting",
-      "source": "VeiledOmensBarbarianSubclasses",
+      "source": "VeiledOmensPathOfTheShaman",
       "className": "Barbarian",
       "classSource": "PHB",
       "subclassShortName": "Shaman",
-      "subclassSource": "VeiledOmensBarbarianSubclasses",
+      "subclassSource": "VeiledOmensPathOfTheShaman",
       "level": 10,
       "entries": [
         "At 10th level, your mastery of shamanic magic allows you to access your power outside of your battle trance.",
@@ -416,11 +416,11 @@
     },
     {
       "name": "Spirit Vessel",
-      "source": "VeiledOmensBarbarianSubclasses",
+      "source": "VeiledOmensPathOfTheShaman",
       "className": "Barbarian",
       "classSource": "PHB",
       "subclassShortName": "Shaman",
-      "subclassSource": "VeiledOmensBarbarianSubclasses",
+      "subclassSource": "VeiledOmensPathOfTheShaman",
       "level": 14,
       "entries": [
         "At 14th level, you achieve the ultimate expression of shamanic soul-binding: the ability to fully transfer your spirit into your bonded companion's body, becoming one with the beast.",

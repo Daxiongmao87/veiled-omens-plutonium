@@ -1,5 +1,5 @@
 {
   "VeiledOmens": "race/Veiled Omens; Species.json",
-  "VeiledOmensBarbarianSubclasses": "subclass/Veiled Omens; Barbarian Subclasses.json",
-  "VeiledOmensOccultKnight": "subclass/Veiled Omens; Occult Knight.json"
+  "VeiledOmensOccultKnight": "subclass/Veiled Omens; Occult Knight.json",
+  "VeiledOmensPathOfTheShaman": "subclass/Veiled Omens; Path of the Shaman.json"
 }

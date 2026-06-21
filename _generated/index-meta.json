@@ -1,15 +1,15 @@
 {
-  "Veiled Omens; Barbarian Subclasses.json": {
-    "e": 0,
-    "n": [
-      "VeiledOmensBarbarianSubclasses"
-    ],
-    "s": "ready"
-  },
   "Veiled Omens; Occult Knight.json": {
     "e": 0,
     "n": [
       "VeiledOmensOccultKnight"
+    ],
+    "s": "ready"
+  },
+  "Veiled Omens; Path of the Shaman.json": {
+    "e": 0,
+    "n": [
+      "VeiledOmensPathOfTheShaman"
     ],
     "s": "ready"
   },

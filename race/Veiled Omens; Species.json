@@ -1096,6 +1096,159 @@
       ],
       "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/vaetyr.png",
       "__prop": "race"
+    },
+    {
+      "name": "Wyrmblooded",
+      "source": "VeiledOmens",
+      "ability": [
+        {
+          "con": -2,
+          "int": -1,
+          "wis": -1,
+          "cha": -1,
+          "choose": {
+            "from": [
+              "str",
+              "dex",
+              "con",
+              "int",
+              "wis",
+              "cha"
+            ],
+            "count": 1,
+            "amount": 2
+          }
+        }
+      ],
+      "size": [
+        "T",
+        "S",
+        "M",
+        "L",
+        "H",
+        "G"
+      ],
+      "speed": 30,
+      "blindsight": 10,
+      "creatureTypes": [
+        "humanoid"
+      ],
+      "languageProficiencies": [
+        {
+          "common": true,
+          "draconic": true,
+          "any": 1
+        }
+      ],
+      "entries": [
+        "Slender yet majestic, Wyrmblooded are unique beings born from the rare unions between Wyrm and humanoids. They inherit traits from both lineages, possessing humanoid forms with the distinctive features of their Wyrm parentage.",
+        "Wyrmblooded are slender yet majestic, with physical features that betray their dual heritage. Their scales, horns, or other Wyrm-like features emerge in subtle or prominent ways depending on their Wyrm ancestry. Their eyes often carry an unnatural luminescence, and their presence carries an aura of ancient power.",
+        {
+          "type": "entries",
+          "name": "Ability Score Changes",
+          "entries": [
+            "Your Constitution score decreases by 2, your Intelligence score decreases by 1, your Wisdom score decreases by 1, and your Charisma score decreases by 1. You choose one ability score from Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma to increase by 2. This ability change follows the race's Ability Score Improvement advancement."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Age",
+          "entries": [
+            "Wyrmblooded mature at the same rate as their humanoid parentage but live approximately three times longer due to their Wyrm heritage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Alignment",
+          "entries": [
+            "Their Wyrm lineage inclines Wyrmblooded towards chaotic alignments."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Similar in size to their humanoid parent, Wyrmblooded fall into the same size category as their non-Wyrm lineage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": [
+            "Your base walking speed is 30 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Wyrm Parentage",
+          "entries": [
+            "You inherit specific essence, breath effect, and enhanced resistance based on your Wyrm parent's type. Choose one from the following:",
+            {
+              "type": "list",
+              "items": [
+                "Cinder -- Essence: Smoke and fire. Breath effect: Dexterity saving throw. The breath deals fire damage. On a failed save, the area becomes lightly obscured by smoke until the start of your next turn. Resistance: Fire (use as a reaction against one attack or effect).",
+                "Frost -- Essence: Ice and water. Breath effect: Dexterity saving throw. The breath deals cold damage. On a failed save, the creature is knocked prone. Resistance: Cold (use as a reaction against one attack or effect).",
+                "Sand -- Essence: Earth and wind. Breath effect: Dexterity saving throw. The breath deals bludgeoning, piercing, and slashing damage. On a failed save, the affected area becomes difficult terrain for a number of rounds equal to half your proficiency bonus, rounded up. Resistance: Bludgeoning, Slashing, and Piercing (use as a reaction against one attack or effect, choose the type when using the reaction).",
+                "Storm -- Essence: Lightning and thunder. Breath effect: Constitution saving throw. The breath deals thunder damage. On a failed save, the creature is stunned until the start of your next turn. Resistance: Lightning (use as a reaction against one attack or effect).",
+                "Blight -- Essence: Acid and poison. Breath effect: Constitution saving throw. The breath deals acid damage. On a failed save, the creature is poisoned until the start of your next turn. Resistance: Poison (use as a reaction against one attack or effect).",
+                "Chaos -- Essence: Wild magic. Breath effect: Charisma saving throw. The breath deals force damage. If at least one creature fails its saving throw, roll a d20. On a 1, a Wild Magic Surge occurs, centered on the breath's area or affecting one failed target, at the DM's discretion. Resistance: Force (use as a reaction against one attack or effect)."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Essence Breath",
+          "entries": [
+            "You can use your action to exhale destructive Wyrm essence into a 10-foot-radius circle centered on a point 5 feet directly in front of you, corresponding to your Wyrm parentage. Each creature in the area must make the saving throw determined by your Wyrm parentage. The DC for this saving throw is 8 + your Constitution modifier + your proficiency bonus.",
+            "On a failed save, a creature takes the breath's full damage and suffers its rider effect. On a successful save, the creature takes half damage and suffers no rider effect. You deal 2d4 damage for every proficiency bonus you possess. You are immune to your own Essence Breath and its effects.",
+            "Lingering environmental effects created by Essence Breath last for a number of rounds equal to half your proficiency bonus, rounded up, unless the parentage effect states otherwise."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Gestalt",
+          "entries": [
+            "Learn from two classes simultaneously. When selecting one class, you may select another. You have access to your second class's features as you gain levels as if you were that class. However:",
+            {
+              "type": "list",
+              "items": [
+                "You may only choose half the skills for each of your classes (rounded down, minimum 1).",
+                "You gain half of the spell slots from each class (rounded down, minimum 1 of each level).",
+                "You gain half of any resource pool from each class (rounded down, minimum 1).",
+                "You suffer a -1 penalty to your proficiency bonus, which only increases at levels 5, 10, 15, and 20."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Same Class, Different Subclass",
+          "entries": [
+            "With the DM's permission, your gestalt path can be the same class as your primary class, provided you choose a different subclass, archetype, patron, origin, oath, circle, rite, or similar class specialization.",
+            "When you choose the same class twice, you use a single base class chassis. You do not gain that class's Hit Dice, proficiencies, starting equipment, spellcasting progression, pact magic progression, Ability Score Improvements, Extra Attack, class resources, or other base class features a second time.",
+            "Instead, when your class level grants a subclass feature, you gain the corresponding subclass feature from each of your chosen subclasses.",
+            "If both subclasses grant the same named feature, spell, resource, or option, the duplicate does not stack unless the DM determines the features are distinct.",
+            "Uses of subclass features draw from your normal class resources unless the feature creates its own separate pool."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Lineage Form",
+          "entries": [
+            "Form: Alter appearance to resemble your humanoid parentage's race. Cast {@spell disguise self} once per long rest, limited to your humanoid parentage's race."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common, Draconic, and the language of your humanoid parentage."
+          ]
+        }
+      ],
+      "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/wyrmblooded.webp",
+      "__prop": "race"
     }
   ]
 }

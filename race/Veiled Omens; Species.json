@@ -287,7 +287,7 @@
       "__prop": "race"
     },
     {
-      "name": "Oni-zu Onihan",
+      "name": "Onihan (Oni-zu)",
       "source": "VeiledOmens",
       "ability": [
         {
@@ -357,7 +357,28 @@
           "type": "entries",
           "name": "Oni Resilience",
           "entries": [
-            "Your oni blood knits wounds, but in measured ways. When you spend Hit Dice during a short rest, add your proficiency bonus to one of those dice. In addition, once per short rest, as an action, you can spend one Hit Die to regain hit points equal to the roll + your Constitution modifier. This use does not benefit from features that add to healing from Hit Dice."
+            "Your oni blood knits wounds, but in measured ways. When you spend Hit Dice during a short rest, add your proficiency bonus to one of those dice. In addition, once per short rest, as an action, you can spend one Hit Die to regain hit points equal to the roll + your Constitution modifier. This use doesn't benefit from features that add to healing from Hit Dice."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Giant."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Subrace",
+          "entries": [
+            "Oni-zu"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Oni-zu",
+          "entries": [
+            "Oni-zu are descended from oni mages, the most common and magically adept oni. Your skin bears shades of blue or green, and you possess slender, traditional oni horns that curve gracefully from your forehead. You inherit your ancestors' innate magical cunning and powers of deception."
           ]
         },
         {
@@ -371,10 +392,85 @@
           "type": "entries",
           "name": "Oni Heritage Magic",
           "entries": [
-            "Your spellcasting ability for this trait is Charisma.",
-            "At character creation, you may add {@spell minor illusion}, {@spell thaumaturgy}, or both as innate cantrips.",
-            "At 3rd level, you gain {@spell disguise self}.",
-            "At 5th level, you gain {@spell darkness}."
+            "You learn one cantrip of your choice from {@spell minor illusion} or {@spell thaumaturgy}. When you reach 3rd level, you can cast {@spell disguise self} once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast {@spell darkness} once with this trait, and you regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+          ]
+        }
+      ],
+      "foundryImg": "icons/creatures/eyes/humanoid-single-yellow.webp",
+      "__prop": "race"
+    },
+    {
+      "name": "Onihan (Go-zu)",
+      "source": "VeiledOmens",
+      "ability": [
+        {
+          "cha": 2,
+          "str": 1
+        }
+      ],
+      "size": [
+        "M"
+      ],
+      "speed": 30,
+      "darkvision": 60,
+      "creatureTypes": [
+        "humanoid"
+      ],
+      "languageProficiencies": [
+        {
+          "common": true,
+          "giant": true
+        }
+      ],
+      "entries": [
+        "Onihans have certain traits derived from their oni ancestry.",
+        {
+          "type": "entries",
+          "name": "Ability Score Increase",
+          "entries": [
+            "Your Charisma score increases by 2, and your Strength score increases by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Age",
+          "entries": [
+            "Onihan mature at the same rate as humans but live considerably longer due to their giant heritage, often reaching 200 years or more."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Alignment",
+          "entries": [
+            "Onihan are not predisposed to any particular alignment. Their dual nature--both mortal and mystical--means they can embrace any moral philosophy. However, their experiences being viewed as omens sometimes pushes them toward neutrality."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Onihan are slightly taller and more solidly built than typical humans, ranging from 5 1/2 to well over 6 feet tall. Your size is Medium."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": [
+            "Your base walking speed is 30 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "Thanks to your oni heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as though it were bright light, and in darkness as though it were dim light. You cannot discern color in darkness, only shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Oni Resilience",
+          "entries": [
+            "Your oni blood knits wounds, but in measured ways. When you spend Hit Dice during a short rest, add your proficiency bonus to one of those dice. In addition, once per short rest, as an action, you can spend one Hit Die to regain hit points equal to the roll + your Constitution modifier. This use doesn't benefit from features that add to healing from Hit Dice."
           ]
         },
         {
@@ -382,6 +478,175 @@
           "name": "Languages",
           "entries": [
             "You can speak, read, and write Common and Giant."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Subrace",
+          "entries": [
+            "Go-zu"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Go-zu",
+          "entries": [
+            "Go-zu are descended from the bull-headed oni who served as soldiers and guardians in celestial armies. Your skin ranges from grey to orange to purple, and you bear thick, bull-like horns that curve outward or upward, though still refined and petite compared to true oni. You inherit your ancestors' physical might and indomitable presence."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Powerful Build",
+          "entries": [
+            "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Charging Strike",
+          "entries": [
+            "When you move at least 10 feet straight toward a target and then hit it with a melee weapon attack on the same turn, you can force the target to make a Strength saving throw (DC = 8 + your proficiency bonus + your Strength modifier). On a failed save, the target is pushed up to 10 feet away from you. You can use this trait a number of times equal to your proficiency bonus, regaining all expended uses when you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Bull-Headed",
+          "entries": [
+            "You have advantage on saving throws against being charmed."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Gatekeeper's Insight",
+          "entries": [
+            "You can cast {@spell detect evil and good} once with this trait, and you regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for this spell."
+          ]
+        }
+      ],
+      "foundryImg": "icons/creatures/eyes/humanoid-single-yellow.webp",
+      "__prop": "race"
+    },
+    {
+      "name": "Onihan (Me-zu)",
+      "source": "VeiledOmens",
+      "ability": [
+        {
+          "cha": 2,
+          "dex": 1
+        }
+      ],
+      "size": [
+        "M"
+      ],
+      "speed": 35,
+      "darkvision": 60,
+      "creatureTypes": [
+        "humanoid"
+      ],
+      "languageProficiencies": [
+        {
+          "common": true,
+          "giant": true
+        }
+      ],
+      "entries": [
+        "Onihans have certain traits derived from their oni ancestry.",
+        {
+          "type": "entries",
+          "name": "Ability Score Increase",
+          "entries": [
+            "Your Charisma score increases by 2, and your Dexterity score increases by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Age",
+          "entries": [
+            "Onihan mature at the same rate as humans but live considerably longer due to their giant heritage, often reaching 200 years or more."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Alignment",
+          "entries": [
+            "Onihan are not predisposed to any particular alignment. Their dual nature--both mortal and mystical--means they can embrace any moral philosophy. However, their experiences being viewed as omens sometimes pushes them toward neutrality."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Onihan are slightly taller and more solidly built than typical humans, ranging from 5 1/2 to well over 6 feet tall. Your size is Medium."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": [
+            "Your base walking speed is 35 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "Thanks to your oni heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as though it were bright light, and in darkness as though it were dim light. You cannot discern color in darkness, only shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Oni Resilience",
+          "entries": [
+            "Your oni blood knits wounds, but in measured ways. When you spend Hit Dice during a short rest, add your proficiency bonus to one of those dice. In addition, once per short rest, as an action, you can spend one Hit Die to regain hit points equal to the roll + your Constitution modifier. This use doesn't benefit from features that add to healing from Hit Dice."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Giant."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Subrace",
+          "entries": [
+            "Me-zu"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Me-zu",
+          "entries": [
+            "Me-zu are descended from the horse-headed oni who served as commanders and special operatives within celestial courts. Your skin bears earthen tones ranging from brown to beige, and you possess very small horns--sometimes mere nubs. Wild, mane-like hair grows from the crown of your head, but you are naturally unable to grow hair on the sides of your head, creating a distinctive hair pattern. You inherit your ancestors' supernatural mobility and tactical poise."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fleet of Foot",
+          "entries": [
+            "Your base walking speed increases to 35 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Messenger's Agility",
+          "entries": [
+            "When you take the Dash action, difficult terrain doesn't cost you extra movement until the end of your turn. Additionally, when you take the Dash action, you can make a single melee weapon attack or shove a creature as a bonus action."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Supernatural Leap",
+          "entries": [
+            "Your long jump distance is doubled, and your high jump distance is tripled. Additionally, you can use this trait to reduce any falling damage you take by an amount equal to five times your level."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Oni Heritage Magic",
+          "entries": [
+            "You learn one cantrip of your choice from {@spell guidance} or {@spell blade ward}. When you reach 3rd level, you can cast {@spell longstrider} on yourself once with this trait, and you regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
           ]
         }
       ],

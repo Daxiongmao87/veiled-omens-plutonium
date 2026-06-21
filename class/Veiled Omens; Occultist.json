@@ -1,0 +1,1586 @@
+{
+	"_meta": {
+		"sources": [
+			{
+				"json": "VeiledOmensOccultist",
+				"abbreviation": "VO",
+				"full": "Veiled Omens Campaign Setting: Occultist",
+				"authors": [
+					"Daxiongmao87"
+				],
+				"convertedBy": [
+					"ChatGPT"
+				],
+				"version": "1.0.0-foundry-mechanics"
+			}
+		],
+		"edition": "classic",
+		"status": "ready",
+		"dateAdded": 1782083653,
+		"dateLastModified": 1782083653
+	},
+	"class": [
+		{
+			"name": "Occultist",
+			"source": "VeiledOmensOccultist",
+			"page": 0,
+			"edition": "classic",
+			"hd": {
+				"number": 1,
+				"faces": 6
+			},
+			"proficiency": [
+				"cha",
+				"wis"
+			],
+			"spellcastingAbility": "cha",
+			"casterProgression": "full",
+			"cantripProgression": [
+				3,
+				3,
+				3,
+				4,
+				4,
+				4,
+				4,
+				4,
+				4,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5
+			],
+			"spellsKnownProgression": [
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23
+			],
+			"startingProficiencies": {
+				"armor": [
+					"light"
+				],
+				"weapons": [
+					"{@item dagger|phb|daggers}",
+					"{@item dart|phb|darts}",
+					"{@item sling|phb|slings}",
+					"{@item quarterstaff|phb|quarterstaffs}",
+					"{@item light crossbow|phb|light crossbows}"
+				],
+				"tools": [],
+				"skills": [
+					{
+						"choose": {
+							"from": [
+								"arcana",
+								"history",
+								"insight",
+								"investigation",
+								"religion",
+								"perception"
+							],
+							"count": 2
+						}
+					}
+				]
+			},
+			"multiclassing": {
+				"requirements": {
+					"cha": 13
+				},
+				"proficienciesGained": {
+					"armor": [
+						"light"
+					],
+					"weapons": [
+						"{@item dagger|phb|daggers}",
+						"{@item dart|phb|darts}",
+						"{@item sling|phb|slings}",
+						"{@item quarterstaff|phb|quarterstaffs}",
+						"{@item light crossbow|phb|light crossbows}"
+					]
+				}
+			},
+			"classTableGroups": [
+				{
+					"colLabels": [
+						"Occultist Level",
+						"Cantrips Known",
+						"Spells Known",
+						"1st",
+						"2nd",
+						"3rd",
+						"4th",
+						"5th",
+						"6th",
+						"7th",
+						"8th",
+						"9th"
+					],
+					"rows": [
+						[
+							1,
+							3,
+							4,
+							2,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							2,
+							3,
+							5,
+							3,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							3,
+							3,
+							6,
+							4,
+							2,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							4,
+							4,
+							7,
+							4,
+							3,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							5,
+							4,
+							8,
+							4,
+							3,
+							2,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							6,
+							4,
+							9,
+							4,
+							3,
+							3,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							7,
+							4,
+							10,
+							4,
+							3,
+							3,
+							1,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							8,
+							4,
+							11,
+							4,
+							3,
+							3,
+							2,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							9,
+							4,
+							12,
+							4,
+							3,
+							3,
+							3,
+							1,
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							10,
+							5,
+							13,
+							4,
+							3,
+							3,
+							3,
+							2,
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							11,
+							5,
+							14,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							"—",
+							"—",
+							"—"
+						],
+						[
+							12,
+							5,
+							15,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							"—",
+							"—",
+							"—"
+						],
+						[
+							13,
+							5,
+							16,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							"—",
+							"—"
+						],
+						[
+							14,
+							5,
+							17,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							"—",
+							"—"
+						],
+						[
+							15,
+							5,
+							18,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							1,
+							"—"
+						],
+						[
+							16,
+							5,
+							19,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							1,
+							"—"
+						],
+						[
+							17,
+							5,
+							20,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							1,
+							1
+						],
+						[
+							18,
+							5,
+							21,
+							4,
+							3,
+							3,
+							3,
+							3,
+							1,
+							1,
+							1,
+							1
+						],
+						[
+							19,
+							5,
+							22,
+							4,
+							3,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							1
+						],
+						[
+							20,
+							5,
+							23,
+							4,
+							3,
+							3,
+							3,
+							3,
+							2,
+							2,
+							1,
+							1
+						]
+					]
+				}
+			],
+			"classFeatures": [
+				"Spellcasting|Occultist|VeiledOmensOccultist|1",
+				"Ritualist|Occultist|VeiledOmensOccultist|1",
+				"Spectral Awareness|Occultist|VeiledOmensOccultist|2",
+				{
+					"classFeature": "Occultist Rites|Occultist|VeiledOmensOccultist|3",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Occultist|VeiledOmensOccultist|4",
+				{
+					"classFeature": "Occultist Rites|Occultist|VeiledOmensOccultist|6",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Occultist|VeiledOmensOccultist|8",
+				{
+					"classFeature": "Occultist Rites|Occultist|VeiledOmensOccultist|10",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Occultist|VeiledOmensOccultist|12",
+				{
+					"classFeature": "Occultist Rites|Occultist|VeiledOmensOccultist|14",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Occultist|VeiledOmensOccultist|16",
+				"Master of the Grey|Occultist|VeiledOmensOccultist|18",
+				"Ability Score Improvement|Occultist|VeiledOmensOccultist|19",
+				"Eternal Spirit|Occultist|VeiledOmensOccultist|20"
+			],
+			"subclassTitle": "Occultist Rite",
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/occultist.webp",
+			"__prop": "class"
+		}
+	],
+	"classFeature": [
+		{
+			"name": "Spellcasting",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"level": 1,
+			"entries": [
+				"You know four 1st-level occultist spells of your choice, with additional spells gained according to the Occultist table.",
+				"The Occultist Spellcasting table shows how many spells you know and your spell slots.",
+				"When you gain a level in this class, you can replace one known spell with another occultist spell of the same level for which you have spell slots.",
+				{
+					"type": "entries",
+					"name": "Spellcasting Ability",
+					"entries": [
+						"Charisma is your spellcasting ability for your occultist spells, since your magic is an expression of innate power and spiritual connection.",
+						"Charisma is your spellcasting ability modifier for occultist spell save DCs and spell attack rolls.",
+						"{@b Spell save DC} = 8 + your proficiency bonus + your Charisma modifier",
+						"{@b Spell attack modifier} = your proficiency bonus + your Charisma modifier"
+					]
+				},
+				{
+					"type": "table",
+					"caption": "Occultist Spellcasting",
+					"colLabels": [
+						"Occultist Level",
+						"Cantrips Known",
+						"Spells Known",
+						"1st",
+						"2nd",
+						"3rd",
+						"4th",
+						"5th",
+						"6th",
+						"7th",
+						"8th",
+						"9th"
+					],
+					"rows": [
+						[
+							1,
+							3,
+							4,
+							2,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							2,
+							3,
+							5,
+							3,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							3,
+							3,
+							6,
+							4,
+							2,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							4,
+							4,
+							7,
+							4,
+							3,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							5,
+							4,
+							8,
+							4,
+							3,
+							2,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							6,
+							4,
+							9,
+							4,
+							3,
+							3,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							7,
+							4,
+							10,
+							4,
+							3,
+							3,
+							1,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							8,
+							4,
+							11,
+							4,
+							3,
+							3,
+							2,
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							9,
+							4,
+							12,
+							4,
+							3,
+							3,
+							3,
+							1,
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							10,
+							5,
+							13,
+							4,
+							3,
+							3,
+							3,
+							2,
+							"—",
+							"—",
+							"—",
+							"—"
+						],
+						[
+							11,
+							5,
+							14,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							"—",
+							"—",
+							"—"
+						],
+						[
+							12,
+							5,
+							15,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							"—",
+							"—",
+							"—"
+						],
+						[
+							13,
+							5,
+							16,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							"—",
+							"—"
+						],
+						[
+							14,
+							5,
+							17,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							"—",
+							"—"
+						],
+						[
+							15,
+							5,
+							18,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							1,
+							"—"
+						],
+						[
+							16,
+							5,
+							19,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							1,
+							"—"
+						],
+						[
+							17,
+							5,
+							20,
+							4,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							1,
+							1
+						],
+						[
+							18,
+							5,
+							21,
+							4,
+							3,
+							3,
+							3,
+							3,
+							1,
+							1,
+							1,
+							1
+						],
+						[
+							19,
+							5,
+							22,
+							4,
+							3,
+							3,
+							3,
+							3,
+							2,
+							1,
+							1,
+							1
+						],
+						[
+							20,
+							5,
+							23,
+							4,
+							3,
+							3,
+							3,
+							3,
+							2,
+							2,
+							1,
+							1
+						]
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-spellcasting.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Ritualist",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"level": 1,
+			"entries": [
+				"You can cast occultist spells you know as rituals if they have the ritual tag.",
+				"When you finish a long rest, you can attune one ritual occultist spell from the occultist spell list to your Token. The spell can be any ritual spell you do not need to know, but it must be of a level for which you have spell slots.",
+				"While that spell remains attuned, you can cast it as a ritual even if you do not know it. You cannot cast that spell with a spell slot unless you know it.",
+				"You can have only one attuned ritual spell at a time."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-ritualist.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Spectral Awareness",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"level": 2,
+			"entries": [
+				"Your connection to the Ethereal Plane allows you to passively sense when the boundary between the Material Plane and the Ethereal Plane is weak at your current location.",
+				"You also sense spirits and creatures tied to the Ethereal Plane within 60 feet of you. This sense tells you that such a presence is nearby, but not exact number, identity, or nature.",
+				"You have advantage on ability checks made to identify the nature or general characteristics of a spirit, creature, or weakened planar boundary you can sense."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-spectral-awareness.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Occultist Rites",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"level": 3,
+			"entries": [
+				"At 3rd level, you choose an Occultist Rite. It grants features at 3rd level and again at 6th, 10th, and 14th level.",
+				{
+					"type": "table",
+					"caption": "Occultist Rites",
+					"colLabels": [
+						"Occultist Rite",
+						"Description"
+					],
+					"rows": [
+						[
+							"**Rite of Haunts**",
+							"Form covenants with spirits, ghosts, and ethereal entities."
+						],
+						[
+							"**Rite of Omens**",
+							"Read and impose fate through curses, portents, and dark omens."
+						],
+						[
+							"**Rite of Servitude**",
+							"Bind and command ethereal servants and minions."
+						]
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-occultist-rites.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"level": 4,
+			"entries": [
+				"At 4th level, you can increase one ability score by 2, or two ability scores by 1 each. You can’t increase an ability score above 20."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/occultist.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"level": 8,
+			"entries": [
+				"At 8th level, you can increase one ability score by 2, or two ability scores by 1 each. You can’t increase an ability score above 20."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/occultist.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"level": 12,
+			"entries": [
+				"At 12th level, you can increase one ability score by 2, or two ability scores by 1 each. You can’t increase an ability score above 20."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/occultist.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"level": 16,
+			"entries": [
+				"At 16th level, you can increase one ability score by 2, or two ability scores by 1 each. You can’t increase an ability score above 20."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/occultist.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Master of the Grey",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"level": 18,
+			"entries": [
+				"At 18th level, your senses pierce the boundary between the Material Plane and the Border Ethereal. You can see and hear both planes within 60 feet of you.",
+				"As an action, choose one creature you can see within 60 feet of you, or one unattended object or contiguous section of an object or structure you can see within 60 feet and that fits within a 10-foot cube. You shift the target between the Material Plane and the Border Ethereal for 1 minute.",
+				"An unwilling creature can repeat the saving throw at the end of each of its turns to return to its original plane on a success.",
+				"You can use this feature a number of times equal to your Charisma modifier, and you regain all expended uses when you finish a long rest."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-master-of-the-grey.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"level": 19,
+			"entries": [
+				"At 19th level, you can increase one ability score by 2, or two ability scores by 1 each. You can’t increase an ability score above 20."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/occultist.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Eternal Spirit",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"level": 20,
+			"entries": [
+				"When you would die, you can choose to pass on normally or anchor your spirit to your body or to the place where you died.",
+				"While anchored, your spirit exists in the Border Ethereal. You can choose to pass on at any time. You cannot cast spells or take actions except to attempt possession.",
+				"As an action, you can target one creature you can see within 60 feet of your anchor. The target must make a Charisma saving throw against your spell save DC, and can choose to fail. On a failure, you possess the target’s body; on a success, the target is immune to this feature for 24 hours.",
+				"While possessing a creature, you control its body and retain your Intelligence, Wisdom, Charisma, personality, memories, spellcasting, class features, and proficiencies. The possessed creature is aware of its surroundings but cannot act.",
+				"The possession ends when the body drops to 0 hit points, you end it as an action, you are forced out by magic, or your original body is restored to life.",
+				"Once your spirit is anchored again, you can return to your body once it is restored."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-eternal-spirit.webp",
+			"__prop": "classFeature"
+		}
+	],
+	"subclass": [
+		{
+			"name": "Rite of Haunts",
+			"shortName": "Haunts",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"page": 0,
+			"edition": "classic",
+			"subclassFeatures": [
+				"Pact of Incantation|Occultist|VeiledOmensOccultist|Haunts|VeiledOmensOccultist|3|VeiledOmensOccultist",
+				"Mediumship|Occultist|VeiledOmensOccultist|Haunts|VeiledOmensOccultist|6|VeiledOmensOccultist",
+				"Covenant of Incantation|Occultist|VeiledOmensOccultist|Haunts|VeiledOmensOccultist|10|VeiledOmensOccultist",
+				"Psychopomp|Occultist|VeiledOmensOccultist|Haunts|VeiledOmensOccultist|14|VeiledOmensOccultist"
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/rite-of-haunts.webp",
+			"__prop": "subclass"
+		},
+		{
+			"name": "Rite of Omens",
+			"shortName": "Omens",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"page": 0,
+			"edition": "classic",
+			"subclassFeatures": [
+				"Cast the Lots|Occultist|VeiledOmensOccultist|Omens|VeiledOmensOccultist|3|VeiledOmensOccultist",
+				"Signs in the Wake|Occultist|VeiledOmensOccultist|Omens|VeiledOmensOccultist|6|VeiledOmensOccultist",
+				"Second Reading|Occultist|VeiledOmensOccultist|Omens|VeiledOmensOccultist|10|VeiledOmensOccultist",
+				"Fulfilled Portent|Occultist|VeiledOmensOccultist|Omens|VeiledOmensOccultist|14|VeiledOmensOccultist"
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/rite-of-omens.webp",
+			"__prop": "subclass"
+		},
+		{
+			"name": "Rite of Servitude",
+			"shortName": "Servitude",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"page": 0,
+			"edition": "classic",
+			"subclassFeatures": [
+				"Soul Binder|Occultist|VeiledOmensOccultist|Servitude|VeiledOmensOccultist|3|VeiledOmensOccultist",
+				"Lesser Soul Facets|Occultist|VeiledOmensOccultist|Servitude|VeiledOmensOccultist|6|VeiledOmensOccultist",
+				"Greater Soul Facets|Occultist|VeiledOmensOccultist|Servitude|VeiledOmensOccultist|10|VeiledOmensOccultist",
+				"Soul Gem Mastery|Occultist|VeiledOmensOccultist|Servitude|VeiledOmensOccultist|14|VeiledOmensOccultist"
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/rite-of-servitude.webp",
+			"__prop": "subclass"
+		}
+	],
+	"subclassFeature": [
+		{
+			"name": "Pact of Incantation",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Haunts",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 3,
+			"entries": [
+				"You have learned a ritual that allows you to form a pact with a spirit.",
+				"Over the course of 1 hour, you perform the ritual in the presence of a spirit, ghost, haunt, incorporeal undead, or ethereal remnant you can perceive, or at a location bound to such a presence.",
+				"If the spirit is unwilling, it must remain within the ritual area for the full hour and fail a Charisma saving throw against your occultist spell save DC. Performing this on an unwilling spirit is a violation and makes the spirit hostile to you.",
+				"When the ritual succeeds, you bind yourself to the spirit. The spirit is not destroyed, controlled, or made into your servant. Choose one spirit from the Spirit Incantation table and gain its 3rd-level incantation.",
+				"You can use your spirit incantations a number of times equal to your proficiency bonus and regain all expended uses after a long rest.",
+				{
+					"type": "table",
+					"caption": "Spirit Incantation",
+					"colLabels": [
+						"Spirit",
+						"3rd-Level Spirit Incantation",
+						"10th-Level Spirit Incantation"
+					],
+					"rows": [
+						[
+							"Ghost",
+							"Veil Step",
+							"Borrowed Flesh"
+						],
+						[
+							"Wraith",
+							"Grave Hunger",
+							"Gravebound Servant"
+						],
+						[
+							"Banshee",
+							"Mourning Glimpse",
+							"Death Knell"
+						],
+						[
+							"Poltergeist",
+							"Unseen Hand",
+							"Spiteful Repulsion"
+						],
+						[
+							"Will-o'-Wisp",
+							"Corpse-Light",
+							"Mortal Draught"
+						],
+						[
+							"Shadow",
+							"Withering Dark",
+							"Umbral Cloak"
+						]
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Veil Step",
+					"entries": [
+						"As a bonus action, you become spectral until the end of the current turn. During this time, you can move up to half your speed without provoking opportunity attacks, and you can move through creatures and objects.",
+						"If you end your turn inside a creature or object, you are shunted to the nearest unoccupied space and take 1d10 force damage."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Grave Hunger",
+					"entries": [
+						"Immediately after you hit a creature with a melee attack, you can call on your bound wraith to drain the target’s vitality.",
+						"The target takes extra necrotic damage equal to 1d6 + your Charisma modifier, and you gain that many temporary hit points."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Mourning Glimpse",
+					"entries": [
+						"Once per turn, when one creature fails a saving throw against an occultist spell you cast, your bound banshee shows it a glimpse of deathly grief. The creature takes 1d6 + your Charisma modifier psychic damage and cannot regain hit points until the start of your next turn.",
+						"If the failed save caused the creature to be frightened, it also cannot take reactions until the start of your next turn."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-haunts.webp",
+			"__prop": "subclassFeature"
+		},
+		{
+			"name": "Mediumship",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Haunts",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 6,
+			"entries": [
+				"You learn three mediumship rituals, each requiring 10 minutes to perform.",
+				"You can use these rituals a number of times equal to your proficiency bonus and regain all expended uses when you finish a long rest.",
+				"A ritual use is expended when performed, regardless of outcome.",
+				{
+					"type": "entries",
+					"name": "Séance",
+					"entries": [
+						"You touch a corpse, object, or place marked by death, violence, or emotion, or call upon a spirit you can perceive. The spirit can answer five questions over 10 minutes.",
+						"An unwilling spirit makes a Charisma saving throw; on a failure it is compelled to answer truthfully, on success it may lie, refuse, or end the ritual."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Bear Witness",
+					"entries": [
+						"You touch a corpse, object, or place marked by death, violence, or strong emotion. It reveals a vision for 1 minute of the strongest impression of an earlier event.",
+						"The vision can include sights, sounds, and residual spiritual facts but not hidden thoughts or facts without an impression."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Final Passage",
+					"entries": [
+						"You perform a release ritual for a spirit bound to a location, object, corpse, or creature you can touch. If you solve unfinished business, the spirit is released and the haunt ends.",
+						"An unwilling spirit may succeed on a Charisma saving throw and resist this release."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-haunts.webp",
+			"__prop": "subclassFeature"
+		},
+		{
+			"name": "Covenant of Incantation",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Haunts",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 10,
+			"entries": [
+				"Your pact deepens into a covenant. You gain the 10th-level incantation of the spirit chosen earlier.",
+				"Options include: Borrowed Flesh, Gravebound Servant, Death Knell, Spiteful Repulsion, Mortal Draught, and Umbral Cloak.",
+				{
+					"type": "entries",
+					"name": "Borrowed Flesh",
+					"entries": [
+						"As an action, choose one humanoid within 5 feet and attempt to force a possession. On a failed Charisma save, your spirit leaves you and inhabits the target for 1 minute.",
+						"The possessed form uses the target’s statistics and can use target actions and traits using the occultist’s body as source."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Gravebound Servant",
+					"entries": [
+						"When a humanoid you can see dies within 30 feet, or as an action when you touch a qualifying corpse, you can draw up its spirit and bind it as a specter for 1 minute.",
+						"The specter is friendly, acts immediately after your turn, uses the specter stat block, and disappears after 1 minute or at 0 hit points."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-haunts.webp",
+			"__prop": "subclassFeature"
+		},
+		{
+			"name": "Psychopomp",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Haunts",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 14,
+			"entries": [
+				"You are recognized by the restless dead as one who keeps the road between life and death.",
+				"When a spirit, haunt, or incorporeal undead starts its turn within 30 feet of you, or enters your area for the first time on its turn, it must make a Charisma saving throw.",
+				"On a failure, it recognizes your authority as a psychopomp for 1 minute, cannot target you with harmful effects, and cannot attack you, though it can still target allies or leave.",
+				"You can displace your bound spirit to extend your incantation’s range for one use; the spirit returns immediately after the effect."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-haunts.webp",
+			"__prop": "subclassFeature"
+		},
+		{
+			"name": "Cast the Lots",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Omens",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 3,
+			"entries": [
+				"You prepare a set of divinatory implements, using them as your Token if you wish.",
+				"After each long rest, you cast the lots and roll a d6, d8, d10, and d12 together. These dice form your foretold portent, which lasts until you finish your next long rest.",
+				"Each die maps to part of the portent and creates a conditional effect when triggered.",
+				"The portent does not trigger by itself, and it ends when invoked unless a feature says otherwise.",
+				{
+					"type": "table",
+					"caption": "Foretold Portent: Subject",
+					"colLabels": [
+						"d6",
+						"Subject",
+						"Noun"
+					],
+					"rows": [
+						[
+							"1",
+							"You",
+							"The Hand"
+						],
+						[
+							"2",
+							"The triggering creature",
+							"The Blood"
+						],
+						[
+							"3",
+							"One creature you can see within 30 feet of triggering creature",
+							"The Gate"
+						],
+						[
+							"4",
+							"The triggering creature and one nearby creature",
+							"The Crown"
+						],
+						[
+							"5",
+							"The creature nearest to triggering creature",
+							"The Mirror"
+						],
+						[
+							"6",
+							"You and the triggering creature",
+							"The Chain"
+						]
+					]
+				},
+				{
+					"type": "table",
+					"caption": "Foretold Portent: Trigger",
+					"colLabels": [
+						"d8",
+						"Trigger",
+						"Action"
+					],
+					"rows": [
+						[
+							"1",
+							"A creature makes an attack roll",
+							"Strikes"
+						],
+						[
+							"2",
+							"A creature makes an ability check",
+							"Tests"
+						],
+						[
+							"3",
+							"A creature makes a saving throw",
+							"Rises"
+						],
+						[
+							"4",
+							"A creature takes or deals damage",
+							"Bleeds"
+						],
+						[
+							"5",
+							"A creature moves or is moved",
+							"Crosses"
+						],
+						[
+							"6",
+							"A creature casts a spell or is targeted by one",
+							"Echoes"
+						],
+						[
+							"7",
+							"A curse or imposed fate effect begins, ends, or is challenged",
+							"Frays"
+						],
+						[
+							"8",
+							"A creature speaks a meaningful truth, lie, oath, threat, or confession",
+							"Names"
+						]
+					]
+				},
+				{
+					"type": "table",
+					"caption": "Foretold Portent: Sign",
+					"colLabels": [
+						"d10",
+						"Sign",
+						"State"
+					],
+					"rows": [
+						[
+							"1",
+							"Favor",
+							"Starred"
+						],
+						[
+							"2",
+							"Misfortune",
+							"Broken"
+						],
+						[
+							"3",
+							"Shelter",
+							"Warded"
+						],
+						[
+							"4",
+							"Ruin",
+							"Ashen"
+						],
+						[
+							"5",
+							"Revelation",
+							"Unveiled"
+						],
+						[
+							"6",
+							"Binding",
+							"Bound"
+						],
+						[
+							"7",
+							"Severance",
+							"Severed"
+						],
+						[
+							"8",
+							"Burden",
+							"Laden"
+						],
+						[
+							"9",
+							"Turning",
+							"Turned"
+						],
+						[
+							"10",
+							"Withering",
+							"Withered"
+						]
+					]
+				},
+				{
+					"type": "table",
+					"caption": "Foretold Portent: Shadow",
+					"colLabels": [
+						"d12",
+						"Shadow",
+						"Curdled Consequence"
+					],
+					"rows": [
+						[
+							"1",
+							"or Falters",
+							"Subtract your proficiency bonus from initiative rolls."
+						],
+						[
+							"2",
+							"or Drowns",
+							"Your speed is reduced by 10 feet."
+						],
+						[
+							"3",
+							"or Hollows",
+							"You cannot gain temporary hit points."
+						],
+						[
+							"4",
+							"or Splinters",
+							"Disadvantage on Constitution saves to maintain concentration."
+						],
+						[
+							"5",
+							"or Hungers",
+							"Reduce restored hit points by your proficiency bonus once per turn."
+						],
+						[
+							"6",
+							"or Burns",
+							"You shed dim light and cannot benefit from invisibility."
+						],
+						[
+							"7",
+							"or Hushes",
+							"You cannot take reactions until after your first turn in combat."
+						],
+						[
+							"8",
+							"or Veils",
+							"Disadvantage on Wisdom (Perception) checks."
+						],
+						[
+							"9",
+							"or Wanders",
+							"You cannot take the Dash action."
+						],
+						[
+							"10",
+							"or Withers",
+							"On first attack each turn you deal psychic damage equal to proficiency bonus."
+						],
+						[
+							"11",
+							"or Darkens",
+							"Disadvantage on Insight and Persuasion checks."
+						],
+						[
+							"12",
+							"or Vanishes",
+							"You cannot take or benefit from the Help action."
+						]
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/rite-of-omens.webp",
+			"__prop": "subclassFeature"
+		},
+		{
+			"name": "Signs in the Wake",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Omens",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 6,
+			"entries": [
+				"Your spells disturb spiritual residue and leave signs in their passing.",
+				"When you cast an occultist spell with a spell slot, you can target one creature affected by, targeted by, or perceived through the spell and learn one detail: resistance/vulnerability/immunity, condition, highest or lowest save, or curses/possession/curse effects.",
+				"You can use this feature a number of times equal to your proficiency bonus and regain all expended uses on a long rest."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/rite-of-omens.webp",
+			"__prop": "subclassFeature"
+		},
+		{
+			"name": "Second Reading",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Omens",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 10,
+			"entries": [
+				"After you make your foretold portent, choose up to half your proficiency bonus (rounded up) dials and reroll each on the same dice type.",
+				"When the portent is invoked or curdled, you choose which result applies for each chosen die. If more than one trigger happens, you choose one.",
+				"If your foretelling curdles, both readings are lost.",
+				"This allows you to preserve a fulfilled interpretation for the feature’s omen mechanics."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/rite-of-omens.webp",
+			"__prop": "subclassFeature"
+		},
+		{
+			"name": "Fulfilled Portent",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Omens",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 14,
+			"entries": [
+				"When your foretold portent is invoked, it becomes fulfilled until you finish a long rest. A fulfilled portent can no longer be invoked.",
+				"While fulfilled, you can cast {@spell bestow curse} and {@spell remove curse} without expending spell slots, each as a 30-foot range spell.",
+				"Any new portent replaces the fulfilled one after this rest."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/rite-of-omens.webp",
+			"__prop": "subclassFeature"
+		},
+		{
+			"name": "Soul Binder",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Servitude",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 3,
+			"entries": [
+				"You can bind a willing spirit into a gem and seat it in dead flesh as your servant.",
+				"At the end of a 1-hour ritual in an area where the border is thin, a willing spirit is bound into a gem worth at least 100 gp per spirit CR (minimum 100 gp).",
+				"As an action, you can seat the gem into a suitable corpse and animate it as a servant. The corpse must be one of the listed creature types and within CR limits.",
+				"The servant’s corpse must have a slot expenditure equal to the corpse’s CR (minimum one 1st-level slot), and you can animate only one servant at a time.",
+				{
+					"type": "table",
+					"caption": "Soul Binding",
+					"colLabels": [
+						"Occultist Level",
+						"Max Soul / Servant CR",
+						"Max Servant Size"
+					],
+					"rows": [
+						[
+							"3rd-4th",
+							2,
+							"Medium"
+						],
+						[
+							"5th-8th",
+							3,
+							"Medium"
+						],
+						[
+							"9th-12th",
+							4,
+							"Large"
+						],
+						[
+							"13th-16th",
+							5,
+							"Huge"
+						],
+						[
+							"17th-20th",
+							6,
+							"Huge"
+						]
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-soul-binder.webp",
+			"__prop": "subclassFeature"
+		},
+		{
+			"name": "Lesser Soul Facets",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Servitude",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 6,
+			"entries": [
+				"You can carve one lesser facet into your soul gem during a 1-hour occult-tools ritual.",
+				"A gem can hold one lesser facet at a time, and each can only be cut once.",
+				{
+					"type": "list",
+					"items": [
+						"**Spirit Conduit:** You and your servant can perceive through the servant’s senses for 1 round while you lose yours. You can use this once per turn when the servant attacks.",
+						"**Refined Attribute:** One ability score of your servant increases by 2 to a maximum of 20.",
+						"**Grave-Hardened Hide:** Your servant gains +1 AC.",
+						"**Fortified Frame:** Your servant gains HP equal to twice your occultist level.",
+						"**Dead March:** Your servant’s walking speed increases by 10 feet.",
+						"**Corpse Grip:** The servant has advantage on checks to grapple.",
+						"**Elemental Ward:** The servant gains resistance to one chosen damage type (non-physical).",
+						"**Hollow Nerves:** The servant is immune to frightened.",
+						"**Dead Flesh:** The servant has advantage on Constitution saves.",
+						"**Vicious Implements:** The servant deals extra damage equal to proficiency bonus on one hit per turn.",
+						"**Bone Hooks:** A hit can reduce target speed by 10 feet until the servant’s next turn ends.",
+						"**Grave Weight:** A hit can prevent the target from taking reactions until your servant’s next turn ends.",
+						"**Silent Command:** Telepathic communication with a returned soul servant within 120 feet.",
+						"**Easy Reseating:** Reseating into a corpse reduces slot costs by 1, minimum 1st level."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-lesser-soul-facets.webp",
+			"__prop": "subclassFeature"
+		},
+		{
+			"name": "Greater Soul Facets",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Servitude",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 10,
+			"entries": [
+				"Your soul gem can hold two lesser facets and one greater facet.",
+				{
+					"type": "list",
+					"items": [
+						"**Shared Vessel:** You can transfer hit points between yourself and your servant, up to your occultist level, as a bonus action.",
+						"**Imprinted Talent:** Your servant gains one feat appropriate to the feat’s requirements.",
+						"**Eldritch Bond:** Spells with a range other than self can originate from your servant if within 60 feet, using your modifiers.",
+						"**Incorporeal Passage:** The servant can move through creatures and objects; it takes force damage on ending its turn within an object.",
+						"**Soul-Snare:** A struck target cannot teleport, become incorporeal, or willingly leave the plane until the effect ends.",
+						"**Borrowed Body:** As a bonus action, you can perceive and speak through your servant for 1 minute."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-greater-soul-facets.webp",
+			"__prop": "subclassFeature"
+		},
+		{
+			"name": "Soul Gem Mastery",
+			"source": "VeiledOmensOccultist",
+			"className": "Occultist",
+			"classSource": "VeiledOmensOccultist",
+			"subclassShortName": "Servitude",
+			"subclassSource": "VeiledOmensOccultist",
+			"level": 14,
+			"entries": [
+				"Your soul gem can now hold three lesser facets and one greater facet.",
+				"You can transfer your soul into the gem as an action. Your body enters an unconscious incapacitated deathlike stasis while your soul occupies the gem.",
+				"While your soul occupies the gem, you control the servant body with your former abilities, using your class features and spellcasting but the servant’s physical traits.",
+				"You can return to your body as an action if your body is on the same plane. If the gem or body is destroyed, your soul returns to your body or passes on."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-soul-gem-mastery.webp",
+			"__prop": "subclassFeature"
+		}
+	]
+}

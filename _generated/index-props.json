@@ -1,12 +1,20 @@
 {
+  "class": {
+    "class/Veiled Omens; Occultist.json": "class"
+  },
+  "classFeature": {
+    "class/Veiled Omens; Occultist.json": "class"
+  },
   "race": {
     "race/Veiled Omens; Species.json": "race"
   },
   "subclass": {
+    "class/Veiled Omens; Occultist.json": "class",
     "subclass/Veiled Omens; Occult Knight.json": "subclass",
     "subclass/Veiled Omens; Path of the Shaman.json": "subclass"
   },
   "subclassFeature": {
+    "class/Veiled Omens; Occultist.json": "class",
     "subclass/Veiled Omens; Occult Knight.json": "subclass",
     "subclass/Veiled Omens; Path of the Shaman.json": "subclass"
   }

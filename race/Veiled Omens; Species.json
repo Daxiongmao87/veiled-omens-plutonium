@@ -287,6 +287,108 @@
       "__prop": "race"
     },
     {
+      "name": "Oni-zu Onihan",
+      "source": "VeiledOmens",
+      "ability": [
+        {
+          "cha": 2,
+          "int": 1
+        }
+      ],
+      "size": [
+        "M"
+      ],
+      "speed": 30,
+      "darkvision": 60,
+      "creatureTypes": [
+        "humanoid"
+      ],
+      "languageProficiencies": [
+        {
+          "common": true,
+          "giant": true
+        }
+      ],
+      "entries": [
+        "Onihans have certain traits derived from their oni ancestry.",
+        {
+          "type": "entries",
+          "name": "Ability Score Increase",
+          "entries": [
+            "Your Charisma score increases by 2, and your Intelligence score increases by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Age",
+          "entries": [
+            "Onihan mature at the same rate as humans but live considerably longer due to their giant heritage, often reaching 200 years or more."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Alignment",
+          "entries": [
+            "Onihan are not predisposed to any particular alignment. Their dual nature--both mortal and mystical--means they can embrace any moral philosophy. However, their experiences being viewed as omens sometimes pushes them toward neutrality."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Onihan are slightly taller and more solidly built than typical humans, ranging from 5 1/2 to well over 6 feet tall. Your size is Medium."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": [
+            "Your base walking speed is 30 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "Thanks to your oni heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as though it were bright light, and in darkness as though it were dim light. You cannot discern color in darkness, only shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Oni Resilience",
+          "entries": [
+            "Your oni blood knits wounds, but in measured ways. When you spend Hit Dice during a short rest, add your proficiency bonus to one of those dice. In addition, once per short rest, as an action, you can spend one Hit Die to regain hit points equal to the roll + your Constitution modifier. This use does not benefit from features that add to healing from Hit Dice."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Cunning of Night",
+          "entries": [
+            "You have advantage on Dexterity (Stealth) checks made in dim light or darkness, and you have advantage on saving throws against being charmed."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Oni Heritage Magic",
+          "entries": [
+            "Your spellcasting ability for this trait is Charisma.",
+            "At character creation, you may add {@spell minor illusion}, {@spell thaumaturgy}, or both as innate cantrips.",
+            "At 3rd level, you gain {@spell disguise self}.",
+            "At 5th level, you gain {@spell darkness}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Giant."
+          ]
+        }
+      ],
+      "foundryImg": "icons/creatures/eyes/humanoid-single-yellow.webp",
+      "__prop": "race"
+    },
+    {
       "name": "Vaetyr (Hearthbound)",
       "source": "VeiledOmens",
       "ability": [

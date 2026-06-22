@@ -1582,5 +1582,1159 @@
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/feature-soul-gem-mastery.webp",
 			"__prop": "subclassFeature"
 		}
+	],
+	"spell": [
+		{
+			"name": "Spectral Weapon",
+			"source": "VeiledOmensOccultist",
+			"level": 0,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "bonus"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 5
+				}
+			},
+			"components": {
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "special"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"spellAttack": true,
+			"damageInflict": [
+				"psychic"
+			],
+			"entries": [
+				"You summon a ghostly, ethereal one-handed weapon that manifests in your hand. As part of casting this spell, you make one melee spell attack against a creature within reach using this weapon. The weapon's form reflects aspects of your existence, tied to your ancestry, occupation, or personality, such as an ancestral blade, a spectral warrior's weapon from your past, or an ethereal representation of your inner spirit.",
+				"You have proficiency with the weapon, and it is considered magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. You use your spellcasting ability for the attack roll. On a hit, the attack deals 2d4 psychic damage. The spectral weapon disappears at the end of your turn.",
+				"This spell's damage increases by 2d4 when you reach 5th level (4d4), 11th level (6d4), and 17th level (8d4)."
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Haunt",
+			"source": "VeiledOmensOccultist",
+			"level": 1,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					}
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"savingThrow": [
+				"wisdom"
+			],
+			"entries": [
+				"You conjure a vengeful spirit to torment a creature within range. The target must succeed on a Wisdom saving throw or be haunted by the spirit.",
+				"While haunted, the target has disadvantage on attack rolls for the duration of the spell. The target can make another Wisdom saving throw at the end of each of its turns, ending the effect on a success."
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Dead Reckoning",
+			"source": "VeiledOmensOccultist",
+			"level": 1,
+			"school": "D",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "touch"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"meta": {
+				"ritual": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"entries": [
+				"You touch a corpse and connect to its lingering essence, determining whether its spirit died unjustly and if it now resides in the Ethereal Plane.",
+				"If the creature's death was wrongful, such as through murder, betrayal, or foul play, you immediately sense this. Additionally, if the spirit is still present in the Ethereal Plane, you gain insight into whether it lingers due to unresolved business or if external forces trap it there."
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Spirit Lantern",
+			"source": "VeiledOmensOccultist",
+			"level": 1,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a wisp of ectoplasm"
+			},
+			"meta": {
+				"ritual": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 10
+					},
+					"concentration": true,
+					"upTo": true
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"spellAttack": true,
+			"damageInflict": [
+				"psychic",
+				"necrotic",
+				"force"
+			],
+			"entries": [
+				"You conjure a ghostly light that hovers around you, shedding dim light in a 10-foot radius. This spectral illumination also grants Ethereal Sight within the same 10-foot radius.",
+				"The ghostly light remains in the same space as you, moving as you move.",
+				"As a bonus action, you can direct the ghostly light to attack a target within 60 feet. Make a ranged spell attack against the target. On a hit, the target takes 1d6 psychic damage, 1d6 necrotic damage, and 1d6 force damage. After the attack, the spell ends.",
+				"Ethereal Sight allows a creature to perceive the Ethereal Plane within the range. Unlike Truesight, Ethereal Sight is limited to detecting incorporeal undead and ghostly remnants of the dead that reside in the Ethereal Plane. Creatures with Ethereal Sight can see these entities and any other spectral phenomena within the range of their sight."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st. The dice are assigned in the order of psychic, necrotic, and force damage."
+					]
+				}
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Detect Spirits",
+			"source": "VeiledOmensOccultist",
+			"level": 2,
+			"school": "D",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "radius",
+				"distance": {
+					"type": "feet",
+					"amount": 1000
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a small glass orb"
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"entries": [
+				"You sense the presence of spirits and living creatures within 1,000 feet of you. You know the direction and distance to each one.",
+				"If a spirit or creature is bound to an object, place, or being, you sense that connection as well.",
+				"If the number of spirits and living creatures within range exceeds 10, you must make a Wisdom (Perception) check to discern individual presences. The DC equals 10 + 1 for every additional 5 creatures beyond the first 10. On a success, you discern individual spirits and their locations. On a failure, you sense only the general presence and total number of spirits but cannot distinguish them individually."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"When you cast this spell using a spell slot of 3rd level or higher, the range increases by 500 feet and the number of creatures you can sense without making a Wisdom (Perception) check increases by 5 for each slot level above 2nd."
+					]
+				}
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Spectral Brand",
+			"source": "VeiledOmensOccultist",
+			"level": 2,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "bonus"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true,
+					"upTo": true
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"entries": [
+				"You mark a creature within range with an ethereal brand visible only to you and those who can see spirits.",
+				"While marked, the target has disadvantage on saving throws against your necromancy spells and takes 2d6 psychic damage the first time it is hit by an attack each turn."
+			],
+			"__prop": "spell",
+			"damageInflict": [
+				"psychic"
+			]
+		},
+		{
+			"name": "Haunting Presence",
+			"source": "VeiledOmensOccultist",
+			"level": 3,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a black feather and a small piece of bone"
+			},
+			"meta": {
+				"ritual": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 10
+					}
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"savingThrow": [
+				"wisdom"
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"entries": [
+				"You conjure a lingering spirit to haunt an area within a 30-foot radius centered on a point within range. Creatures entering the area must make a Wisdom saving throw or become frightened of the haunting presence for the duration. While in the haunted area, creatures also have disadvantage on all saving throws to resist fear effects.",
+				"Additionally, any frightened creatures take 2d6 psychic damage at the start of each of their turns."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"When you cast this spell using a spell slot of 4th level or higher, the psychic damage increases by 1d6 for each slot level above 3rd."
+					]
+				}
+			],
+			"__prop": "spell",
+			"damageInflict": [
+				"psychic"
+			]
+		},
+		{
+			"name": "Blood Offering",
+			"source": "VeiledOmensOccultist",
+			"level": 4,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "minute"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "touch"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a ceremonial dagger used to draw your blood"
+			},
+			"meta": {
+				"ritual": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"entries": [
+				"You perform a profound blood ritual, sacrificing a portion of your own life force to empower another. As part of casting this spell, you expend any number of your own Hit Dice, up to a maximum equal to half your level, rounded down. Roll the expended Hit Dice and add your spellcasting ability modifier to the total.",
+				"One creature of your choice within range gains one of the following benefits, which you choose when you cast the spell:",
+				{
+					"type": "list",
+					"items": [
+						"Life Transference. The target regains hit points equal to the total rolled. You take necrotic damage equal to half of the hit points restored, rounded down. This damage cannot be reduced or prevented in any way.",
+						"Empowered Strength. The target gains a bonus to all attack rolls and damage rolls equal to +1 for each 5 points of the total rolled, minimum +1. This benefit lasts for 1 minute.",
+						"Resilient Will. The target gains a bonus to all saving throws equal to +1 for each 5 points of the total rolled, minimum +1. This benefit lasts for 1 minute."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"When you cast this spell using a spell slot of 5th level or higher, the maximum number of Hit Dice you can expend increases by one for each slot level above 4th."
+					]
+				}
+			],
+			"__prop": "spell",
+			"damageInflict": [
+				"necrotic"
+			]
+		},
+		{
+			"name": "Spectral Carriage",
+			"source": "VeiledOmensOccultist",
+			"level": 4,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"m": {
+					"text": "a silver coin and a black onyx gem worth 250 gp",
+					"cost": 25000
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "hour",
+						"amount": 8
+					}
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"entries": [
+				"You summon an ethereal carriage driven by a spectral hackman, which appears within range. The carriage can seat up to 6 passengers and travels overland at 60 feet per round, ignoring difficult terrain.",
+				"The carriage can cross bodies of water as if on solid ground, but it cannot fly.",
+				"The carriage disappears after 8 hours or when you dismiss it as an action."
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Soulfire",
+			"source": "VeiledOmensOccultist",
+			"level": 4,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a small crystal vial containing a drop of the caster's blood"
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"savingThrow": [
+				"charisma"
+			],
+			"spellAttack": true,
+			"damageInflict": [
+				"psychic",
+				"necrotic"
+			],
+			"entries": [
+				"You sacrifice fragments of your own soul, igniting them into spectral flames that surge toward a creature within range. Roll 4d4; the result is the number of soul fragments you sacrifice.",
+				"Make a ranged spell attack against the target. On a hit, the target takes a number of d6s of psychic damage equal to the number of soul fragments sacrificed.",
+				"Immediately after casting this spell, you take 1 necrotic damage for each soul fragment sacrificed.",
+				"On the target's next turn, it must succeed on a Charisma saving throw or take 1 psychic damage for each soul fragment sacrificed."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"When you cast this spell using a spell slot of 5th level or higher, the number of soul fragments sacrificed increases by 1d4 for each slot level above 4th."
+					]
+				}
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Wail of the Banshee",
+			"source": "VeiledOmensOccultist",
+			"level": 5,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "radius",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"m": {
+					"text": "a shard of obsidian worth 100 gp",
+					"cost": 10000
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					}
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"savingThrow": [
+				"constitution"
+			],
+			"damageInflict": [
+				"psychic"
+			],
+			"conditionInflict": [
+				"frightened"
+			],
+			"entries": [
+				"You unleash a terrifying, otherworldly wail that echoes with the voices of the dead. Each creature of your choice within a 30-foot radius centered on you must make a Constitution saving throw.",
+				"On a failed save, the creature takes 6d6 psychic damage and is frightened of you for 1 minute. On a successful save, the creature takes half as much damage and is not frightened.",
+				"A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d6 for each slot level above 5th."
+					]
+				}
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Malediction",
+			"source": "VeiledOmensOccultist",
+			"level": 5,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "minute"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a length of black thread, which the spell consumes"
+			},
+			"duration": [
+				{
+					"type": "special"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"entries": [
+				"You speak a formal curse against one creature you can see within range, naming one ability: Strength, Dexterity, Constitution, Intelligence, Wisdom, or Charisma.",
+				"If you possess a personal token from the target, such as a lock of hair, a drop of blood, a tooth, a written signature, or a cherished possession, the target need not be within range or visible to you, but it must be on the same plane of existence as you. A token used in this way is consumed by the spell.",
+				"The target must make a saving throw using the chosen ability. On a failed save, the target is cursed for the duration. On a successful save, the spell ends.",
+				"At dawn each day while cursed, the target repeats the saving throw using the chosen ability. On a failed save, that ability score is reduced by 1, to a minimum of 1. This reduction lasts until the curse ends.",
+				"The curse ends if removed by {@spell remove curse}, {@spell greater restoration}, or similar magic."
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Egregore",
+			"source": "VeiledOmensOccultist",
+			"level": 6,
+			"school": "E",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a personal token bearing a name, symbol, vow, or memory shared by more than one creature"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 10
+					},
+					"concentration": true,
+					"upTo": true
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"savingThrow": [
+				"wisdom"
+			],
+			"entries": [
+				"You draw together psychic residue, shared belief, and spiritual impressions into a visible thought-form in an unoccupied space you can see within range. The egregore is not a creature or object.",
+				"It cannot be attacked, damaged, healed, targeted, or moved against its will. It occupies no space, though its presence is visible and palpable.",
+				"The egregore fills a 20-foot-radius sphere centered on itself. When you cast the spell, choose one emotional aspect for the egregore: dread, grief, reverence, or guilt.",
+				"When a creature of your choice starts its turn in the sphere or enters it for the first time on a turn, it must make a Wisdom saving throw. On a failed save, the creature is affected by the egregore until the start of its next turn, according to the chosen aspect:",
+				{
+					"type": "list",
+					"items": [
+						"Dread. The creature is frightened of the egregore.",
+						"Grief. The creature's speed is halved, and it can't take reactions.",
+						"Reverence. The creature can't willingly attack you or your allies unless it first takes psychic damage equal to your spellcasting ability modifier.",
+						"Guilt. The creature has disadvantage on attack rolls against creatures it damaged since the end of your last turn."
+					]
+				},
+				"As a bonus action on your turn, you can move the egregore up to 30 feet to an unoccupied space you can see within range.",
+				"A creature that succeeds on its saving throw is immune to this casting of the spell until the start of your next turn."
+			],
+			"__prop": "spell",
+			"conditionInflict": [
+				"frightened"
+			]
+		},
+		{
+			"name": "Call Spirit",
+			"source": "VeiledOmensOccultist",
+			"level": 7,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 90
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a funerary token, cracked mirror, or personal object once carried by the dead"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 10
+					},
+					"concentration": true,
+					"upTo": true
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"entries": [
+				"You call a spirit from the Border Ethereal, causing it to manifest in an unoccupied space you can see within range. Choose one of the following spirits: a ghost, banshee, or wraith. The spirit uses the chosen creature's stat block.",
+				"For the duration, the spirit is friendly to you and your companions. In combat, it shares your initiative count, but takes its turn immediately after yours. It obeys your verbal commands, requiring no action from you. If you issue no command, it takes the Dodge action and uses its movement to avoid obvious danger.",
+				"When your concentration ends, your influence over the spirit ends. The spirit does not disappear. It becomes hostile to all creatures and is no longer bound to obey you. If the spirit is not already in combat, it rolls initiative.",
+				"If the spirit is possessing a creature when your concentration ends, the possession does not automatically end, but the spirit is no longer bound to obey you."
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Silvered Sanctum",
+			"source": "VeiledOmensOccultist",
+			"level": 7,
+			"school": "C",
+			"time": [
+				{
+					"number": 10,
+					"unit": "minute"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "touch"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a silver key and a black onyx worth 500 gp",
+					"cost": 50000
+				}
+			},
+			"meta": {
+				"ritual": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "hour",
+						"amount": 8
+					}
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"entries": [
+				"You touch a doorway, arch, gate, curtain, hatch, or other physical threshold leading into an enclosed room or chamber on the Material Plane. The room must fit within a 30-foot cube. For the duration, you cloister the room's reflection in the Border Ethereal, creating a hidden refuge called a silvered sanctum.",
+				"The sanctum has the same shape, boundaries, furnishings, and appearance as the chosen room had when you cast the spell, but it exists in the Border Ethereal rather than on the Material Plane. Objects created as part of the sanctum function normally inside it, but they dissolve into pale mist if removed.",
+				"You and any creatures you designate when you cast the spell can enter or leave the sanctum through the chosen threshold while within 5 feet of it. A permitted creature can bring objects through the threshold if those objects fit. Objects brought into the sanctum in this way are physically present there and can be used, stored, rearranged, or removed normally.",
+				"Creatures inside the sanctum can see and hear the Material room as faint, gray impressions, but can't affect it unless a feature or spell allows interaction across the planar boundary. Creatures in the Material room can't perceive creatures or objects inside the sanctum except by magic that reveals the Ethereal Plane.",
+				"The chosen threshold is the only stable passage between the sanctum and the Material room. If a creature or object leaves the sanctum through any other opening or boundary, it appears on the Material Plane in the corresponding space outside the chosen room, or in the nearest unoccupied space if that space is occupied.",
+				"The sanctum contains breathable air and a stable atmosphere. Spirits, incorporeal undead, and creatures on the Border Ethereal can't enter the sanctum unless you allow them. A creature inside the sanctum can't be possessed unless you allow it. Divination magic of 6th level or lower can't perceive into the sanctum or locate creatures or objects within it.",
+				"When the spell ends, creatures and objects brought into the sanctum appear in the nearest unoccupied spaces to the chosen threshold on the Material Plane. Objects created as part of the sanctum vanish.",
+				{
+					"type": "entries",
+					"name": "Permanent Sanctum",
+					"entries": [
+						"If you cast this spell on the same threshold every day for 30 consecutive days, expending the material component each time, the sanctum becomes permanent. A permanent sanctum retains the shape and appearance it had when the final casting was completed, even if the Material room later changes, decays, or is destroyed.",
+						"You can have only one permanent silvered sanctum at a time. If you make another sanctum permanent, the previous one collapses, expelling its creatures and brought objects to the nearest unoccupied spaces to its threshold, or to the place where that threshold last existed."
+					]
+				}
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Spirit Conclave",
+			"source": "VeiledOmensOccultist",
+			"level": 7,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "touch"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a black candle infused with silver dust worth 1,000 gp, which the spell consumes",
+					"cost": 100000,
+					"consume": true
+				}
+			},
+			"meta": {
+				"ritual": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "hour",
+						"amount": 1
+					}
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"entries": [
+				"You summon a conclave of ethereal spirits to your side. Each spirit takes the form of a spectral warrior that acts as a phantom warrior under your control.",
+				"The number of spirits summoned is equal to half your spellcasting ability modifier, rounded down. The spirits remain for the duration of the spell or until they are reduced to 0 hit points.",
+				"The spirits act on the same initiative as you, taking their turn immediately after yours.",
+				"You can telepathically command all spectral warriors to move and attack as a bonus action on your turn. The spirits must be within 60 feet of you to receive commands. If no commands are issued, the spirits only take the Dodge action to defend themselves."
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Doom",
+			"source": "VeiledOmensOccultist",
+			"level": 8,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a black thread knotted around a fragment of bone"
+			},
+			"duration": [
+				{
+					"type": "special"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"savingThrow": [
+				"charisma"
+			],
+			"entries": [
+				"You pronounce a deathly curse upon one creature you can see within range. The target must make a Charisma saving throw. On a failed save, the target is doomed.",
+				"While doomed, the target is dying and makes death saving throws at the start of each of its turns, even if it is conscious and above 0 hit points. Death saving throws made this way are made with disadvantage. The target can otherwise act normally.",
+				"The spell ends if the target dies, succeeds on three death saving throws, or if the curse is removed by {@spell remove curse}, {@spell greater restoration}, or similar magic cast using a spell slot of 8th level or higher."
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Final Witness",
+			"source": "VeiledOmensOccultist",
+			"level": 9,
+			"school": "D",
+			"time": [
+				{
+					"number": 10,
+					"unit": "minute"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "touch"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a silvered mirror, a black candle, and a personal token, corpse, object, or piece of a location tied to the event"
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"entries": [
+				"You touch a corpse, remains, haunted object, personal token, or point in a location marked by death, betrayal, possession, a curse, a pact, a haunting, or a similar spiritually significant event. Name or describe the event or truth you seek.",
+				"The spell draws forth the strongest relevant spiritual impression bound to the target and reveals it to you as a vision lasting up to 10 minutes. The vision shows the event as impressed upon the Border Ethereal, including sights, sounds, words, visible magic, emotional residue, spiritual presences, and apparent actions.",
+				"The vision reveals only what was present in the event or impressed upon the target. It doesn't reveal thoughts, motives, secrets, or facts that left no spiritual impression. The DM determines what the vision shows.",
+				"Illusions, disguises, memory-altering magic, and magic that obscures divination don't deceive the vision unless created by a spell of 9th level or by {@spell wish}. If such magic obscures the event, you know the vision has been veiled.",
+				"If the target bears no meaningful spiritual impression tied to your request, the spell reveals that absence instead of producing a false vision.",
+				"Once you cast this spell on a particular corpse, remains, object, token, or location, you can't cast it on that same target again for 7 days."
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "The Last Door",
+			"source": "VeiledOmensOccultist",
+			"level": 9,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a key carved from bone and a black thread tied through its bow"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true,
+					"upTo": true
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"savingThrow": [
+				"charisma"
+			],
+			"entries": [
+				"You open an invisible spiritual threshold centered on a point you can see within range. The threshold fills a 60-foot-radius sphere for the duration.",
+				"Within the sphere, you can see and hear into the Border Ethereal, and creatures there appear to you as translucent figures. Spirits, ghosts, incorporeal undead, and creatures on the Border Ethereal can't willingly enter or leave the sphere, move between the Material Plane and the Border Ethereal, pass through objects within the sphere, or possess a creature or object unless you allow it.",
+				"When you cast the spell, and again as an action on each of your turns, choose one creature, spirit, haunt, or possessing presence within the sphere that is possessing a creature or object or is present on the Border Ethereal.",
+				"The target must make a Charisma saving throw. On a failed save, it is expelled from any possession and appears in an unoccupied space of your choice within the sphere, either on the Material Plane or the Border Ethereal. On a success, it is unaffected.",
+				"If a creature dies within the sphere, its soul can't be trapped, consumed, transformed into undead, hidden from divination, or carried away by a spell or supernatural effect unless you allow it. You can also hold the soul at the threshold until the spell ends.",
+				"As an action, you can cause one willing dead soul whose body, remains, or personal token is within the sphere to appear as a visible apparition until the spell ends. The apparition can speak, but it can't cast spells, attack, or physically interact with the world. This manifestation doesn't restore the creature to life."
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "Soul Injunction",
+			"source": "VeiledOmensOccultist",
+			"level": 9,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a strip of black parchment bearing the target's name or likeness, sealed with wax"
+			},
+			"duration": [
+				{
+					"type": "special"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"savingThrow": [
+				"charisma"
+			],
+			"entries": [
+				"You bind one creature you can see within range with a prohibition upon its soul. The target must make a Charisma saving throw. On a failed save, choose one injunction below. The target is bound by that injunction for the duration and knows its nature.",
+				{
+					"type": "list",
+					"items": [
+						"Bar the Crossing. The target can't willingly enter another plane of existence. If it casts a spell or uses a feature that would transport it to another plane, the effect fails for the target.",
+						"Forbid Possession. The target can't possess another creature or object, or willingly allow itself to be possessed.",
+						"Deny Return. If the target dies, it can't be restored to life for the duration.",
+						"Seal the Name. Choose one name, word, or phrase of up to ten words. The target can't knowingly speak it, write it, sign it, or communicate it by magical means.",
+						"Close the Threshold. Choose one structure, sanctum, graveyard, shrine, settlement district, or clearly bounded site known to you that fits within a 1,000-foot cube. The target can't willingly enter that place.",
+						"Expose the Soul. The target can't benefit from magic that would hide its soul, spirit, alignment, creature type, possession, curse, or spiritual attachments from divination magic."
+					]
+				},
+				"If the target attempts to violate the injunction, the attempt fails, and any action, bonus action, reaction, spell slot, or limited-use feature used in the attempt is wasted.",
+				"When you cast the spell, you can name a release condition. If the target fulfills that condition, the spell ends.",
+				"This spell can also be ended by {@spell remove curse}, {@spell greater restoration}, or similar magic cast using a 9th-level spell slot, or by {@spell wish}."
+			],
+			"__prop": "spell"
+		},
+		{
+			"name": "The Unquiet Hour",
+			"source": "VeiledOmensOccultist",
+			"level": 9,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 300
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a bell without a clapper and a handful of grave soil or ash from a burned home"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "hour",
+						"amount": 1
+					},
+					"concentration": true,
+					"upTo": true
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Occultist",
+						"source": "VeiledOmensOccultist"
+					}
+				]
+			},
+			"savingThrow": [
+				"wisdom"
+			],
+			"entries": [
+				"You awaken the fear, grief, guilt, and deathly residue in a location. Choose a point you can see within range. A 120-foot-radius sphere centered on that point becomes supernaturally haunted for the duration.",
+				"For the duration, the area is marked by cold shadows, bodiless whispers, and fleeting apparitions. While within the area, invisible creatures, spirits, incorporeal undead, possessing entities, and creatures on the Border Ethereal are visible to you. Curses, possessions, and spiritual attachments in the area also appear to you as supernatural marks.",
+				"When a creature of your choice starts its turn in the area, it must make a Wisdom saving throw. On a failed save, it is haunted until the start of its next turn. While haunted, the creature can't take reactions, its speed is halved, and it has disadvantage on saving throws against being frightened and against effects that curse, possess, or haunt it.",
+				"On a successful save, the creature is immune to this casting of the spell until the start of your next turn.",
+				"Spirits, ghosts, haunts, and incorporeal undead in the area can't become invisible to you or hide from you while on the Border Ethereal.",
+				"If such a creature ends a possession in the area, it remains visible to you until the start of your next turn.",
+				"The area remains marked by harmless supernatural signs for 24 hours after the spell ends."
+			],
+			"__prop": "spell"
+		}
 	]
 }

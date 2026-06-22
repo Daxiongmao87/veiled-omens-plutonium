@@ -287,6 +287,145 @@
       "__prop": "race"
     },
     {
+      "name": "Goliath (Troll-Blooded)",
+      "source": "VeiledOmens",
+      "ability": [
+        {
+          "str": 2,
+          "con": 2,
+          "cha": -1
+        }
+      ],
+      "size": [
+        "L"
+      ],
+      "speed": 30,
+      "creatureTypes": [
+        "humanoid"
+      ],
+      "skillProficiencies": [
+        {
+          "athletics": true
+        }
+      ],
+      "resist": [
+        "cold"
+      ],
+      "traitTags": [
+        "Damage Resistance",
+        "Skill Proficiency"
+      ],
+      "languageProficiencies": [
+        {
+          "common": true,
+          "giant": true
+        }
+      ],
+      "entries": [
+        "Troll-blooded goliaths are a giant-blooded strain of goliath whose inherited troll vitality makes them larger and tougher than standard goliaths.",
+        {
+          "type": "entries",
+          "name": "Ability Score Increase",
+          "entries": [
+            "Your Strength score increases by 2, and your Constitution score increases by 2 instead of 1. Your Charisma score decreases by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Age",
+          "entries": [
+            "Goliaths have lifespans comparable to humans. They enter adulthood in their late teens and usually live less than a century."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Alignment",
+          "entries": [
+            "Goliath society, with its clear roles and tasks, has a strong lawful bent. The goliath sense of fairness, balanced with an emphasis on self-sufficiency and personal accountability, pushes them toward neutrality."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": [
+            "Your base walking speed is 30 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Natural Athlete",
+          "entries": [
+            "You have proficiency in the Athletics skill."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Stone's Endurance",
+          "entries": [
+            "You can focus yourself to occasionally shrug off injury. When you take damage, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled, and reduce the damage by that total. After you use this trait, you can't use it again until you finish a short or long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mountain Born",
+          "entries": [
+            "You have resistance to cold damage. You are also acclimated to high altitude, including elevations above 20,000 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Giant."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Troll-Blooded",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Ability Score Increase",
+              "entries": [
+                "Your Constitution score increases by 2 instead of 1. Your Charisma score decreases by 1."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Size",
+              "entries": [
+                "Troll-blooded goliaths are between 8 and 10 feet tall and weigh between 400 and 600 pounds. Your size is Large."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Troll-Blooded Regeneration",
+              "entries": [
+                "You have advantage on death saving throws. When you become stable while at 0 hit points, you can choose to regain 1 hit point and become conscious instead of remaining unconscious. Once you regain hit points this way, you cannot use this trait again until you finish a long rest."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Oversized",
+              "entries": [
+                "Due to your Large size, you cannot wear non-magical equipment designed for Medium or smaller creatures. Equipment made for your size costs 1.5x the original price, and refitting existing equipment costs half its original price. You also treat Medium weapons differently due to your large stature:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Two-Handed becomes Versatile",
+                    "Versatile becomes One-Handed",
+                    "Anything else is considered an Improvised Weapon"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/troll-blooded.webp",
+      "__prop": "race"
+    },
+    {
       "name": "Onihan (Oni-zu)",
       "source": "VeiledOmens",
       "ability": [

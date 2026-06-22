@@ -1,21 +1,33 @@
 {
   "class": {
-    "class/Veiled Omens; Occultist.json": "class"
+    "class/Veiled Omens; Occultist.json": "class",
+    "class/Veiled Omens; Thaumaphage.json": "class"
   },
   "classFeature": {
-    "class/Veiled Omens; Occultist.json": "class"
+    "class/Veiled Omens; Occultist.json": "class",
+    "class/Veiled Omens; Thaumaphage.json": "class"
+  },
+  "item": {
+    "class/Veiled Omens; Thaumaphage.json": "class"
   },
   "race": {
     "race/Veiled Omens; Species.json": "race"
   },
+  "spell": {
+    "class/Veiled Omens; Thaumaphage.json": "class"
+  },
   "subclass": {
     "class/Veiled Omens; Occultist.json": "class",
+    "class/Veiled Omens; Thaumaphage.json": "class",
     "subclass/Veiled Omens; Occult Knight.json": "subclass",
+    "subclass/Veiled Omens; Pale Touched.json": "subclass",
     "subclass/Veiled Omens; Path of the Shaman.json": "subclass"
   },
   "subclassFeature": {
     "class/Veiled Omens; Occultist.json": "class",
+    "class/Veiled Omens; Thaumaphage.json": "class",
     "subclass/Veiled Omens; Occult Knight.json": "subclass",
+    "subclass/Veiled Omens; Pale Touched.json": "subclass",
     "subclass/Veiled Omens; Path of the Shaman.json": "subclass"
   }
 }

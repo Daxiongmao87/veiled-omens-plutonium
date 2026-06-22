@@ -4,6 +4,11 @@
     "m": 1782083653,
     "p": 1782083653
   },
+  "class/Veiled Omens; Thaumaphage.json": {
+    "a": 1782085905,
+    "m": 1782085905,
+    "p": 1782085905
+  },
   "race/Veiled Omens; Species.json": {
     "a": 1780786407,
     "m": 1780786407,
@@ -13,6 +18,11 @@
     "a": 1782071803,
     "m": 1782071803,
     "p": 1782071803
+  },
+  "subclass/Veiled Omens; Pale Touched.json": {
+    "a": 1782087056,
+    "m": 1782087056,
+    "p": 1782087056
   },
   "subclass/Veiled Omens; Path of the Shaman.json": {
     "a": 1782069968,

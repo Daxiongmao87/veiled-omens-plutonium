@@ -13,6 +13,13 @@
     ],
     "s": "ready"
   },
+  "Veiled Omens; Pale Touched.json": {
+    "e": 0,
+    "n": [
+      "VeiledOmensPaleTouched"
+    ],
+    "s": "ready"
+  },
   "Veiled Omens; Path of the Shaman.json": {
     "e": 0,
     "n": [
@@ -24,6 +31,13 @@
     "e": 0,
     "n": [
       "VeiledOmens"
+    ],
+    "s": "ready"
+  },
+  "Veiled Omens; Thaumaphage.json": {
+    "e": 0,
+    "n": [
+      "VeiledOmensThaumaphage"
     ],
     "s": "ready"
   }

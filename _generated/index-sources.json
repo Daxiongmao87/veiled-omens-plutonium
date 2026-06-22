@@ -2,5 +2,7 @@
   "VeiledOmens": "race/Veiled Omens; Species.json",
   "VeiledOmensOccultKnight": "subclass/Veiled Omens; Occult Knight.json",
   "VeiledOmensOccultist": "class/Veiled Omens; Occultist.json",
-  "VeiledOmensPathOfTheShaman": "subclass/Veiled Omens; Path of the Shaman.json"
+  "VeiledOmensPaleTouched": "subclass/Veiled Omens; Pale Touched.json",
+  "VeiledOmensPathOfTheShaman": "subclass/Veiled Omens; Path of the Shaman.json",
+  "VeiledOmensThaumaphage": "class/Veiled Omens; Thaumaphage.json"
 }

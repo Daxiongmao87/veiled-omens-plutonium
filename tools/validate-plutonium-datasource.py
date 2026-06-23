@@ -18,6 +18,7 @@ REQUIRED_INDEX_FILES = {
 }
 
 TOP_LEVEL_DIRS = {
+    "collection",
     "race",
     "subrace",
     "subraces",

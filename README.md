@@ -10,19 +10,21 @@ Use this as the **Base Homebrew Repository URL**:
 
 `URL Sources` and `Additional Homebrew Files` must be direct file URLs, for example:
 
-`https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/race/Veiled%20Omens%3B%20Species.json`
+`https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/collection/Patrick%20Richardson%3B%20Veiled%20Omens%20Campaign%20Setting.json`
 
-## Repository layout and naming
+## Repository Layout And Naming
 
-- Canonical species file path: `race/Veiled Omens; Species.json`
-- File names use package/homebrew identity, not author/account or mechanical bucket name.
-- Canonical subclass file example: `subclass/Veiled Omens; Occult Knight.json`
-- Do not use broad content-bucket filenames for single packages (for example, `subclass/Veiled Omens; Fighter Subclasses.json`) unless the file is a real collection containing multiple entries in that collection.
+- Current canonical source package: `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
+- Current canonical source ID: `VeiledOmens`
+- Source IDs model source material/package identity, not individual classes, subclasses, species, spells, items, or features.
+- Use `collection/` when one source material package spans multiple content types.
+- Use a type-specific directory when the source material package is a single-type package or a true type-specific collection.
 - Author metadata belongs in `_meta.sources[].authors` and adventure/book `author` fields.
+- Image assets for this source package live under `img/VeiledOmens/icons/`.
 
-## Required contributor update flow
+## Required Contributor Update Flow
 
-After content path, source metadata, or source-file changes:
+After content path, source metadata, source-file, or asset-path changes:
 
 ```bash
 python3 tools/generate-plutonium-indexes.py
@@ -34,10 +36,12 @@ Then confirm every repository JSON file parses.
 
 Conventions validation is part of the same flow:
 
-- Compare the new/changed file naming and source-id pattern against corresponding TheGiddyLimit/homebrew examples in `homebrew/*` before finishing.
-- Ensure the source-id inside `_meta.sources[].json` matches the package name identity for the file content (for example `VeiledOmensOccultKnight` for `subclass/Veiled Omens; Occult Knight.json`).
+- Compare the new or changed file naming and source-id pattern against corresponding TheGiddyLimit/homebrew examples before finishing.
+- Confirm `_generated/index-sources.json` maps each source ID to the correct package file.
+- Confirm `_generated/index-props.json` maps every top-level content array to the correct top-level directory.
+- Confirm there are no split source IDs for individual mechanical options inside the same Veiled Omens source package.
 
-## Useful docs
+## Useful Docs
 
 - [DEVELOPMENT.md](./DEVELOPMENT.md)
 - [schemas/README.md](./schemas/README.md)

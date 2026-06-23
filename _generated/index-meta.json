@@ -1,43 +1,8 @@
 {
-  "Veiled Omens; Occult Knight.json": {
-    "e": 0,
-    "n": [
-      "VeiledOmensOccultKnight"
-    ],
-    "s": "ready"
-  },
-  "Veiled Omens; Occultist.json": {
-    "e": 0,
-    "n": [
-      "VeiledOmensOccultist"
-    ],
-    "s": "ready"
-  },
-  "Veiled Omens; Pale Touched.json": {
-    "e": 0,
-    "n": [
-      "VeiledOmensPaleTouched"
-    ],
-    "s": "ready"
-  },
-  "Veiled Omens; Path of the Shaman.json": {
-    "e": 0,
-    "n": [
-      "VeiledOmensPathOfTheShaman"
-    ],
-    "s": "ready"
-  },
-  "Veiled Omens; Species.json": {
+  "Patrick Richardson; Veiled Omens Campaign Setting.json": {
     "e": 0,
     "n": [
       "VeiledOmens"
-    ],
-    "s": "ready"
-  },
-  "Veiled Omens; Thaumaphage.json": {
-    "e": 0,
-    "n": [
-      "VeiledOmensThaumaphage"
     ],
     "s": "ready"
   }

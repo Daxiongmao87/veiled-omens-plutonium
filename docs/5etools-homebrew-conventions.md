@@ -1,51 +1,44 @@
 # 5etools Homebrew Conventions (Plutonium)
 
-This document records the upstream 5etools homebrew conventions this repository follows and the local adaptations needed for Plutonium imports.
+This document records the upstream 5etools homebrew conventions this repository follows and the local rules needed for Plutonium imports.
 
-## Reference sources
+## Reference Sources
 
 - TheGiddyLimit/homebrew repository: `https://github.com/TheGiddyLimit/homebrew`
 - TheGiddyLimit/homebrew README and conventions: `https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/README.md`
 - TheGiddyLimit/homebrew root tree: `https://github.com/TheGiddyLimit/homebrew/tree/master`
-- TheGiddyLimit/homebrew `_img` directory: `https://github.com/TheGiddyLimit/homebrew/tree/master/_img`
+- TheGiddyLimit/homebrew `_generated/index-props.json`: `https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_generated/index-props.json`
+- Upstream mixed collection example: `collection/Matthew Mercer; TalDorei Campaign Guide.json`
 - TheGiddyLimit/homebrew image repository: `https://github.com/TheGiddyLimit/homebrew-img`
 - Upstream schemas: `https://github.com/TheGiddyLimit/5etools-utils/tree/master/schema/brew`
-- Main 5etools data reference: `https://github.com/5etools-mirror-3/5etools-src/tree/main/data`
 - 5etools homebrew helpers: `https://wiki.tercept.net/en/5eTools/HelpPages/makebrew`
 
-## Conventions adopted from upstream
+## Adopted Upstream Rules
 
-Upstream homebrew conventions used here:
-
-- Homebrew JSON files are compatible with 5etools and are loaded through the 5etools Brew Manager or by using raw JSON.
-- The recommended creation path is to copy existing brews as templates and compare against main 5etools data.
-- Repository content is organized by top-level content-type directories such as `race`, `class`, `subclass`, `feat`, `optionalfeature`, `spell`, `item`, and `background`.
-- Files use tabs, LF line endings, and UTF-8 without BOM.
-- Upstream contribution filenames use package/homebrew identity rather than a broad mechanical class bucket for single packages.
+- Homebrew JSON files are compatible with 5etools and are loaded through the 5etools Brew Manager or by direct raw JSON.
+- Repository content is organized by top-level package/content directories such as `collection`, `race`, `class`, `subclass`, `feat`, `optionalfeature`, `spell`, `item`, and `background`.
+- `collection/` is used when one source material package spans multiple content types.
+- Type-specific directories are used when the source package is a single-type package or a true type-specific collection.
+- Filenames identify the source material/package. Upstream contribution filenames use `Author Name; Homebrew Name.json`.
 - `_meta.sources[].json` values are unique source IDs across homebrew.
-- When a source URL is missing, use `https://github.com/TheGiddyLimit/homebrew` as the upstream source URL.
+- Source IDs model source material/package identity, not individual mechanical options.
 - Content authors belong in source `author` / `authors` fields; conversion credit belongs in `convertedBy`.
 - File metadata includes `dateAdded` as a Unix timestamp in seconds.
-- Images and similar assets belong in the upstream homebrew image repository, `https://github.com/TheGiddyLimit/homebrew-img`.
 
-## Local adaptations for this repository
+## Local Rules For This Repository
 
-Patrick-directed local adaptations retained for this repo:
-
-- Canonical species file remains:
-  - `race/Veiled Omens; Species.json`
-- Canonical single package subclass file:
-  - `subclass/Veiled Omens; Occult Knight.json`
-- Canonical file placement is content-class based. Do not use Foundry world export filenames as canonical repository filenames.
-- Canonical images are stored in this repository under `img/icons/` and referenced via raw GitHub URLs.
-- Content remains repository-owned where practical; image transplants are performed in-repo instead of re-pointing to foundry-only assets by default.
+- Current canonical source package: `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
+- Current canonical source ID: `VeiledOmens`
+- Current canonical source author: `Patrick Richardson`
+- Current package images live under `img/VeiledOmens/icons/` and are referenced through raw GitHub URLs.
+- Current Veiled Omens player-facing content remains one collection package/source unless a future source material is a separate publication/package.
+- Individual classes, subclasses, species, spells, items, and features inside the current package must not receive separate source IDs.
 - Plutonium URL Source fields need raw JSON files. Do not use GitHub HTML pages or raw GitHub directory roots as URL Sources.
-- Plutonium Base Homebrew Repository URL uses a branch root in the form `https://raw.githubusercontent.com/<user>/<repo>/<branch>`.
-- For a single-package file, source identity in `_meta.sources[].json` should match package content identity (for example, `VeiledOmensOccultKnight` for `subclass/Veiled Omens; Occult Knight.json`).
-- Broad package names like `Veiled Omens; Fighter Subclasses.json` are invalid for single-entry files.
+- Plutonium Base Homebrew Repository URL uses a branch root in the form `https://raw.githubusercontent.com/<user>/<repo>/<branch>/`.
 
-## Content-type directory to top-level property mapping
+## Directory To Top-Level Property Mapping
 
+- `collection/` -> mixed top-level arrays from one source package
 - `race/` -> `race`
 - `subrace/` -> `subrace`
 - `class/` -> `class`
@@ -62,7 +55,19 @@ Patrick-directed local adaptations retained for this repo:
 - `monster/` -> `monster`
 - Other object-specific directories map to matching top-level array keys in the same pattern, including `action`, `reward`, `vehicle`, `object`, `deity`, `language`, `trap`, `hazard`, `cult`, `boon`, `condition`, `disease`, `variantrule`, `table`, and `psionic`.
 
-## `_generated` index workflow
+## Source Inventory Gate
+
+Before accepting any source organization change:
+
+1. Inspect the source material scope.
+2. Classify whether the content is one mixed package, one single-type package, a true type-specific collection, or a separate publication/package.
+3. Map each `_meta.sources[].json` value to exactly one package file.
+4. Confirm source IDs are not split by individual mechanical options inside the same source material.
+5. Regenerate indexes.
+6. Run the datasource validator.
+7. Run stale-reference scans for removed source IDs and removed file paths.
+
+## `_generated` Index Workflow
 
 `_generated/` files are expected to be present for a valid Plutonium datasource:
 
@@ -73,27 +78,22 @@ Patrick-directed local adaptations retained for this repo:
 
 `python3 tools/generate-plutonium-indexes.py` regenerates these files.
 
-- `python3 tools/generate-plutonium-indexes.py --check` verifies index consistency.
+`python3 tools/generate-plutonium-indexes.py --check` verifies index consistency.
 
-Naming and source-id conventions are validated against local behavior by checking matching examples in TheGiddyLimit/homebrew first, then re-running the local index checks and parser validation.
+`python3 tools/validate-plutonium-datasource.py` validates the generated datasource maps against repository content.
 
-## Asset transplant workflow
+## Asset Transplant Workflow
 
-Use the workflow below for any foundry-path image references that originate from a local world directory:
+Use the workflow below for any Foundry-path image references that originate from a local world directory:
 
-1. Locate the Foundry-relative path in source objects (for example, `worlds/the-star-of-wintercrest/assets/images/Vaetyr_3.png`).
+1. Locate the Foundry-relative path in source objects, such as `worlds/the-star-of-wintercrest/assets/images/Vaetyr_3.png`.
 2. Download from the Foundry base URL: `https://foundry.instance3.astralkeep.com/worlds/the-star-of-wintercrest/assets/images/<image>.png`.
-3. Save each image into `img/icons/` using a repo-owned asset name.
-4. Reference the image from repo JSON via raw GitHub URL (for example, `https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/vaetyr.png`).
-5. For Foundry paths that are global module/system references (for example, `modules/plutonium/...` or `icons/...` paths), do not automatically transplant; keep external references only if the dependency is intentionally external and valid at runtime.
-6. Do not create packed-name aliases unless the source JSON contains that path and the server serves it. For the Vaetyr dossier, the source path is `Vaetyr_3.png`.
+3. Save each image into the package asset directory, currently `img/VeiledOmens/icons/`.
+4. Reference the image from repo JSON via raw GitHub URL, for example `https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/vaetyr.png`.
+5. For Foundry paths that are global module/system references, such as `modules/plutonium/...` or `icons/...`, keep external references when the dependency is intentionally external and valid at runtime.
+6. Do not create packed-name aliases unless the source JSON contains that path and the server serves it.
 
-## Distinction: world paths vs external paths
+## Distinction: World Paths Vs External Paths
 
-- **Custom world paths**:
-  - Must be fetched and transplanted into the repo when used in this datasource.
-  - Example: `worlds/the-star-of-wintercrest/assets/images/...`
-
-- **Core/module paths**:
-  - Keep as-is only when the dependency is stable external runtime content.
-  - Example: `modules/plutonium/...`, shared `icons/...` references intended for Foundry/system-provided assets.
+- Custom world paths must be fetched and transplanted into the repo when used in this datasource.
+- Core/module paths remain external when the dependency is stable runtime content.

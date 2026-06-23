@@ -16,15 +16,15 @@ Use this `_meta` source block for Veiled Omens content:
         "json": "VeiledOmens",
         "abbreviation": "VO",
         "full": "Veiled Omens Campaign Setting",
-        "authors": ["Daxiongmao87"],
-        "version": "0.1.0"
+        "authors": ["Patrick Richardson"],
+        "version": "1.0.0-foundry-mechanics"
       }
     ]
   }
 }
 ```
 
-All Veiled Omens entries should normally use:
+All Veiled Omens entries use:
 
 ```json
 "source": "VeiledOmens"
@@ -32,14 +32,15 @@ All Veiled Omens entries should normally use:
 
 ## Content file naming rule
 
-Plutonium content file names should identify corpus and content type, not author.
+Plutonium content file names identify source material/package identity.
 
-- Canonical species file path: `race/Veiled Omens; Species.json`
-- File names must keep author/account only in JSON metadata:
-  - `_meta.sources[].authors`
-  - adventure/book `author`
+- Current canonical file: `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
+- Current canonical source ID: `VeiledOmens`
+- Use `collection/` when one source material package spans multiple content types.
+- Use type-specific directories when the source package is a single-type package or a true type-specific collection.
+- Source IDs model source material/package identity, not individual mechanical options.
 
-When adding files to `URL Sources` or `Additional Homebrew Files`, use direct file URLs (for example `.../race/Veiled%20Omens%3B%20Species.json`), not the repository root.
+When adding files to `URL Sources` or `Additional Homebrew Files`, use direct file URLs (for example `.../collection/Patrick%20Richardson%3B%20Veiled%20Omens%20Campaign%20Setting.json`), not the repository root.
 
 ## Race / species
 
@@ -78,7 +79,7 @@ Core fields:
   "skillProficiencies": [{"perception": true}],
   "traitTags": ["Skill Proficiency", "Language Proficiency"],
   "creatureTypes": ["humanoid"],
-  "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/example.png",
+  "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/example.png",
   "entries": [
     {
       "name": "Trait Name",
@@ -340,7 +341,7 @@ Core fields:
   "bonusSpellAttack": 1,
   "bonusSpellSaveDc": 1,
   "focus": true,
-  "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/item.png",
+  "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/item.png",
   "entries": [
     {
       "name": "",
@@ -666,7 +667,7 @@ Adventure core fields:
   "group": "Veiled Omens",
   "cover": "",
   "published": "2026",
-  "author": ["Daxiongmao87"],
+  "author": ["Patrick Richardson"],
   "storyline": "Veiled Omens",
   "level": "1-5",
   "contents": {"chapters": []},
@@ -684,7 +685,7 @@ Book core fields:
   "group": "Veiled Omens",
   "cover": "",
   "published": "2026",
-  "author": ["Daxiongmao87"],
+  "author": ["Patrick Richardson"],
   "contents": {"chapters": []},
   "__prop": "book"
 }
@@ -902,5 +903,5 @@ Before committing a new content file:
 3. Confirm every entry has the expected `source`.
 4. Confirm `__prop` matches the entry type.
 5. Confirm feature-reference strings exactly match the names and source IDs of their target records.
-6. Confirm `index.json` includes the file if Plutonium should auto-load it.
+6. Confirm `index.json` includes the file when Plutonium is expected to auto-load it.
 7. Import into a disposable Foundry world before relying on it in campaign play.

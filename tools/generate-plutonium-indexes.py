@@ -21,6 +21,7 @@ INDEX_FILES = (
 
 SKIP_DIRS = {".git", ".mypy_cache", ".venv", "node_modules", ".github"}
 TOP_LEVEL_DIRS = {
+    "collection",
     "race",
     "subrace",
     "subraces",

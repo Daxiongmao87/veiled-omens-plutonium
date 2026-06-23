@@ -1,8 +1,3 @@
 {
-  "VeiledOmens": "race/Veiled Omens; Species.json",
-  "VeiledOmensOccultKnight": "subclass/Veiled Omens; Occult Knight.json",
-  "VeiledOmensOccultist": "class/Veiled Omens; Occultist.json",
-  "VeiledOmensPaleTouched": "subclass/Veiled Omens; Pale Touched.json",
-  "VeiledOmensPathOfTheShaman": "subclass/Veiled Omens; Path of the Shaman.json",
-  "VeiledOmensThaumaphage": "class/Veiled Omens; Thaumaphage.json"
+  "VeiledOmens": "collection/Patrick Richardson; Veiled Omens Campaign Setting.json"
 }

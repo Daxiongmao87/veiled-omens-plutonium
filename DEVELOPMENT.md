@@ -29,7 +29,7 @@ Do not point these fields at the repository root URL. A raw repo root fetch retu
 Direct-file examples:
 
 ```text
-https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/race/Veiled%20Omens%3B%20Species.json
+https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/collection/Patrick%20Richardson%3B%20Veiled%20Omens%20Campaign%20Setting.json
 ```
 
 ## Contributor workflow for changes
@@ -46,7 +46,7 @@ Then parse each JSON file to confirm it remains valid.
 
 Conventions validation step before merge:
 
-- Compare package filenames and source IDs against corresponding TheGiddyLimit/homebrew example files in the same directory (`race`, `subclass`, etc.) before final acceptance.
+- Compare package filenames and source IDs against corresponding TheGiddyLimit/homebrew example files in the same directory. Use `collection/` examples when a source material package spans multiple content types.
 - Do not treat index/json checks as sufficient if naming and source identity do not match package-level conventions.
 
 ## Source identity
@@ -61,8 +61,8 @@ Use this source block for Veiled Omens content unless a file has a specific reas
         "json": "VeiledOmens",
         "abbreviation": "VO",
         "full": "Veiled Omens Campaign Setting",
-        "authors": ["Daxiongmao87"],
-        "version": "0.1.0"
+        "authors": ["Patrick Richardson"],
+        "version": "1.0.0-foundry-mechanics"
       }
     ]
   }
@@ -74,22 +74,23 @@ Rules:
 - `json` is the stable machine source ID. Do not rename it casually.
 - `abbreviation` is the compact label shown in lists.
 - `full` is the human-readable campaign setting/source name.
-- All entries in the file should use `"source": "VeiledOmens"` unless importing third-party material.
+- All entries in the file use `"source": "VeiledOmens"` unless importing third-party material.
 
 ### File naming and metadata class rule
 
-Content file names should describe package/homebrew identity inside a content directory.
+Content file names describe source material/package identity inside the directory that matches the package shape.
 
-- Canonical species file path: `race/Veiled Omens; Species.json`
-- Canonical single-subclass file path: `subclass/Veiled Omens; Occult Knight.json`
+- Current canonical source package: `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
+- Use `collection/` when one source material package spans multiple content types.
+- Use a type-specific directory when the source package is a single-type package or a true type-specific collection.
 - Author and account attribution belongs in `_meta.sources[].authors` and adventure/book `author` fields.
-- Do not encode author names in content-file names.
-- Do not use broad mechanical bucket file names for a single package (for example, `subclass/Veiled Omens; Fighter Subclasses.json`), unless the file is an actual multi-entry collection package in that bucket.
+- Follow the upstream author-name filename segment for package files when the package convention requires it.
 
-Source IDs follow the package/homebrew identity, not the content bucket.
+Source IDs follow the package/homebrew identity, not the content bucket or individual mechanical option.
 
-- For `subclass/Veiled Omens; Occult Knight.json`, the canonical source id is `VeiledOmensOccultKnight`.
-- Broad source IDs like `VeiledOmens` or `VeiledOmensSubclasses` are not correct for that single-package file.
+- Current canonical source ID: `VeiledOmens`
+- Current Veiled Omens player-facing content remains one collection source unless a future source material is a separate publication/package.
+- Do not create split source IDs for individual classes, subclasses, species, spells, items, or features inside the same source material.
 
 ## Recommended repository layout
 
@@ -105,18 +106,11 @@ Source IDs follow the package/homebrew identity, not the content bucket.
   |    +--- index-props.json
   |    +--- index-sources.json
   |    +--- index-timestamps.json
-  +--- race/
-  |    +--- Veiled Omens; Species.json
-  +--- subraces/
-  +--- classes/
-  +--- subclasses/
-  +--- feats/
-  +--- spells/
-  +--- items/
-  +--- backgrounds/
-  +--- optionalfeatures/
+  +--- collection/
+  |    +--- Patrick Richardson; Veiled Omens Campaign Setting.json
   +--- img/
-       +--- icons/
+       +--- VeiledOmens/
+            +--- icons/
 ```
 
 Git does not preserve empty directories, so add `.gitkeep` files when needed.
@@ -146,7 +140,7 @@ That document covers:
 - `_generated` index file semantics.
 - foundry asset transplant workflow (world-relative paths to repo-hosted `img/` files).
 
-Schema repositories and examples may move. When in doubt, inspect the live 5etools/Plutonium data cache and compare against an official race, class, feat, spell, or item that behaves the way the new content should behave.
+Schema repositories and examples may move. When in doubt, inspect the live 5etools/Plutonium data cache and compare against an official race, class, feat, spell, or item that behaves the way the new content is expected to behave.
 
 ## Race/species format
 
@@ -162,8 +156,8 @@ Minimal pattern:
         "json": "VeiledOmens",
         "abbreviation": "VO",
         "full": "Veiled Omens Campaign Setting",
-        "authors": ["Daxiongmao87"],
-        "version": "0.1.0"
+        "authors": ["Patrick Richardson"],
+        "version": "1.0.0-foundry-mechanics"
       }
     ]
   },
@@ -178,7 +172,7 @@ Minimal pattern:
       "languageProficiencies": [{"common": true}],
       "skillProficiencies": [{"perception": true}],
       "creatureTypes": ["humanoid"],
-      "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/example.png",
+      "foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/example.png",
       "entries": [
         {
           "name": "Darkvision",
@@ -332,7 +326,7 @@ Example:
 
 Recommended image policy:
 
-- Put icons under `img/icons/`.
+- Put icons under the package asset directory, currently `img/VeiledOmens/icons/`.
 - Use lowercase hyphenated or snake_case names.
 - Reference images with full raw URLs until Plutonium import is confirmed.
 - Keep image dimensions reasonable for Foundry item icons, typically square PNG or WebP.
@@ -340,7 +334,7 @@ Recommended image policy:
 Example:
 
 ```text
-"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/icons/ghost_elf.png"
+"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/ghost_elf.png"
 ```
 
 ## Validation checklist

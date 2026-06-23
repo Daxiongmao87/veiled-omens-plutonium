@@ -1,34 +1,23 @@
 {
   "class": {
-    "class/Veiled Omens; Occultist.json": "class",
-    "class/Veiled Omens; Thaumaphage.json": "class"
+    "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
   },
   "classFeature": {
-    "class/Veiled Omens; Occultist.json": "class",
-    "class/Veiled Omens; Thaumaphage.json": "class"
+    "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
   },
   "item": {
-    "class/Veiled Omens; Thaumaphage.json": "class"
+    "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
   },
   "race": {
-    "race/Veiled Omens; Species.json": "race"
+    "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
   },
   "spell": {
-    "class/Veiled Omens; Occultist.json": "class",
-    "class/Veiled Omens; Thaumaphage.json": "class"
+    "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
   },
   "subclass": {
-    "class/Veiled Omens; Occultist.json": "class",
-    "class/Veiled Omens; Thaumaphage.json": "class",
-    "subclass/Veiled Omens; Occult Knight.json": "subclass",
-    "subclass/Veiled Omens; Pale Touched.json": "subclass",
-    "subclass/Veiled Omens; Path of the Shaman.json": "subclass"
+    "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
   },
   "subclassFeature": {
-    "class/Veiled Omens; Occultist.json": "class",
-    "class/Veiled Omens; Thaumaphage.json": "class",
-    "subclass/Veiled Omens; Occult Knight.json": "subclass",
-    "subclass/Veiled Omens; Pale Touched.json": "subclass",
-    "subclass/Veiled Omens; Path of the Shaman.json": "subclass"
+    "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
   }
 }

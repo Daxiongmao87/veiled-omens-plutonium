@@ -19,10 +19,11 @@ Before reporting source organization work complete:
 1. Regenerate indexes with `python3 tools/generate-plutonium-indexes.py`.
 2. Run `python3 tools/generate-plutonium-indexes.py --check`.
 3. Run `python3 tools/validate-plutonium-datasource.py`.
-4. Parse every repository JSON file.
-5. Audit `_generated/index-sources.json` for one source ID per source package.
-6. Audit `_generated/index-props.json` for correct content-directory mappings.
-7. Run stale-reference scans for removed source IDs and removed package paths.
+4. Run `python3 tools/validate-plutonium-links.py`.
+5. Parse every repository JSON file.
+6. Audit `_generated/index-sources.json` for one source ID per source package.
+7. Audit `_generated/index-props.json` for correct content-directory mappings.
+8. Run stale-reference scans for removed source IDs and removed package paths.
 
 ## Assets
 

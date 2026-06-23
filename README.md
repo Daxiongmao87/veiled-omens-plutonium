@@ -30,6 +30,7 @@ After content path, source metadata, source-file, or asset-path changes:
 python3 tools/generate-plutonium-indexes.py
 python3 tools/generate-plutonium-indexes.py --check
 python3 tools/validate-plutonium-datasource.py
+python3 tools/validate-plutonium-links.py
 ```
 
 Then confirm every repository JSON file parses.
@@ -39,6 +40,7 @@ Conventions validation is part of the same flow:
 - Compare the new or changed file naming and source-id pattern against corresponding TheGiddyLimit/homebrew examples before finishing.
 - Confirm `_generated/index-sources.json` maps each source ID to the correct package file.
 - Confirm `_generated/index-props.json` maps every top-level content array to the correct top-level directory.
+- Confirm class and subclass feature references resolve to real Plutonium entities.
 - Confirm there are no split source IDs for individual mechanical options inside the same Veiled Omens source package.
 
 ## Useful Docs

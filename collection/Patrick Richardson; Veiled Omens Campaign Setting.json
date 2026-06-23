@@ -15,7 +15,7 @@
 			}
 		],
 		"dateAdded": 1780786407,
-		"dateLastModified": 1782211718,
+		"dateLastModified": 1782258840,
 		"status": "ready",
 		"edition": "classic"
 	},
@@ -2466,6 +2466,42 @@
 			"__prop": "classFeature"
 		},
 		{
+			"name": "Occultist Rites",
+			"source": "VeiledOmens",
+			"className": "Occultist",
+			"classSource": "VeiledOmens",
+			"level": 6,
+			"entries": [
+				"At 6th level, you gain the next feature from the Occultist Rite you chose at 3rd level."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-occultist-rites.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Occultist Rites",
+			"source": "VeiledOmens",
+			"className": "Occultist",
+			"classSource": "VeiledOmens",
+			"level": 10,
+			"entries": [
+				"At 10th level, you gain the next feature from the Occultist Rite you chose at 3rd level."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-occultist-rites.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Occultist Rites",
+			"source": "VeiledOmens",
+			"className": "Occultist",
+			"classSource": "VeiledOmens",
+			"level": 14,
+			"entries": [
+				"At 14th level, you gain the next feature from the Occultist Rite you chose at 3rd level."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-occultist-rites.webp",
+			"__prop": "classFeature"
+		},
+		{
 			"name": "Ability Score Improvement",
 			"source": "VeiledOmens",
 			"className": "Occultist",
@@ -2747,6 +2783,42 @@
 						]
 					]
 				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-devouring-arts.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Devouring Arts",
+			"source": "VeiledOmens",
+			"className": "Thaumaphage",
+			"classSource": "VeiledOmens",
+			"level": 6,
+			"entries": [
+				"At 6th level, you gain the next feature from the Devouring Art you chose at 2nd level."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-devouring-arts.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Devouring Arts",
+			"source": "VeiledOmens",
+			"className": "Thaumaphage",
+			"classSource": "VeiledOmens",
+			"level": 10,
+			"entries": [
+				"At 10th level, you gain the next feature from the Devouring Art you chose at 2nd level."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-devouring-arts.webp",
+			"__prop": "classFeature"
+		},
+		{
+			"name": "Devouring Arts",
+			"source": "VeiledOmens",
+			"className": "Thaumaphage",
+			"classSource": "VeiledOmens",
+			"level": 14,
+			"entries": [
+				"At 14th level, you gain the next feature from the Devouring Art you chose at 2nd level."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-devouring-arts.webp",
 			"__prop": "classFeature"

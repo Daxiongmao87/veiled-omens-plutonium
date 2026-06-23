@@ -40,6 +40,7 @@ After changing file paths, content type paths, source metadata, or file names:
 python3 tools/generate-plutonium-indexes.py
 python3 tools/generate-plutonium-indexes.py --check
 python3 tools/validate-plutonium-datasource.py
+python3 tools/validate-plutonium-links.py
 ```
 
 Then parse each JSON file to confirm it remains valid.
@@ -101,6 +102,7 @@ Source IDs follow the package/homebrew identity, not the content bucket or indiv
   +--- tools/
   |    +--- generate-plutonium-indexes.py
   |    +--- validate-plutonium-datasource.py
+  |    +--- validate-plutonium-links.py
   +--- _generated/
   |    +--- index-meta.json
   |    +--- index-props.json
@@ -354,6 +356,7 @@ Before committing content:
 11. Confirm mechanical choices apply correctly to a test actor.
 12. Confirm `python3 tools/validate-plutonium-datasource.py` passes before release.
 13. Confirm generated indexes were produced with `python3 tools/generate-plutonium-indexes.py --check`.
+14. Confirm `python3 tools/validate-plutonium-links.py` passes before release.
 
 ## Plutonium troubleshooting
 

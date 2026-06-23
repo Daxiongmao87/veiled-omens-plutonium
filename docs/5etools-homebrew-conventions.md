@@ -82,6 +82,8 @@ Before accepting any source organization change:
 
 `python3 tools/validate-plutonium-datasource.py` validates the generated datasource maps against repository content.
 
+`python3 tools/validate-plutonium-links.py` validates Plutonium linked-entity references such as class feature, subclass feature, spell, and item references.
+
 ## Asset Transplant Workflow
 
 Use the workflow below for any Foundry-path image references that originate from a local world directory:

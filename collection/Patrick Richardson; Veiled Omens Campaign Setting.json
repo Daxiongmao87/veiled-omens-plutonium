@@ -98,42 +98,48 @@
 					"name": "Darkvision",
 					"entries": [
 						"Accustomed to life amid darkness, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You cannot discern color in darkness, only shades of gray."
-					]
+					],
+					"_foundryId": "RF64d35fe85ffe5d"
 				},
 				{
 					"type": "entries",
 					"name": "Luminescent Skin",
 					"entries": [
 						"Your pale skin emits a faint, ethereal glow. You shed dim light in a 5-foot radius. This light is magical and appears as a soft shimmer in shades of pale blue to white."
-					]
+					],
+					"_foundryId": "RF884226f85fd5c0"
 				},
 				{
 					"type": "entries",
 					"name": "Keen Senses",
 					"entries": [
 						"You have proficiency in the {@skill Perception} skill."
-					]
+					],
+					"_foundryId": "RF1f4aee3872f5a7"
 				},
 				{
 					"type": "entries",
 					"name": "Fey Ancestry",
 					"entries": [
 						"You have advantage on saving throws against being charmed, and magic cannot put you to sleep."
-					]
+					],
+					"_foundryId": "RFfc227ce0081b86"
 				},
 				{
 					"type": "entries",
 					"name": "Trance",
 					"entries": [
 						"Like other elves, ghost elves do not sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through long practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
-					]
+					],
+					"_foundryId": "RFc1c7f81ddc3c13"
 				},
 				{
 					"type": "entries",
 					"name": "Ghost Elf Immortality",
 					"entries": [
 						"You do not age and cannot die of old age."
-					]
+					],
+					"_foundryId": "RF3aa9cbfde0a72b"
 				},
 				{
 					"type": "entries",
@@ -144,7 +150,65 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/ghost_elf.png",
-			"__prop": "race"
+			"__prop": "race",
+			"foundryAdvancement": [
+				{
+					"_id": "VAfb190450023bf3",
+					"type": "ItemGrant",
+					"level": 0,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RF64d35fe85ffe5d",
+								"optional": false
+							},
+							{
+								"uuid": ".RF884226f85fd5c0",
+								"optional": false
+							},
+							{
+								"uuid": ".RF1f4aee3872f5a7",
+								"optional": false
+							},
+							{
+								"uuid": ".RFfc227ce0081b86",
+								"optional": false
+							},
+							{
+								"uuid": ".RFc1c7f81ddc3c13",
+								"optional": false
+							},
+							{
+								"uuid": ".RF3aa9cbfde0a72b",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RF64d35fe85ffe5d": ".RF64d35fe85ffe5d",
+							"RF884226f85fd5c0": ".RF884226f85fd5c0",
+							"RF1f4aee3872f5a7": ".RF1f4aee3872f5a7",
+							"RFfc227ce0081b86": ".RFfc227ce0081b86",
+							"RFc1c7f81ddc3c13": ".RFc1c7f81ddc3c13",
+							"RF3aa9cbfde0a72b": ".RF3aa9cbfde0a72b"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Goliath (Ogre-Blooded)",
@@ -217,21 +281,24 @@
 					"name": "Natural Athlete",
 					"entries": [
 						"You have proficiency in the Athletics skill."
-					]
+					],
+					"_foundryId": "RF7ca5e672b3a1cf"
 				},
 				{
 					"type": "entries",
 					"name": "Stone's Endurance",
 					"entries": [
 						"You can focus yourself to occasionally shrug off injury. When you take damage, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled, and reduce the damage by that total. After you use this trait, you can't use it again until you finish a short or long rest."
-					]
+					],
+					"_foundryId": "RF5cbe64196f3aa9"
 				},
 				{
 					"type": "entries",
 					"name": "Mountain Born",
 					"entries": [
 						"You have resistance to cold damage. You're also acclimated to high altitude, including elevations above 20,000 feet."
-					]
+					],
+					"_foundryId": "RFf6e85d203bdafe"
 				},
 				{
 					"type": "entries",
@@ -280,11 +347,60 @@
 								}
 							]
 						}
-					]
+					],
+					"_foundryId": "RFb0b9e836b17cc8"
 				}
 			],
 			"foundryImg": "icons/magic/control/buff-strength-muscle-damage.webp",
-			"__prop": "race"
+			"__prop": "race",
+			"foundryAdvancement": [
+				{
+					"_id": "VA609390ddbcfffc",
+					"type": "ItemGrant",
+					"level": 0,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RF7ca5e672b3a1cf",
+								"optional": false
+							},
+							{
+								"uuid": ".RF5cbe64196f3aa9",
+								"optional": false
+							},
+							{
+								"uuid": ".RFf6e85d203bdafe",
+								"optional": false
+							},
+							{
+								"uuid": ".RFb0b9e836b17cc8",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RF7ca5e672b3a1cf": ".RF7ca5e672b3a1cf",
+							"RF5cbe64196f3aa9": ".RF5cbe64196f3aa9",
+							"RFf6e85d203bdafe": ".RFf6e85d203bdafe",
+							"RFb0b9e836b17cc8": ".RFb0b9e836b17cc8"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Goliath (Troll-Blooded)",
@@ -356,21 +472,24 @@
 					"name": "Natural Athlete",
 					"entries": [
 						"You have proficiency in the Athletics skill."
-					]
+					],
+					"_foundryId": "RFf8fe71a8916b8e"
 				},
 				{
 					"type": "entries",
 					"name": "Stone's Endurance",
 					"entries": [
 						"You can focus yourself to occasionally shrug off injury. When you take damage, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled, and reduce the damage by that total. After you use this trait, you can't use it again until you finish a short or long rest."
-					]
+					],
+					"_foundryId": "RFab7b705fdf7b64"
 				},
 				{
 					"type": "entries",
 					"name": "Mountain Born",
 					"entries": [
 						"You have resistance to cold damage. You are also acclimated to high altitude, including elevations above 20,000 feet."
-					]
+					],
+					"_foundryId": "RF58bd569d424de3"
 				},
 				{
 					"type": "entries",
@@ -419,11 +538,60 @@
 								}
 							]
 						}
-					]
+					],
+					"_foundryId": "RF8fcdd0982d8041"
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/troll-blooded.webp",
-			"__prop": "race"
+			"__prop": "race",
+			"foundryAdvancement": [
+				{
+					"_id": "VA15e3ff80dcf4c3",
+					"type": "ItemGrant",
+					"level": 0,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RFf8fe71a8916b8e",
+								"optional": false
+							},
+							{
+								"uuid": ".RFab7b705fdf7b64",
+								"optional": false
+							},
+							{
+								"uuid": ".RF58bd569d424de3",
+								"optional": false
+							},
+							{
+								"uuid": ".RF8fcdd0982d8041",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RFf8fe71a8916b8e": ".RFf8fe71a8916b8e",
+							"RFab7b705fdf7b64": ".RFab7b705fdf7b64",
+							"RF58bd569d424de3": ".RF58bd569d424de3",
+							"RF8fcdd0982d8041": ".RF8fcdd0982d8041"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Onihan (Oni-zu)",
@@ -490,14 +658,16 @@
 					"name": "Darkvision",
 					"entries": [
 						"Thanks to your oni heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as though it were bright light, and in darkness as though it were dim light. You cannot discern color in darkness, only shades of gray."
-					]
+					],
+					"_foundryId": "RF9997da7c289fd9"
 				},
 				{
 					"type": "entries",
 					"name": "Oni Resilience",
 					"entries": [
 						"Your oni blood knits wounds, but in measured ways. When you spend Hit Dice during a short rest, add your proficiency bonus to one of those dice. In addition, once per short rest, as an action, you can spend one Hit Die to regain hit points equal to the roll + your Constitution modifier. This use doesn't benefit from features that add to healing from Hit Dice."
-					]
+					],
+					"_foundryId": "RF93df6e218cd29a"
 				},
 				{
 					"type": "entries",
@@ -518,21 +688,24 @@
 					"name": "Oni-zu",
 					"entries": [
 						"Oni-zu are descended from oni mages, the most common and magically adept oni. Your skin bears shades of blue or green, and you possess slender, traditional oni horns that curve gracefully from your forehead. You inherit your ancestors' innate magical cunning and powers of deception."
-					]
+					],
+					"_foundryId": "RF618387577c4aaa"
 				},
 				{
 					"type": "entries",
 					"name": "Cunning of Night",
 					"entries": [
 						"You have advantage on Dexterity (Stealth) checks made in dim light or darkness, and you have advantage on saving throws against being charmed."
-					]
+					],
+					"_foundryId": "RFd157a6ef3dbdf4"
 				},
 				{
 					"type": "entries",
 					"name": "Oni Heritage Magic",
 					"entries": [
 						"You learn one cantrip of your choice from {@spell minor illusion} or {@spell thaumaturgy}. When you reach 3rd level, you can cast {@spell disguise self} once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast {@spell darkness} once with this trait, and you regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
-					]
+					],
+					"_foundryId": "RFacfc150f165de9"
 				}
 			],
 			"additionalSpells": [
@@ -588,7 +761,60 @@
 				}
 			],
 			"foundryImg": "icons/creatures/eyes/humanoid-single-yellow.webp",
-			"__prop": "race"
+			"__prop": "race",
+			"foundryAdvancement": [
+				{
+					"_id": "VA5d9bb9ab700f94",
+					"type": "ItemGrant",
+					"level": 0,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RF9997da7c289fd9",
+								"optional": false
+							},
+							{
+								"uuid": ".RF93df6e218cd29a",
+								"optional": false
+							},
+							{
+								"uuid": ".RF618387577c4aaa",
+								"optional": false
+							},
+							{
+								"uuid": ".RFd157a6ef3dbdf4",
+								"optional": false
+							},
+							{
+								"uuid": ".RFacfc150f165de9",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RF9997da7c289fd9": ".RF9997da7c289fd9",
+							"RF93df6e218cd29a": ".RF93df6e218cd29a",
+							"RF618387577c4aaa": ".RF618387577c4aaa",
+							"RFd157a6ef3dbdf4": ".RFd157a6ef3dbdf4",
+							"RFacfc150f165de9": ".RFacfc150f165de9"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Onihan (Go-zu)",
@@ -655,14 +881,16 @@
 					"name": "Darkvision",
 					"entries": [
 						"Thanks to your oni heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as though it were bright light, and in darkness as though it were dim light. You cannot discern color in darkness, only shades of gray."
-					]
+					],
+					"_foundryId": "RF7da1d5ae5b5b7a"
 				},
 				{
 					"type": "entries",
 					"name": "Oni Resilience",
 					"entries": [
 						"Your oni blood knits wounds, but in measured ways. When you spend Hit Dice during a short rest, add your proficiency bonus to one of those dice. In addition, once per short rest, as an action, you can spend one Hit Die to regain hit points equal to the roll + your Constitution modifier. This use doesn't benefit from features that add to healing from Hit Dice."
-					]
+					],
+					"_foundryId": "RF63aa598aa5d13e"
 				},
 				{
 					"type": "entries",
@@ -683,35 +911,40 @@
 					"name": "Go-zu",
 					"entries": [
 						"Go-zu are descended from the bull-headed oni who served as soldiers and guardians in celestial armies. Your skin ranges from grey to orange to purple, and you bear thick, bull-like horns that curve outward or upward, though still refined and petite compared to true oni. You inherit your ancestors' physical might and indomitable presence."
-					]
+					],
+					"_foundryId": "RF9015c761c184d9"
 				},
 				{
 					"type": "entries",
 					"name": "Powerful Build",
 					"entries": [
 						"You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
-					]
+					],
+					"_foundryId": "RFe41d4c0472961a"
 				},
 				{
 					"type": "entries",
 					"name": "Charging Strike",
 					"entries": [
 						"When you move at least 10 feet straight toward a target and then hit it with a melee weapon attack on the same turn, you can force the target to make a Strength saving throw (DC = 8 + your proficiency bonus + your Strength modifier). On a failed save, the target is pushed up to 10 feet away from you. You can use this trait a number of times equal to your proficiency bonus, regaining all expended uses when you finish a long rest."
-					]
+					],
+					"_foundryId": "RF8abf1ca5b309db"
 				},
 				{
 					"type": "entries",
 					"name": "Bull-Headed",
 					"entries": [
 						"You have advantage on saving throws against being charmed."
-					]
+					],
+					"_foundryId": "RF69c9abad19646e"
 				},
 				{
 					"type": "entries",
 					"name": "Gatekeeper's Insight",
 					"entries": [
 						"You can cast {@spell detect evil and good} once with this trait, and you regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for this spell."
-					]
+					],
+					"_foundryId": "RFa7e147298fd7a6"
 				}
 			],
 			"additionalSpells": [
@@ -729,7 +962,70 @@
 				}
 			],
 			"foundryImg": "icons/creatures/eyes/humanoid-single-yellow.webp",
-			"__prop": "race"
+			"__prop": "race",
+			"foundryAdvancement": [
+				{
+					"_id": "VAd48cc364cc436b",
+					"type": "ItemGrant",
+					"level": 0,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RF7da1d5ae5b5b7a",
+								"optional": false
+							},
+							{
+								"uuid": ".RF63aa598aa5d13e",
+								"optional": false
+							},
+							{
+								"uuid": ".RF9015c761c184d9",
+								"optional": false
+							},
+							{
+								"uuid": ".RFe41d4c0472961a",
+								"optional": false
+							},
+							{
+								"uuid": ".RF8abf1ca5b309db",
+								"optional": false
+							},
+							{
+								"uuid": ".RF69c9abad19646e",
+								"optional": false
+							},
+							{
+								"uuid": ".RFa7e147298fd7a6",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RF7da1d5ae5b5b7a": ".RF7da1d5ae5b5b7a",
+							"RF63aa598aa5d13e": ".RF63aa598aa5d13e",
+							"RF9015c761c184d9": ".RF9015c761c184d9",
+							"RFe41d4c0472961a": ".RFe41d4c0472961a",
+							"RF8abf1ca5b309db": ".RF8abf1ca5b309db",
+							"RF69c9abad19646e": ".RF69c9abad19646e",
+							"RFa7e147298fd7a6": ".RFa7e147298fd7a6"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Onihan (Me-zu)",
@@ -796,14 +1092,16 @@
 					"name": "Darkvision",
 					"entries": [
 						"Thanks to your oni heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as though it were bright light, and in darkness as though it were dim light. You cannot discern color in darkness, only shades of gray."
-					]
+					],
+					"_foundryId": "RF55ded8ff56dcaf"
 				},
 				{
 					"type": "entries",
 					"name": "Oni Resilience",
 					"entries": [
 						"Your oni blood knits wounds, but in measured ways. When you spend Hit Dice during a short rest, add your proficiency bonus to one of those dice. In addition, once per short rest, as an action, you can spend one Hit Die to regain hit points equal to the roll + your Constitution modifier. This use doesn't benefit from features that add to healing from Hit Dice."
-					]
+					],
+					"_foundryId": "RF49aae326e8ff71"
 				},
 				{
 					"type": "entries",
@@ -824,35 +1122,40 @@
 					"name": "Me-zu",
 					"entries": [
 						"Me-zu are descended from the horse-headed oni who served as commanders and special operatives within celestial courts. Your skin bears earthen tones ranging from brown to beige, and you possess very small horns--sometimes mere nubs. Wild, mane-like hair grows from the crown of your head, but you are naturally unable to grow hair on the sides of your head, creating a distinctive hair pattern. You inherit your ancestors' supernatural mobility and tactical poise."
-					]
+					],
+					"_foundryId": "RF3464855fa9d8a1"
 				},
 				{
 					"type": "entries",
 					"name": "Fleet of Foot",
 					"entries": [
 						"Your base walking speed increases to 35 feet."
-					]
+					],
+					"_foundryId": "RF5ab55f6c7f9b18"
 				},
 				{
 					"type": "entries",
 					"name": "Messenger's Agility",
 					"entries": [
 						"When you take the Dash action, difficult terrain doesn't cost you extra movement until the end of your turn. Additionally, when you take the Dash action, you can make a single melee weapon attack or shove a creature as a bonus action."
-					]
+					],
+					"_foundryId": "RFd2e5af5a262ba4"
 				},
 				{
 					"type": "entries",
 					"name": "Supernatural Leap",
 					"entries": [
 						"Your long jump distance is doubled, and your high jump distance is tripled. Additionally, you can use this trait to reduce any falling damage you take by an amount equal to five times your level."
-					]
+					],
+					"_foundryId": "RF5f7d4f8fb983f5"
 				},
 				{
 					"type": "entries",
 					"name": "Oni Heritage Magic",
 					"entries": [
 						"You learn one cantrip of your choice from {@spell guidance} or {@spell blade ward}. When you reach 3rd level, you can cast {@spell longstrider} on yourself once with this trait, and you regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
-					]
+					],
+					"_foundryId": "RFa86667fd971bff"
 				}
 			],
 			"additionalSpells": [
@@ -894,7 +1197,70 @@
 				}
 			],
 			"foundryImg": "icons/creatures/eyes/humanoid-single-yellow.webp",
-			"__prop": "race"
+			"__prop": "race",
+			"foundryAdvancement": [
+				{
+					"_id": "VAa1994b918c4733",
+					"type": "ItemGrant",
+					"level": 0,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RF55ded8ff56dcaf",
+								"optional": false
+							},
+							{
+								"uuid": ".RF49aae326e8ff71",
+								"optional": false
+							},
+							{
+								"uuid": ".RF3464855fa9d8a1",
+								"optional": false
+							},
+							{
+								"uuid": ".RF5ab55f6c7f9b18",
+								"optional": false
+							},
+							{
+								"uuid": ".RFd2e5af5a262ba4",
+								"optional": false
+							},
+							{
+								"uuid": ".RF5f7d4f8fb983f5",
+								"optional": false
+							},
+							{
+								"uuid": ".RFa86667fd971bff",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RF55ded8ff56dcaf": ".RF55ded8ff56dcaf",
+							"RF49aae326e8ff71": ".RF49aae326e8ff71",
+							"RF3464855fa9d8a1": ".RF3464855fa9d8a1",
+							"RF5ab55f6c7f9b18": ".RF5ab55f6c7f9b18",
+							"RFd2e5af5a262ba4": ".RFd2e5af5a262ba4",
+							"RF5f7d4f8fb983f5": ".RF5f7d4f8fb983f5",
+							"RFa86667fd971bff": ".RFa86667fd971bff"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Vaetyr (Hearthbound)",
@@ -1020,14 +1386,16 @@
 					"name": "Darkvision",
 					"entries": [
 						"Thanks to your gnome and dwarf ancestry, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
-					]
+					],
+					"_foundryId": "RFc56aceccd06c5c"
 				},
 				{
 					"type": "entries",
 					"name": "Seafaring Heritage",
 					"entries": [
 						"You have proficiency in the {@skill Survival} skill and {@item Navigator's Tools|phb|navigator's tools}."
-					]
+					],
+					"_foundryId": "RF7d0fef4cee3cbc"
 				},
 				{
 					"type": "entries",
@@ -1041,7 +1409,8 @@
 					"name": "Hearthbound",
 					"entries": [
 						"As a Hearthbound Vaetyr, you have a deep connection to the sanctuary of home and the magic that protects and nurtures those within it. Your abilities grow as you do, reflecting the ever-strengthening bond with your hearth."
-					]
+					],
+					"_foundryId": "RF702cebe8a9be9a"
 				},
 				{
 					"type": "entries",
@@ -1049,63 +1418,72 @@
 					"entries": [
 						"An innate Vaetyr magical ability, Hearth Magic draws upon their spiritual connection to home and hearth to form minor magic. You gain the following Hearth Magic Ability:",
 						"Enchanted Embers."
-					]
+					],
+					"_foundryId": "RFdaf691ffc41f7f"
 				},
 				{
 					"type": "entries",
 					"name": "Enchanted Embers",
 					"entries": [
 						"You create a magical flame that provides warmth and light in a 10-foot radius, lasting for 8 hours or until you leave. The flame is a symbol of comfort and safety within your home or camp."
-					]
+					],
+					"_foundryId": "RF32fb8fcdfed43e"
 				},
 				{
 					"type": "entries",
 					"name": "Rune Forging",
 					"entries": [
 						"A blend of innate magical potential and centuries-old traditions, Rune Forging is a skill that allows the Vaetyr to craft intricate runes imbued with versatile enchantments. Whenever you finish a long rest, you can touch an object, and you inscribe a different rune onto each of the objects. To be eligible, an object must be a weapon, a suit of armor, a shield, a piece of jewelry, or something else you can wear or hold in a hand. Your rune remains on an object until you finish a long rest, and an object can bear only one of your runes at a time. You learn the following rune:"
-					]
+					],
+					"_foundryId": "RF4b0bfed1084c1e"
 				},
 				{
 					"type": "entries",
 					"name": "Fortitude Rune",
 					"entries": [
 						"This rune grants resilience and strength. When inscribed, it imbues the wearer with temporary hit points. The wearer gains 1d4 temporary hit points for each point of their proficiency bonus, bolstering their fortitude in the face of adversity."
-					]
+					],
+					"_foundryId": "RFb5eb41c34fc0f3"
 				},
 				{
 					"type": "entries",
 					"name": "Potent Hearth Magic",
 					"entries": [
 						"You are gifted with a profound connection to the magic of the hearth, which manifests in several potent abilities that grow in strength with the Vaetyr. These abilities are deeply rooted in the traditions of nurturing and protection, vital to the well-being of their communities. At their stated levels, you learn the following Hearth Magic Abilities:"
-					]
+					],
+					"_foundryId": "RF47962f2c746471"
 				},
 				{
 					"type": "entries",
 					"name": "Private Paradise (Level 3)",
 					"entries": [
 						"You can create a comforting illusion within your home or camp (within a 30 foot cube), lasting 8 hours or until you or any allies leave the area. It can make your sanctuary appear as a natural and serene part of the surroundings, concealing you and your allies within. Sound from within the illusion does not escape outside. If a creature other than you or your allies walks into the illusion, the ability fails."
-					]
+					],
+					"_foundryId": "RF536fc58dcc6593"
 				},
 				{
 					"type": "entries",
 					"name": "Vitality's Vigor (Level 5)",
 					"entries": [
 						"You can designate a creature sharing your hearth. After rest, the creature gains temporary hit points equal to your character level and a skill check bonus equal to half your character level (rounded down) for 8 hours."
-					]
+					],
+					"_foundryId": "RFd6cfce167487bf"
 				},
 				{
 					"type": "entries",
 					"name": "Restful Respite (Level 7)",
 					"entries": [
 						"You can designate a creature sharing your hearth. After rest, the creature loses an extra level of exhaustion and receives the effects of Lesser Restoration."
-					]
+					],
+					"_foundryId": "RF43b6612127a28e"
 				},
 				{
 					"type": "entries",
 					"name": "Second Sanctuary (Level 10)",
 					"entries": [
 						"You gain the ability to designate a short rest area as \"home\" for 1 hour, enabling the use of your Hearth Magic abilities with reduced potency. 8 hour durations are reduced to 1 hour and Restful Respite may only remove a level of exhaustion or provide the benefits of Lesser Restoration, not both."
-					]
+					],
+					"_foundryId": "RFc07b7d00dcb2d1"
 				},
 				{
 					"type": "entries",
@@ -1116,7 +1494,199 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/vaetyr.png",
-			"__prop": "race"
+			"__prop": "race",
+			"foundryAdvancement": [
+				{
+					"_id": "VAaa61466e06033e",
+					"type": "ItemGrant",
+					"level": 0,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RFc56aceccd06c5c",
+								"optional": false
+							},
+							{
+								"uuid": ".RF7d0fef4cee3cbc",
+								"optional": false
+							},
+							{
+								"uuid": ".RF702cebe8a9be9a",
+								"optional": false
+							},
+							{
+								"uuid": ".RFdaf691ffc41f7f",
+								"optional": false
+							},
+							{
+								"uuid": ".RF32fb8fcdfed43e",
+								"optional": false
+							},
+							{
+								"uuid": ".RF4b0bfed1084c1e",
+								"optional": false
+							},
+							{
+								"uuid": ".RFb5eb41c34fc0f3",
+								"optional": false
+							},
+							{
+								"uuid": ".RF47962f2c746471",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RFc56aceccd06c5c": ".RFc56aceccd06c5c",
+							"RF7d0fef4cee3cbc": ".RF7d0fef4cee3cbc",
+							"RF702cebe8a9be9a": ".RF702cebe8a9be9a",
+							"RFdaf691ffc41f7f": ".RFdaf691ffc41f7f",
+							"RF32fb8fcdfed43e": ".RF32fb8fcdfed43e",
+							"RF4b0bfed1084c1e": ".RF4b0bfed1084c1e",
+							"RFb5eb41c34fc0f3": ".RFb5eb41c34fc0f3",
+							"RF47962f2c746471": ".RF47962f2c746471"
+						}
+					}
+				},
+				{
+					"_id": "VA9cc3276342e533",
+					"type": "ItemGrant",
+					"level": 3,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RF536fc58dcc6593",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RF536fc58dcc6593": ".RF536fc58dcc6593"
+						}
+					}
+				},
+				{
+					"_id": "VAfeea79ffe0b9d0",
+					"type": "ItemGrant",
+					"level": 5,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RFd6cfce167487bf",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RFd6cfce167487bf": ".RFd6cfce167487bf"
+						}
+					}
+				},
+				{
+					"_id": "VA99c91539492902",
+					"type": "ItemGrant",
+					"level": 7,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RF43b6612127a28e",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RF43b6612127a28e": ".RF43b6612127a28e"
+						}
+					}
+				},
+				{
+					"_id": "VAf5389fe67a3e0c",
+					"type": "ItemGrant",
+					"level": 10,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RFc07b7d00dcb2d1",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RFc07b7d00dcb2d1": ".RFc07b7d00dcb2d1"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Vaetyr (Runebound)",
@@ -1242,14 +1812,16 @@
 					"name": "Darkvision",
 					"entries": [
 						"Thanks to your gnome and dwarf ancestry, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
-					]
+					],
+					"_foundryId": "RF6a9814165b28d4"
 				},
 				{
 					"type": "entries",
 					"name": "Seafaring Heritage",
 					"entries": [
 						"You have proficiency in the {@skill Survival} skill and {@item Navigator's Tools|phb|navigator's tools}."
-					]
+					],
+					"_foundryId": "RF41a258b75b4921"
 				},
 				{
 					"type": "entries",
@@ -1263,7 +1835,8 @@
 					"name": "Runebound",
 					"entries": [
 						"As a Runebound Vaetyr, your affinity for rune magic is unparalleled. Your skills in inscribing ancient runes grant you and your allies enhanced abilities and protections, showcasing the depth of your rune-crafting heritage."
-					]
+					],
+					"_foundryId": "RFeff8c8f41e7d6d"
 				},
 				{
 					"type": "entries",
@@ -1271,63 +1844,72 @@
 					"entries": [
 						"An innate Vaetyr magical ability, Hearth Magic draws upon their spiritual connection to home and hearth to form minor magic. You gain the following Hearth Magic Ability:",
 						"Enchanted Embers."
-					]
+					],
+					"_foundryId": "RF6efe44ceaee3c8"
 				},
 				{
 					"type": "entries",
 					"name": "Enchanted Embers",
 					"entries": [
 						"You create a magical flame that provides warmth and light in a 10-foot radius, lasting for 8 hours or until you leave. The flame is a symbol of comfort and safety within your home or camp."
-					]
+					],
+					"_foundryId": "RF182081df65b22b"
 				},
 				{
 					"type": "entries",
 					"name": "Rune Forging",
 					"entries": [
 						"A blend of innate magical potential and centuries-old traditions, Rune Forging is a skill that allows the Vaetyr to craft intricate runes imbued with versatile enchantments. Whenever you finish a long rest, you can touch an object, and you inscribe a different rune onto each of the objects. To be eligible, an object must be a weapon, a suit of armor, a shield, a piece of jewelry, or something else you can wear or hold in a hand. Your rune remains on an object until you finish a long rest, and an object can bear only one of your runes at a time. You learn the following rune:"
-					]
+					],
+					"_foundryId": "RFc9d6d7cf5d4bfb"
 				},
 				{
 					"type": "entries",
 					"name": "Fortitude Rune",
 					"entries": [
 						"This rune grants resilience and strength. When inscribed, it imbues the wearer with temporary hit points. The wearer gains 1d4 temporary hit points for each point of their proficiency bonus, bolstering their fortitude in the face of adversity."
-					]
+					],
+					"_foundryId": "RFb555fc04810429"
 				},
 				{
 					"type": "entries",
 					"name": "Advanced Rune Forging",
 					"entries": [
 						"You possess an innate talent for inscribing magical runes. Your abilities, unlocking as you grow, imbue objects with protective and enhancing powers."
-					]
+					],
+					"_foundryId": "RF348252ca9fac57"
 				},
 				{
 					"type": "entries",
 					"name": "Clarity Rune (Level 3)",
 					"entries": [
 						"This rune offers clarity of senses and mind. When inscribed, it bestows advantage on saving throws against being blinded, deafened, or stunned. Additionally, it enhances these saving throws with a bonus equal to half your proficiency bonus, rounded down."
-					]
+					],
+					"_foundryId": "RFa58d9cd2dadb8e"
 				},
 				{
 					"type": "entries",
 					"name": "Vigor Rune (Level 5)",
 					"entries": [
 						"This rune embodies the vitality of the wilds. When applied to a weapon, it allows the wielder to regain hit points equal to their proficiency bonus on a successful hit. This rejuvenating power can be harnessed once per combat."
-					]
+					],
+					"_foundryId": "RFfe97efb71f3ece"
 				},
 				{
 					"type": "entries",
 					"name": "Guardian Rune (Level 7)",
 					"entries": [
 						"This rune channels the steadfastness of the earth. When inscribed on armor or clothing, it fortifies the wearer, granting a bonus to Armor Class equal to half of your proficiency bonus. This protective power is usable once per long rest."
-					]
+					],
+					"_foundryId": "RF3f0875e245294c"
 				},
 				{
 					"type": "entries",
 					"name": "Augmentation Rune (Level 10)",
 					"entries": [
 						"This rune is a testament to the art of rune mastery. Inscribed alongside another rune, it magnifies its power. Choose a rune you've already inscribed; this chosen rune is then augmented with enhanced capabilities. You may invoke this augmented power once per long rest, limited to augmenting one rune at a time."
-					]
+					],
+					"_foundryId": "RFcdef3e3299edd6"
 				},
 				{
 					"type": "entries",
@@ -1338,7 +1920,199 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/vaetyr.png",
-			"__prop": "race"
+			"__prop": "race",
+			"foundryAdvancement": [
+				{
+					"_id": "VA01151ca1bfa5ae",
+					"type": "ItemGrant",
+					"level": 0,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RF6a9814165b28d4",
+								"optional": false
+							},
+							{
+								"uuid": ".RF41a258b75b4921",
+								"optional": false
+							},
+							{
+								"uuid": ".RFeff8c8f41e7d6d",
+								"optional": false
+							},
+							{
+								"uuid": ".RF6efe44ceaee3c8",
+								"optional": false
+							},
+							{
+								"uuid": ".RF182081df65b22b",
+								"optional": false
+							},
+							{
+								"uuid": ".RFc9d6d7cf5d4bfb",
+								"optional": false
+							},
+							{
+								"uuid": ".RFb555fc04810429",
+								"optional": false
+							},
+							{
+								"uuid": ".RF348252ca9fac57",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RF6a9814165b28d4": ".RF6a9814165b28d4",
+							"RF41a258b75b4921": ".RF41a258b75b4921",
+							"RFeff8c8f41e7d6d": ".RFeff8c8f41e7d6d",
+							"RF6efe44ceaee3c8": ".RF6efe44ceaee3c8",
+							"RF182081df65b22b": ".RF182081df65b22b",
+							"RFc9d6d7cf5d4bfb": ".RFc9d6d7cf5d4bfb",
+							"RFb555fc04810429": ".RFb555fc04810429",
+							"RF348252ca9fac57": ".RF348252ca9fac57"
+						}
+					}
+				},
+				{
+					"_id": "VAcee66088644450",
+					"type": "ItemGrant",
+					"level": 3,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RFa58d9cd2dadb8e",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RFa58d9cd2dadb8e": ".RFa58d9cd2dadb8e"
+						}
+					}
+				},
+				{
+					"_id": "VAb3b5d0b1fd518e",
+					"type": "ItemGrant",
+					"level": 5,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RFfe97efb71f3ece",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RFfe97efb71f3ece": ".RFfe97efb71f3ece"
+						}
+					}
+				},
+				{
+					"_id": "VA91e5fcf8d56702",
+					"type": "ItemGrant",
+					"level": 7,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RF3f0875e245294c",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RF3f0875e245294c": ".RF3f0875e245294c"
+						}
+					}
+				},
+				{
+					"_id": "VA371b9de552252a",
+					"type": "ItemGrant",
+					"level": 10,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RFcdef3e3299edd6",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RFcdef3e3299edd6": ".RFcdef3e3299edd6"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Wyrmblooded",
@@ -1437,7 +2211,8 @@
 								"Chaos -- Essence: Wild magic. Breath effect: Charisma saving throw. The breath deals force damage. If at least one creature fails its saving throw, roll a d20. On a 1, a Wild Magic Surge occurs, centered on the breath's area or affecting one failed target, at the DM's discretion. Resistance: Force (use as a reaction against one attack or effect)."
 							]
 						}
-					]
+					],
+					"_foundryId": "RF08df35f3ff173e"
 				},
 				{
 					"type": "entries",
@@ -1446,7 +2221,8 @@
 						"You can use your action to exhale destructive Wyrm essence into a 10-foot-radius circle centered on a point 5 feet directly in front of you, corresponding to your Wyrm parentage. Each creature in the area must make the saving throw determined by your Wyrm parentage. The DC for this saving throw is 8 + your Constitution modifier + your proficiency bonus.",
 						"On a failed save, a creature takes the breath's full damage and suffers its rider effect. On a successful save, the creature takes half damage and suffers no rider effect. You deal 2d4 damage for every proficiency bonus you possess. You are immune to your own Essence Breath and its effects.",
 						"Lingering environmental effects created by Essence Breath last for a number of rounds equal to half your proficiency bonus, rounded up, unless the parentage effect states otherwise."
-					]
+					],
+					"_foundryId": "RFcf1a45d83a7264"
 				},
 				{
 					"type": "entries",
@@ -1462,7 +2238,8 @@
 								"You suffer a -1 penalty to your proficiency bonus, which only increases at levels 5, 10, 15, and 20."
 							]
 						}
-					]
+					],
+					"_foundryId": "RFf781ee7bdcdf3c"
 				},
 				{
 					"type": "entries",
@@ -1473,14 +2250,16 @@
 						"Instead, when your class level grants a subclass feature, you gain the corresponding subclass feature from each of your chosen subclasses.",
 						"If both subclasses grant the same named feature, spell, resource, or option, the duplicate does not stack unless the DM determines the features are distinct.",
 						"Uses of subclass features draw from your normal class resources unless the feature creates its own separate pool."
-					]
+					],
+					"_foundryId": "RFa1050c8b2426c2"
 				},
 				{
 					"type": "entries",
 					"name": "Lineage Form",
 					"entries": [
 						"Form: Alter appearance to resemble your humanoid parentage's race. Cast {@spell disguise self} once per long rest, limited to your humanoid parentage's race."
-					]
+					],
+					"_foundryId": "RFab19edfc968e7c"
 				},
 				{
 					"type": "entries",
@@ -1504,7 +2283,60 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/wyrmblooded.webp",
-			"__prop": "race"
+			"__prop": "race",
+			"foundryAdvancement": [
+				{
+					"_id": "VAe947de7097ebcc",
+					"type": "ItemGrant",
+					"level": 0,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".RF08df35f3ff173e",
+								"optional": false
+							},
+							{
+								"uuid": ".RFcf1a45d83a7264",
+								"optional": false
+							},
+							{
+								"uuid": ".RFf781ee7bdcdf3c",
+								"optional": false
+							},
+							{
+								"uuid": ".RFa1050c8b2426c2",
+								"optional": false
+							},
+							{
+								"uuid": ".RFab19edfc968e7c",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"RF08df35f3ff173e": ".RF08df35f3ff173e",
+							"RFcf1a45d83a7264": ".RFcf1a45d83a7264",
+							"RFf781ee7bdcdf3c": ".RFf781ee7bdcdf3c",
+							"RFa1050c8b2426c2": ".RFa1050c8b2426c2",
+							"RFab19edfc968e7c": ".RFab19edfc968e7c"
+						}
+					}
+				}
+			]
 		}
 	],
 	"class": [
@@ -1634,28 +2466,28 @@
 							3,
 							4,
 							2,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							2,
 							3,
 							5,
 							3,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							3,
@@ -1663,13 +2495,13 @@
 							6,
 							4,
 							2,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							4,
@@ -1677,13 +2509,13 @@
 							7,
 							4,
 							3,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							5,
@@ -1692,12 +2524,12 @@
 							4,
 							3,
 							2,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							6,
@@ -1706,12 +2538,12 @@
 							4,
 							3,
 							3,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							7,
@@ -1721,11 +2553,11 @@
 							3,
 							3,
 							1,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							8,
@@ -1735,11 +2567,11 @@
 							3,
 							3,
 							2,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							9,
@@ -1750,10 +2582,10 @@
 							3,
 							3,
 							1,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							10,
@@ -1764,10 +2596,10 @@
 							3,
 							3,
 							2,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							11,
@@ -1779,9 +2611,9 @@
 							3,
 							2,
 							1,
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—"
 						],
 						[
 							12,
@@ -1793,9 +2625,9 @@
 							3,
 							2,
 							1,
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—"
 						],
 						[
 							13,
@@ -1808,8 +2640,8 @@
 							2,
 							1,
 							1,
-							"\u2014",
-							"\u2014"
+							"—",
+							"—"
 						],
 						[
 							14,
@@ -1822,8 +2654,8 @@
 							2,
 							1,
 							1,
-							"\u2014",
-							"\u2014"
+							"—",
+							"—"
 						],
 						[
 							15,
@@ -1837,7 +2669,7 @@
 							1,
 							1,
 							1,
-							"\u2014"
+							"—"
 						],
 						[
 							16,
@@ -1851,7 +2683,7 @@
 							1,
 							1,
 							1,
-							"\u2014"
+							"—"
 						],
 						[
 							17,
@@ -1942,7 +2774,262 @@
 			],
 			"subclassTitle": "Occultist Rite",
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/occultist.webp",
-			"__prop": "class"
+			"__prop": "class",
+			"foundryAdvancement": [
+				{
+					"_id": "VA53b8854fdad92e",
+					"type": "ItemGrant",
+					"level": 1,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CFfe6fa9b812c69c",
+								"optional": false
+							},
+							{
+								"uuid": ".CFa8ad3942d07f03",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CFfe6fa9b812c69c": ".CFfe6fa9b812c69c",
+							"CFa8ad3942d07f03": ".CFa8ad3942d07f03"
+						}
+					}
+				},
+				{
+					"_id": "VAcbf0dfc140e272",
+					"type": "ItemGrant",
+					"level": 2,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CF18c93ca0930185",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CF18c93ca0930185": ".CF18c93ca0930185"
+						}
+					}
+				},
+				{
+					"_id": "VA4a38119017d654",
+					"type": "ItemGrant",
+					"level": 3,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CF8aa0b45a43926e",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CF8aa0b45a43926e": ".CF8aa0b45a43926e"
+						}
+					}
+				},
+				{
+					"_id": "VA21945a25a04b9d",
+					"type": "ItemGrant",
+					"level": 6,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CFda966ce82b68c3",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CFda966ce82b68c3": ".CFda966ce82b68c3"
+						}
+					}
+				},
+				{
+					"_id": "VA494619ff240a06",
+					"type": "ItemGrant",
+					"level": 10,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CFf53927e576922d",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CFf53927e576922d": ".CFf53927e576922d"
+						}
+					}
+				},
+				{
+					"_id": "VA7f456fb7dd02a7",
+					"type": "ItemGrant",
+					"level": 14,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CF5f16cfe9aefc5a",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CF5f16cfe9aefc5a": ".CF5f16cfe9aefc5a"
+						}
+					}
+				},
+				{
+					"_id": "VA7b3a59d87bc532",
+					"type": "ItemGrant",
+					"level": 18,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CF013bf15a5ebb1c",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CF013bf15a5ebb1c": ".CF013bf15a5ebb1c"
+						}
+					}
+				},
+				{
+					"_id": "VA1921e2c7ca4869",
+					"type": "ItemGrant",
+					"level": 20,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CF66e8f37f8b614b",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CF66e8f37f8b614b": ".CF66e8f37f8b614b"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Thaumaphage",
@@ -2065,7 +3152,7 @@
 							5,
 							"+3",
 							"6 mana",
-							"\u2014"
+							"—"
 						],
 						[
 							6,
@@ -2077,7 +3164,7 @@
 							7,
 							"+3",
 							"8 mana",
-							"\u2014"
+							"—"
 						],
 						[
 							8,
@@ -2089,7 +3176,7 @@
 							9,
 							"+4",
 							"10 mana",
-							"\u2014"
+							"—"
 						],
 						[
 							10,
@@ -2101,7 +3188,7 @@
 							11,
 							"+4",
 							"12 mana",
-							"\u2014"
+							"—"
 						],
 						[
 							12,
@@ -2113,7 +3200,7 @@
 							13,
 							"+5",
 							"14 mana",
-							"\u2014"
+							"—"
 						],
 						[
 							14,
@@ -2125,7 +3212,7 @@
 							15,
 							"+5",
 							"16 mana",
-							"\u2014"
+							"—"
 						],
 						[
 							16,
@@ -2143,13 +3230,13 @@
 							18,
 							"+6",
 							"18 mana",
-							"\u2014"
+							"—"
 						],
 						[
 							19,
 							"+6",
 							"18 mana",
-							"\u2014"
+							"—"
 						],
 						[
 							20,
@@ -2191,7 +3278,272 @@
 			],
 			"subclassTitle": "Devouring Art",
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/thaumaphage.webp",
-			"__prop": "class"
+			"__prop": "class",
+			"foundryAdvancement": [
+				{
+					"_id": "VA4678d0994002cc",
+					"type": "ItemGrant",
+					"level": 1,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CF12de353d3f8498",
+								"optional": false
+							},
+							{
+								"uuid": ".CF49bcba6a305feb",
+								"optional": false
+							},
+							{
+								"uuid": ".CFaf781693868e77",
+								"optional": false
+							},
+							{
+								"uuid": ".CF9a0c86747621fe",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CF12de353d3f8498": ".CF12de353d3f8498",
+							"CF49bcba6a305feb": ".CF49bcba6a305feb",
+							"CFaf781693868e77": ".CFaf781693868e77",
+							"CF9a0c86747621fe": ".CF9a0c86747621fe"
+						}
+					}
+				},
+				{
+					"_id": "VAaf70deb890650a",
+					"type": "ItemGrant",
+					"level": 2,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CFc905b6f803171c",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CFc905b6f803171c": ".CFc905b6f803171c"
+						}
+					}
+				},
+				{
+					"_id": "VAe212960fdb1134",
+					"type": "ItemGrant",
+					"level": 3,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CF071ecea0118f41",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CF071ecea0118f41": ".CF071ecea0118f41"
+						}
+					}
+				},
+				{
+					"_id": "VA0bad338325547b",
+					"type": "ItemGrant",
+					"level": 6,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CF9b1e25f2bd5896",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CF9b1e25f2bd5896": ".CF9b1e25f2bd5896"
+						}
+					}
+				},
+				{
+					"_id": "VAe43cb5e7424ae8",
+					"type": "ItemGrant",
+					"level": 10,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CFcb0a3ed70a3e56",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CFcb0a3ed70a3e56": ".CFcb0a3ed70a3e56"
+						}
+					}
+				},
+				{
+					"_id": "VA9e8b786e64b19b",
+					"type": "ItemGrant",
+					"level": 14,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CFe5094625ec7de3",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CFe5094625ec7de3": ".CFe5094625ec7de3"
+						}
+					}
+				},
+				{
+					"_id": "VAad4a3a71a64bd2",
+					"type": "ItemGrant",
+					"level": 17,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CF8134ba9cad3994",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CF8134ba9cad3994": ".CF8134ba9cad3994"
+						}
+					}
+				},
+				{
+					"_id": "VA2dde9068017168",
+					"type": "ItemGrant",
+					"level": 20,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".CF1755c281cbde7b",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"CF1755c281cbde7b": ".CF1755c281cbde7b"
+						}
+					}
+				}
+			]
 		}
 	],
 	"classFeature": [
@@ -2238,28 +3590,28 @@
 							3,
 							4,
 							2,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							2,
 							3,
 							5,
 							3,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							3,
@@ -2267,13 +3619,13 @@
 							6,
 							4,
 							2,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							4,
@@ -2281,13 +3633,13 @@
 							7,
 							4,
 							3,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							5,
@@ -2296,12 +3648,12 @@
 							4,
 							3,
 							2,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							6,
@@ -2310,12 +3662,12 @@
 							4,
 							3,
 							3,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							7,
@@ -2325,11 +3677,11 @@
 							3,
 							3,
 							1,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							8,
@@ -2339,11 +3691,11 @@
 							3,
 							3,
 							2,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							9,
@@ -2354,10 +3706,10 @@
 							3,
 							3,
 							1,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							10,
@@ -2368,10 +3720,10 @@
 							3,
 							3,
 							2,
-							"\u2014",
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—",
+							"—"
 						],
 						[
 							11,
@@ -2383,9 +3735,9 @@
 							3,
 							2,
 							1,
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—"
 						],
 						[
 							12,
@@ -2397,9 +3749,9 @@
 							3,
 							2,
 							1,
-							"\u2014",
-							"\u2014",
-							"\u2014"
+							"—",
+							"—",
+							"—"
 						],
 						[
 							13,
@@ -2412,8 +3764,8 @@
 							2,
 							1,
 							1,
-							"\u2014",
-							"\u2014"
+							"—",
+							"—"
 						],
 						[
 							14,
@@ -2426,8 +3778,8 @@
 							2,
 							1,
 							1,
-							"\u2014",
-							"\u2014"
+							"—",
+							"—"
 						],
 						[
 							15,
@@ -2441,7 +3793,7 @@
 							1,
 							1,
 							1,
-							"\u2014"
+							"—"
 						],
 						[
 							16,
@@ -2455,7 +3807,7 @@
 							1,
 							1,
 							1,
-							"\u2014"
+							"—"
 						],
 						[
 							17,
@@ -2517,7 +3869,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-spellcasting.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFfe6fa9b812c69c"
 		},
 		{
 			"name": "Ritualist",
@@ -2532,7 +3885,8 @@
 				"You can have only one attuned ritual spell at a time."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-ritualist.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFa8ad3942d07f03"
 		},
 		{
 			"name": "Spectral Awareness",
@@ -2546,7 +3900,8 @@
 				"You have advantage on ability checks made to identify the nature or general characteristics of a spirit, creature, or weakened planar boundary you can sense."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-spectral-awareness.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF18c93ca0930185"
 		},
 		{
 			"name": "Occultist Rites",
@@ -2580,7 +3935,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-occultist-rites.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF8aa0b45a43926e"
 		},
 		{
 			"name": "Occultist Rites",
@@ -2592,7 +3948,8 @@
 				"At 6th level, you gain the next feature from the Occultist Rite you chose at 3rd level."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-occultist-rites.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFda966ce82b68c3"
 		},
 		{
 			"name": "Occultist Rites",
@@ -2604,7 +3961,8 @@
 				"At 10th level, you gain the next feature from the Occultist Rite you chose at 3rd level."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-occultist-rites.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFf53927e576922d"
 		},
 		{
 			"name": "Occultist Rites",
@@ -2616,7 +3974,8 @@
 				"At 14th level, you gain the next feature from the Occultist Rite you chose at 3rd level."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-occultist-rites.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF5f16cfe9aefc5a"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -2625,10 +3984,11 @@
 			"classSource": "VeiledOmens",
 			"level": 4,
 			"entries": [
-				"At 4th level, you can increase one ability score by 2, or two ability scores by 1 each. You can\u2019t increase an ability score above 20."
+				"At 4th level, you can increase one ability score by 2, or two ability scores by 1 each. You can’t increase an ability score above 20."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/occultist.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF5b1fce36d7f74f"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -2637,10 +3997,11 @@
 			"classSource": "VeiledOmens",
 			"level": 8,
 			"entries": [
-				"At 8th level, you can increase one ability score by 2, or two ability scores by 1 each. You can\u2019t increase an ability score above 20."
+				"At 8th level, you can increase one ability score by 2, or two ability scores by 1 each. You can’t increase an ability score above 20."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/occultist.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF65fc3062bce6f5"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -2649,10 +4010,11 @@
 			"classSource": "VeiledOmens",
 			"level": 12,
 			"entries": [
-				"At 12th level, you can increase one ability score by 2, or two ability scores by 1 each. You can\u2019t increase an ability score above 20."
+				"At 12th level, you can increase one ability score by 2, or two ability scores by 1 each. You can’t increase an ability score above 20."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/occultist.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFa9c6887746d683"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -2661,10 +4023,11 @@
 			"classSource": "VeiledOmens",
 			"level": 16,
 			"entries": [
-				"At 16th level, you can increase one ability score by 2, or two ability scores by 1 each. You can\u2019t increase an ability score above 20."
+				"At 16th level, you can increase one ability score by 2, or two ability scores by 1 each. You can’t increase an ability score above 20."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/occultist.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFb4dcd9604a98ee"
 		},
 		{
 			"name": "Master of the Grey",
@@ -2679,7 +4042,8 @@
 				"You can use this feature a number of times equal to your Charisma modifier, and you regain all expended uses when you finish a long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-master-of-the-grey.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF013bf15a5ebb1c"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -2688,10 +4052,11 @@
 			"classSource": "VeiledOmens",
 			"level": 19,
 			"entries": [
-				"At 19th level, you can increase one ability score by 2, or two ability scores by 1 each. You can\u2019t increase an ability score above 20."
+				"At 19th level, you can increase one ability score by 2, or two ability scores by 1 each. You can’t increase an ability score above 20."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/occultist.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFe3cfec5837856f"
 		},
 		{
 			"name": "Eternal Spirit",
@@ -2702,13 +4067,14 @@
 			"entries": [
 				"When you would die, you can choose to pass on normally or anchor your spirit to your body or to the place where you died.",
 				"While anchored, your spirit exists in the Border Ethereal. You can choose to pass on at any time. You cannot cast spells or take actions except to attempt possession.",
-				"As an action, you can target one creature you can see within 60 feet of your anchor. The target must make a Charisma saving throw against your spell save DC, and can choose to fail. On a failure, you possess the target\u2019s body; on a success, the target is immune to this feature for 24 hours.",
+				"As an action, you can target one creature you can see within 60 feet of your anchor. The target must make a Charisma saving throw against your spell save DC, and can choose to fail. On a failure, you possess the target’s body; on a success, the target is immune to this feature for 24 hours.",
 				"While possessing a creature, you control its body and retain your Intelligence, Wisdom, Charisma, personality, memories, spellcasting, class features, and proficiencies. The possessed creature is aware of its surroundings but cannot act.",
 				"The possession ends when the body drops to 0 hit points, you end it as an action, you are forced out by magic, or your original body is restored to life.",
 				"Once your spirit is anchored again, you can return to your body once it is restored."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-eternal-spirit.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF66e8f37f8b614b"
 		},
 		{
 			"name": "Mana Capacity",
@@ -2721,7 +4087,8 @@
 				"Your maximum mana capacity is determined after you finish a long rest; temporary changes to your Constitution modifier, such as from your Mana Enhancement feature or other magical effects, do not alter your maximum mana until you complete your next long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/thaumaphage.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF12de353d3f8498"
 		},
 		{
 			"name": "Mana Crystal",
@@ -2747,7 +4114,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/mana-crystal.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF49bcba6a305feb"
 		},
 		{
 			"name": "Spellcasting",
@@ -2850,7 +4218,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/thaumaphage.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFaf781693868e77"
 		},
 		{
 			"name": "Siphon Magic",
@@ -2871,7 +4240,8 @@
 				"You can siphon a maximum number of charges at one time equal to your proficiency bonus. The mana you regain cannot exceed your maximum mana capacity."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-siphon-magic.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF9a0c86747621fe"
 		},
 		{
 			"name": "Devouring Arts",
@@ -2902,7 +4272,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-devouring-arts.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFc905b6f803171c"
 		},
 		{
 			"name": "Devouring Arts",
@@ -2914,7 +4285,8 @@
 				"At 6th level, you gain the next feature from the Devouring Art you chose at 2nd level."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-devouring-arts.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF9b1e25f2bd5896"
 		},
 		{
 			"name": "Devouring Arts",
@@ -2926,7 +4298,8 @@
 				"At 10th level, you gain the next feature from the Devouring Art you chose at 2nd level."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-devouring-arts.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFcb0a3ed70a3e56"
 		},
 		{
 			"name": "Devouring Arts",
@@ -2938,7 +4311,8 @@
 				"At 14th level, you gain the next feature from the Devouring Art you chose at 2nd level."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-devouring-arts.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFe5094625ec7de3"
 		},
 		{
 			"name": "Consume Magic",
@@ -2952,7 +4326,8 @@
 				"You can use this ability twice, and you regain all expended uses when you finish a long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-consume-magic.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF071ecea0118f41"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -2964,7 +4339,8 @@
 				"At 4th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/thaumaphage.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF0c9a48ad7af1b3"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -2976,7 +4352,8 @@
 				"At 8th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/thaumaphage.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF39adcad1f10262"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -2988,7 +4365,8 @@
 				"At 12th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/thaumaphage.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF64407e6ee024e8"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -3000,7 +4378,8 @@
 				"At 16th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/thaumaphage.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CFec86a6452d3e3b"
 		},
 		{
 			"name": "Mana Shift",
@@ -3013,7 +4392,8 @@
 				"When you would be affected by an instantaneous magical effect, such as a {@spell fireball} spell, a {@spell hold person} spell, or a dragon's breath weapon, you can use your reaction and expend 5 mana to momentarily phase into an incorporeal state. If you do so, the triggering instantaneous magical effect fails to affect you."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/thaumaphage.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF8134ba9cad3994"
 		},
 		{
 			"name": "True Devourer",
@@ -3032,7 +4412,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/thaumaphage.webp",
-			"__prop": "classFeature"
+			"__prop": "classFeature",
+			"_foundryId": "CF1755c281cbde7b"
 		}
 	],
 	"subclass": [
@@ -3051,7 +4432,133 @@
 				"Psychopomp|Occultist|VeiledOmens|Haunts|VeiledOmens|14|VeiledOmens"
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-haunts.webp",
-			"__prop": "subclass"
+			"__prop": "subclass",
+			"foundryAdvancement": [
+				{
+					"_id": "VAe88ab79b243b49",
+					"type": "ItemGrant",
+					"level": 3,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFe83284d477dfdd",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFe83284d477dfdd": ".SFe83284d477dfdd"
+						}
+					}
+				},
+				{
+					"_id": "VA73e5fc6f4a6073",
+					"type": "ItemGrant",
+					"level": 6,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFcd6353ad4636e2",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFcd6353ad4636e2": ".SFcd6353ad4636e2"
+						}
+					}
+				},
+				{
+					"_id": "VA5e0ebab0835113",
+					"type": "ItemGrant",
+					"level": 10,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF43355b77c12647",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF43355b77c12647": ".SF43355b77c12647"
+						}
+					}
+				},
+				{
+					"_id": "VAbbcb1743c32c6d",
+					"type": "ItemGrant",
+					"level": 14,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF4b079a45b550ac",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF4b079a45b550ac": ".SF4b079a45b550ac"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Rite of Omens",
@@ -3068,7 +4575,133 @@
 				"Fulfilled Portent|Occultist|VeiledOmens|Omens|VeiledOmens|14|VeiledOmens"
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
-			"__prop": "subclass"
+			"__prop": "subclass",
+			"foundryAdvancement": [
+				{
+					"_id": "VAc648901ff534c8",
+					"type": "ItemGrant",
+					"level": 3,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF428d5f69f3059d",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF428d5f69f3059d": ".SF428d5f69f3059d"
+						}
+					}
+				},
+				{
+					"_id": "VAfe8e92f6d31292",
+					"type": "ItemGrant",
+					"level": 6,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFff47656a09f736",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFff47656a09f736": ".SFff47656a09f736"
+						}
+					}
+				},
+				{
+					"_id": "VA08e8620fcaa2d9",
+					"type": "ItemGrant",
+					"level": 10,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF3707d62975e24c",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF3707d62975e24c": ".SF3707d62975e24c"
+						}
+					}
+				},
+				{
+					"_id": "VAc1284acd8eb572",
+					"type": "ItemGrant",
+					"level": 14,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFe13d0c7c165b17",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFe13d0c7c165b17": ".SFe13d0c7c165b17"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Rite of Servitude",
@@ -3085,7 +4718,133 @@
 				"Soul Gem Mastery|Occultist|VeiledOmens|Servitude|VeiledOmens|14|VeiledOmens"
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-servitude.webp",
-			"__prop": "subclass"
+			"__prop": "subclass",
+			"foundryAdvancement": [
+				{
+					"_id": "VAde6222431c5e07",
+					"type": "ItemGrant",
+					"level": 3,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFde345b023b3029",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFde345b023b3029": ".SFde345b023b3029"
+						}
+					}
+				},
+				{
+					"_id": "VA350e3909ad4576",
+					"type": "ItemGrant",
+					"level": 6,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF04375c12d28576",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF04375c12d28576": ".SF04375c12d28576"
+						}
+					}
+				},
+				{
+					"_id": "VA6b83ec71463cf9",
+					"type": "ItemGrant",
+					"level": 10,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF63d2fad05e97b6",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF63d2fad05e97b6": ".SF63d2fad05e97b6"
+						}
+					}
+				},
+				{
+					"_id": "VA6bbd75e869718b",
+					"type": "ItemGrant",
+					"level": 14,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFb654a66599957e",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFb654a66599957e": ".SFb654a66599957e"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Art of the Ether",
@@ -3101,7 +4860,102 @@
 				"Conversion|Thaumaphage|VeiledOmens|Ether|VeiledOmens|14|VeiledOmens"
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-ether.webp",
-			"__prop": "subclass"
+			"__prop": "subclass",
+			"foundryAdvancement": [
+				{
+					"_id": "VAc42a7506019a32",
+					"type": "ItemGrant",
+					"level": 2,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFa5f305cc0d2673",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFa5f305cc0d2673": ".SFa5f305cc0d2673"
+						}
+					}
+				},
+				{
+					"_id": "VA26744f57f2b577",
+					"type": "ItemGrant",
+					"level": 10,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF1d55f598bd04cb",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF1d55f598bd04cb": ".SF1d55f598bd04cb"
+						}
+					}
+				},
+				{
+					"_id": "VAbddc2d47865fde",
+					"type": "ItemGrant",
+					"level": 14,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFceac8fc67ce6e9",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFceac8fc67ce6e9": ".SFceac8fc67ce6e9"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Art of the Flesh",
@@ -3119,7 +4973,138 @@
 				"Mind Over Flesh|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|14|VeiledOmens"
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-flesh.webp",
-			"__prop": "subclass"
+			"__prop": "subclass",
+			"foundryAdvancement": [
+				{
+					"_id": "VAe4f0999531eac9",
+					"type": "ItemGrant",
+					"level": 2,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF25fbc5d6b215d9",
+								"optional": false
+							},
+							{
+								"uuid": ".SF52cc6d6b7b0df4",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF25fbc5d6b215d9": ".SF25fbc5d6b215d9",
+							"SF52cc6d6b7b0df4": ".SF52cc6d6b7b0df4"
+						}
+					}
+				},
+				{
+					"_id": "VAacbd84d5567900",
+					"type": "ItemGrant",
+					"level": 6,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFa6399af755c528",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFa6399af755c528": ".SFa6399af755c528"
+						}
+					}
+				},
+				{
+					"_id": "VAaf07945e1696ba",
+					"type": "ItemGrant",
+					"level": 10,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF01ad651ffee030",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF01ad651ffee030": ".SF01ad651ffee030"
+						}
+					}
+				},
+				{
+					"_id": "VA9af10063eed094",
+					"type": "ItemGrant",
+					"level": 14,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF7d4e4870dc258a",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF7d4e4870dc258a": ".SF7d4e4870dc258a"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Occult Knight",
@@ -3417,7 +5402,169 @@
 				"Mortal Haunt|Fighter|PHB|Occult Knight|VeiledOmens|18|VeiledOmens"
 			],
 			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclass"
+			"__prop": "subclass",
+			"foundryAdvancement": [
+				{
+					"_id": "VAe00d6a9cddea5b",
+					"type": "ItemGrant",
+					"level": 3,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF4c2f90dd0d1544",
+								"optional": false
+							},
+							{
+								"uuid": ".SF1263744421de4c",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF4c2f90dd0d1544": ".SF4c2f90dd0d1544",
+							"SF1263744421de4c": ".SF1263744421de4c"
+						}
+					}
+				},
+				{
+					"_id": "VA6337586b81b8f2",
+					"type": "ItemGrant",
+					"level": 7,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFd442b20b217e6d",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFd442b20b217e6d": ".SFd442b20b217e6d"
+						}
+					}
+				},
+				{
+					"_id": "VAc27ab3e2598dab",
+					"type": "ItemGrant",
+					"level": 10,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF7a1bc07c4beb43",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF7a1bc07c4beb43": ".SF7a1bc07c4beb43"
+						}
+					}
+				},
+				{
+					"_id": "VA32ebc69dfbce67",
+					"type": "ItemGrant",
+					"level": 15,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF869b42773df49a",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF869b42773df49a": ".SF869b42773df49a"
+						}
+					}
+				},
+				{
+					"_id": "VAbb0c8fb7cd66c3",
+					"type": "ItemGrant",
+					"level": 18,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF06fd01e1b03f00",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF06fd01e1b03f00": ".SF06fd01e1b03f00"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Pale Touched",
@@ -3435,7 +5582,138 @@
 				"Harrowing Tide|Sorcerer|PHB|Pale Touched|VeiledOmens|18|VeiledOmens"
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/pale-touched.webp",
-			"__prop": "subclass"
+			"__prop": "subclass",
+			"foundryAdvancement": [
+				{
+					"_id": "VAb87ab3da95a120",
+					"type": "ItemGrant",
+					"level": 1,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF34af8afca5b4fc",
+								"optional": false
+							},
+							{
+								"uuid": ".SF7f62c91eae2af3",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF34af8afca5b4fc": ".SF34af8afca5b4fc",
+							"SF7f62c91eae2af3": ".SF7f62c91eae2af3"
+						}
+					}
+				},
+				{
+					"_id": "VA79b6de5693daec",
+					"type": "ItemGrant",
+					"level": 6,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF20a02a81fd8d03",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF20a02a81fd8d03": ".SF20a02a81fd8d03"
+						}
+					}
+				},
+				{
+					"_id": "VA106064c328fc06",
+					"type": "ItemGrant",
+					"level": 14,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFf85981b0b04cf6",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFf85981b0b04cf6": ".SFf85981b0b04cf6"
+						}
+					}
+				},
+				{
+					"_id": "VAc344d63b04b3ba",
+					"type": "ItemGrant",
+					"level": 18,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF9ed4db11129b34",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF9ed4db11129b34": ".SF9ed4db11129b34"
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Path of the Shaman",
@@ -3498,7 +5776,138 @@
 				"Spirit Vessel|Barbarian|PHB|Shaman|VeiledOmens|14|VeiledOmens"
 			],
 			"foundryImg": "systems/dnd5e/icons/classes/barbarian.webp",
-			"__prop": "subclass"
+			"__prop": "subclass",
+			"foundryAdvancement": [
+				{
+					"_id": "VA5ba49a22041355",
+					"type": "ItemGrant",
+					"level": 3,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF21f5c0c8db329c",
+								"optional": false
+							},
+							{
+								"uuid": ".SFcaffc1949c1483",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF21f5c0c8db329c": ".SF21f5c0c8db329c",
+							"SFcaffc1949c1483": ".SFcaffc1949c1483"
+						}
+					}
+				},
+				{
+					"_id": "VAab35284a0318fd",
+					"type": "ItemGrant",
+					"level": 6,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF4c5057ce841473",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF4c5057ce841473": ".SF4c5057ce841473"
+						}
+					}
+				},
+				{
+					"_id": "VA923b9f6c0ed299",
+					"type": "ItemGrant",
+					"level": 10,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SFce9cf839d56253",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SFce9cf839d56253": ".SFce9cf839d56253"
+						}
+					}
+				},
+				{
+					"_id": "VAd4b7faa5ad054a",
+					"type": "ItemGrant",
+					"level": 14,
+					"title": "Features",
+					"icon": null,
+					"configuration": {
+						"items": [
+							{
+								"uuid": ".SF6c9089fedc0d09",
+								"optional": false
+							}
+						],
+						"optional": false,
+						"spell": {
+							"ability": [
+								""
+							],
+							"preparation": "",
+							"uses": {
+								"max": "",
+								"per": ""
+							}
+						}
+					},
+					"value": {
+						"added": {
+							"SF6c9089fedc0d09": ".SF6c9089fedc0d09"
+						}
+					}
+				}
+			]
 		}
 	],
 	"subclassFeature": [
@@ -3569,7 +5978,7 @@
 					"type": "entries",
 					"name": "Grave Hunger",
 					"entries": [
-						"Immediately after you hit a creature with a melee attack, you can call on your bound wraith to drain the target\u2019s vitality.",
+						"Immediately after you hit a creature with a melee attack, you can call on your bound wraith to drain the target’s vitality.",
 						"The target takes extra necrotic damage equal to 1d6 + your Charisma modifier, and you gain that many temporary hit points."
 					]
 				},
@@ -3583,7 +5992,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-haunts.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFe83284d477dfdd"
 		},
 		{
 			"name": "Mediumship",
@@ -3599,7 +6009,7 @@
 				"A ritual use is expended when performed, regardless of outcome.",
 				{
 					"type": "entries",
-					"name": "S\u00e9ance",
+					"name": "Séance",
 					"entries": [
 						"You touch a corpse, object, or place marked by death, violence, or emotion, or call upon a spirit you can perceive. The spirit can answer five questions over 10 minutes.",
 						"An unwilling spirit makes a Charisma saving throw; on a failure it is compelled to answer truthfully, on success it may lie, refuse, or end the ritual."
@@ -3623,7 +6033,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-haunts.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFcd6353ad4636e2"
 		},
 		{
 			"name": "Covenant of Incantation",
@@ -3641,7 +6052,7 @@
 					"name": "Borrowed Flesh",
 					"entries": [
 						"As an action, choose one humanoid within 5 feet and attempt to force a possession. On a failed Charisma save, your spirit leaves you and inhabits the target for 1 minute.",
-						"The possessed form uses the target\u2019s statistics and can use target actions and traits using the occultist\u2019s body as source."
+						"The possessed form uses the target’s statistics and can use target actions and traits using the occultist’s body as source."
 					]
 				},
 				{
@@ -3654,7 +6065,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-haunts.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF43355b77c12647"
 		},
 		{
 			"name": "Psychopomp",
@@ -3668,10 +6080,11 @@
 				"You are recognized by the restless dead as one who keeps the road between life and death.",
 				"When a spirit, haunt, or incorporeal undead starts its turn within 30 feet of you, or enters your area for the first time on its turn, it must make a Charisma saving throw.",
 				"On a failure, it recognizes your authority as a psychopomp for 1 minute, cannot target you with harmful effects, and cannot attack you, though it can still target allies or leave.",
-				"You can displace your bound spirit to extend your incantation\u2019s range for one use; the spirit returns immediately after the effect."
+				"You can displace your bound spirit to extend your incantation’s range for one use; the spirit returns immediately after the effect."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-haunts.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF4b079a45b550ac"
 		},
 		{
 			"name": "Cast the Lots",
@@ -3912,7 +6325,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF428d5f69f3059d"
 		},
 		{
 			"name": "Signs in the Wake",
@@ -3928,7 +6342,8 @@
 				"You can use this feature a number of times equal to your proficiency bonus and regain all expended uses on a long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFff47656a09f736"
 		},
 		{
 			"name": "Second Reading",
@@ -3942,10 +6357,11 @@
 				"After you make your foretold portent, choose up to half your proficiency bonus (rounded up) dials and reroll each on the same dice type.",
 				"When the portent is invoked or curdled, you choose which result applies for each chosen die. If more than one trigger happens, you choose one.",
 				"If your foretelling curdles, both readings are lost.",
-				"This allows you to preserve a fulfilled interpretation for the feature\u2019s omen mechanics."
+				"This allows you to preserve a fulfilled interpretation for the feature’s omen mechanics."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF3707d62975e24c"
 		},
 		{
 			"name": "Fulfilled Portent",
@@ -3961,7 +6377,8 @@
 				"Any new portent replaces the fulfilled one after this rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFe13d0c7c165b17"
 		},
 		{
 			"name": "Soul Binder",
@@ -3975,7 +6392,7 @@
 				"You can bind a willing spirit into a gem and seat it in dead flesh as your servant.",
 				"At the end of a 1-hour ritual in an area where the border is thin, a willing spirit is bound into a gem worth at least 100 gp per spirit CR (minimum 100 gp).",
 				"As an action, you can seat the gem into a suitable corpse and animate it as a servant. The corpse must be one of the listed creature types and within CR limits.",
-				"The servant\u2019s corpse must have a slot expenditure equal to the corpse\u2019s CR (minimum one 1st-level slot), and you can animate only one servant at a time.",
+				"The servant’s corpse must have a slot expenditure equal to the corpse’s CR (minimum one 1st-level slot), and you can animate only one servant at a time.",
 				{
 					"type": "table",
 					"caption": "Soul Binding",
@@ -4014,7 +6431,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-soul-binder.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFde345b023b3029"
 		},
 		{
 			"name": "Lesser Soul Facets",
@@ -4030,25 +6448,26 @@
 				{
 					"type": "list",
 					"items": [
-						"**Spirit Conduit:** You and your servant can perceive through the servant\u2019s senses for 1 round while you lose yours. You can use this once per turn when the servant attacks.",
+						"**Spirit Conduit:** You and your servant can perceive through the servant’s senses for 1 round while you lose yours. You can use this once per turn when the servant attacks.",
 						"**Refined Attribute:** One ability score of your servant increases by 2 to a maximum of 20.",
 						"**Grave-Hardened Hide:** Your servant gains +1 AC.",
 						"**Fortified Frame:** Your servant gains HP equal to twice your occultist level.",
-						"**Dead March:** Your servant\u2019s walking speed increases by 10 feet.",
+						"**Dead March:** Your servant’s walking speed increases by 10 feet.",
 						"**Corpse Grip:** The servant has advantage on checks to grapple.",
 						"**Elemental Ward:** The servant gains resistance to one chosen damage type (non-physical).",
 						"**Hollow Nerves:** The servant is immune to frightened.",
 						"**Dead Flesh:** The servant has advantage on Constitution saves.",
 						"**Vicious Implements:** The servant deals extra damage equal to proficiency bonus on one hit per turn.",
-						"**Bone Hooks:** A hit can reduce target speed by 10 feet until the servant\u2019s next turn ends.",
-						"**Grave Weight:** A hit can prevent the target from taking reactions until your servant\u2019s next turn ends.",
+						"**Bone Hooks:** A hit can reduce target speed by 10 feet until the servant’s next turn ends.",
+						"**Grave Weight:** A hit can prevent the target from taking reactions until your servant’s next turn ends.",
 						"**Silent Command:** Telepathic communication with a returned soul servant within 120 feet.",
 						"**Easy Reseating:** Reseating into a corpse reduces slot costs by 1, minimum 1st level."
 					]
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-lesser-soul-facets.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF04375c12d28576"
 		},
 		{
 			"name": "Greater Soul Facets",
@@ -4064,7 +6483,7 @@
 					"type": "list",
 					"items": [
 						"**Shared Vessel:** You can transfer hit points between yourself and your servant, up to your occultist level, as a bonus action.",
-						"**Imprinted Talent:** Your servant gains one feat appropriate to the feat\u2019s requirements.",
+						"**Imprinted Talent:** Your servant gains one feat appropriate to the feat’s requirements.",
 						"**Eldritch Bond:** Spells with a range other than self can originate from your servant if within 60 feet, using your modifiers.",
 						"**Incorporeal Passage:** The servant can move through creatures and objects; it takes force damage on ending its turn within an object.",
 						"**Soul-Snare:** A struck target cannot teleport, become incorporeal, or willingly leave the plane until the effect ends.",
@@ -4073,7 +6492,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-greater-soul-facets.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF63d2fad05e97b6"
 		},
 		{
 			"name": "Soul Gem Mastery",
@@ -4086,11 +6506,12 @@
 			"entries": [
 				"Your soul gem can now hold three lesser facets and one greater facet.",
 				"You can transfer your soul into the gem as an action. Your body enters an unconscious incapacitated deathlike stasis while your soul occupies the gem.",
-				"While your soul occupies the gem, you control the servant body with your former abilities, using your class features and spellcasting but the servant\u2019s physical traits.",
+				"While your soul occupies the gem, you control the servant body with your former abilities, using your class features and spellcasting but the servant’s physical traits.",
 				"You can return to your body as an action if your body is on the same plane. If the gem or body is destroyed, your soul returns to your body or passes on."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-soul-gem-mastery.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFb654a66599957e"
 		},
 		{
 			"name": "Mana Shaping",
@@ -4108,7 +6529,8 @@
 				"This ability can be used to learn spells from spellcasters or magic items, or innate magical abilities from creatures. It cannot be used to learn effects from other environmental magical sources."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-mana-shaping.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFa5f305cc0d2673"
 		},
 		{
 			"name": "Mana Overflow",
@@ -4123,7 +6545,8 @@
 				"The spell must have a mana cost equal to or less than the excess mana you would have gained. You can use this feature once per long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-ether.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF1d55f598bd04cb"
 		},
 		{
 			"name": "Conversion",
@@ -4138,7 +6561,8 @@
 				"As a bonus action, you can choose one spell you know through your Mana Shaping feature and temporarily unlearn it until you finish a long rest. When you do so, you regain mana equal to half the spell's base mana cost, rounded down. You can use this ability a number of times equal to your Wisdom modifier, minimum once, per long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-ether.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFceac8fc67ce6e9"
 		},
 		{
 			"name": "Warrior's Path",
@@ -4153,7 +6577,8 @@
 				"You gain proficiency in Athletics if you don't already have it. Additionally, you gain proficiency with either one martial weapon of your choice or shields."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-flesh.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF25fbc5d6b215d9"
 		},
 		{
 			"name": "Empowered Form",
@@ -4176,7 +6601,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-flesh.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF52cc6d6b7b0df4"
 		},
 		{
 			"name": "Adaptive Surge",
@@ -4198,7 +6624,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-flesh.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFa6399af755c528"
 		},
 		{
 			"name": "Shared Vigor",
@@ -4214,7 +6641,8 @@
 				"While an enhancement you granted is active on another creature via this feature, you cannot benefit from your own Empowered Form feature. Activating Empowered Form on yourself causes any enhancement you previously granted to another creature via this feature to end immediately. Similarly, granting an enhancement to a creature via this feature ends any Empowered Form currently active on yourself."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-flesh.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF01ad651ffee030"
 		},
 		{
 			"name": "Mind Over Flesh",
@@ -4231,7 +6659,8 @@
 				"The abilities granted by your Adaptive Surge feature can be used as described, by expending mana for their effects, regardless of which Mana Enhancements are active."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-flesh.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF7d4e4870dc258a"
 		},
 		{
 			"name": "Occult Knight Spellcasting",
@@ -4278,7 +6707,8 @@
 				}
 			],
 			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF4c2f90dd0d1544"
 		},
 		{
 			"name": "Mortal Imprint",
@@ -4397,7 +6827,8 @@
 				}
 			],
 			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF1263744421de4c"
 		},
 		{
 			"name": "Sign-Read Imprint",
@@ -4455,7 +6886,8 @@
 				}
 			],
 			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFd442b20b217e6d"
 		},
 		{
 			"name": "Cursed Strike",
@@ -4473,7 +6905,8 @@
 				"If the Trauma property does none of these, the haunted target takes psychic damage equal to the roll after the Trauma property resolves."
 			],
 			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF7a1bc07c4beb43"
 		},
 		{
 			"name": "Twin Imprint",
@@ -4491,7 +6924,8 @@
 				"When a triggering event occurs, you can use your reaction to invoke one or both Trauma properties whose triggers are satisfied by that same event. Once you invoke any part of the haunting, the haunting ends."
 			],
 			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF869b42773df49a"
 		},
 		{
 			"name": "Mortal Haunt",
@@ -4509,7 +6943,8 @@
 				"Once you use this feature, you cannot use it again until you finish a short or long rest."
 			],
 			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF06fd01e1b03f00"
 		},
 		{
 			"name": "Deathly Eyes",
@@ -4533,7 +6968,8 @@
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-deathly-eyes.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF34af8afca5b4fc"
 		},
 		{
 			"name": "Gift from the Veil",
@@ -4547,7 +6983,8 @@
 				"Your link to the Ethereal Plane allows you to learn spells normally associated with the Occultist class. When your Spellcasting feature lets you learn a sorcerer cantrip or a sorcerer spell of 1st level or higher, you can choose the new spell from the occultist spell list or the sorcerer spell list. You must otherwise obey all the restrictions for selecting the spell, and it becomes a sorcerer spell for you."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-gift-from-the-veil.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF7f62c91eae2af3"
 		},
 		{
 			"name": "Ghostwalk",
@@ -4562,7 +6999,8 @@
 				"You can use this feature a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a long rest. You can also spend 2 sorcery points to use this feature again before finishing a long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-ghostwalk.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF20a02a81fd8d03"
 		},
 		{
 			"name": "Haunting Strikes",
@@ -4577,7 +7015,8 @@
 				"You can use this feature a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a long rest. You can also spend 2 sorcery points to use this feature again before finishing a long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-haunting-strikes.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFf85981b0b04cf6"
 		},
 		{
 			"name": "Harrowing Tide",
@@ -4594,7 +7033,8 @@
 				"Once you use this feature, you cannot use it again until you finish a long rest. Alternatively, you can spend 5 sorcery points to use this feature again."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-harrowing-tide.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF9ed4db11129b34"
 		},
 		{
 			"name": "Spellcasting",
@@ -4832,7 +7272,8 @@
 				}
 			],
 			"foundryImg": "systems/dnd5e/icons/svg/items/spell.svg",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF21f5c0c8db329c"
 		},
 		{
 			"name": "Spirit Sight",
@@ -4856,7 +7297,8 @@
 				"You can use this feature a number of times equal to your Wisdom modifier (minimum of 1), regaining all expended uses when you finish a long rest."
 			],
 			"foundryImg": "icons/magic/nature/stealth-hide-beast-eyes-green.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFcaffc1949c1483"
 		},
 		{
 			"name": "Spirit Bond",
@@ -4907,7 +7349,8 @@
 				}
 			],
 			"foundryImg": "icons/creatures/mammals/spirit-deer-herd-blue.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF4c5057ce841473"
 		},
 		{
 			"name": "Versatile Casting",
@@ -4923,7 +7366,8 @@
 				"Additionally, you can cast shaman spells of 1st or 2nd level even when you are not raging. Spells of 3rd level or higher still require you to be raging to cast."
 			],
 			"foundryImg": "systems/dnd5e/icons/svg/versatile.svg",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SFce9cf839d56253"
 		},
 		{
 			"name": "Spirit Vessel",
@@ -4951,7 +7395,8 @@
 				"{@b If your body is killed while your spirit inhabits your bonded companion,} your spirit becomes permanently bound to the beast. You continue to exist within your bonded companion with your mental ability scores, personality, and class features, but you can never return to humanoid form. You have become the beast, retaining only your mind and soul. The beast's original consciousness accepts your presence, and you share the body as co-inhabitants -- you control the body, but the beast's instincts and nature remain part of you."
 			],
 			"foundryImg": "icons/creatures/magical/spirit-undead-ghost-blue.webp",
-			"__prop": "subclassFeature"
+			"__prop": "subclassFeature",
+			"_foundryId": "SF6c9089fedc0d09"
 		}
 	],
 	"spell": [

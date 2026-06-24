@@ -67,9 +67,10 @@ Foundry dnd5e advancement coverage is required for player character options.
 
 - Races/species rely on 5etools fields such as `ability`, `size`, `skillProficiencies`, `languageProficiencies`, and `toolProficiencies` to generate generic Foundry advancements. Plutonium imports named race entries as race-feature items on the actor path.
 - Classes rely on 5etools fields such as `hd`, `proficiency`, and `startingProficiencies` to generate Foundry advancements.
-- Classes and subclasses rely on `classFeatures` and `subclassFeatures` references that resolve to real feature records. Plutonium's actor import path imports those feature records and creates feature `ItemGrant` links with populated item UUIDs.
+- Classes and subclasses rely on `classFeatures` and `subclassFeatures` references that resolve to real feature records. Plutonium's actor import path imports those feature records and creates feature `ItemGrant` links with populated item UUIDs. Standalone class/subclass Advancement tabs that are expected to grant named features need source-side non-empty `ItemGrant` rows or direct Foundry output evidence.
 - TheGiddyLimit/homebrew `foundryAdvancement` examples use concrete non-item advancement data such as `ScaleValue`; the reference repo does not provide a convention for empty source-authored `ItemGrant` rows.
-- Do not add source-authored `ItemGrant` placeholders. A source-authored `ItemGrant` row is valid only when `configuration.items` contains real item UUID objects and the Foundry import path verifies the grants.
+- Do not add source-authored `ItemGrant` placeholders. Empty rows are missing feature wiring, not cleanup targets. A source-authored `ItemGrant` row is valid only when `configuration.items` contains real item UUID objects, `value.added` maps the granted item IDs to the same UUIDs, and the Foundry import path verifies the grants.
+- For named class, subclass, race, species, subrace, feat, optional feature, or item-grant advancements, create or identify the concrete feature/item records first, assign stable child item IDs when relative UUIDs are used, then wire the parent advancement rows.
 - Drow-style racial spellcasting traits use `additionalSpells` for cantrips, innate spells, and later-level spell availability; do not turn those spell levels into race feature `ItemGrant` rows unless the source has separate named feature entries at those levels.
 - `tools/validate-foundry-advancements.py` enforces this rule for every repository content JSON file.
 
@@ -411,7 +412,7 @@ If race/species traits appear in Description but not Advancement:
 
 - Do not accept description rendering as completion for a player option.
 - Confirm the behavior against corresponding TheGiddyLimit/homebrew examples before changing source JSON.
-- Remove empty source-authored `ItemGrant` rows; they block Plutonium's actor importer from creating populated feature grants.
-- Use source-authored `ItemGrant` rows only when `configuration.items` contains real item UUID objects and the Foundry import path verifies the grants.
+- Treat empty source-authored `ItemGrant` rows as missing target wiring. Replace them with created or identified feature/item targets plus populated `configuration.items` and matching `value.added`, or prove the generated Foundry import created the same grants. Do not stop at removal.
+- Use source-authored `ItemGrant` rows only when `configuration.items` contains real item UUID objects, `value.added` maps the granted item IDs to the same UUIDs, and the Foundry import path verifies the grants.
 - If the missing trait is racial spellcasting, add or repair `additionalSpells` instead of adding fake spell-level `ItemGrant` rows.
 - Use direct Foundry item JSON or portable compendium UUIDs when exact child-item linking is required beyond source-level advancement rows.

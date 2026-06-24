@@ -24,10 +24,19 @@ RACE_FEATURE_SKIP_NAMES = {
     "Ability Score Changes",
     "Age",
     "Alignment",
+    "Language",
     "Languages",
+    "Hardy and Wise",
+    "Mystical Crafters",
+    "Secluded Mariners",
     "Size",
     "Speed",
     "Subrace",
+    "Vaetyr Names",
+    "Whispers on the Wind",
+}
+CLASS_FEATURE_ITEM_SKIP_NAMES = {
+    "Ability Score Improvement",
 }
 
 
@@ -43,16 +52,70 @@ def load_json(path: Path) -> Mapping[str, Any]:
     return data
 
 
-def parse_subclass_feature_level(ref: str, label: str, errors: list[str]) -> int | None:
+def parse_int(value: Any, label: str, errors: list[str]) -> int | None:
+    if isinstance(value, bool):
+        errors.append(f"{label}: expected integer, got boolean")
+        return None
+    if isinstance(value, int):
+        return value
+    if isinstance(value, str) and value.strip().isdigit():
+        return int(value.strip())
+    errors.append(f"{label}: expected integer, got {value!r}")
+    return None
+
+
+def validate_foundry_id(value: Any, label: str, errors: list[str]) -> str | None:
+    if not isinstance(value, str) or not FOUNDRY_ID_RE.fullmatch(value):
+        errors.append(f"{label}: expected 16-character Foundry id")
+        return None
+    return value
+
+
+def parse_class_feature_ref(
+    ref: Any,
+    label: str,
+    errors: list[str],
+) -> tuple[str, str, str, int, str] | None:
+    if isinstance(ref, Mapping):
+        ref = ref.get("classFeature")
+    if not isinstance(ref, str):
+        errors.append(f"{label}: class feature ref must be a string or object with classFeature")
+        return None
+
+    parts = ref.split("|")
+    if len(parts) not in {4, 5}:
+        errors.append(f"{label}: class feature ref must have 4 or 5 pipe-delimited parts")
+        return None
+    name, class_name, class_source, level_raw = parts[:4]
+    source = parts[4] if len(parts) == 5 else class_source
+    level = parse_int(level_raw, f"{label}.level", errors)
+    required = [name, class_name, class_source, source]
+    if level is None or any(not item.strip() for item in required):
+        errors.append(f"{label}: class feature ref contains an empty required field")
+        return None
+    return name, class_name, class_source, level, source
+
+
+def parse_subclass_feature_ref(
+    ref: Any,
+    label: str,
+    errors: list[str],
+) -> tuple[str, str, str, str, str, int, str] | None:
+    if not isinstance(ref, str):
+        errors.append(f"{label}: subclass feature ref must be a string")
+        return None
+
     parts = ref.split("|")
     if len(parts) != 7:
         errors.append(f"{label}: subclass feature ref must have 7 pipe-delimited parts")
         return None
-    level_raw = parts[5]
-    if not level_raw.isdigit():
-        errors.append(f"{label}: subclass feature level must be an integer, got {level_raw!r}")
+    name, class_name, class_source, subclass_short_name, subclass_source, level_raw, source = parts
+    level = parse_int(level_raw, f"{label}.level", errors)
+    required = [name, class_name, class_source, subclass_short_name, subclass_source, source]
+    if level is None or any(not item.strip() for item in required):
+        errors.append(f"{label}: subclass feature ref contains an empty required field")
         return None
-    return int(level_raw)
+    return name, class_name, class_source, subclass_short_name, subclass_source, level, source
 
 
 def walk_strings(value: Any) -> list[str]:
@@ -106,21 +169,123 @@ def is_race_spellcasting_entry(entry_text: str) -> bool:
     return bool(RACE_SPELLCASTING_TEXT_RE.search(entry_text))
 
 
-def get_required_race_feature_levels(
+def collect_class_feature_ids(
+    rel: str,
+    data: Mapping[str, Any],
+    errors: list[str],
+) -> dict[tuple[str, str, str, int, str], str]:
+    out: dict[tuple[str, str, str, int, str], str] = {}
+    for index, feature in enumerate(data.get("classFeature", [])):
+        label = f"{rel}.classFeature[{index}]"
+        if not isinstance(feature, Mapping):
+            errors.append(f"{label}: expected object")
+            continue
+        name = feature.get("name")
+        class_name = feature.get("className")
+        class_source = feature.get("classSource")
+        source = feature.get("source")
+        level = parse_int(feature.get("level"), f"{label}.level", errors)
+        foundry_id = validate_foundry_id(feature.get("_foundryId"), f"{label}._foundryId", errors)
+        required = [name, class_name, class_source, source]
+        if level is None or foundry_id is None or any(not isinstance(item, str) or not item.strip() for item in required):
+            continue
+        out[(name, class_name, class_source, level, source)] = foundry_id
+    return out
+
+
+def collect_subclass_feature_ids(
+    rel: str,
+    data: Mapping[str, Any],
+    errors: list[str],
+) -> dict[tuple[str, str, str, str, str, int, str], str]:
+    out: dict[tuple[str, str, str, str, str, int, str], str] = {}
+    for index, feature in enumerate(data.get("subclassFeature", [])):
+        label = f"{rel}.subclassFeature[{index}]"
+        if not isinstance(feature, Mapping):
+            errors.append(f"{label}: expected object")
+            continue
+        name = feature.get("name")
+        class_name = feature.get("className")
+        class_source = feature.get("classSource")
+        subclass_short_name = feature.get("subclassShortName")
+        subclass_source = feature.get("subclassSource")
+        source = feature.get("source")
+        level = parse_int(feature.get("level"), f"{label}.level", errors)
+        foundry_id = validate_foundry_id(feature.get("_foundryId"), f"{label}._foundryId", errors)
+        required = [name, class_name, class_source, subclass_short_name, subclass_source, source]
+        if level is None or foundry_id is None or any(not isinstance(item, str) or not item.strip() for item in required):
+            continue
+        out[(name, class_name, class_source, subclass_short_name, subclass_source, level, source)] = foundry_id
+    return out
+
+
+def get_required_class_feature_targets(
+    cls: Mapping[str, Any],
+    label: str,
+    class_feature_ids: Mapping[tuple[str, str, str, int, str], str],
+    errors: list[str],
+) -> dict[int, set[str]]:
+    class_features = cls.get("classFeatures", [])
+    if not isinstance(class_features, list):
+        errors.append(f"{label}.classFeatures: expected array")
+        return {}
+
+    targets_by_level: dict[int, set[str]] = defaultdict(set)
+    for index, raw_ref in enumerate(class_features):
+        ref_label = f"{label}.classFeatures[{index}]"
+        parsed = parse_class_feature_ref(raw_ref, ref_label, errors)
+        if parsed is None:
+            continue
+        name, class_name, class_source, level, source = parsed
+        if name in CLASS_FEATURE_ITEM_SKIP_NAMES:
+            continue
+        target_id = class_feature_ids.get((name, class_name, class_source, level, source))
+        if target_id is None:
+            errors.append(f"{ref_label}: missing classFeature _foundryId target for {parsed!r}")
+            continue
+        targets_by_level[level].add(target_id)
+    return targets_by_level
+
+
+def get_required_subclass_feature_targets(
+    subclass: Mapping[str, Any],
+    label: str,
+    subclass_feature_ids: Mapping[tuple[str, str, str, str, str, int, str], str],
+    errors: list[str],
+) -> dict[int, set[str]]:
+    subclass_features = subclass.get("subclassFeatures", [])
+    if not isinstance(subclass_features, list):
+        errors.append(f"{label}.subclassFeatures: expected array")
+        return {}
+
+    targets_by_level: dict[int, set[str]] = defaultdict(set)
+    for index, raw_ref in enumerate(subclass_features):
+        ref_label = f"{label}.subclassFeatures[{index}]"
+        parsed = parse_subclass_feature_ref(raw_ref, ref_label, errors)
+        if parsed is None:
+            continue
+        target_id = subclass_feature_ids.get(parsed)
+        if target_id is None:
+            errors.append(f"{ref_label}: missing subclassFeature _foundryId target for {parsed!r}")
+            continue
+        targets_by_level[parsed[5]].add(target_id)
+    return targets_by_level
+
+
+def get_required_race_feature_targets(
     race: Mapping[str, Any],
     label: str,
     errors: list[str],
-) -> set[int]:
+) -> dict[int, set[str]]:
     entries = race.get("entries", [])
     if not isinstance(entries, list):
         errors.append(f"{label}.entries: expected array")
-        return set()
+        return {}
 
-    levels: set[int] = set()
-    has_level_zero_feature = False
+    targets_by_level: dict[int, set[str]] = defaultdict(set)
     has_additional_spells = bool(race.get("additionalSpells"))
 
-    for entry in entries:
+    for index, entry in enumerate(entries):
         if not isinstance(entry, Mapping):
             continue
         name = entry.get("name")
@@ -129,22 +294,22 @@ def get_required_race_feature_levels(
         if name in RACE_FEATURE_SKIP_NAMES:
             continue
 
+        entry_text = " ".join(walk_strings(entry.get("entries", [])))
         match = LEVEL_IN_NAME_RE.search(name)
         if match:
-            levels.add(int(match.group("level")))
+            level = int(match.group("level"))
+        elif has_additional_spells and is_race_spellcasting_entry(entry_text):
+            level = 0
+        else:
+            text_levels = [int(match.group("level")) for match in REACH_LEVEL_RE.finditer(entry_text)]
+            level = min(text_levels) if text_levels and not is_race_spellcasting_entry(entry_text) else 0
+
+        foundry_id = validate_foundry_id(entry.get("_foundryId"), f"{label}.entries[{index}:{name!r}]._foundryId", errors)
+        if foundry_id is None:
             continue
+        targets_by_level[level].add(foundry_id)
 
-        has_level_zero_feature = True
-        entry_text = " ".join(walk_strings(entry.get("entries", [])))
-        if is_race_spellcasting_entry(entry_text) and has_additional_spells:
-            continue
-        for text_match in REACH_LEVEL_RE.finditer(entry_text):
-            levels.add(int(text_match.group("level")))
-
-    if has_level_zero_feature:
-        levels.add(0)
-
-    return levels
+    return targets_by_level
 
 
 def validate_race_additional_spells(
@@ -192,60 +357,38 @@ def validate_race_additional_spells(
         )
 
 
-def get_required_subclass_feature_levels(
-    subclass: Mapping[str, Any],
-    label: str,
-    errors: list[str],
-) -> dict[int, int]:
-    levels: dict[int, int] = defaultdict(int)
-    subclass_features = subclass.get("subclassFeatures", [])
-    if not isinstance(subclass_features, list):
-        errors.append(f"{label}.subclassFeatures: expected array")
-        return levels
-
-    for index, ref in enumerate(subclass_features):
-        ref_label = f"{label}.subclassFeatures[{index}]"
-        if not isinstance(ref, str):
-            errors.append(f"{ref_label}: expected string")
-            continue
-        level = parse_subclass_feature_level(ref, ref_label, errors)
-        if level is not None:
-            levels[level] += 1
-    return levels
-
-
 def validate_item_grant_advancement(
     advancement: Mapping[str, Any],
     label: str,
     errors: list[str],
-) -> int | None:
-    advancement_id = advancement.get("_id")
-    if not isinstance(advancement_id, str) or not FOUNDRY_ID_RE.fullmatch(advancement_id):
-        errors.append(f"{label}._id: expected 16-character Foundry id")
+) -> tuple[int | None, set[str]]:
+    validate_foundry_id(advancement.get("_id"), f"{label}._id", errors)
 
     if advancement.get("type") != "ItemGrant":
         errors.append(f"{label}.type: expected 'ItemGrant'")
 
-    level = advancement.get("level")
-    if isinstance(level, bool) or not isinstance(level, int):
-        errors.append(f"{label}.level: expected integer")
-        level_out = None
-    else:
-        level_out = level
+    level = parse_int(advancement.get("level"), f"{label}.level", errors)
 
     if advancement.get("title") != "Features":
         errors.append(f"{label}.title: expected 'Features'")
 
     value = advancement.get("value")
+    added: Mapping[str, Any] = {}
     if not isinstance(value, Mapping):
         errors.append(f"{label}.value: expected object")
+    elif not isinstance(value.get("added"), Mapping) or not value.get("added"):
+        errors.append(f"{label}.value.added: expected non-empty object")
+    else:
+        added = value["added"]
 
     configuration = advancement.get("configuration")
     if not isinstance(configuration, Mapping):
         errors.append(f"{label}.configuration: expected object")
-        return level_out
+        return level, set()
 
     items = configuration.get("items")
+    target_ids: set[str] = set()
+    uuid_by_target_id: dict[str, str] = {}
     if not isinstance(items, list):
         errors.append(f"{label}.configuration.items: expected array")
     elif not items:
@@ -259,32 +402,64 @@ def validate_item_grant_advancement(
             uuid = item.get("uuid")
             if not isinstance(uuid, str) or not uuid.strip():
                 errors.append(f"{item_label}.uuid: expected non-empty string")
+                continue
+            if not uuid.startswith("."):
+                errors.append(f"{item_label}.uuid: expected relative child item UUID")
+                continue
+            target_id = uuid[1:]
+            validate_foundry_id(target_id, f"{item_label}.uuid target", errors)
             if item.get("optional") is not False:
                 errors.append(f"{item_label}.optional: expected false")
+            target_ids.add(target_id)
+            uuid_by_target_id[target_id] = uuid
 
     if configuration.get("optional") is not False:
         errors.append(f"{label}.configuration.optional: expected false")
 
-    if "spell" not in configuration:
-        errors.append(f"{label}.configuration.spell: key is required; use null when unused")
+    spell = configuration.get("spell")
+    if not isinstance(spell, Mapping):
+        errors.append(f"{label}.configuration.spell: expected Plutonium ItemGrant spell object")
+    else:
+        if spell.get("ability") != [""]:
+            errors.append(f"{label}.configuration.spell.ability: expected ['']")
+        if spell.get("preparation") != "":
+            errors.append(f"{label}.configuration.spell.preparation: expected empty string")
+        uses = spell.get("uses")
+        if not isinstance(uses, Mapping) or uses.get("max") != "" or uses.get("per") != "":
+            errors.append(f"{label}.configuration.spell.uses: expected empty max/per strings")
 
-    return level_out
+    if added:
+        added_keys = set(added)
+        if added_keys != set(uuid_by_target_id):
+            errors.append(
+                f"{label}.value.added: keys must match configuration item ids; "
+                f"missing={sorted(set(uuid_by_target_id) - added_keys)} extra={sorted(added_keys - set(uuid_by_target_id))}"
+            )
+        for target_id, uuid in uuid_by_target_id.items():
+            if added.get(target_id) != uuid:
+                errors.append(f"{label}.value.added[{target_id!r}]: expected {uuid!r}")
+
+    return level, target_ids
 
 
 def validate_source_item_grants(
     entity: Mapping[str, Any],
     label: str,
     errors: list[str],
-    required_levels: set[int] | None = None,
-) -> dict[int, int]:
+    required_targets_by_level: Mapping[int, set[str]] | None = None,
+) -> dict[int, set[str]]:
     advancements = entity.get("foundryAdvancement")
     if advancements is None:
+        if required_targets_by_level:
+            errors.append(f"{label}.foundryAdvancement: required for feature ItemGrant coverage")
         return {}
     if not isinstance(advancements, list):
         errors.append(f"{label}.foundryAdvancement: expected array")
         return {}
+    if required_targets_by_level and not advancements:
+        errors.append(f"{label}.foundryAdvancement: required rows must not be empty")
 
-    item_grant_levels: dict[int, int] = defaultdict(int)
+    item_grants_by_level: dict[int, set[str]] = defaultdict(set)
     for advancement_index, advancement in enumerate(advancements):
         adv_label = f"{label}.foundryAdvancement[{advancement_index}]"
         if not isinstance(advancement, Mapping):
@@ -292,31 +467,30 @@ def validate_source_item_grants(
             continue
         if advancement.get("type") != "ItemGrant":
             continue
-        level = validate_item_grant_advancement(advancement, adv_label, errors)
+        level, target_ids = validate_item_grant_advancement(advancement, adv_label, errors)
         if level is not None:
-            item_grant_levels[level] += 1
+            item_grants_by_level[level].update(target_ids)
 
-    if required_levels is not None:
-        extra_levels = sorted(set(item_grant_levels) - required_levels)
+    if required_targets_by_level is not None:
+        expected_levels = set(required_targets_by_level)
+        actual_levels = set(item_grants_by_level)
+        missing_levels = sorted(expected_levels - actual_levels)
+        if missing_levels:
+            errors.append(f"{label}: missing ItemGrant advancement level(s): {missing_levels}")
+        extra_levels = sorted(actual_levels - expected_levels)
         if extra_levels:
             errors.append(f"{label}: ItemGrant advancement levels have no feature evidence: {extra_levels}")
+        for level in sorted(expected_levels & actual_levels):
+            expected_targets = required_targets_by_level[level]
+            actual_targets = item_grants_by_level[level]
+            missing_targets = sorted(expected_targets - actual_targets)
+            extra_targets = sorted(actual_targets - expected_targets)
+            if missing_targets:
+                errors.append(f"{label}: level {level} ItemGrant missing feature target(s): {missing_targets}")
+            if extra_targets:
+                errors.append(f"{label}: level {level} ItemGrant has unexpected feature target(s): {extra_targets}")
 
-    return item_grant_levels
-
-
-def validate_subclass_advancements(
-    rel: str,
-    index: int,
-    subclass: Mapping[str, Any],
-    errors: list[str],
-) -> None:
-    name = subclass.get("name", f"subclass[{index}]")
-    label = f"{rel}.subclass[{index}:{name!r}]"
-    required_levels = get_required_subclass_feature_levels(subclass, label, errors)
-    if not required_levels:
-        return
-
-    validate_source_item_grants(subclass, label, errors, set(required_levels))
+    return item_grants_by_level
 
 
 def validate_race_advancements(
@@ -333,14 +507,14 @@ def validate_race_advancements(
 
     validate_race_additional_spells(rel, index, race, errors)
 
-    required_levels = get_required_race_feature_levels(race, label, errors)
-    if not required_levels:
-        return
-
-    validate_source_item_grants(race, label, errors, required_levels)
+    required_targets_by_level = get_required_race_feature_targets(race, label, errors)
+    validate_source_item_grants(race, label, errors, required_targets_by_level)
 
 
 def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors: list[str]) -> None:
+    class_feature_ids = collect_class_feature_ids(rel, data, errors)
+    subclass_feature_ids = collect_subclass_feature_ids(rel, data, errors)
+
     for index, race in enumerate(data.get("race", [])):
         if not isinstance(race, Mapping):
             errors.append(f"{rel}.race[{index}]: expected object")
@@ -359,13 +533,17 @@ def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors
             errors.append(f"{label}.proficiency: required for Foundry save advancement generation")
         if not cls.get("startingProficiencies"):
             errors.append(f"{label}.startingProficiencies: required for Foundry skill/proficiency advancement generation")
-        validate_source_item_grants(cls, label, errors)
+        required_targets_by_level = get_required_class_feature_targets(cls, label, class_feature_ids, errors)
+        validate_source_item_grants(cls, label, errors, required_targets_by_level)
 
     for index, subclass in enumerate(data.get("subclass", [])):
         if not isinstance(subclass, Mapping):
             errors.append(f"{rel}.subclass[{index}]: expected object")
             continue
-        validate_subclass_advancements(rel, index, subclass, errors)
+        name = subclass.get("name", f"subclass[{index}]")
+        label = f"{rel}.subclass[{index}:{name!r}]"
+        required_targets_by_level = get_required_subclass_feature_targets(subclass, label, subclass_feature_ids, errors)
+        validate_source_item_grants(subclass, label, errors, required_targets_by_level)
 
 
 def validate(data_by_path: Mapping[str, Mapping[str, Any]]) -> list[str]:

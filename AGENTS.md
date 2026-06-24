@@ -3,6 +3,7 @@
 ## Source-Package Convention
 
 - Follow TheGiddyLimit/homebrew package/source conventions.
+- Before changing or troubleshooting a content convention, inspect corresponding TheGiddyLimit/homebrew examples and record the reference files or search result that governs the change.
 - Source IDs model source material/package identity, not individual classes, subclasses, species, spells, items, or features.
 - Current canonical package file: `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
 - Current canonical source ID: `VeiledOmens`
@@ -31,10 +32,12 @@ The tracked pre-commit hook at `.githooks/pre-commit` enforces steps 2-6 before 
 ## Foundry Character-Option Advancement Rule
 
 - Character option completion requires Foundry dnd5e advancement coverage, not only valid 5etools JSON, Plutonium source indexes, or linked-entity resolution.
-- Races/species must retain advancement-producing 5etools fields such as ability, size, language, skill, and tool proficiency fields, and races/species with feature entries must include `foundryAdvancement` `ItemGrant` rows for feature-grant levels.
+- Races/species must retain advancement-producing 5etools fields such as ability, size, language, skill, and tool proficiency fields.
 - Drow-style racial spellcasting traits must be encoded in `additionalSpells`; do not model spell availability at later character levels as separate race feature `ItemGrant` rows unless the source has separate named feature entries at those levels.
 - Classes must retain advancement-producing 5etools fields such as `hd`, `proficiency`, and `startingProficiencies`.
-- Subclasses with `subclassFeatures` must include `foundryAdvancement` `ItemGrant` rows for every subclass feature level.
+- Classes and subclasses must retain `classFeatures` and `subclassFeatures` references that resolve to real feature records; Plutonium's actor import path creates feature `ItemGrant` links from those references.
+- Do not add source-authored `ItemGrant` placeholders. A source-authored `ItemGrant` row is valid only when `configuration.items` contains real item UUID entries and the Foundry path is verified.
+- TheGiddyLimit/homebrew `foundryAdvancement` examples use concrete non-item advancement data such as `ScaleValue`; they are not evidence for empty `ItemGrant` rows.
 - `tools/validate-foundry-advancements.py` is the commit-blocking invariant for this rule and must be updated when a new character-option content type is added.
 
 ## Assets

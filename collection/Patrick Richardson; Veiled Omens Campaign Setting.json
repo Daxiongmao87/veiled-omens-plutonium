@@ -580,6 +580,58 @@
 					]
 				}
 			],
+			"additionalSpells": [
+				{
+					"name": "Minor Illusion",
+					"known": {
+						"1": [
+							"minor illusion#c"
+						]
+					},
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"disguise self"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"darkness"
+								]
+							}
+						}
+					},
+					"ability": "cha"
+				},
+				{
+					"name": "Thaumaturgy",
+					"known": {
+						"1": [
+							"thaumaturgy#c"
+						]
+					},
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"disguise self"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"darkness"
+								]
+							}
+						}
+					},
+					"ability": "cha"
+				}
+			],
 			"foundryAdvancement": [
 				{
 					"_id": "VO5165290a12ae05",
@@ -591,32 +643,6 @@
 					},
 					"value": {},
 					"level": 0,
-					"title": "Features",
-					"icon": null
-				},
-				{
-					"_id": "VO0151858483b1cc",
-					"type": "ItemGrant",
-					"configuration": {
-						"items": [],
-						"optional": false,
-						"spell": null
-					},
-					"value": {},
-					"level": 3,
-					"title": "Features",
-					"icon": null
-				},
-				{
-					"_id": "VO31921e0eec7732",
-					"type": "ItemGrant",
-					"configuration": {
-						"items": [],
-						"optional": false,
-						"spell": null
-					},
-					"value": {},
-					"level": 5,
 					"title": "Features",
 					"icon": null
 				}
@@ -746,6 +772,20 @@
 					"entries": [
 						"You can cast {@spell detect evil and good} once with this trait, and you regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for this spell."
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"1": {
+							"daily": {
+								"1": [
+									"detect evil and good"
+								]
+							}
+						}
+					},
+					"ability": "cha"
 				}
 			],
 			"foundryAdvancement": [
@@ -890,6 +930,44 @@
 					]
 				}
 			],
+			"additionalSpells": [
+				{
+					"name": "Guidance",
+					"known": {
+						"1": [
+							"guidance#c"
+						]
+					},
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"longstrider"
+								]
+							}
+						}
+					},
+					"ability": "cha"
+				},
+				{
+					"name": "Blade Ward",
+					"known": {
+						"1": [
+							"blade ward#c"
+						]
+					},
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"longstrider"
+								]
+							}
+						}
+					},
+					"ability": "cha"
+				}
+			],
 			"foundryAdvancement": [
 				{
 					"_id": "VO73194b5c07ef93",
@@ -901,19 +979,6 @@
 					},
 					"value": {},
 					"level": 0,
-					"title": "Features",
-					"icon": null
-				},
-				{
-					"_id": "VO516f2464fcb700",
-					"type": "ItemGrant",
-					"configuration": {
-						"items": [],
-						"optional": false,
-						"spell": null
-					},
-					"value": {},
-					"level": 3,
 					"title": "Features",
 					"icon": null
 				}
@@ -1647,6 +1712,19 @@
 					"entries": [
 						"You can speak, read, and write Common, Draconic, and the language of your humanoid parentage."
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"1": {
+							"daily": {
+								"1": [
+									"disguise self"
+								]
+							}
+						}
+					}
 				}
 			],
 			"foundryAdvancement": [

@@ -17,6 +17,8 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 FOUNDRY_ID_RE = re.compile(r"^[A-Za-z0-9]{16}$")
 LEVEL_IN_NAME_RE = re.compile(r"\(Level (?P<level>\d+)\)")
 REACH_LEVEL_RE = re.compile(r"\breach (?P<level>\d+)(?:st|nd|rd|th) level\b", re.IGNORECASE)
+SPELL_TAG_RE = re.compile(r"\{@spell\s+(?P<spell>[^}|#]+)(?:[|#][^}]*)?\}", re.IGNORECASE)
+RACE_SPELLCASTING_TEXT_RE = re.compile(r"\{@spell|\bcan cast\b|\bcantrip\b", re.IGNORECASE)
 RACE_FEATURE_SKIP_NAMES = {
     "Ability Score Increase",
     "Ability Score Changes",
@@ -69,6 +71,41 @@ def walk_strings(value: Any) -> list[str]:
     return []
 
 
+def normalize_spell_name(value: str) -> str:
+    value = value.split("#", 1)[0].split("|", 1)[0]
+    return re.sub(r"\s+", " ", value.strip().lower())
+
+
+def collect_additional_spell_names(value: Any) -> set[str]:
+    if isinstance(value, str):
+        if "=" in value:
+            return set()
+        normalized = normalize_spell_name(value)
+        return {normalized} if normalized else set()
+    if isinstance(value, list):
+        out: set[str] = set()
+        for item in value:
+            out.update(collect_additional_spell_names(item))
+        return out
+    if isinstance(value, Mapping):
+        out: set[str] = set()
+        for item in value.values():
+            out.update(collect_additional_spell_names(item))
+        return out
+    return set()
+
+
+def extract_spell_tag_names(text: str) -> set[str]:
+    return {
+        normalize_spell_name(match.group("spell"))
+        for match in SPELL_TAG_RE.finditer(text)
+    }
+
+
+def is_race_spellcasting_entry(entry_text: str) -> bool:
+    return bool(RACE_SPELLCASTING_TEXT_RE.search(entry_text))
+
+
 def get_required_race_feature_levels(
     race: Mapping[str, Any],
     label: str,
@@ -81,6 +118,7 @@ def get_required_race_feature_levels(
 
     levels: set[int] = set()
     has_level_zero_feature = False
+    has_additional_spells = bool(race.get("additionalSpells"))
 
     for entry in entries:
         if not isinstance(entry, Mapping):
@@ -98,6 +136,8 @@ def get_required_race_feature_levels(
 
         has_level_zero_feature = True
         entry_text = " ".join(walk_strings(entry.get("entries", [])))
+        if is_race_spellcasting_entry(entry_text) and has_additional_spells:
+            continue
         for text_match in REACH_LEVEL_RE.finditer(entry_text):
             levels.add(int(text_match.group("level")))
 
@@ -105,6 +145,51 @@ def get_required_race_feature_levels(
         levels.add(0)
 
     return levels
+
+
+def validate_race_additional_spells(
+    rel: str,
+    index: int,
+    race: Mapping[str, Any],
+    errors: list[str],
+) -> None:
+    name = race.get("name", f"race[{index}]")
+    label = f"{rel}.race[{index}:{name!r}]"
+    entries = race.get("entries", [])
+    if not isinstance(entries, list):
+        return
+
+    required_spell_names: set[str] = set()
+    for entry in entries:
+        if not isinstance(entry, Mapping):
+            continue
+        entry_text = " ".join(walk_strings(entry.get("entries", [])))
+        if not is_race_spellcasting_entry(entry_text):
+            continue
+        required_spell_names.update(extract_spell_tag_names(entry_text))
+
+    if not required_spell_names:
+        return
+
+    additional_spells = race.get("additionalSpells")
+    if not isinstance(additional_spells, list) or not additional_spells:
+        errors.append(
+            f"{label}.additionalSpells: required for Drow-style racial spellcasting traits "
+            f"granting {sorted(required_spell_names)}"
+        )
+        return
+
+    for additional_spell_index, additional_spell_block in enumerate(additional_spells):
+        if not isinstance(additional_spell_block, Mapping):
+            errors.append(f"{label}.additionalSpells[{additional_spell_index}]: expected object")
+
+    actual_spell_names = collect_additional_spell_names(additional_spells)
+    missing_spell_names = sorted(required_spell_names - actual_spell_names)
+    if missing_spell_names:
+        errors.append(
+            f"{label}.additionalSpells: missing racial spell grant(s) from feature text: "
+            f"{missing_spell_names}"
+        )
 
 
 def get_required_subclass_feature_levels(
@@ -225,6 +310,8 @@ def validate_race_advancements(
 
     if not any(race.get(prop) for prop in ("ability", "size", "skillProficiencies", "languageProficiencies", "toolProficiencies")):
         errors.append(f"{label}: race lacks advancement-producing 5etools fields")
+
+    validate_race_additional_spells(rel, index, race, errors)
 
     required_levels = get_required_race_feature_levels(race, label, errors)
     if not required_levels:

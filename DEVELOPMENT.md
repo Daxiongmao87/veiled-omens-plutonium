@@ -57,6 +57,7 @@ Conventions validation step before merge:
 
 - Compare package filenames and source IDs against corresponding TheGiddyLimit/homebrew example files in the same directory. Use `collection/` examples when a source material package spans multiple content types.
 - Before changing or troubleshooting a content behavior, inspect corresponding TheGiddyLimit/homebrew examples for that behavior and record the reference paths or search result in the work notes.
+- Before changing schema notes or validators for a player-option category, audit matching TheGiddyLimit/homebrew JSONs and Plutonium bundled source/side-data; record the controlling evidence in `docs/5etools-homebrew-conventions.md`.
 - Confirm every content JSON file is discovered and validated by `tools/validate-content-json.py`.
 - Do not treat index/json checks as sufficient if naming and source identity do not match package-level conventions.
 - Do not treat Plutonium linked-entity resolution as sufficient for player options. Run `tools/validate-foundry-advancements.py` and confirm character-option advancement coverage.
@@ -67,10 +68,12 @@ Foundry dnd5e advancement coverage is required for player character options.
 
 - Races/species rely on 5etools fields such as `ability`, `size`, `skillProficiencies`, `languageProficiencies`, and `toolProficiencies` to generate generic Foundry advancements. Plutonium imports named race entries as race-feature items on the actor path.
 - Classes rely on 5etools fields such as `hd`, `proficiency`, and `startingProficiencies` to generate Foundry advancements.
-- Classes and subclasses rely on `classFeatures` and `subclassFeatures` references that resolve to real feature records. Plutonium's actor import path imports those feature records and creates feature `ItemGrant` links with populated item UUIDs. Standalone class/subclass Advancement tabs that are expected to grant named features need source-side non-empty `ItemGrant` rows or direct Foundry output evidence.
-- TheGiddyLimit/homebrew `foundryAdvancement` examples use concrete non-item advancement data such as `ScaleValue`; the reference repo does not provide a convention for empty source-authored `ItemGrant` rows.
-- Do not add source-authored `ItemGrant` placeholders. Empty rows are missing feature wiring, not cleanup targets. A source-authored `ItemGrant` row is valid only when `configuration.items` contains real item UUID objects, `value.added` maps the granted item IDs to the same UUIDs, and the Foundry import path verifies the grants.
-- For named class, subclass, race, species, subrace, feat, optional feature, or item-grant advancements, create or identify the concrete feature/item records first, assign stable child item IDs when relative UUIDs are used, then wire the parent advancement rows.
+- Class `startingProficiencies.tools` and `multiclassing.proficienciesGained.tools` arrays use strings. Free-choice tool grants use official-style strings, such as `one type of {@item artisan's tools|PHB} of your choice`, not object `choose` blocks.
+- Classes and subclasses rely on `classFeatures` and `subclassFeatures` references that resolve to real feature records. Plutonium's actor import path imports those feature records and creates feature `ItemGrant` links with populated item UUIDs.
+- Normal `classFeatures` and `subclassFeatures` entries use the official string-reference form. `classFeatures` objects are used for reference metadata such as `gainSubclassFeature`, `gainSubclassFeatureHasContent`, or `tableDisplayName`.
+- TheGiddyLimit/homebrew examples and Plutonium's bundled 5etools side-data use concrete non-item advancement data such as `ScaleValue`; they do not source-author `ItemGrant` rows for feature grants.
+- Do not add source-authored `ItemGrant` rows. Feature grants are proven by concrete feature/item records, resolving references, and generated importer output from the real actor import path.
+- For named class, subclass, race, species, subrace, feat, optional feature, or item-grant behavior, create or identify the concrete feature/item records first, then verify Plutonium generated the actor-owned grants through real import output.
 - Plutonium item conversion fields are part of this completion gate. Follow TheGiddyLimit/homebrew source fields for item `type`, `wondrous`, attunement, rarity, charges, and related converter inputs. Wondrous magic items use `wondrous: true` and omit fake item type values such as `type: "WONDROUS"`.
 - Drow-style racial spellcasting traits use `additionalSpells` for cantrips, innate spells, and later-level spell availability; do not turn those spell levels into race feature `ItemGrant` rows unless the source has separate named feature entries at those levels.
 - `tools/validate-foundry-advancements.py` enforces this rule for every repository content JSON file.
@@ -276,6 +279,7 @@ Example:
       "startingProficiencies": {
         "armor": ["light"],
         "weapons": ["simple"],
+        "tools": ["one type of {@item artisan's tools|PHB} of your choice"],
         "skills": [
           {
             "choose": {
@@ -305,7 +309,7 @@ Example:
 }
 ```
 
-Subclass choice features use an object in `classFeatures`:
+Normal class feature references use strings. Subclass choice features use an object in `classFeatures`:
 
 ```json
 {
@@ -412,8 +416,7 @@ If icons do not appear:
 If race/species traits appear in Description but not Advancement:
 
 - Do not accept description rendering as completion for a player option.
-- Confirm the behavior against corresponding TheGiddyLimit/homebrew examples before changing source JSON.
-- Treat empty source-authored `ItemGrant` rows as missing target wiring. Replace them with created or identified feature/item targets plus populated `configuration.items` and matching `value.added`, or prove the generated Foundry import created the same grants. Do not stop at removal.
-- Use source-authored `ItemGrant` rows only when `configuration.items` contains real item UUID objects, `value.added` maps the granted item IDs to the same UUIDs, and the Foundry import path verifies the grants.
+- Confirm the behavior against Plutonium's bundled 5etools source data and side-data before changing source JSON.
+- Do not add source-authored `ItemGrant` rows. Create or repair the concrete race entries, class feature records, subclass feature records, and references, then prove Plutonium generated the actor-owned `ItemGrant` rows through real actor import output.
 - If the missing trait is racial spellcasting, add or repair `additionalSpells` instead of adding fake spell-level `ItemGrant` rows.
-- Use direct Foundry item JSON or portable compendium UUIDs when exact child-item linking is required beyond source-level advancement rows.
+- Use direct Foundry item JSON or portable compendium UUIDs only when exact child-item linking is required outside the 5etools/Plutonium feature-reference import path.

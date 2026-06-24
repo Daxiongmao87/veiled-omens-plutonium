@@ -4,6 +4,7 @@
 
 - Follow TheGiddyLimit/homebrew package/source conventions.
 - Before changing or troubleshooting a content convention, inspect corresponding TheGiddyLimit/homebrew examples and record the reference files or search result that governs the change.
+- Before changing schema notes or validators for player options, audit corresponding TheGiddyLimit/homebrew valid JSONs and Plutonium bundled source/side-data for the same content category; update `docs/5etools-homebrew-conventions.md` with the governing evidence.
 - Source IDs model source material/package identity, not individual classes, subclasses, species, spells, items, or features.
 - Current canonical package file: `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
 - Current canonical source ID: `VeiledOmens`
@@ -35,12 +36,14 @@ The tracked pre-commit hook at `.githooks/pre-commit` enforces steps 2-6 before 
 - Races/species must retain advancement-producing 5etools fields such as ability, size, language, skill, and tool proficiency fields.
 - Drow-style racial spellcasting traits must be encoded in `additionalSpells`; do not model spell availability at later character levels as separate race feature `ItemGrant` rows unless the source has separate named feature entries at those levels.
 - Classes must retain advancement-producing 5etools fields such as `hd`, `proficiency`, and `startingProficiencies`.
+- Class `startingProficiencies.tools` and `multiclassing.proficienciesGained.tools` entries must be strings, including free-choice tool grants such as `one type of {@item artisan's tools|PHB} of your choice`; object `choose` blocks in class tool arrays break Plutonium's advancement conversion.
 - Classes and subclasses must retain `classFeatures` and `subclassFeatures` references that resolve to real feature records; Plutonium's actor import path creates feature `ItemGrant` links from those references.
-- Do not add source-authored `ItemGrant` placeholders. A source-authored `ItemGrant` row is valid only when `configuration.items` contains real item UUID entries, `value.added` maps the granted item IDs to the same UUIDs, and the Foundry path is verified.
-- For standalone class, subclass, race, species, subrace, feat, optional feature, or item-grant surfaces whose Advancement tab is expected to grant named features, source data must create or retain concrete feature/item records and wire non-empty `ItemGrant` rows unless direct Foundry output proves Plutonium generated those rows. Removing empty rows is not a fix by itself.
-- Relative UUID grants require stable child feature/item IDs. Missing child feature targets, missing child IDs, or blank `configuration.items` are blockers.
+- Normal `classFeatures` and `subclassFeatures` references follow the official 5etools string-ref convention. `classFeatures` objects are reserved for reference-backed metadata such as `gainSubclassFeature`, `gainSubclassFeatureHasContent`, or `tableDisplayName`.
+- Do not add source-authored `ItemGrant` rows for feature grants. Plutonium's bundled 5etools data and side-data use zero `ItemGrant` rows; the importer creates feature-grant `ItemGrant` rows during actor import.
+- Source-side `foundryAdvancement` is allowed only for reference-backed non-item advancement data such as `ScaleValue`.
+- Feature-grant completion requires concrete race entries, class feature records, subclass feature records, and resolving references; generated importer output must prove actor-owned `ItemGrant` rows when the Foundry actor path is the claimed behavior.
 - Plutonium item conversion fields are part of player-option completion. Follow TheGiddyLimit/homebrew item conventions for fields such as `type`, `wondrous`, attunement, rarity, and charges. Wondrous magic items use `wondrous: true` and omit fake item type values such as `type: "WONDROUS"`.
-- TheGiddyLimit/homebrew `foundryAdvancement` examples use concrete non-item advancement data such as `ScaleValue`; they are not evidence for empty `ItemGrant` rows.
+- TheGiddyLimit/homebrew and bundled Plutonium `foundryAdvancement` examples use concrete non-item advancement data such as `ScaleValue`; they are not evidence for source-authored `ItemGrant` rows.
 - `tools/validate-foundry-advancements.py` is the commit-blocking invariant for this rule and must be updated when a new character-option content type is added.
 
 ## Assets

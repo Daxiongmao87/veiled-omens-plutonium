@@ -357,140 +357,51 @@ def validate_race_additional_spells(
         )
 
 
-def validate_item_grant_advancement(
-    advancement: Mapping[str, Any],
-    label: str,
-    errors: list[str],
-) -> tuple[int | None, set[str]]:
-    validate_foundry_id(advancement.get("_id"), f"{label}._id", errors)
-
-    if advancement.get("type") != "ItemGrant":
-        errors.append(f"{label}.type: expected 'ItemGrant'")
-
-    level = parse_int(advancement.get("level"), f"{label}.level", errors)
-
-    if advancement.get("title") != "Features":
-        errors.append(f"{label}.title: expected 'Features'")
-
-    value = advancement.get("value")
-    added: Mapping[str, Any] = {}
-    if not isinstance(value, Mapping):
-        errors.append(f"{label}.value: expected object")
-    elif not isinstance(value.get("added"), Mapping) or not value.get("added"):
-        errors.append(f"{label}.value.added: expected non-empty object")
-    else:
-        added = value["added"]
-
-    configuration = advancement.get("configuration")
-    if not isinstance(configuration, Mapping):
-        errors.append(f"{label}.configuration: expected object")
-        return level, set()
-
-    items = configuration.get("items")
-    target_ids: set[str] = set()
-    uuid_by_target_id: dict[str, str] = {}
-    if not isinstance(items, list):
-        errors.append(f"{label}.configuration.items: expected array")
-    elif not items:
-        errors.append(f"{label}.configuration.items: source-authored ItemGrant rows must not be empty")
-    else:
-        for item_index, item in enumerate(items):
-            item_label = f"{label}.configuration.items[{item_index}]"
-            if not isinstance(item, Mapping):
-                errors.append(f"{item_label}: expected object")
-                continue
-            uuid = item.get("uuid")
-            if not isinstance(uuid, str) or not uuid.strip():
-                errors.append(f"{item_label}.uuid: expected non-empty string")
-                continue
-            if not uuid.startswith("."):
-                errors.append(f"{item_label}.uuid: expected relative child item UUID")
-                continue
-            target_id = uuid[1:]
-            validate_foundry_id(target_id, f"{item_label}.uuid target", errors)
-            if item.get("optional") is not False:
-                errors.append(f"{item_label}.optional: expected false")
-            target_ids.add(target_id)
-            uuid_by_target_id[target_id] = uuid
-
-    if configuration.get("optional") is not False:
-        errors.append(f"{label}.configuration.optional: expected false")
-
-    spell = configuration.get("spell")
-    if not isinstance(spell, Mapping):
-        errors.append(f"{label}.configuration.spell: expected Plutonium ItemGrant spell object")
-    else:
-        if spell.get("ability") != [""]:
-            errors.append(f"{label}.configuration.spell.ability: expected ['']")
-        if spell.get("preparation") != "":
-            errors.append(f"{label}.configuration.spell.preparation: expected empty string")
-        uses = spell.get("uses")
-        if not isinstance(uses, Mapping) or uses.get("max") != "" or uses.get("per") != "":
-            errors.append(f"{label}.configuration.spell.uses: expected empty max/per strings")
-
-    if added:
-        added_keys = set(added)
-        if added_keys != set(uuid_by_target_id):
-            errors.append(
-                f"{label}.value.added: keys must match configuration item ids; "
-                f"missing={sorted(set(uuid_by_target_id) - added_keys)} extra={sorted(added_keys - set(uuid_by_target_id))}"
-            )
-        for target_id, uuid in uuid_by_target_id.items():
-            if added.get(target_id) != uuid:
-                errors.append(f"{label}.value.added[{target_id!r}]: expected {uuid!r}")
-
-    return level, target_ids
-
-
-def validate_source_item_grants(
+def validate_no_source_item_grants(
     entity: Mapping[str, Any],
     label: str,
     errors: list[str],
-    required_targets_by_level: Mapping[int, set[str]] | None = None,
-) -> dict[int, set[str]]:
+) -> None:
     advancements = entity.get("foundryAdvancement")
     if advancements is None:
-        if required_targets_by_level:
-            errors.append(f"{label}.foundryAdvancement: required for feature ItemGrant coverage")
-        return {}
+        return
     if not isinstance(advancements, list):
         errors.append(f"{label}.foundryAdvancement: expected array")
-        return {}
-    if required_targets_by_level and not advancements:
-        errors.append(f"{label}.foundryAdvancement: required rows must not be empty")
+        return
 
-    item_grants_by_level: dict[int, set[str]] = defaultdict(set)
     for advancement_index, advancement in enumerate(advancements):
         adv_label = f"{label}.foundryAdvancement[{advancement_index}]"
         if not isinstance(advancement, Mapping):
             errors.append(f"{adv_label}: expected object")
             continue
-        if advancement.get("type") != "ItemGrant":
-            continue
-        level, target_ids = validate_item_grant_advancement(advancement, adv_label, errors)
-        if level is not None:
-            item_grants_by_level[level].update(target_ids)
+        if advancement.get("type") == "ItemGrant":
+            errors.append(
+                f"{adv_label}: source-authored ItemGrant rows are forbidden; "
+                "Plutonium generates feature ItemGrant links during actor import"
+            )
 
-    if required_targets_by_level is not None:
-        expected_levels = set(required_targets_by_level)
-        actual_levels = set(item_grants_by_level)
-        missing_levels = sorted(expected_levels - actual_levels)
-        if missing_levels:
-            errors.append(f"{label}: missing ItemGrant advancement level(s): {missing_levels}")
-        extra_levels = sorted(actual_levels - expected_levels)
-        if extra_levels:
-            errors.append(f"{label}: ItemGrant advancement levels have no feature evidence: {extra_levels}")
-        for level in sorted(expected_levels & actual_levels):
-            expected_targets = required_targets_by_level[level]
-            actual_targets = item_grants_by_level[level]
-            missing_targets = sorted(expected_targets - actual_targets)
-            extra_targets = sorted(actual_targets - expected_targets)
-            if missing_targets:
-                errors.append(f"{label}: level {level} ItemGrant missing feature target(s): {missing_targets}")
-            if extra_targets:
-                errors.append(f"{label}: level {level} ItemGrant has unexpected feature target(s): {extra_targets}")
 
-    return item_grants_by_level
+def validate_class_tool_proficiency_shape(
+    proficiencies: Any,
+    label: str,
+    errors: list[str],
+) -> None:
+    if not isinstance(proficiencies, Mapping):
+        return
+
+    tools = proficiencies.get("tools")
+    if tools is None:
+        return
+    if not isinstance(tools, list):
+        errors.append(f"{label}.tools: expected array")
+        return
+
+    for index, tool in enumerate(tools):
+        if not isinstance(tool, str):
+            errors.append(
+                f"{label}.tools[{index}]: expected string; "
+                "Plutonium class advancement conversion calls string tool entries directly"
+            )
 
 
 def validate_race_advancements(
@@ -507,8 +418,8 @@ def validate_race_advancements(
 
     validate_race_additional_spells(rel, index, race, errors)
 
-    required_targets_by_level = get_required_race_feature_targets(race, label, errors)
-    validate_source_item_grants(race, label, errors, required_targets_by_level)
+    get_required_race_feature_targets(race, label, errors)
+    validate_no_source_item_grants(race, label, errors)
 
 
 def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors: list[str]) -> None:
@@ -533,8 +444,20 @@ def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors
             errors.append(f"{label}.proficiency: required for Foundry save advancement generation")
         if not cls.get("startingProficiencies"):
             errors.append(f"{label}.startingProficiencies: required for Foundry skill/proficiency advancement generation")
-        required_targets_by_level = get_required_class_feature_targets(cls, label, class_feature_ids, errors)
-        validate_source_item_grants(cls, label, errors, required_targets_by_level)
+        validate_class_tool_proficiency_shape(
+            cls.get("startingProficiencies"),
+            f"{label}.startingProficiencies",
+            errors,
+        )
+        multiclassing = cls.get("multiclassing")
+        if isinstance(multiclassing, Mapping):
+            validate_class_tool_proficiency_shape(
+                multiclassing.get("proficienciesGained"),
+                f"{label}.multiclassing.proficienciesGained",
+                errors,
+            )
+        get_required_class_feature_targets(cls, label, class_feature_ids, errors)
+        validate_no_source_item_grants(cls, label, errors)
 
     for index, subclass in enumerate(data.get("subclass", [])):
         if not isinstance(subclass, Mapping):
@@ -542,8 +465,8 @@ def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors
             continue
         name = subclass.get("name", f"subclass[{index}]")
         label = f"{rel}.subclass[{index}:{name!r}]"
-        required_targets_by_level = get_required_subclass_feature_targets(subclass, label, subclass_feature_ids, errors)
-        validate_source_item_grants(subclass, label, errors, required_targets_by_level)
+        get_required_subclass_feature_targets(subclass, label, subclass_feature_ids, errors)
+        validate_no_source_item_grants(subclass, label, errors)
 
 
 def validate(data_by_path: Mapping[str, Mapping[str, Any]]) -> list[str]:

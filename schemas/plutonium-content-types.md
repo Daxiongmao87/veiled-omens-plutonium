@@ -93,6 +93,8 @@ Core fields:
 
 Race traits belong in the race object's `entries` array. Do not use class-style feature references for race traits.
 
+Do not add source-authored `foundryAdvancement` `ItemGrant` rows for race traits. Plutonium imports named race entries as feature items and creates actor-owned feature grants during actor import.
+
 ## Race subspecies / subrace
 
 Top-level array: usually `race` for the flattened Plutonium cache shape, or `subrace` when using canonical 5etools homebrew split files. Match the style used by the target importer.
@@ -139,7 +141,7 @@ Core fields:
   "startingProficiencies": {
     "armor": ["light"],
     "weapons": ["simple"],
-    "tools": [],
+    "tools": ["one type of {@item artisan's tools|PHB} of your choice"],
     "skills": [
       {
         "choose": {
@@ -178,6 +180,10 @@ Class feature reference format:
 ```text
 Feature Name|Class Name|Class Source|Level
 ```
+
+Normal class feature references use strings. Use an object only when the reference carries metadata such as `gainSubclassFeature`, `gainSubclassFeatureHasContent`, or `tableDisplayName`.
+
+Do not add source-authored `foundryAdvancement` `ItemGrant` rows for class feature grants. Keep `classFeatures` references resolving to concrete `classFeature` records; Plutonium creates actor-owned feature grants during actor import.
 
 Subclass choice features use:
 
@@ -247,6 +253,10 @@ Subclass feature reference format:
 ```text
 Feature Name|Class Name|Class Source|Subclass Short Name|Subclass Source|Level|Feature Source
 ```
+
+Subclass feature references use strings.
+
+Do not add source-authored `foundryAdvancement` `ItemGrant` rows for subclass feature grants. Keep `subclassFeatures` references resolving to concrete `subclassFeature` records; Plutonium creates actor-owned feature grants during actor import.
 
 ## Subclass feature
 

@@ -38,6 +38,7 @@ python3 tools/validate-content-json.py
 python3 tools/generate-plutonium-indexes.py --check
 python3 tools/validate-plutonium-datasource.py
 python3 tools/validate-plutonium-links.py
+python3 tools/validate-foundry-advancements.py
 ```
 
 The pre-commit hook runs the validation commands above that do not modify files. `validate-content-json.py` parses every repository JSON file and checks every JSON file under recognized content directories.
@@ -49,6 +50,7 @@ Conventions validation is part of the same flow:
 - Confirm `_generated/index-sources.json` maps each source ID to the correct package file.
 - Confirm `_generated/index-props.json` maps every top-level content array to the correct top-level directory.
 - Confirm class and subclass feature references resolve to real Plutonium entities.
+- Confirm Foundry dnd5e advancement coverage with `tools/validate-foundry-advancements.py`; character options are not complete when they only pass JSON, source-index, or link-resolution checks.
 - Confirm there are no split source IDs for individual mechanical options inside the same Veiled Omens source package.
 
 ## Useful Docs

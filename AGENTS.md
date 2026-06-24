@@ -21,11 +21,20 @@ Before reporting content or source organization work complete:
 3. Run `python3 tools/generate-plutonium-indexes.py --check`.
 4. Run `python3 tools/validate-plutonium-datasource.py`.
 5. Run `python3 tools/validate-plutonium-links.py`.
-6. Audit `_generated/index-sources.json` for one source ID per source package.
-7. Audit `_generated/index-props.json` for correct content-directory mappings.
-8. Run stale-reference scans for removed source IDs and removed package paths.
+6. Run `python3 tools/validate-foundry-advancements.py`.
+7. Audit `_generated/index-sources.json` for one source ID per source package.
+8. Audit `_generated/index-props.json` for correct content-directory mappings.
+9. Run stale-reference scans for removed source IDs and removed package paths.
 
-The tracked pre-commit hook at `.githooks/pre-commit` enforces steps 2-5 before commits. Configure local clones with `git config core.hooksPath .githooks`.
+The tracked pre-commit hook at `.githooks/pre-commit` enforces steps 2-6 before commits. Configure local clones with `git config core.hooksPath .githooks`.
+
+## Foundry Character-Option Advancement Rule
+
+- Character option completion requires Foundry dnd5e advancement coverage, not only valid 5etools JSON, Plutonium source indexes, or linked-entity resolution.
+- Races/species must retain advancement-producing 5etools fields such as ability, size, language, skill, and tool proficiency fields.
+- Classes must retain advancement-producing 5etools fields such as `hd`, `proficiency`, and `startingProficiencies`.
+- Subclasses with `subclassFeatures` must include `foundryAdvancement` `ItemGrant` rows for every subclass feature level.
+- `tools/validate-foundry-advancements.py` is the commit-blocking invariant for this rule and must be updated when a new character-option content type is added.
 
 ## Assets
 

@@ -48,6 +48,7 @@ python3 tools/validate-content-json.py
 python3 tools/generate-plutonium-indexes.py --check
 python3 tools/validate-plutonium-datasource.py
 python3 tools/validate-plutonium-links.py
+python3 tools/validate-foundry-advancements.py
 ```
 
 The pre-commit hook runs the validation commands that do not mutate files. `validate-content-json.py` parses every repository JSON file and checks every JSON file under recognized content directories.
@@ -57,6 +58,17 @@ Conventions validation step before merge:
 - Compare package filenames and source IDs against corresponding TheGiddyLimit/homebrew example files in the same directory. Use `collection/` examples when a source material package spans multiple content types.
 - Confirm every content JSON file is discovered and validated by `tools/validate-content-json.py`.
 - Do not treat index/json checks as sufficient if naming and source identity do not match package-level conventions.
+- Do not treat Plutonium linked-entity resolution as sufficient for player options. Run `tools/validate-foundry-advancements.py` and confirm character-option advancement coverage.
+
+## Foundry character-option advancements
+
+Foundry dnd5e advancement coverage is required for player character options.
+
+- Races/species rely on 5etools fields such as `ability`, `size`, `skillProficiencies`, `languageProficiencies`, and `toolProficiencies` to generate Foundry advancements.
+- Classes rely on 5etools fields such as `hd`, `proficiency`, and `startingProficiencies` to generate Foundry advancements.
+- Subclasses with `subclassFeatures` require explicit `foundryAdvancement` `ItemGrant` rows for every subclass feature level because Plutonium's direct subclass item conversion adds prepared-spell advancements and side-loaded advancements, but it does not derive standalone subclass item `ItemGrant` rows from `subclassFeatures`.
+- Keep subclass `foundryAdvancement` rows level-matched to `subclassFeatures`. Leave `configuration.items` empty in source JSON unless a portable Foundry compendium UUID exists; Plutonium actor import still uses `subclassFeatures` to import and link actual feature items on an actor.
+- `tools/validate-foundry-advancements.py` enforces this rule for every repository content JSON file.
 
 ## Source identity
 

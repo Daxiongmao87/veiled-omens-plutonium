@@ -2933,6 +2933,60 @@
 				"Covenant of Incantation|Occultist|VeiledOmens|Haunts|VeiledOmens|10|VeiledOmens",
 				"Psychopomp|Occultist|VeiledOmens|Haunts|VeiledOmens|14|VeiledOmens"
 			],
+			"foundryAdvancement": [
+				{
+					"_id": "VOdd4327303ba0dc",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 3,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VObdc9fedcd5cc45",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 6,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO10512ba47e1a7c",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 10,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOfbc29d76e07d01",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 14,
+					"title": "Features",
+					"icon": null
+				}
+			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-haunts.webp",
 			"__prop": "subclass"
 		},
@@ -2949,6 +3003,60 @@
 				"Signs in the Wake|Occultist|VeiledOmens|Omens|VeiledOmens|6|VeiledOmens",
 				"Second Reading|Occultist|VeiledOmens|Omens|VeiledOmens|10|VeiledOmens",
 				"Fulfilled Portent|Occultist|VeiledOmens|Omens|VeiledOmens|14|VeiledOmens"
+			],
+			"foundryAdvancement": [
+				{
+					"_id": "VO4a80d1d356575f",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 3,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOb68444e98e556e",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 6,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOc77b0b5cf6db2b",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 10,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO43a784cbf30f6a",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 14,
+					"title": "Features",
+					"icon": null
+				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
 			"__prop": "subclass"
@@ -2967,6 +3075,60 @@
 				"Greater Soul Facets|Occultist|VeiledOmens|Servitude|VeiledOmens|10|VeiledOmens",
 				"Soul Gem Mastery|Occultist|VeiledOmens|Servitude|VeiledOmens|14|VeiledOmens"
 			],
+			"foundryAdvancement": [
+				{
+					"_id": "VO435fa7ae0d26ad",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 3,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOe8b8f4f8f5ce9e",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 6,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO7afdb066b83c20",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 10,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO551c2fc2ec55e1",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 14,
+					"title": "Features",
+					"icon": null
+				}
+			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-servitude.webp",
 			"__prop": "subclass"
 		},
@@ -2982,6 +3144,47 @@
 				"Mana Shaping|Thaumaphage|VeiledOmens|Ether|VeiledOmens|2|VeiledOmens",
 				"Mana Overflow|Thaumaphage|VeiledOmens|Ether|VeiledOmens|10|VeiledOmens",
 				"Conversion|Thaumaphage|VeiledOmens|Ether|VeiledOmens|14|VeiledOmens"
+			],
+			"foundryAdvancement": [
+				{
+					"_id": "VO6bf61f7b13cfcf",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 2,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO0129b5d63b0b9a",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 10,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO1d5bf42e7cc071",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 14,
+					"title": "Features",
+					"icon": null
+				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-ether.webp",
 			"__prop": "subclass"
@@ -3000,6 +3203,60 @@
 				"Adaptive Surge|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|6|VeiledOmens",
 				"Shared Vigor|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|10|VeiledOmens",
 				"Mind Over Flesh|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|14|VeiledOmens"
+			],
+			"foundryAdvancement": [
+				{
+					"_id": "VO6d0cece2f81ad2",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 2,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO426d5d09965397",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 6,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO3bdb75a66204b7",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 10,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOa0edea2b4c9604",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 14,
+					"title": "Features",
+					"icon": null
+				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-flesh.webp",
 			"__prop": "subclass"
@@ -3299,6 +3556,73 @@
 				"Twin Imprint|Fighter|PHB|Occult Knight|VeiledOmens|15|VeiledOmens",
 				"Mortal Haunt|Fighter|PHB|Occult Knight|VeiledOmens|18|VeiledOmens"
 			],
+			"foundryAdvancement": [
+				{
+					"_id": "VOeb7ed0bd4a927c",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 3,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOf35e4e249ecb91",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 7,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO0dcca4e57954df",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 10,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO227b5012d83fe5",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 15,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOec723079b95384",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 18,
+					"title": "Features",
+					"icon": null
+				}
+			],
 			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
 			"__prop": "subclass"
 		},
@@ -3316,6 +3640,60 @@
 				"Ghostwalk|Sorcerer|PHB|Pale Touched|VeiledOmens|6|VeiledOmens",
 				"Haunting Strikes|Sorcerer|PHB|Pale Touched|VeiledOmens|14|VeiledOmens",
 				"Harrowing Tide|Sorcerer|PHB|Pale Touched|VeiledOmens|18|VeiledOmens"
+			],
+			"foundryAdvancement": [
+				{
+					"_id": "VOd706a922b34a00",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 1,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOc1ddd72bf8b69b",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 6,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOfe9a02ef4416a5",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 14,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOba59c677a56fff",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 18,
+					"title": "Features",
+					"icon": null
+				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/pale-touched.webp",
 			"__prop": "subclass"
@@ -3379,6 +3757,60 @@
 				"Spirit Bond|Barbarian|PHB|Shaman|VeiledOmens|6|VeiledOmens",
 				"Versatile Casting|Barbarian|PHB|Shaman|VeiledOmens|10|VeiledOmens",
 				"Spirit Vessel|Barbarian|PHB|Shaman|VeiledOmens|14|VeiledOmens"
+			],
+			"foundryAdvancement": [
+				{
+					"_id": "VO0aae12c0a31365",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 3,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOf21bb9a52a6640",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 6,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO92f26d7954e216",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 10,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO5b1b131889d515",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 14,
+					"title": "Features",
+					"icon": null
+				}
 			],
 			"foundryImg": "systems/dnd5e/icons/classes/barbarian.webp",
 			"__prop": "subclass"

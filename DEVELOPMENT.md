@@ -71,6 +71,7 @@ Foundry dnd5e advancement coverage is required for player character options.
 - TheGiddyLimit/homebrew `foundryAdvancement` examples use concrete non-item advancement data such as `ScaleValue`; the reference repo does not provide a convention for empty source-authored `ItemGrant` rows.
 - Do not add source-authored `ItemGrant` placeholders. Empty rows are missing feature wiring, not cleanup targets. A source-authored `ItemGrant` row is valid only when `configuration.items` contains real item UUID objects, `value.added` maps the granted item IDs to the same UUIDs, and the Foundry import path verifies the grants.
 - For named class, subclass, race, species, subrace, feat, optional feature, or item-grant advancements, create or identify the concrete feature/item records first, assign stable child item IDs when relative UUIDs are used, then wire the parent advancement rows.
+- Plutonium item conversion fields are part of this completion gate. Follow TheGiddyLimit/homebrew source fields for item `type`, `wondrous`, attunement, rarity, charges, and related converter inputs. Wondrous magic items use `wondrous: true` and omit fake item type values such as `type: "WONDROUS"`.
 - Drow-style racial spellcasting traits use `additionalSpells` for cantrips, innate spells, and later-level spell availability; do not turn those spell levels into race feature `ItemGrant` rows unless the source has separate named feature entries at those levels.
 - `tools/validate-foundry-advancements.py` enforces this rule for every repository content JSON file.
 

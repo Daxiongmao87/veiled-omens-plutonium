@@ -12,6 +12,7 @@ from plutonium_content import is_content_json_path, iter_repository_json_files
 
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
+WONDROUS_ITEM_TYPE_VALUES = {"wondrous", "wondrous item"}
 
 
 def rel_path(path: Path) -> str:
@@ -75,6 +76,26 @@ def validate_content_file(path: Path, data: Any) -> list[str]:
             entry_prop = entry.get("__prop")
             if entry_prop is not None and entry_prop != prop:
                 errors.append(f"{label}.__prop must match top-level array '{prop}'")
+
+            if prop == "item":
+                errors.extend(validate_item_entry(label, entry))
+
+    return errors
+
+
+def validate_item_entry(label: str, entry: Mapping[str, Any]) -> list[str]:
+    errors: list[str] = []
+
+    item_type = entry.get("type")
+    if isinstance(item_type, str) and item_type.strip().lower() in WONDROUS_ITEM_TYPE_VALUES:
+        errors.append(
+            f"{label}.type must not be '{item_type}'; "
+            "wondrous items follow reference convention by omitting type and setting wondrous=true"
+        )
+
+    wondrous = entry.get("wondrous")
+    if wondrous is not None and not isinstance(wondrous, bool):
+        errors.append(f"{label}.wondrous must be boolean when present")
 
     return errors
 

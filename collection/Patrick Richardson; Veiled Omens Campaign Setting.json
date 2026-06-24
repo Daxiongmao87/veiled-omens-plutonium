@@ -8668,7 +8668,7 @@
 		{
 			"name": "Mana Crystal",
 			"source": "VeiledOmens",
-			"type": "WONDROUS",
+			"wondrous": true,
 			"rarity": "uncommon",
 			"reqAttune": true,
 			"entries": [

@@ -39,6 +39,7 @@ The tracked pre-commit hook at `.githooks/pre-commit` enforces steps 2-6 before 
 - Do not add source-authored `ItemGrant` placeholders. A source-authored `ItemGrant` row is valid only when `configuration.items` contains real item UUID entries, `value.added` maps the granted item IDs to the same UUIDs, and the Foundry path is verified.
 - For standalone class, subclass, race, species, subrace, feat, optional feature, or item-grant surfaces whose Advancement tab is expected to grant named features, source data must create or retain concrete feature/item records and wire non-empty `ItemGrant` rows unless direct Foundry output proves Plutonium generated those rows. Removing empty rows is not a fix by itself.
 - Relative UUID grants require stable child feature/item IDs. Missing child feature targets, missing child IDs, or blank `configuration.items` are blockers.
+- Plutonium item conversion fields are part of player-option completion. Follow TheGiddyLimit/homebrew item conventions for fields such as `type`, `wondrous`, attunement, rarity, and charges. Wondrous magic items use `wondrous: true` and omit fake item type values such as `type: "WONDROUS"`.
 - TheGiddyLimit/homebrew `foundryAdvancement` examples use concrete non-item advancement data such as `ScaleValue`; they are not evidence for empty `ItemGrant` rows.
 - `tools/validate-foundry-advancements.py` is the commit-blocking invariant for this rule and must be updated when a new character-option content type is added.
 

@@ -24,20 +24,28 @@ Use this as the **Base Homebrew Repository URL**:
 
 ## Required Contributor Update Flow
 
+Configure the tracked pre-commit hook in each clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
 After content path, source metadata, source-file, or asset-path changes:
 
 ```bash
 python3 tools/generate-plutonium-indexes.py
+python3 tools/validate-content-json.py
 python3 tools/generate-plutonium-indexes.py --check
 python3 tools/validate-plutonium-datasource.py
 python3 tools/validate-plutonium-links.py
 ```
 
-Then confirm every repository JSON file parses.
+The pre-commit hook runs the validation commands above that do not modify files. `validate-content-json.py` parses every repository JSON file and checks every JSON file under recognized content directories.
 
 Conventions validation is part of the same flow:
 
 - Compare the new or changed file naming and source-id pattern against corresponding TheGiddyLimit/homebrew examples before finishing.
+- Confirm every content JSON file is discovered by `tools/validate-content-json.py`.
 - Confirm `_generated/index-sources.json` maps each source ID to the correct package file.
 - Confirm `_generated/index-props.json` maps every top-level content array to the correct top-level directory.
 - Confirm class and subclass feature references resolve to real Plutonium entities.

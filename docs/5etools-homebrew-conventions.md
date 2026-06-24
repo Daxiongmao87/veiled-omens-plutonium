@@ -64,8 +64,29 @@ Before accepting any source organization change:
 3. Map each `_meta.sources[].json` value to exactly one package file.
 4. Confirm source IDs are not split by individual mechanical options inside the same source material.
 5. Regenerate indexes.
-6. Run the datasource validator.
-7. Run stale-reference scans for removed source IDs and removed file paths.
+6. Run `python3 tools/validate-content-json.py` to parse every repository JSON file and check every content JSON file.
+7. Run the datasource validator.
+8. Run the Plutonium link validator.
+9. Run stale-reference scans for removed source IDs and removed file paths.
+
+## Commit-Time Validation
+
+The tracked hook at `.githooks/pre-commit` enforces the non-mutating validation suite before every commit:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+The hook runs:
+
+```bash
+python3 tools/validate-content-json.py
+python3 tools/generate-plutonium-indexes.py --check
+python3 tools/validate-plutonium-datasource.py
+python3 tools/validate-plutonium-links.py
+```
+
+`tools/validate-content-json.py` uses the shared content discovery helper in `tools/plutonium_content.py`, so generator and validator tooling use the same definition of content JSON files.
 
 ## `_generated` Index Workflow
 
@@ -79,6 +100,8 @@ Before accepting any source organization change:
 `python3 tools/generate-plutonium-indexes.py` regenerates these files.
 
 `python3 tools/generate-plutonium-indexes.py --check` verifies index consistency.
+
+`python3 tools/validate-content-json.py` parses every repository JSON file and checks every repository content JSON file.
 
 `python3 tools/validate-plutonium-datasource.py` validates the generated datasource maps against repository content.
 

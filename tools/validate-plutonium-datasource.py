@@ -6,7 +6,9 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
-from typing import Any, Dict, Iterable, Mapping, Set
+from typing import Any, Dict, Mapping, Set
+
+from plutonium_content import iter_content_json_files
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 GENERATED_DIR = ROOT_DIR / "_generated"
@@ -16,61 +18,6 @@ REQUIRED_INDEX_FILES = {
     "index-meta.json",
     "index-timestamps.json",
 }
-
-TOP_LEVEL_DIRS = {
-    "collection",
-    "race",
-    "subrace",
-    "subraces",
-    "class",
-    "classes",
-    "classFeature",
-    "subclass",
-    "subclasses",
-    "feat",
-    "optionalfeature",
-    "reward",
-    "action",
-    "monster",
-    "vehicle",
-    "vehicleUpgrade",
-    "deck",
-    "card",
-    "table",
-    "variantrule",
-    "adventure",
-    "book",
-    "background",
-    "condition",
-    "disease",
-    "status",
-    "deity",
-    "language",
-    "recipe",
-    "trap",
-    "hazard",
-    "psionic",
-    "cult",
-    "supernaturalGift",
-    "object",
-    "bastion",
-    "item",
-}
-
-
-def is_skippable(path: Path) -> bool:
-    rel_parts = path.relative_to(ROOT_DIR).parts
-    return any(part.startswith(".") for part in rel_parts) or rel_parts[0] in {"_generated", "schemas", "tools", "img"}
-
-
-def iter_content_files() -> Iterable[Path]:
-    for path in ROOT_DIR.rglob("*.json"):
-        if is_skippable(path):
-            continue
-
-        rel = path.relative_to(ROOT_DIR)
-        if rel.parts and rel.parts[0] in TOP_LEVEL_DIRS:
-            yield path
 
 
 def parse_json(path: Path) -> Any:
@@ -95,7 +42,7 @@ def collect_repo_content() -> tuple[
     file_to_dir: dict[str, str] = {}
     seen_filenames: Set[str] = set()
 
-    for path in iter_content_files():
+    for path in iter_content_json_files(ROOT_DIR):
         rel = path.relative_to(ROOT_DIR).as_posix()
         data = parse_json(path)
         if not isinstance(data, Mapping):

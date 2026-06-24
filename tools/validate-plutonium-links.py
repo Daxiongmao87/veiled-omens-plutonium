@@ -9,65 +9,14 @@ import sys
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
-ROOT_DIR = Path(__file__).resolve().parents[1]
-TOP_LEVEL_DIRS = {
-    "collection",
-    "race",
-    "subrace",
-    "subraces",
-    "class",
-    "classes",
-    "classFeature",
-    "subclass",
-    "subclasses",
-    "feat",
-    "optionalfeature",
-    "reward",
-    "action",
-    "monster",
-    "vehicle",
-    "vehicleUpgrade",
-    "deck",
-    "card",
-    "table",
-    "variantrule",
-    "adventure",
-    "book",
-    "background",
-    "condition",
-    "disease",
-    "status",
-    "deity",
-    "language",
-    "recipe",
-    "trap",
-    "hazard",
-    "psionic",
-    "cult",
-    "supernaturalGift",
-    "object",
-    "bastion",
-    "item",
-}
+from plutonium_content import iter_content_json_files
 
+ROOT_DIR = Path(__file__).resolve().parents[1]
 INLINE_REF_RE = re.compile(r"\{@(?P<tag>spell|item) (?P<body>[^}]+)\}")
 
 
 class LinkValidationError(RuntimeError):
     pass
-
-
-def iter_content_files() -> Iterable[Path]:
-    for path in ROOT_DIR.rglob("*.json"):
-        rel = path.relative_to(ROOT_DIR)
-        if not rel.parts:
-            continue
-        if any(part.startswith(".") for part in rel.parts):
-            continue
-        if rel.parts[0] in {"_generated", "schemas", "tools", "img"}:
-            continue
-        if rel.parts[0] in TOP_LEVEL_DIRS:
-            yield path
 
 
 def load_json(path: Path) -> Mapping[str, Any]:
@@ -281,7 +230,7 @@ def main() -> int:
     try:
         data_by_path = {
             path.relative_to(ROOT_DIR).as_posix(): load_json(path)
-            for path in iter_content_files()
+            for path in iter_content_json_files(ROOT_DIR)
         }
     except (json.JSONDecodeError, OSError, LinkValidationError) as err:
         print(f"Plutonium link validation failed while loading content: {err}", file=sys.stderr)

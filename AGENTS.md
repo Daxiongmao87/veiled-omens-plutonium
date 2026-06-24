@@ -14,16 +14,18 @@
 
 ## Required Validation
 
-Before reporting source organization work complete:
+Before reporting content or source organization work complete:
 
 1. Regenerate indexes with `python3 tools/generate-plutonium-indexes.py`.
-2. Run `python3 tools/generate-plutonium-indexes.py --check`.
-3. Run `python3 tools/validate-plutonium-datasource.py`.
-4. Run `python3 tools/validate-plutonium-links.py`.
-5. Parse every repository JSON file.
+2. Run `python3 tools/validate-content-json.py`; this parses every repository JSON file and checks every JSON file under recognized content directories.
+3. Run `python3 tools/generate-plutonium-indexes.py --check`.
+4. Run `python3 tools/validate-plutonium-datasource.py`.
+5. Run `python3 tools/validate-plutonium-links.py`.
 6. Audit `_generated/index-sources.json` for one source ID per source package.
 7. Audit `_generated/index-props.json` for correct content-directory mappings.
 8. Run stale-reference scans for removed source IDs and removed package paths.
+
+The tracked pre-commit hook at `.githooks/pre-commit` enforces steps 2-5 before commits. Configure local clones with `git config core.hooksPath .githooks`.
 
 ## Assets
 

@@ -8,7 +8,9 @@ import json
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Any, DefaultDict, Dict, Iterable, Mapping, MutableMapping
+from typing import Any, DefaultDict, Dict, Mapping, MutableMapping
+
+from plutonium_content import iter_content_json_files
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 GENERATED_DIR = ROOT_DIR / "_generated"
@@ -19,75 +21,9 @@ INDEX_FILES = (
     "index-timestamps.json",
 )
 
-SKIP_DIRS = {".git", ".mypy_cache", ".venv", "node_modules", ".github"}
-TOP_LEVEL_DIRS = {
-    "collection",
-    "race",
-    "subrace",
-    "subraces",
-    "class",
-    "classes",
-    "classFeature",
-    "subclass",
-    "subclasses",
-    "feat",
-    "optionalfeature",
-    "reward",
-    "action",
-    "monster",
-    "vehicle",
-    "vehicleUpgrade",
-    "deck",
-    "card",
-    "table",
-    "variantrule",
-    "adventure",
-    "book",
-    "background",
-    "condition",
-    "disease",
-    "status",
-    "deity",
-    "language",
-    "recipe",
-    "trap",
-    "hazard",
-    "psionic",
-    "cult",
-    "supernaturalGift",
-    "object",
-    "bastion",
-    "item",
-}
-
 
 class IndexGenerationError(RuntimeError):
     pass
-
-
-def is_skippable(path: Path) -> bool:
-    rel_parts = path.relative_to(ROOT_DIR).parts
-    return path.name in INDEX_FILES or any(part in SKIP_DIRS for part in rel_parts)
-
-
-def iter_content_files() -> Iterable[Path]:
-    for path in ROOT_DIR.rglob("*.json"):
-        if is_skippable(path):
-            continue
-
-        rel = path.relative_to(ROOT_DIR)
-        if not rel.parts:
-            continue
-
-        top = rel.parts[0]
-        if top in {"schemas", "tools", "_generated", "img"}:
-            continue
-
-        if top not in TOP_LEVEL_DIRS:
-            # Keep generation focused on content directories.
-            continue
-
-        yield path
 
 
 def load_json(path: Path) -> Mapping[str, Any]:
@@ -116,7 +52,7 @@ def build_indexes() -> Dict[str, Any]:
     file_timestamps: Dict[str, Dict[str, int]] = {}
     has_content_files = False
 
-    for path in iter_content_files():
+    for path in iter_content_json_files(ROOT_DIR):
         has_content_files = True
         rel = path.relative_to(ROOT_DIR).as_posix()
         data = load_json(path)

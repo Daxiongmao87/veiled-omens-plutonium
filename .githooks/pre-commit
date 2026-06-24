@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+echo "[pre-commit] validating repository and content JSON files"
+python3 tools/validate-content-json.py
+
+echo "[pre-commit] checking generated Plutonium indexes"
+python3 tools/generate-plutonium-indexes.py --check
+
+echo "[pre-commit] validating Plutonium datasource indexes"
+python3 tools/validate-plutonium-datasource.py
+
+echo "[pre-commit] validating Plutonium linked entities"
+python3 tools/validate-plutonium-links.py

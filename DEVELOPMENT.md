@@ -34,20 +34,28 @@ https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/colle
 
 ## Contributor workflow for changes
 
+Configure the tracked pre-commit hook in each clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
 After changing file paths, content type paths, source metadata, or file names:
 
 ```bash
 python3 tools/generate-plutonium-indexes.py
+python3 tools/validate-content-json.py
 python3 tools/generate-plutonium-indexes.py --check
 python3 tools/validate-plutonium-datasource.py
 python3 tools/validate-plutonium-links.py
 ```
 
-Then parse each JSON file to confirm it remains valid.
+The pre-commit hook runs the validation commands that do not mutate files. `validate-content-json.py` parses every repository JSON file and checks every JSON file under recognized content directories.
 
 Conventions validation step before merge:
 
 - Compare package filenames and source IDs against corresponding TheGiddyLimit/homebrew example files in the same directory. Use `collection/` examples when a source material package spans multiple content types.
+- Confirm every content JSON file is discovered and validated by `tools/validate-content-json.py`.
 - Do not treat index/json checks as sufficient if naming and source identity do not match package-level conventions.
 
 ## Source identity
@@ -101,8 +109,12 @@ Source IDs follow the package/homebrew identity, not the content bucket or indiv
   +--- README.md
   +--- tools/
   |    +--- generate-plutonium-indexes.py
+  |    +--- plutonium_content.py
+  |    +--- validate-content-json.py
   |    +--- validate-plutonium-datasource.py
   |    +--- validate-plutonium-links.py
+  +--- .githooks/
+  |    +--- pre-commit
   +--- _generated/
   |    +--- index-meta.json
   |    +--- index-props.json

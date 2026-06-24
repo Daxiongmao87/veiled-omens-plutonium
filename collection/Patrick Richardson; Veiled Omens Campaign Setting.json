@@ -143,6 +143,21 @@
 					]
 				}
 			],
+			"foundryAdvancement": [
+				{
+					"_id": "VO3f3c9bb5b84051",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 0,
+					"title": "Features",
+					"icon": null
+				}
+			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/ghost_elf.png",
 			"__prop": "race"
 		},
@@ -281,6 +296,21 @@
 							]
 						}
 					]
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"_id": "VOfa3cdb0e4c8da7",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 0,
+					"title": "Features",
+					"icon": null
 				}
 			],
 			"foundryImg": "icons/magic/control/buff-strength-muscle-damage.webp",
@@ -422,6 +452,21 @@
 					]
 				}
 			],
+			"foundryAdvancement": [
+				{
+					"_id": "VOaeddd80d95b947",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 0,
+					"title": "Features",
+					"icon": null
+				}
+			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/troll-blooded.webp",
 			"__prop": "race"
 		},
@@ -533,6 +578,47 @@
 					"entries": [
 						"You learn one cantrip of your choice from {@spell minor illusion} or {@spell thaumaturgy}. When you reach 3rd level, you can cast {@spell disguise self} once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast {@spell darkness} once with this trait, and you regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
 					]
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"_id": "VO5165290a12ae05",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 0,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO0151858483b1cc",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 3,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO31921e0eec7732",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 5,
+					"title": "Features",
+					"icon": null
 				}
 			],
 			"foundryImg": "icons/creatures/eyes/humanoid-single-yellow.webp",
@@ -662,6 +748,21 @@
 					]
 				}
 			],
+			"foundryAdvancement": [
+				{
+					"_id": "VO3c3bd1474cc8af",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 0,
+					"title": "Features",
+					"icon": null
+				}
+			],
 			"foundryImg": "icons/creatures/eyes/humanoid-single-yellow.webp",
 			"__prop": "race"
 		},
@@ -787,6 +888,34 @@
 					"entries": [
 						"You learn one cantrip of your choice from {@spell guidance} or {@spell blade ward}. When you reach 3rd level, you can cast {@spell longstrider} on yourself once with this trait, and you regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
 					]
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"_id": "VO73194b5c07ef93",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 0,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO516f2464fcb700",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 3,
+					"title": "Features",
+					"icon": null
 				}
 			],
 			"foundryImg": "icons/creatures/eyes/humanoid-single-yellow.webp",
@@ -1011,6 +1140,73 @@
 					]
 				}
 			],
+			"foundryAdvancement": [
+				{
+					"_id": "VOa5eb80e8d13c67",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 0,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOb822103ec85a64",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 3,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOdcd347fcb5228a",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 5,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO4d18bddf323bc1",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 7,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO6487f569387f2a",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 10,
+					"title": "Features",
+					"icon": null
+				}
+			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/vaetyr.png",
 			"__prop": "race"
 		},
@@ -1233,6 +1429,73 @@
 					]
 				}
 			],
+			"foundryAdvancement": [
+				{
+					"_id": "VO543a203948c9be",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 0,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO634fd642372bb0",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 3,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOfdfb4c0eea8bc7",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 5,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VO3d6a83dbaa41bb",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 7,
+					"title": "Features",
+					"icon": null
+				},
+				{
+					"_id": "VOa5b0465cfc844b",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 10,
+					"title": "Features",
+					"icon": null
+				}
+			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/vaetyr.png",
 			"__prop": "race"
 		},
@@ -1384,6 +1647,21 @@
 					"entries": [
 						"You can speak, read, and write Common, Draconic, and the language of your humanoid parentage."
 					]
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"_id": "VOb7c117b94162d2",
+					"type": "ItemGrant",
+					"configuration": {
+						"items": [],
+						"optional": false,
+						"spell": null
+					},
+					"value": {},
+					"level": 0,
+					"title": "Features",
+					"icon": null
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/wyrmblooded.webp",

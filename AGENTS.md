@@ -31,7 +31,7 @@ The tracked pre-commit hook at `.githooks/pre-commit` enforces steps 2-6 before 
 ## Foundry Character-Option Advancement Rule
 
 - Character option completion requires Foundry dnd5e advancement coverage, not only valid 5etools JSON, Plutonium source indexes, or linked-entity resolution.
-- Races/species must retain advancement-producing 5etools fields such as ability, size, language, skill, and tool proficiency fields.
+- Races/species must retain advancement-producing 5etools fields such as ability, size, language, skill, and tool proficiency fields, and races/species with feature entries must include `foundryAdvancement` `ItemGrant` rows for feature-grant levels.
 - Classes must retain advancement-producing 5etools fields such as `hd`, `proficiency`, and `startingProficiencies`.
 - Subclasses with `subclassFeatures` must include `foundryAdvancement` `ItemGrant` rows for every subclass feature level.
 - `tools/validate-foundry-advancements.py` is the commit-blocking invariant for this rule and must be updated when a new character-option content type is added.

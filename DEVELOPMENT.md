@@ -64,10 +64,10 @@ Conventions validation step before merge:
 
 Foundry dnd5e advancement coverage is required for player character options.
 
-- Races/species rely on 5etools fields such as `ability`, `size`, `skillProficiencies`, `languageProficiencies`, and `toolProficiencies` to generate Foundry advancements.
+- Races/species rely on 5etools fields such as `ability`, `size`, `skillProficiencies`, `languageProficiencies`, and `toolProficiencies` to generate generic Foundry advancements, and feature entries require explicit `foundryAdvancement` `ItemGrant` rows for each feature-grant level.
 - Classes rely on 5etools fields such as `hd`, `proficiency`, and `startingProficiencies` to generate Foundry advancements.
 - Subclasses with `subclassFeatures` require explicit `foundryAdvancement` `ItemGrant` rows for every subclass feature level because Plutonium's direct subclass item conversion adds prepared-spell advancements and side-loaded advancements, but it does not derive standalone subclass item `ItemGrant` rows from `subclassFeatures`.
-- Keep subclass `foundryAdvancement` rows level-matched to `subclassFeatures`. Leave `configuration.items` empty in source JSON unless a portable Foundry compendium UUID exists; Plutonium actor import still uses `subclassFeatures` to import and link actual feature items on an actor.
+- Keep race/species `foundryAdvancement` rows level-matched to feature entry evidence such as `(Level 3)` names or "When you reach 3rd level" text. Keep subclass `foundryAdvancement` rows level-matched to `subclassFeatures`. Leave `configuration.items` empty in source JSON unless a portable Foundry compendium UUID exists; Plutonium actor import still uses race entries and `subclassFeatures` to import and link actual feature items on an actor.
 - `tools/validate-foundry-advancements.py` enforces this rule for every repository content JSON file.
 
 ## Source identity
@@ -406,5 +406,6 @@ If icons do not appear:
 
 If race/species traits appear in Description but not Advancement:
 
-- This is likely a Plutonium-to-dnd5e-system import behavior, not a malformed 5etools race entry.
-- Use direct Foundry item JSON if exact Advancement tab preservation is required.
+- Do not accept description rendering as completion for a player option.
+- Add or repair race/species `foundryAdvancement` `ItemGrant` rows for the feature-grant levels and run `python3 tools/validate-foundry-advancements.py`.
+- Use direct Foundry item JSON or portable compendium UUIDs when exact child-item linking is required beyond source-level advancement rows.

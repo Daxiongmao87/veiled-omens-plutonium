@@ -15,6 +15,18 @@ from plutonium_content import iter_content_json_files
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 FOUNDRY_ID_RE = re.compile(r"^[A-Za-z0-9]{16}$")
+LEVEL_IN_NAME_RE = re.compile(r"\(Level (?P<level>\d+)\)")
+REACH_LEVEL_RE = re.compile(r"\breach (?P<level>\d+)(?:st|nd|rd|th) level\b", re.IGNORECASE)
+RACE_FEATURE_SKIP_NAMES = {
+    "Ability Score Increase",
+    "Ability Score Changes",
+    "Age",
+    "Alignment",
+    "Languages",
+    "Size",
+    "Speed",
+    "Subrace",
+}
 
 
 def rel_path(path: Path) -> str:
@@ -39,6 +51,60 @@ def parse_subclass_feature_level(ref: str, label: str, errors: list[str]) -> int
         errors.append(f"{label}: subclass feature level must be an integer, got {level_raw!r}")
         return None
     return int(level_raw)
+
+
+def walk_strings(value: Any) -> list[str]:
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, list):
+        out: list[str] = []
+        for item in value:
+            out.extend(walk_strings(item))
+        return out
+    if isinstance(value, Mapping):
+        out: list[str] = []
+        for item in value.values():
+            out.extend(walk_strings(item))
+        return out
+    return []
+
+
+def get_required_race_feature_levels(
+    race: Mapping[str, Any],
+    label: str,
+    errors: list[str],
+) -> set[int]:
+    entries = race.get("entries", [])
+    if not isinstance(entries, list):
+        errors.append(f"{label}.entries: expected array")
+        return set()
+
+    levels: set[int] = set()
+    has_level_zero_feature = False
+
+    for entry in entries:
+        if not isinstance(entry, Mapping):
+            continue
+        name = entry.get("name")
+        if not isinstance(name, str) or not name.strip():
+            continue
+        if name in RACE_FEATURE_SKIP_NAMES:
+            continue
+
+        match = LEVEL_IN_NAME_RE.search(name)
+        if match:
+            levels.add(int(match.group("level")))
+            continue
+
+        has_level_zero_feature = True
+        entry_text = " ".join(walk_strings(entry.get("entries", [])))
+        for text_match in REACH_LEVEL_RE.finditer(entry_text):
+            levels.add(int(text_match.group("level")))
+
+    if has_level_zero_feature:
+        levels.add(0)
+
+    return levels
 
 
 def get_required_subclass_feature_levels(
@@ -148,15 +214,57 @@ def validate_subclass_advancements(
         errors.append(f"{label}: ItemGrant advancement levels have no subclass feature refs: {extra_levels}")
 
 
+def validate_race_advancements(
+    rel: str,
+    index: int,
+    race: Mapping[str, Any],
+    errors: list[str],
+) -> None:
+    name = race.get("name", f"race[{index}]")
+    label = f"{rel}.race[{index}:{name!r}]"
+
+    if not any(race.get(prop) for prop in ("ability", "size", "skillProficiencies", "languageProficiencies", "toolProficiencies")):
+        errors.append(f"{label}: race lacks advancement-producing 5etools fields")
+
+    required_levels = get_required_race_feature_levels(race, label, errors)
+    if not required_levels:
+        return
+
+    advancements = race.get("foundryAdvancement")
+    if not isinstance(advancements, list):
+        errors.append(f"{label}.foundryAdvancement: required for races with feature entries")
+        return
+
+    item_grant_levels: dict[int, int] = defaultdict(int)
+    for advancement_index, advancement in enumerate(advancements):
+        adv_label = f"{label}.foundryAdvancement[{advancement_index}]"
+        if not isinstance(advancement, Mapping):
+            errors.append(f"{adv_label}: expected object")
+            continue
+        if advancement.get("type") != "ItemGrant":
+            continue
+        level = validate_item_grant_advancement(advancement, adv_label, errors)
+        if level is not None:
+            item_grant_levels[level] += 1
+
+    for level in sorted(required_levels):
+        if item_grant_levels[level] != 1:
+            errors.append(
+                f"{label}: expected one ItemGrant advancement at level {level} "
+                f"for race feature entries, found {item_grant_levels[level]}"
+            )
+
+    extra_levels = sorted(set(item_grant_levels) - required_levels)
+    if extra_levels:
+        errors.append(f"{label}: ItemGrant advancement levels have no race feature evidence: {extra_levels}")
+
+
 def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors: list[str]) -> None:
     for index, race in enumerate(data.get("race", [])):
         if not isinstance(race, Mapping):
             errors.append(f"{rel}.race[{index}]: expected object")
             continue
-        name = race.get("name", f"race[{index}]")
-        label = f"{rel}.race[{index}:{name!r}]"
-        if not any(race.get(prop) for prop in ("ability", "size", "skillProficiencies", "languageProficiencies", "toolProficiencies")):
-            errors.append(f"{label}: race lacks advancement-producing 5etools fields")
+        validate_race_advancements(rel, index, race, errors)
 
     for index, cls in enumerate(data.get("class", [])):
         if not isinstance(cls, Mapping):

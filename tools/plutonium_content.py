@@ -46,7 +46,16 @@ CONTENT_DIRS = {
     "item",
 }
 
-SKIP_DIRS = {".git", ".github", ".mypy_cache", ".venv", "__pycache__", "node_modules"}
+SKIP_DIRS = {
+    ".git",
+    ".github",
+    ".mypy_cache",
+    ".venv",
+    "__pycache__",
+    "node_modules",
+    "reference",
+    "venoure",
+}
 
 
 def is_content_json_path(path: Path, root_dir: Path) -> bool:

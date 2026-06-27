@@ -256,6 +256,8 @@ Feature Name|Class Name|Class Source|Subclass Short Name|Subclass Source|Level|F
 
 Subclass feature references use strings.
 
+The first `subclassFeatures` entry must be a subclass-named header `subclassFeature`, such as `"Subclass Name|Class Name|VeiledOmens|SubclassShortName|VeiledOmens|3|VeiledOmens"`. Plutonium treats that first subclass feature at the subclass-pick level as the subclass header and ignores it as a separate actor feature item. Put same-level mechanical subclass features inside the header `entries` as `refSubclassFeature` links; put later-level mechanical subclass features after the header as sibling `subclassFeatures`.
+
 Do not add source-authored `foundryAdvancement` `ItemGrant` rows for subclass feature grants. Keep `subclassFeatures` references resolving to concrete `subclassFeature` records; Plutonium creates actor-owned feature grants during actor import.
 
 ## Subclass feature

@@ -134,6 +134,24 @@ def walk_strings(value: Any) -> list[str]:
     return []
 
 
+def iter_ref_subclass_feature_refs(value: Any) -> list[str]:
+    if isinstance(value, list):
+        out: list[str] = []
+        for item in value:
+            out.extend(iter_ref_subclass_feature_refs(item))
+        return out
+    if isinstance(value, Mapping):
+        out: list[str] = []
+        if value.get("type") == "refSubclassFeature":
+            ref = value.get("subclassFeature")
+            if isinstance(ref, str):
+                out.append(ref)
+        for item in value.values():
+            out.extend(iter_ref_subclass_feature_refs(item))
+        return out
+    return []
+
+
 def normalize_spell_name(value: str) -> str:
     value = value.split("#", 1)[0].split("|", 1)[0]
     return re.sub(r"\s+", " ", value.strip().lower())
@@ -219,6 +237,30 @@ def collect_subclass_feature_ids(
     return out
 
 
+def collect_subclass_feature_records(
+    rel: str,
+    data: Mapping[str, Any],
+    errors: list[str],
+) -> dict[tuple[str, str, str, str, str, int, str], Mapping[str, Any]]:
+    out: dict[tuple[str, str, str, str, str, int, str], Mapping[str, Any]] = {}
+    for index, feature in enumerate(data.get("subclassFeature", [])):
+        label = f"{rel}.subclassFeature[{index}]"
+        if not isinstance(feature, Mapping):
+            continue
+        name = feature.get("name")
+        class_name = feature.get("className")
+        class_source = feature.get("classSource")
+        subclass_short_name = feature.get("subclassShortName")
+        subclass_source = feature.get("subclassSource")
+        source = feature.get("source")
+        level = parse_int(feature.get("level"), f"{label}.level", errors)
+        required = [name, class_name, class_source, subclass_short_name, subclass_source, source]
+        if level is None or any(not isinstance(item, str) or not item.strip() for item in required):
+            continue
+        out[(name, class_name, class_source, subclass_short_name, subclass_source, level, source)] = feature
+    return out
+
+
 def get_required_class_feature_targets(
     cls: Mapping[str, Any],
     label: str,
@@ -247,10 +289,55 @@ def get_required_class_feature_targets(
     return targets_by_level
 
 
+def validate_subclass_header_feature(
+    subclass: Mapping[str, Any],
+    label: str,
+    subclass_feature_records: Mapping[tuple[str, str, str, str, str, int, str], Mapping[str, Any]],
+    errors: list[str],
+) -> None:
+    subclass_name = subclass.get("name")
+    if not isinstance(subclass_name, str) or not subclass_name.strip():
+        return
+
+    subclass_features = subclass.get("subclassFeatures", [])
+    if not isinstance(subclass_features, list) or not subclass_features:
+        errors.append(f"{label}.subclassFeatures: expected non-empty array")
+        return
+
+    parsed = parse_subclass_feature_ref(subclass_features[0], f"{label}.subclassFeatures[0]", errors)
+    if parsed is None:
+        return
+
+    first_feature = subclass_feature_records.get(parsed)
+    if first_feature is None:
+        return
+
+    first_feature_name = first_feature.get("name")
+    if first_feature_name == subclass_name:
+        header_child_refs = {
+            ref
+            for ref in iter_ref_subclass_feature_refs(first_feature.get("entries", []))
+        }
+        duplicate_refs = sorted(header_child_refs.intersection(subclass_features[1:]))
+        if duplicate_refs:
+            errors.append(
+                f"{label}.subclassFeatures: same-level mechanical features referenced by the "
+                f"subclass header must not also be listed as sibling subclassFeatures: {duplicate_refs}"
+            )
+        return
+
+    errors.append(
+        f"{label}.subclassFeatures[0]: first subclass feature must be a header named {subclass_name!r}; "
+        "Plutonium ignores the first subclass feature at the subclass-pick level as the subclass header, "
+        "so same-level mechanical subclass features must be referenced inside that header"
+    )
+
+
 def get_required_subclass_feature_targets(
     subclass: Mapping[str, Any],
     label: str,
     subclass_feature_ids: Mapping[tuple[str, str, str, str, str, int, str], str],
+    subclass_feature_records: Mapping[tuple[str, str, str, str, str, int, str], Mapping[str, Any]],
     errors: list[str],
 ) -> dict[int, set[str]]:
     subclass_features = subclass.get("subclassFeatures", [])
@@ -259,16 +346,31 @@ def get_required_subclass_feature_targets(
         return {}
 
     targets_by_level: dict[int, set[str]] = defaultdict(set)
+    header_feature: Mapping[str, Any] | None = None
     for index, raw_ref in enumerate(subclass_features):
         ref_label = f"{label}.subclassFeatures[{index}]"
         parsed = parse_subclass_feature_ref(raw_ref, ref_label, errors)
         if parsed is None:
             continue
+        if index == 0:
+            header_feature = subclass_feature_records.get(parsed)
         target_id = subclass_feature_ids.get(parsed)
         if target_id is None:
             errors.append(f"{ref_label}: missing subclassFeature _foundryId target for {parsed!r}")
             continue
         targets_by_level[parsed[5]].add(target_id)
+
+    if header_feature is not None:
+        for index, raw_ref in enumerate(iter_ref_subclass_feature_refs(header_feature.get("entries", []))):
+            ref_label = f"{label}.subclassFeatures[0].entries.refSubclassFeature[{index}]"
+            parsed = parse_subclass_feature_ref(raw_ref, ref_label, errors)
+            if parsed is None:
+                continue
+            target_id = subclass_feature_ids.get(parsed)
+            if target_id is None:
+                errors.append(f"{ref_label}: missing subclassFeature _foundryId target for {parsed!r}")
+                continue
+            targets_by_level[parsed[5]].add(target_id)
     return targets_by_level
 
 
@@ -425,6 +527,7 @@ def validate_race_advancements(
 def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors: list[str]) -> None:
     class_feature_ids = collect_class_feature_ids(rel, data, errors)
     subclass_feature_ids = collect_subclass_feature_ids(rel, data, errors)
+    subclass_feature_records = collect_subclass_feature_records(rel, data, errors)
 
     for index, race in enumerate(data.get("race", [])):
         if not isinstance(race, Mapping):
@@ -465,7 +568,14 @@ def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors
             continue
         name = subclass.get("name", f"subclass[{index}]")
         label = f"{rel}.subclass[{index}:{name!r}]"
-        get_required_subclass_feature_targets(subclass, label, subclass_feature_ids, errors)
+        validate_subclass_header_feature(subclass, label, subclass_feature_records, errors)
+        get_required_subclass_feature_targets(
+            subclass,
+            label,
+            subclass_feature_ids,
+            subclass_feature_records,
+            errors,
+        )
         validate_no_source_item_grants(subclass, label, errors)
 
 

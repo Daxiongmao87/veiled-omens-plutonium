@@ -3113,7 +3113,7 @@
 			"page": 0,
 			"edition": "classic",
 			"subclassFeatures": [
-				"Pact of Incantation|Occultist|VeiledOmens|Haunts|VeiledOmens|3|VeiledOmens",
+				"Rite of Haunts|Occultist|VeiledOmens|Haunts|VeiledOmens|3|VeiledOmens",
 				"Mediumship|Occultist|VeiledOmens|Haunts|VeiledOmens|6|VeiledOmens",
 				"Covenant of Incantation|Occultist|VeiledOmens|Haunts|VeiledOmens|10|VeiledOmens",
 				"Psychopomp|Occultist|VeiledOmens|Haunts|VeiledOmens|14|VeiledOmens"
@@ -3130,7 +3130,7 @@
 			"page": 0,
 			"edition": "classic",
 			"subclassFeatures": [
-				"Cast the Lots|Occultist|VeiledOmens|Omens|VeiledOmens|3|VeiledOmens",
+				"Rite of Omens|Occultist|VeiledOmens|Omens|VeiledOmens|3|VeiledOmens",
 				"Signs in the Wake|Occultist|VeiledOmens|Omens|VeiledOmens|6|VeiledOmens",
 				"Second Reading|Occultist|VeiledOmens|Omens|VeiledOmens|10|VeiledOmens",
 				"Fulfilled Portent|Occultist|VeiledOmens|Omens|VeiledOmens|14|VeiledOmens"
@@ -3147,7 +3147,7 @@
 			"page": 0,
 			"edition": "classic",
 			"subclassFeatures": [
-				"Soul Binder|Occultist|VeiledOmens|Servitude|VeiledOmens|3|VeiledOmens",
+				"Rite of Servitude|Occultist|VeiledOmens|Servitude|VeiledOmens|3|VeiledOmens",
 				"Lesser Soul Facets|Occultist|VeiledOmens|Servitude|VeiledOmens|6|VeiledOmens",
 				"Greater Soul Facets|Occultist|VeiledOmens|Servitude|VeiledOmens|10|VeiledOmens",
 				"Soul Gem Mastery|Occultist|VeiledOmens|Servitude|VeiledOmens|14|VeiledOmens"
@@ -3164,7 +3164,7 @@
 			"page": 0,
 			"edition": "classic",
 			"subclassFeatures": [
-				"Mana Shaping|Thaumaphage|VeiledOmens|Ether|VeiledOmens|2|VeiledOmens",
+				"Art of the Ether|Thaumaphage|VeiledOmens|Ether|VeiledOmens|2|VeiledOmens",
 				"Mana Overflow|Thaumaphage|VeiledOmens|Ether|VeiledOmens|10|VeiledOmens",
 				"Conversion|Thaumaphage|VeiledOmens|Ether|VeiledOmens|14|VeiledOmens"
 			],
@@ -3180,8 +3180,7 @@
 			"page": 0,
 			"edition": "classic",
 			"subclassFeatures": [
-				"Warrior's Path|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|2|VeiledOmens",
-				"Empowered Form|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|2|VeiledOmens",
+				"Art of the Flesh|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|2|VeiledOmens",
 				"Adaptive Surge|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|6|VeiledOmens",
 				"Shared Vigor|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|10|VeiledOmens",
 				"Mind Over Flesh|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|14|VeiledOmens"
@@ -3477,8 +3476,7 @@
 				}
 			],
 			"subclassFeatures": [
-				"Occult Knight Spellcasting|Fighter|PHB|Occult Knight|VeiledOmens|3|VeiledOmens",
-				"Mortal Imprint|Fighter|PHB|Occult Knight|VeiledOmens|3|VeiledOmens",
+				"Occult Knight|Fighter|PHB|Occult Knight|VeiledOmens|3|VeiledOmens",
 				"Sign-Read Imprint|Fighter|PHB|Occult Knight|VeiledOmens|7|VeiledOmens",
 				"Cursed Strike|Fighter|PHB|Occult Knight|VeiledOmens|10|VeiledOmens",
 				"Twin Imprint|Fighter|PHB|Occult Knight|VeiledOmens|15|VeiledOmens",
@@ -3496,8 +3494,7 @@
 			"page": 0,
 			"edition": "classic",
 			"subclassFeatures": [
-				"Deathly Eyes|Sorcerer|PHB|Pale Touched|VeiledOmens|1|VeiledOmens",
-				"Gift from the Veil|Sorcerer|PHB|Pale Touched|VeiledOmens|1|VeiledOmens",
+				"Pale Touched|Sorcerer|PHB|Pale Touched|VeiledOmens|1|VeiledOmens",
 				"Ghostwalk|Sorcerer|PHB|Pale Touched|VeiledOmens|6|VeiledOmens",
 				"Haunting Strikes|Sorcerer|PHB|Pale Touched|VeiledOmens|14|VeiledOmens",
 				"Harrowing Tide|Sorcerer|PHB|Pale Touched|VeiledOmens|18|VeiledOmens"
@@ -3559,8 +3556,7 @@
 				2
 			],
 			"subclassFeatures": [
-				"Spellcasting|Barbarian|PHB|Shaman|VeiledOmens|3|VeiledOmens",
-				"Spirit Sight|Barbarian|PHB|Shaman|VeiledOmens|3|VeiledOmens",
+				"Path of the Shaman|Barbarian|PHB|Shaman|VeiledOmens|3|VeiledOmens",
 				"Spirit Bond|Barbarian|PHB|Shaman|VeiledOmens|6|VeiledOmens",
 				"Versatile Casting|Barbarian|PHB|Shaman|VeiledOmens|10|VeiledOmens",
 				"Spirit Vessel|Barbarian|PHB|Shaman|VeiledOmens|14|VeiledOmens"
@@ -3570,6 +3566,25 @@
 		}
 	],
 	"subclassFeature": [
+		{
+			"name": "Rite of Haunts",
+			"source": "VeiledOmens",
+			"className": "Occultist",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Haunts",
+			"subclassSource": "VeiledOmens",
+			"level": 3,
+			"entries": [
+				"The Rite of Haunts is for those Occultists who serve as conduits between the living and the dead. They form covenants with bound spirits, commune with the restless dead, and walk the threshold of the Border Ethereal. Through ritual practice, they learn not only to host a single spirit's power, but to read the haunting of places and people, release souls trapped by unfinished business, and guide the dead between worlds.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Pact of Incantation|Occultist|VeiledOmens|Haunts|VeiledOmens|3|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-haunts.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF6aa427371be6fc"
+		},
 		{
 			"name": "Pact of Incantation",
 			"source": "VeiledOmens",
@@ -3744,6 +3759,25 @@
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-haunts.webp",
 			"__prop": "subclassFeature",
 			"_foundryId": "SF4b079a45b550ac"
+		},
+		{
+			"name": "Rite of Omens",
+			"source": "VeiledOmens",
+			"className": "Occultist",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Omens",
+			"subclassSource": "VeiledOmens",
+			"level": 3,
+			"entries": [
+				"The Rite of Omens is for Occultists who read the residue of coming events where it gathers in the Border Ethereal. To them, fate leaves pressure before it arrives: in death echoes, spirit traces, old curses, fearful places, broken oaths, planar bleeds, and haunt-like impressions caught between the living world and the dead. Their power lies not merely in harming enemies, but in recognizing the patterns of fate that cling to all things and choosing how to meet them, bear them, or bind others to the doom already gathering around them.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Cast the Lots|Occultist|VeiledOmens|Omens|VeiledOmens|3|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SFb681e4733aa823"
 		},
 		{
 			"name": "Cast the Lots",
@@ -4040,6 +4074,25 @@
 			"_foundryId": "SFe13d0c7c165b17"
 		},
 		{
+			"name": "Rite of Servitude",
+			"source": "VeiledOmens",
+			"className": "Occultist",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Servitude",
+			"subclassSource": "VeiledOmens",
+			"level": 3,
+			"entries": [
+				"The Rite of Servitude is for those who would rather command the dead than commune with them. Practitioners of this rite call and bind spirits, settling them into prepared vessels and seating them in lifeless flesh to serve. Most cultures that know the rite call it taboo. The Shinjo, where the practice is best documented, exile its students.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Soul Binder|Occultist|VeiledOmens|Servitude|VeiledOmens|3|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-servitude.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SFcbe9a4568f3ba7"
+		},
+		{
 			"name": "Soul Binder",
 			"source": "VeiledOmens",
 			"className": "Occultist",
@@ -4173,6 +4226,25 @@
 			"_foundryId": "SFb654a66599957e"
 		},
 		{
+			"name": "Art of the Ether",
+			"source": "VeiledOmens",
+			"className": "Thaumaphage",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Ether",
+			"subclassSource": "VeiledOmens",
+			"level": 2,
+			"entries": [
+				"Practitioners of the Art of the Ether represent the scholarly magical path of thaumaphagic arts, where absorbed mana transforms into learned spell knowledge. Through intensive study and mental focus, these Thaumaphages learn to absorb the very patterns of spells cast at them, building a vast repertoire of magical knowledge through experience rather than traditional study.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Mana Shaping|Thaumaphage|VeiledOmens|Ether|VeiledOmens|2|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-ether.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF702e3829d48055"
+		},
+		{
 			"name": "Mana Shaping",
 			"source": "VeiledOmens",
 			"className": "Thaumaphage",
@@ -4222,6 +4294,29 @@
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-ether.webp",
 			"__prop": "subclassFeature",
 			"_foundryId": "SFceac8fc67ce6e9"
+		},
+		{
+			"name": "Art of the Flesh",
+			"source": "VeiledOmens",
+			"className": "Thaumaphage",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Flesh",
+			"subclassSource": "VeiledOmens",
+			"level": 2,
+			"entries": [
+				"Practitioners of the Art of the Flesh represent the physical path of thaumaphagic arts, where absorbed magical energy transforms into enhanced bodily capabilities. Inspired by ancient warrior traditions, these Thaumaphages learn to channel magical forces directly into their physical form, achieving superhuman strength, speed, and resilience. This art emerged from remote warrior-lodges in mountainous regions, where fighter-mystics sought to match the supernatural abilities of their enemies through magical absorption rather than traditional training.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Warrior's Path|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|2|VeiledOmens"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Empowered Form|Thaumaphage|VeiledOmens|Flesh|VeiledOmens|2|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-flesh.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF08d1cb83d41ac4"
 		},
 		{
 			"name": "Warrior's Path",
@@ -4320,6 +4415,30 @@
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-flesh.webp",
 			"__prop": "subclassFeature",
 			"_foundryId": "SF7d4e4870dc258a"
+		},
+		{
+			"name": "Occult Knight",
+			"source": "VeiledOmens",
+			"className": "Fighter",
+			"classSource": "PHB",
+			"subclassShortName": "Occult Knight",
+			"subclassSource": "VeiledOmens",
+			"level": 3,
+			"entries": [
+				"Occult Knights are warriors who turn mortal trauma into technique. They study the traces left behind by violence, terror, betrayal, sacrifice, wasting, hunger, binding, and fate, then bind those traces into their weapons. To an Occult Knight, a battlefield is not merely a place of combat. It is a field of lingering signs, each traumatic death leaving pressure in the Border Ethereal.",
+				"An Occult Knight does not command the dead. The knight reads what death leaves behind and teaches steel to remember it.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Occult Knight Spellcasting|Fighter|PHB|Occult Knight|VeiledOmens|3|VeiledOmens"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Mortal Imprint|Fighter|PHB|Occult Knight|VeiledOmens|3|VeiledOmens"
+				}
+			],
+			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF5649080f981aec"
 		},
 		{
 			"name": "Occult Knight Spellcasting",
@@ -4606,6 +4725,29 @@
 			"_foundryId": "SF06fd01e1b03f00"
 		},
 		{
+			"name": "Pale Touched",
+			"source": "VeiledOmens",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassShortName": "Pale Touched",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Your magic is touched by the eerie energies of the Ethereal Plane, the boundary between life and death. This connection could be due to dramatic supernatural events, such as being stillborn and miraculously revived, having a powerful incorporeal undead as a relative, or experiencing a resurrection that brought a fragment of the Ethereal back with you. Your existence teeters between realms, drawing on the power of the Ethereal Plane to wield frightening and mysterious arcane forces. Spirits gravitate toward you, manipulated by your will.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Deathly Eyes|Sorcerer|PHB|Pale Touched|VeiledOmens|1|VeiledOmens"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Gift from the Veil|Sorcerer|PHB|Pale Touched|VeiledOmens|1|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/pale-touched.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF35a8a5ab680fe8"
+		},
+		{
 			"name": "Deathly Eyes",
 			"source": "VeiledOmens",
 			"className": "Sorcerer",
@@ -4694,6 +4836,30 @@
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-harrowing-tide.webp",
 			"__prop": "subclassFeature",
 			"_foundryId": "SF9ed4db11129b34"
+		},
+		{
+			"name": "Path of the Shaman",
+			"source": "VeiledOmens",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Shaman",
+			"subclassSource": "VeiledOmens",
+			"level": 3,
+			"entries": [
+				"Shamans walk the boundary between the living world and the realm of spirits, channeling both primal fury and ethereal forces through their battle trance. These warriors bind their souls to the natural and spiritual worlds, communing with beast spirits and the dead alike. Unlike druids who commune with nature through contemplation, shamans channel primal and ethereal magic through fury and ecstasy. Their rage is not mindless; it is a deliberate trance state that opens doorways between worlds.",
+				"Through ritual tattooing, shamans inscribe magic upon their flesh: spells that flare to life when they enter their battle trance, drawing on both the raw vitality of nature and the psychic energies of the Border Ethereal. In this state, they can see through the eyes of distant beasts, speak with the spirits of the dead, and eventually transcend the boundary between flesh and spirit entirely.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Spellcasting|Barbarian|PHB|Shaman|VeiledOmens|3|VeiledOmens"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Spirit Sight|Barbarian|PHB|Shaman|VeiledOmens|3|VeiledOmens"
+				}
+			],
+			"foundryImg": "systems/dnd5e/icons/classes/barbarian.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF39a423d29bdb8d"
 		},
 		{
 			"name": "Spellcasting",

@@ -52,7 +52,8 @@ Conventions validation is part of the same flow:
 - Confirm `_generated/index-props.json` maps every top-level content array to the correct top-level directory.
 - Confirm class and subclass feature references resolve to real Plutonium entities.
 - Confirm Foundry dnd5e advancement coverage with `tools/validate-foundry-advancements.py`; character options are not complete when they only pass JSON, source-index, or link-resolution checks.
-- Confirm source-authored `ItemGrant` advancements contain real item UUID entries; empty `configuration.items` arrays are invalid.
+- Confirm subclass feature arrays start with a subclass-named header feature, with same-level mechanical features linked inside that header and later-level features listed after it.
+- Confirm there are no source-authored `ItemGrant` rows for feature grants; Plutonium must generate actor-owned feature grants during real actor import.
 - Confirm there are no split source IDs for individual mechanical options inside the same Veiled Omens source package.
 
 ## Useful Docs

@@ -40,6 +40,8 @@ This document records the upstream 5etools homebrew conventions this repository 
 
 - Plutonium's bundled 5etools source data uses race entries, class feature records, subclass feature records, and references as the source-data shape for feature grants.
 - Normal class and subclass feature references use 5etools string refs. Class feature objects are reserved for reference metadata such as `gainSubclassFeature`, `gainSubclassFeatureHasContent`, or `tableDisplayName`.
+- Plutonium class data and TheGiddyLimit homebrew class examples put a subclass-named header `subclassFeature` first in each subclass's `subclassFeatures` list. Plutonium imports that first feature into the subclass item and marks it ignored as a separate feature item at the actor import level.
+- Real mechanical subclass features gained at the same level as the subclass choice are referenced from the header feature's `entries` as `refSubclassFeature` entries. Later-level mechanical subclass features are listed as sibling `subclassFeatures` after the header.
 - Class tool-proficiency grants use strings, including free-choice strings like `one type of {@item artisan's tools|PHB} of your choice`; class tool arrays do not use object `choose` blocks.
 - Bundled Plutonium side-data uses `advancement` rows for non-item values such as `ScaleValue`; it does not source-author `ItemGrant` rows for class, subclass, or race feature grants.
 - Do not add source-authored `ItemGrant` rows for feature grants. Verify those grants through the real Plutonium actor import path, where the importer creates actor-owned `ItemGrant` rows from the concrete feature records.
@@ -49,6 +51,9 @@ Reference audit evidence from the 2026-06-24 TheGiddyLimit/homebrew clone:
 - 1,294 JSON files parsed with zero JSON errors.
 - `classFeatures`: 6,526 string refs and 1,527 object refs; object refs carried metadata such as `gainSubclassFeature` or `tableDisplayName`.
 - `subclassFeatures`: 20,585 string refs, zero object refs.
+- Official Plutonium examples inspected: `reference/plutonium/data/class/class-fighter.json`, `reference/plutonium/data/class/class-sorcerer.json`, `reference/plutonium/data/class/class-barbarian.json`, and `reference/plutonium/data/class/class-cleric.json`; each sample subclass starts with a subclass-named header feature such as `Battle Master|Fighter||Battle Master||3`.
+- Homebrew examples inspected: `reference/TheGiddyLimit-homebrew/class/KibblesTasty; Occultist.json`, `reference/TheGiddyLimit-homebrew/class/LaserLlama; Shaman.json`, and `reference/TheGiddyLimit-homebrew/class/Middle Finger of Vecna; Witch.json`; each sample subclass starts with a subclass-named header feature such as `Tradition of the Hedge Mage|Occultist|KT:O|Hedge Mage|KT:O|1`.
+- Plutonium importer evidence inspected: `reference/plutonium/js/Bundle.js` `_tagFirstSubclassLoaded`, which marks the first subclass feature ignored because it expects a header.
 - Class `startingProficiencies.tools` and `multiclassing.proficienciesGained.tools`: 278 string entries, zero object entries.
 - `foundryAdvancement`: 194 rows, all `ScaleValue`; zero source-authored `ItemGrant` rows.
 - Items: 6,884 `wondrous: true` entries and zero `type: "WONDROUS"` entries.

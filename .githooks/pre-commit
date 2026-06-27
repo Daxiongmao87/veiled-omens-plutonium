@@ -16,5 +16,8 @@ python3 tools/validate-plutonium-datasource.py
 echo "[pre-commit] validating Plutonium linked entities"
 python3 tools/validate-plutonium-links.py
 
+echo "[pre-commit] validating prose-to-mechanics conventions"
+python3 tools/validate-prose-mechanics.py
+
 echo "[pre-commit] validating Foundry advancement coverage"
 python3 tools/validate-foundry-advancements.py

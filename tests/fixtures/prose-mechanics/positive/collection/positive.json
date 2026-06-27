@@ -1,0 +1,202 @@
+{
+  "_meta": {
+    "sources": [
+      {
+        "json": "positive.json",
+        "abbreviation": "PM",
+        "full": "Prose Mechanics Positive Fixtures"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Concordant Focus",
+      "source": "PM",
+      "wondrous": true,
+      "reqAttune": true,
+      "charges": 8,
+      "recharge": "dawn",
+      "bonusWeapon": 1,
+      "bonusAc": 2,
+      "bonusSpellAttack": 1,
+      "bonusSpellSaveDc": 1,
+      "resist": ["cold"],
+      "immune": ["fire"],
+      "conditionImmune": ["poisoned"],
+      "attachedSpells": {
+        "daily": [
+          "magic missile|phb",
+          "cure wounds|phb"
+        ]
+      },
+      "entries": [
+        "While attuned, you can cast {@spell magic missile|phb} as an action and {@spell cure wounds|phb} once each after a long rest.",
+        "Your focus has the maximum number of charges equal to your proficiency bonus and regains all its expended charges at dawn.",
+        "You gain a +1 bonus to attack and damage rolls while wielding the focus.",
+        "You have a +2 bonus to AC while wearing this focus.",
+        "Your spell attack bonus is +1.",
+        "Your spell save DC increases by 1.",
+        "While attuned, you have resistance to cold damage, immunity to fire damage, and condition immunity: poisoned.",
+        "The focus also gives this magic with no activation cost."
+      ]
+    },
+    {
+      "name": "Mana Crystal",
+      "source": "PM",
+      "charges": 3,
+      "recharge": "restLong",
+      "rechargeAmount": 3,
+      "entries": [
+        "All charges are restored when you finish a long rest.",
+        "The item has 3 charges, regaining all spent uses at the end of a long rest."
+      ]
+    },
+    {
+      "name": "Resupply Matrix",
+      "source": "PM",
+      "charges": 4,
+      "recharge": "restLong",
+      "entries": [
+        "The matrix regains all charges when you finish a long rest."
+      ]
+    }
+  ],
+  "class": [
+    {
+      "name": "Concordant Adept",
+      "source": "PM",
+      "proficiency": ["int", "wis"],
+      "hd": {"number": 1, "faces": 8},
+      "startingProficiencies": {"skills": ["arcana"]},
+      "spellcastingAbility": "int",
+      "classFeatures": [
+        "Spellcasting|Concordant Adept|PM|1",
+        "Technique|Concordant Adept|PM|2"
+      ],
+      "additionalSpells": [
+        {
+          "known": {
+            "1": [
+              "magic missile|phb",
+              "cure wounds|phb"
+            ]
+          }
+        }
+      ],
+      "__prop": "class"
+    }
+  ],
+  "classFeature": [
+    {
+      "name": "Spellcasting",
+      "source": "PM",
+      "className": "Concordant Adept",
+      "classSource": "PM",
+      "level": 1,
+      "entries": [
+        "At 1st level, you learn {@spell magic missile|phb} and {@spell cure wounds|phb}.",
+        "Your arcane focus determines your spell preparation."
+      ],
+      "__prop": "classFeature"
+    },
+    {
+      "name": "Technique",
+      "source": "PM",
+      "className": "Concordant Adept",
+      "classSource": "PM",
+      "level": 2,
+      "entries": [
+        {
+          "type": "options",
+          "count": 2,
+          "entries": [
+            {
+              "type": "refOptionalfeature",
+              "optionalfeature": "Focused Inquiry|PM"
+            },
+            {
+              "type": "refOptionalfeature",
+              "optionalfeature": "Measured Strike|PM"
+            }
+          ]
+        },
+        "Choose two options from your technique list."
+      ],
+      "__prop": "classFeature"
+    }
+  ],
+  "optionalfeature": [
+    {
+      "name": "Focused Inquiry",
+      "source": "PM",
+      "_copy": {
+        "name": "Investigation",
+        "source": "phb"
+      },
+      "__prop": "optionalfeature"
+    },
+    {
+      "name": "Measured Strike",
+      "source": "PM",
+      "_copy": {
+        "name": "Weapon Mastery",
+        "source": "phb"
+      },
+      "__prop": "optionalfeature"
+    }
+  ],
+  "subclass": [
+    {
+      "name": "Convergence Path",
+      "source": "PM",
+      "className": "Concordant Adept",
+      "classSource": "PM",
+      "subclassFeatures": [
+        "Convergence Path|Concordant Adept|PM|Convergence Path|PM|3|PM"
+      ],
+      "entries": [
+        "Choose this path to gain convergence techniques."
+      ],
+      "__prop": "subclass"
+    }
+  ],
+  "subclassFeature": [
+    {
+      "name": "Convergence Path",
+      "source": "PM",
+      "className": "Concordant Adept",
+      "classSource": "PM",
+      "subclassShortName": "Convergence Path",
+      "subclassSource": "PM",
+      "level": 3,
+      "entries": [
+        "The heading feature for your path.",
+        {
+          "type": "entries",
+          "name": "Path feature",
+          "entries": [
+            "Choose one:"
+          ]
+        },
+        {
+          "type": "refSubclassFeature",
+          "subclassFeature": "Convergence Technique|Concordant Adept|PM|Convergence Path|PM|3|PM"
+        }
+      ],
+      "__prop": "subclassFeature"
+    },
+    {
+      "name": "Convergence Technique",
+      "source": "PM",
+      "className": "Concordant Adept",
+      "classSource": "PM",
+      "subclassShortName": "Convergence Path",
+      "subclassSource": "PM",
+      "level": 3,
+      "entries": [
+        "You gain one additional tool proficiency."
+      ],
+      "__prop": "subclassFeature"
+    }
+  ]
+}

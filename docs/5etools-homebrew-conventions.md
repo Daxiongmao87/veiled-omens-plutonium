@@ -54,6 +54,17 @@ This document records the upstream 5etools homebrew conventions this repository 
   - Source examples with this convention include `reference/TheGiddyLimit-homebrew/class/LaserLlama; Psion.json` and `reference/TheGiddyLimit-homebrew/class/LaserLlama; Shaman.json`.
   - Source-authored `ItemGrant` rows are not used for spell grants in this surface.
 
+## Item Prose-To-Mechanics Source Data
+
+- Item prose that grants, casts, contains, uses, or expends named `{@spell ...}` tags must have matching source-side `attachedSpells` data. TheGiddyLimit/homebrew and bundled Plutonium item data use `attachedSpells` as either a list or a frequency bucket object.
+- Item charge prose must be backed by source-side charge fields. Prose that says an item has charges, maximum charges, regains charges, recharges at dawn, or recharges on rest requires `charges` plus `recharge` and/or `rechargeAmount`.
+- Long-rest recharge uses the 5etools/Plutonium token `recharge: "restLong"`, not prose text such as `recharge: "long rest"`.
+- Full-restore prose such as "regains all charges", "regains all expended charges", "regaining all spent uses", or "all charges are restored" is valid with `recharge: "restLong"` and no `rechargeAmount`, or with numeric `charges` and matching numeric `rechargeAmount`.
+- Nonnumeric dice `rechargeAmount` values such as `{@dice 1d4}` represent partial or random recharge and must not be paired with prose that says all charges or uses are restored.
+- Static item bonuses in prose require their structured item fields: `bonusWeapon` for attack/damage roll bonuses, `bonusAc` for AC bonuses, `bonusSpellAttack` for spell attack bonuses, and `bonusSpellSaveDc` for spell save DC bonuses.
+- Persistent worn, wielded, held, carried, or attuned damage defenses in prose require structured defense fields: `resist`, `immune`, and `conditionImmune`.
+- Wondrous magic items use `wondrous: true`; do not add fake item type values such as `type: "WONDROUS"` or `type: "wondrous item"`.
+
 Reference audit evidence from the 2026-06-24 TheGiddyLimit/homebrew clone:
 
 - 1,294 JSON files parsed with zero JSON errors.
@@ -65,6 +76,11 @@ Reference audit evidence from the 2026-06-24 TheGiddyLimit/homebrew clone:
 - Class `startingProficiencies.tools` and `multiclassing.proficienciesGained.tools`: 278 string entries, zero object entries.
 - `foundryAdvancement`: 194 rows, all `ScaleValue`; zero source-authored `ItemGrant` rows.
 - Items: 6,884 `wondrous: true` entries and zero `type: "WONDROUS"` entries.
+- Item spell attachments are represented through `attachedSpells` in both TheGiddyLimit/homebrew item JSON and `reference/plutonium/data/items.json`; inspected examples include `reference/TheGiddyLimit-homebrew/item/DMsGuild Community; Artifacts of the Guild.json`, `reference/TheGiddyLimit-homebrew/item/CaelReader; All the Weapons.json`, and bundled Plutonium items.
+- Long-rest charge examples use `recharge: "restLong"`:
+  - `reference/TheGiddyLimit-homebrew/item/DMsGuild Community; Artifacts of the Guild.json` `Charred Cloak` has `wondrous: true`, `recharge: "restLong"`, `charges: 3`, and prose that it is "regaining all spent uses" at the end of a long rest, with no `rechargeAmount`.
+  - `reference/TheGiddyLimit-homebrew/item/hakr14; Weave of Karo - Items.json` `Elemental Salve` has `wondrous: true`, `recharge: "restLong"`, `charges: 5`, and dice recharge prose for partial charge recovery.
+- Structured item bonus and defense fields appear in TheGiddyLimit/homebrew item examples, including `bonusWeapon`, `bonusAc`, `bonusSpellAttack`, `resist`, `immune`, and `conditionImmune` in `reference/TheGiddyLimit-homebrew/item/CaelReader; All the Weapons.json` and other item files.
 
 ## Directory To Top-Level Property Mapping
 
@@ -114,6 +130,8 @@ python3 tools/validate-content-json.py
 python3 tools/generate-plutonium-indexes.py --check
 python3 tools/validate-plutonium-datasource.py
 python3 tools/validate-plutonium-links.py
+python3 tools/validate-prose-mechanics.py
+python3 tools/validate-foundry-advancements.py
 ```
 
 `tools/validate-content-json.py` uses the shared content discovery helper in `tools/plutonium_content.py`, so generator and validator tooling use the same definition of content JSON files.

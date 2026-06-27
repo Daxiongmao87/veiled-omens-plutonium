@@ -6510,6 +6510,8 @@
 			"wondrous": true,
 			"rarity": "uncommon",
 			"reqAttune": true,
+			"charges": "varies",
+			"recharge": "restLong",
 			"entries": [
 				"This crystal, often intricately carved or naturally formed with unique patterns, serves as a Thaumaphage's primary tool for storing and channeling magical energy. While attuned to this crystal, you can use it as a spellcasting focus for your Thaumaphage spells.",
 				"The crystal has charges. The maximum number of charges the crystal can hold is equal to your current maximum mana capacity, as determined by your Thaumaphage class features. The crystal regains all its expended charges when you finish a long rest.",

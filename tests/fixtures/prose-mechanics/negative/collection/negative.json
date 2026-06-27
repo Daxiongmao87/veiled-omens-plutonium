@@ -1,0 +1,113 @@
+{
+  "_meta": {
+    "sources": [
+      {
+        "json": "negative.json",
+        "abbreviation": "PM",
+        "full": "Prose Mechanics Negative Fixtures"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Unbound Relic",
+      "source": "PM",
+      "type": "WONDROUS",
+      "entries": [
+        "While attuned, you can cast {@spell magic missile|phb} and are permanently resistant to cold.",
+        "The relic has a maximum number of charges and regains them when you finish a long rest.",
+        "You gain a +2 bonus to AC.",
+        "You can use this item as a reaction to absorb energy."
+      ]
+    },
+    {
+      "name": "Mana Crystal Prototype",
+      "source": "PM",
+      "charges": "varies",
+      "recharge": "long rest",
+      "rechargeAmount": "{@dice 1d4 + 2}",
+      "entries": [
+        "The prototype has a number of charges and regains all its expended charges after a long rest.",
+        "When expended, each charge produces one point of energy."
+      ]
+    },
+    {
+      "name": "Dead Battery",
+      "source": "PM",
+      "charges": 4,
+      "recharge": "restLong",
+      "rechargeAmount": "{@dice 1d4 + 2}",
+      "entries": [
+        "The battery regains all charges after a long rest.",
+        "All charges are restored when you finish a long rest."
+      ]
+    },
+    {
+      "name": "Burnt Generator",
+      "source": "PM",
+      "charges": 4,
+      "recharge": "restLong",
+      "rechargeAmount": "{@dice 1d4}",
+      "entries": [
+        "The generator has 4 charges, regaining all spent uses at the end of a long rest."
+      ]
+    },
+    {
+      "name": "Cursed Fang",
+      "source": "PM",
+      "entries": [
+        "You gain a +1 bonus to attack and damage rolls while wielding this relic.",
+        "You have immunity to the poisoned condition while wielding this relic."
+      ]
+    }
+  ],
+  "class": [
+    {
+      "name": "Faulted Caster",
+      "source": "PM",
+      "proficiency": ["wis", "cha"],
+      "hd": {"number": 1, "faces": 8},
+      "startingProficiencies": {"skills": ["arcana"]},
+      "spellcastingAbility": "wis",
+      "classFeatures": [
+        "Spellcasting|Faulted Caster|PM|1",
+        "Technique|Faulted Caster|PM|2"
+      ],
+      "__prop": "class"
+    }
+  ],
+  "classFeature": [
+    {
+      "name": "Spellcasting",
+      "source": "PM",
+      "className": "Faulted Caster",
+      "classSource": "PM",
+      "level": 1,
+      "entries": [
+        "At 1st level, you learn {@spell magic missile|phb} and {@spell cure wounds|phb}."
+      ],
+      "__prop": "classFeature"
+    },
+    {
+      "name": "Technique",
+      "source": "PM",
+      "className": "Faulted Caster",
+      "classSource": "PM",
+      "level": 2,
+      "entries": [
+        {
+          "type": "options",
+          "count": 2,
+          "entries": [
+            {
+              "type": "refOptionalfeature",
+              "optionalfeature": "Flawed Option|PM"
+            }
+          ]
+        },
+        "Choose one technique to learn."
+      ],
+      "__prop": "classFeature"
+    }
+  ]
+}

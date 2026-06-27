@@ -2020,6 +2020,19 @@
 				"wis"
 			],
 			"spellcastingAbility": "wis",
+			"additionalSpells": [
+				{
+					"ability": "wis",
+					"known": {
+						"0": [
+							"Convert Essence|VeiledOmens#c"
+						],
+						"1": [
+							"Ether Burn|VeiledOmens"
+						]
+					}
+				}
+			],
 			"startingProficiencies": {
 				"armor": [
 					"light"
@@ -3511,6 +3524,7 @@
 			"page": 0,
 			"edition": "classic",
 			"spellcastingAbility": "wis",
+			"casterProgression": "1/3",
 			"spellsKnownProgression": [
 				0,
 				0,

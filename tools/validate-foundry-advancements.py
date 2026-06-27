@@ -18,7 +18,18 @@ FOUNDRY_ID_RE = re.compile(r"^[A-Za-z0-9]{16}$")
 LEVEL_IN_NAME_RE = re.compile(r"\(Level (?P<level>\d+)\)")
 REACH_LEVEL_RE = re.compile(r"\breach (?P<level>\d+)(?:st|nd|rd|th) level\b", re.IGNORECASE)
 SPELL_TAG_RE = re.compile(r"\{@spell\s+(?P<spell>[^}|#]+)(?:[|#][^}]*)?\}", re.IGNORECASE)
+SPELL_TAG_UID_RE = re.compile(r"\{@spell\s+(?P<spell>[^}]+)\}", re.IGNORECASE)
 RACE_SPELLCASTING_TEXT_RE = re.compile(r"\{@spell|\bcan cast\b|\bcantrip\b", re.IGNORECASE)
+SPELLCASTING_FIXED_GRANT_TEXT_RE = re.compile(r"\bat\s+\d+(?:st|nd|rd|th)\s+level,\s*you\s+(?:know|learn)\b", re.IGNORECASE)
+SPELLCASTING_PROGRESSION_FIELDS = (
+    "cantripProgression",
+    "spellsKnownProgression",
+    "preparedSpellsProgression",
+    "spellsKnownProgressionFixed",
+    "spellsKnownProgressionFixedByLevel",
+    "spellsKnownProgressionFixedAllowLowerLevel",
+    "spellsKnownProgressionFixedAllowHigherLevel",
+)
 RACE_FEATURE_SKIP_NAMES = {
     "Ability Score Increase",
     "Ability Score Changes",
@@ -157,6 +168,14 @@ def normalize_spell_name(value: str) -> str:
     return re.sub(r"\s+", " ", value.strip().lower())
 
 
+def normalize_spell_uid(value: str) -> str:
+    value = value.split("#", 1)[0]
+    parts = [part.strip() for part in value.split("|")]
+    name = re.sub(r"\s+", " ", parts[0].strip().lower())
+    source = parts[1].strip().lower() if len(parts) > 1 else ""
+    return f"{name}|{source}" if name and source else name
+
+
 def collect_additional_spell_names(value: Any) -> set[str]:
     if isinstance(value, str):
         if "=" in value:
@@ -176,10 +195,36 @@ def collect_additional_spell_names(value: Any) -> set[str]:
     return set()
 
 
+def collect_additional_spell_uids(value: Any) -> set[str]:
+    if isinstance(value, str):
+        if "=" in value:
+            return set()
+        normalized = normalize_spell_uid(value)
+        return {normalized} if normalized else set()
+    if isinstance(value, list):
+        out: set[str] = set()
+        for item in value:
+            out.update(collect_additional_spell_uids(item))
+        return out
+    if isinstance(value, Mapping):
+        out: set[str] = set()
+        for item in value.values():
+            out.update(collect_additional_spell_uids(item))
+        return out
+    return set()
+
+
 def extract_spell_tag_names(text: str) -> set[str]:
     return {
         normalize_spell_name(match.group("spell"))
         for match in SPELL_TAG_RE.finditer(text)
+    }
+
+
+def extract_spell_tag_uids(text: str) -> set[str]:
+    return {
+        normalize_spell_uid(match.group("spell"))
+        for match in SPELL_TAG_UID_RE.finditer(text)
     }
 
 
@@ -208,6 +253,29 @@ def collect_class_feature_ids(
         if level is None or foundry_id is None or any(not isinstance(item, str) or not item.strip() for item in required):
             continue
         out[(name, class_name, class_source, level, source)] = foundry_id
+    return out
+
+
+def collect_class_feature_records(
+    rel: str,
+    data: Mapping[str, Any],
+    errors: list[str],
+) -> dict[tuple[str, str, str, int, str], Mapping[str, Any]]:
+    out: dict[tuple[str, str, str, int, str], Mapping[str, Any]] = {}
+    for index, feature in enumerate(data.get("classFeature", [])):
+        label = f"{rel}.classFeature[{index}]"
+        if not isinstance(feature, Mapping):
+            errors.append(f"{label}: expected object")
+            continue
+        name = feature.get("name")
+        class_name = feature.get("className")
+        class_source = feature.get("classSource")
+        source = feature.get("source")
+        level = parse_int(feature.get("level"), f"{label}.level", errors)
+        required = [name, class_name, class_source, source]
+        if level is None or any(not isinstance(item, str) or not item.strip() for item in required):
+            continue
+        out[(name, class_name, class_source, level, source)] = feature
     return out
 
 
@@ -506,6 +574,113 @@ def validate_class_tool_proficiency_shape(
             )
 
 
+def get_character_option_spellcasting_feature_records(
+    entity: Mapping[str, Any],
+    label: str,
+    is_subclass: bool,
+    class_feature_records: Mapping[tuple[str, str, str, int, str], Mapping[str, Any]],
+    subclass_feature_records: Mapping[
+        tuple[str, str, str, str, str, int, str],
+        Mapping[str, Any],
+    ],
+    errors: list[str],
+) -> list[Mapping[str, Any]]:
+    refs = entity.get("subclassFeatures" if is_subclass else "classFeatures", [])
+    if not isinstance(refs, list):
+        errors.append(f"{label}.{ 'subclassFeatures' if is_subclass else 'classFeatures'}: expected array")
+        return []
+
+    feature_records: list[Mapping[str, Any]] = []
+    for index, raw_ref in enumerate(refs):
+        if is_subclass:
+            parsed = parse_subclass_feature_ref(
+                raw_ref,
+                f"{label}.subclassFeatures[{index}]",
+                errors,
+            )
+            if parsed is None:
+                continue
+            feature = subclass_feature_records.get(parsed)
+        else:
+            parsed = parse_class_feature_ref(
+                raw_ref,
+                f"{label}.classFeatures[{index}]",
+                errors,
+            )
+            if parsed is None:
+                continue
+            feature = class_feature_records.get(parsed)
+
+        if feature is None:
+            continue
+
+        feature_name = feature.get("name")
+        if isinstance(feature_name, str) and feature_name.strip().lower() == "spellcasting":
+            feature_records.append(feature)
+    return feature_records
+
+
+def validate_character_spellcasting_additional_spells(
+    entity: Mapping[str, Any],
+    label: str,
+    is_subclass: bool,
+    class_feature_records: Mapping[tuple[str, str, str, int, str], Mapping[str, Any]],
+    subclass_feature_records: Mapping[
+        tuple[str, str, str, str, str, int, str],
+        Mapping[str, Any],
+    ],
+    errors: list[str],
+) -> None:
+    spellcasting_ability = entity.get("spellcastingAbility")
+    if not isinstance(spellcasting_ability, str) or not spellcasting_ability.strip():
+        return
+
+    progression_fields = [field for field in SPELLCASTING_PROGRESSION_FIELDS if field in entity]
+    if progression_fields and not entity.get("casterProgression"):
+        errors.append(
+            f"{label}.casterProgression: required when spellcasting progression arrays exist: "
+            f"{progression_fields}"
+        )
+
+    spellcast_feature_records = get_character_option_spellcasting_feature_records(
+        entity,
+        label,
+        is_subclass,
+        class_feature_records,
+        subclass_feature_records,
+        errors,
+    )
+
+    required_spell_uids: set[str] = set()
+    for feature in spellcast_feature_records:
+        for text in walk_strings(feature.get("entries", [])):
+            if SPELLCASTING_FIXED_GRANT_TEXT_RE.search(text):
+                required_spell_uids.update(extract_spell_tag_uids(text))
+
+    if not required_spell_uids:
+        return
+
+    additional_spells = entity.get("additionalSpells")
+    if not isinstance(additional_spells, list) or not additional_spells:
+        errors.append(
+            f"{label}.additionalSpells: required for fixed spell grants in spellcasting prose: "
+            f"{sorted(required_spell_uids)}"
+        )
+        return
+
+    for additional_spell_index, additional_spell_block in enumerate(additional_spells):
+        if not isinstance(additional_spell_block, Mapping):
+            errors.append(f"{label}.additionalSpells[{additional_spell_index}]: expected object")
+
+    actual_spell_uids = collect_additional_spell_uids(additional_spells)
+    missing_spell_uids = sorted(required_spell_uids - actual_spell_uids)
+    if missing_spell_uids:
+        errors.append(
+            f"{label}.additionalSpells: missing fixed spell grant UID(s) from spellcasting prose: "
+            f"{missing_spell_uids}"
+        )
+
+
 def validate_race_advancements(
     rel: str,
     index: int,
@@ -526,6 +701,7 @@ def validate_race_advancements(
 
 def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors: list[str]) -> None:
     class_feature_ids = collect_class_feature_ids(rel, data, errors)
+    class_feature_records = collect_class_feature_records(rel, data, errors)
     subclass_feature_ids = collect_subclass_feature_ids(rel, data, errors)
     subclass_feature_records = collect_subclass_feature_records(rel, data, errors)
 
@@ -560,6 +736,14 @@ def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors
                 errors,
             )
         get_required_class_feature_targets(cls, label, class_feature_ids, errors)
+        validate_character_spellcasting_additional_spells(
+            cls,
+            label,
+            False,
+            class_feature_records,
+            subclass_feature_records,
+            errors,
+        )
         validate_no_source_item_grants(cls, label, errors)
 
     for index, subclass in enumerate(data.get("subclass", [])):
@@ -573,6 +757,14 @@ def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors
             subclass,
             label,
             subclass_feature_ids,
+            subclass_feature_records,
+            errors,
+        )
+        validate_character_spellcasting_additional_spells(
+            subclass,
+            label,
+            True,
+            class_feature_records,
             subclass_feature_records,
             errors,
         )

@@ -45,6 +45,14 @@ This document records the upstream 5etools homebrew conventions this repository 
 - Class tool-proficiency grants use strings, including free-choice strings like `one type of {@item artisan's tools|PHB} of your choice`; class tool arrays do not use object `choose` blocks.
 - Bundled Plutonium side-data uses `advancement` rows for non-item values such as `ScaleValue`; it does not source-author `ItemGrant` rows for class, subclass, or race feature grants.
 - Do not add source-authored `ItemGrant` rows for feature grants. Verify those grants through the real Plutonium actor import path, where the importer creates actor-owned `ItemGrant` rows from the concrete feature records.
+- Class/subclass spellcasting progression arrays require `casterProgression`:
+  - If `cantripProgression`, `spellsKnownProgression`, `preparedSpellsProgression`, `spellsKnownProgressionFixed`, `spellsKnownProgressionFixedByLevel`, `spellsKnownProgressionFixedAllowLowerLevel`, or `spellsKnownProgressionFixedAllowHigherLevel` is present, `casterProgression` is required.
+  - `reference/plutonium/js/Bundle.js` `UtilEntityClassSubclass.isClassSubclassHasCasterTable` uses `casterProgression` and progression arrays together to decide if a spellcaster has caster tables.
+- Fixed named spell grants in spellcasting text must be represented via `additionalSpells`:
+  - If spellcasting prose grants named spells (for example `{@spell Convert Essence|VeiledOmens}` and `{@spell Ether Burn|VeiledOmens}` at level milestones), those must be mirrored in top-level `additionalSpells` blocks so Plutonium's actor import can grant them.
+  - Custom-source fixed spell grants use source-qualified spell UIDs in `additionalSpells`, such as `Convert Essence|VeiledOmens#c` for a cantrip and `Ether Burn|VeiledOmens` for a leveled spell.
+  - Source examples with this convention include `reference/TheGiddyLimit-homebrew/class/LaserLlama; Psion.json` and `reference/TheGiddyLimit-homebrew/class/LaserLlama; Shaman.json`.
+  - Source-authored `ItemGrant` rows are not used for spell grants in this surface.
 
 Reference audit evidence from the 2026-06-24 TheGiddyLimit/homebrew clone:
 

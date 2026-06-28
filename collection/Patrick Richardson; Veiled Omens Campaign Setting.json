@@ -44,8 +44,7 @@
 			"languageProficiencies": [
 				{
 					"common": true,
-					"elvish": true,
-					"any": 1
+					"elvish": true
 				}
 			],
 			"traitTags": [

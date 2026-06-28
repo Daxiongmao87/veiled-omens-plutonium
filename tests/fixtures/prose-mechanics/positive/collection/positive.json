@@ -59,6 +59,15 @@
       "entries": [
         "The matrix regains all charges when you finish a long rest."
       ]
+    },
+    {
+      "name": "Arcane Token",
+      "source": "PM",
+      "wondrous": true,
+      "reqAttune": true,
+      "entries": [
+        "This token is tied to your class magic and appears in class starting equipment."
+      ]
     }
   ],
   "class": [
@@ -82,6 +91,30 @@
             ]
           }
         }
+      ],
+      "__prop": "class"
+    },
+    {
+      "name": "Token Adept",
+      "source": "PM",
+      "proficiency": ["int"],
+      "hd": {"number": 1, "faces": 8},
+      "startingProficiencies": {"skills": ["arcana"]},
+      "startingEquipment": {
+        "additionalFromBackground": true,
+        "default": [
+          "a {@item Arcane Token|PM}"
+        ],
+        "defaultData": [
+          {
+            "_": [
+              "Arcane Token|PM"
+            ]
+          }
+        ]
+      },
+      "classFeatures": [
+        "Arcane Token|Token Adept|PM|1"
       ],
       "__prop": "class"
     }
@@ -121,6 +154,17 @@
           ]
         },
         "Choose two options from your technique list."
+      ],
+      "__prop": "classFeature"
+    },
+    {
+      "name": "Arcane Token",
+      "source": "PM",
+      "className": "Token Adept",
+      "classSource": "PM",
+      "level": 1,
+      "entries": [
+        "You perform the rite and receive the Arcane Token."
       ],
       "__prop": "classFeature"
     }

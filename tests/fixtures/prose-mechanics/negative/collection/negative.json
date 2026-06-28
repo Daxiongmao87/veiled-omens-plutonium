@@ -32,6 +32,13 @@
       ]
     },
     {
+      "name": "Mana Crystal",
+      "source": "PM",
+      "entries": [
+        "This item is granted by a class feature grant path."
+      ]
+    },
+    {
       "name": "Dead Battery",
       "source": "PM",
       "charges": 4,
@@ -73,6 +80,27 @@
         "Spellcasting|Faulted Caster|PM|1",
         "Technique|Faulted Caster|PM|2"
       ],
+      "additionalSpells": [
+        {
+          "known": {
+            "0": [
+              "magic missile|phb"
+            ]
+          }
+        }
+      ],
+      "__prop": "class"
+    },
+    {
+      "name": "Faulted Grant",
+      "source": "PM",
+      "proficiency": ["wis", "cha"],
+      "hd": {"number": 1, "faces": 8},
+      "startingProficiencies": {"skills": ["arcana"]},
+      "spellcastingAbility": "wis",
+      "classFeatures": [
+        "Mana Crystal|Faulted Grant|PM|1"
+      ],
       "__prop": "class"
     }
   ],
@@ -85,6 +113,17 @@
       "level": 1,
       "entries": [
         "At 1st level, you learn {@spell magic missile|phb} and {@spell cure wounds|phb}."
+      ],
+      "__prop": "classFeature"
+    },
+    {
+      "name": "Mana Crystal",
+      "source": "PM",
+      "className": "Faulted Grant",
+      "classSource": "PM",
+      "level": 1,
+      "entries": [
+        "At 1st level, you gain a mana crystal."
       ],
       "__prop": "classFeature"
     },

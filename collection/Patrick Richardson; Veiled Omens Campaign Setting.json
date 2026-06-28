@@ -2024,10 +2024,8 @@
 				{
 					"ability": "wis",
 					"known": {
-						"0": [
-							"Convert Essence|VeiledOmens#c"
-						],
 						"1": [
+							"Convert Essence|VeiledOmens#c",
 							"Ether Burn|VeiledOmens"
 						]
 					}
@@ -2079,6 +2077,19 @@
 						"{@item herbalism kit|phb}"
 					]
 				}
+			},
+			"startingEquipment": {
+				"additionalFromBackground": true,
+				"default": [
+					"a {@item Mana Crystal|VeiledOmens}"
+				],
+				"defaultData": [
+					{
+						"_": [
+							"Mana Crystal|VeiledOmens"
+						]
+					}
+				]
 			},
 			"classTableGroups": [
 				{

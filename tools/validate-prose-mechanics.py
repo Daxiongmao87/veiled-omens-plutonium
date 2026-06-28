@@ -28,10 +28,12 @@ _foundry_helpers = _load_foundry_helpers()
 collect_additional_spell_uids = _foundry_helpers.collect_additional_spell_uids
 collect_class_feature_records = _foundry_helpers.collect_class_feature_records
 collect_subclass_feature_records = _foundry_helpers.collect_subclass_feature_records
+collect_named_items = _foundry_helpers.collect_named_items
 extract_spell_tag_uids = _foundry_helpers.extract_spell_tag_uids
 validate_character_spellcasting_additional_spells_foundry = (
     _foundry_helpers.validate_character_spellcasting_additional_spells
 )
+validate_class_feature_item_grants = _foundry_helpers.validate_class_feature_item_grants
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 
@@ -521,6 +523,7 @@ def validate_option_blocks(
 def validate_file(rel: str, data: Mapping[str, Any], errors: list[str]) -> None:
     class_feature_records = collect_class_feature_records(rel, data, errors)
     subclass_feature_records = collect_subclass_feature_records(rel, data, errors)
+    item_records = collect_named_items(data)
 
     for index, item in enumerate(data.get("item", [])):
         if not isinstance(item, Mapping):
@@ -555,6 +558,13 @@ def validate_file(rel: str, data: Mapping[str, Any], errors: list[str]) -> None:
             continue
 
         label = f"class[{index}:{cls.get('name', 'unnamed')!r}]"
+        validate_class_feature_item_grants(
+            cls,
+            label,
+            class_feature_records,
+            item_records,
+            errors,
+        )
         validate_option_blocks(rel, label, cls, errors)
         validate_character_spellcasting_additional_spells(
             rel,

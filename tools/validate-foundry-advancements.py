@@ -21,6 +21,7 @@ SPELL_TAG_RE = re.compile(r"\{@spell\s+(?P<spell>[^}|#]+)(?:[|#][^}]*)?\}", re.I
 SPELL_TAG_UID_RE = re.compile(r"\{@spell\s+(?P<spell>[^}]+)\}", re.IGNORECASE)
 RACE_SPELLCASTING_TEXT_RE = re.compile(r"\{@spell|\bcan cast\b|\bcantrip\b", re.IGNORECASE)
 SPELLCASTING_FIXED_GRANT_TEXT_RE = re.compile(r"\bat\s+\d+(?:st|nd|rd|th)\s+level,\s*you\s+(?:know|learn)\b", re.IGNORECASE)
+SPELLCASTING_FIXED_GRANT_LEVEL_RE = re.compile(r"\bat\s+(?P<level>\d+)(?:st|nd|rd|th)\s+level,\s*you\s+(?:know|learn)\b", re.IGNORECASE)
 SPELLCASTING_PROGRESSION_FIELDS = (
     "cantripProgression",
     "spellsKnownProgression",
@@ -49,6 +50,7 @@ RACE_FEATURE_SKIP_NAMES = {
 CLASS_FEATURE_ITEM_SKIP_NAMES = {
     "Ability Score Improvement",
 }
+VALID_HIT_DIE_FACES = {4, 6, 8, 10, 12}
 
 
 def rel_path(path: Path) -> str:
@@ -176,6 +178,14 @@ def normalize_spell_uid(value: str) -> str:
     return f"{name}|{source}" if name and source else name
 
 
+def normalize_item_uid(value: str) -> str:
+    value = value.split("#", 1)[0]
+    parts = [part.strip() for part in value.split("|")]
+    name = re.sub(r"\s+", " ", parts[0].strip().lower())
+    source = parts[1].strip().lower() if len(parts) > 1 else ""
+    return f"{name}|{source}" if name and source else name
+
+
 def collect_additional_spell_names(value: Any) -> set[str]:
     if isinstance(value, str):
         if "=" in value:
@@ -214,6 +224,32 @@ def collect_additional_spell_uids(value: Any) -> set[str]:
     return set()
 
 
+def collect_additional_spells_by_level(additional_spells: Any) -> dict[int, set[str]]:
+    if not isinstance(additional_spells, list):
+        return {}
+    out: dict[int, set[str]] = defaultdict(set)
+    for additional_spell_block in additional_spells:
+        if not isinstance(additional_spell_block, Mapping):
+            continue
+        known = additional_spell_block.get("known")
+        if not isinstance(known, Mapping):
+            continue
+        for level_key, spells in known.items():
+            if isinstance(level_key, bool):
+                continue
+            if isinstance(level_key, int):
+                level = level_key
+            elif isinstance(level_key, str):
+                level_text = level_key.strip()
+                if not level_text.isdigit():
+                    continue
+                level = int(level_text)
+            else:
+                continue
+            out[level].update(collect_additional_spell_uids(spells))
+    return out
+
+
 def extract_spell_tag_names(text: str) -> set[str]:
     return {
         normalize_spell_name(match.group("spell"))
@@ -226,6 +262,54 @@ def extract_spell_tag_uids(text: str) -> set[str]:
         normalize_spell_uid(match.group("spell"))
         for match in SPELL_TAG_UID_RE.finditer(text)
     }
+
+
+def collect_named_items(data: Mapping[str, Any]) -> set[tuple[str, str]]:
+    item_records: set[tuple[str, str]] = set()
+    for item in data.get("item", []):
+        if not isinstance(item, Mapping):
+            continue
+        name = item.get("name")
+        source = item.get("source")
+        if not isinstance(name, str) or not isinstance(source, str):
+            continue
+        normalized_name = re.sub(r"\s+", " ", name.strip().lower())
+        normalized_source = source.strip().lower()
+        if normalized_name and normalized_source:
+            item_records.add((normalized_name, normalized_source))
+    return item_records
+
+
+def collect_starting_equipment_default_data_uids(starting_equipment: Any) -> set[str]:
+    if not isinstance(starting_equipment, Mapping):
+        return set()
+    default_data = starting_equipment.get("defaultData")
+    if default_data is None or not isinstance(default_data, list):
+        return set()
+
+    out: set[str] = set()
+    for entry in default_data:
+        if isinstance(entry, str):
+            normalized_uid = normalize_item_uid(entry)
+            if normalized_uid:
+                out.add(normalized_uid)
+            continue
+        if not isinstance(entry, Mapping):
+            continue
+        uid_entry = entry.get("_")
+        if isinstance(uid_entry, str):
+            normalized_uid = normalize_item_uid(uid_entry)
+            if normalized_uid:
+                out.add(normalized_uid)
+            continue
+        if isinstance(uid_entry, list):
+            for item_uid in uid_entry:
+                if not isinstance(item_uid, str):
+                    continue
+                normalized_uid = normalize_item_uid(item_uid)
+                if normalized_uid:
+                    out.add(normalized_uid)
+    return out
 
 
 def is_race_spellcasting_entry(entry_text: str) -> bool:
@@ -551,6 +635,104 @@ def validate_no_source_item_grants(
             )
 
 
+def validate_additional_spell_known_keys(
+    entity: Mapping[str, Any],
+    label: str,
+    errors: list[str],
+) -> None:
+    additional_spells = entity.get("additionalSpells")
+    if not isinstance(additional_spells, list):
+        return
+
+    for block_index, additional_spell_block in enumerate(additional_spells):
+        if not isinstance(additional_spell_block, Mapping):
+            continue
+        known = additional_spell_block.get("known")
+        if known is None:
+            continue
+        if not isinstance(known, Mapping):
+            errors.append(f"{label}.additionalSpells[{block_index}].known: expected object")
+            continue
+        for level_key in known:
+            if isinstance(level_key, bool):
+                continue
+            if isinstance(level_key, int):
+                level = level_key
+            elif isinstance(level_key, str):
+                key_text = level_key.strip()
+                if not key_text.isdigit():
+                    continue
+                level = int(key_text)
+            else:
+                continue
+            if level < 1 or level > 20:
+                errors.append(
+                    f"{label}.additionalSpells[{block_index}].known: numeric key {level!r} is invalid; "
+                    "known keys are character levels 1-20, not spell levels"
+                )
+
+
+def validate_class_feature_item_grants(
+    cls: Mapping[str, Any],
+    label: str,
+    class_feature_records: Mapping[tuple[str, str, str, int, str], Mapping[str, Any]],
+    item_records: set[tuple[str, str]],
+    errors: list[str],
+) -> None:
+    required_item_uids: set[str] = set()
+    class_features = cls.get("classFeatures")
+    if not isinstance(class_features, list):
+        return
+
+    for index, raw_ref in enumerate(class_features):
+        parsed = parse_class_feature_ref(raw_ref, f"{label}.classFeatures[{index}]", errors)
+        if parsed is None:
+            continue
+        feature = class_feature_records.get(parsed)
+        if not isinstance(feature, Mapping):
+            continue
+        feature_name = feature.get("name")
+        feature_source = feature.get("source")
+        if not isinstance(feature_name, str) or not isinstance(feature_source, str):
+            continue
+        feature_key = (re.sub(r"\s+", " ", feature_name.strip().lower()), feature_source.strip().lower())
+        if feature_key not in item_records:
+            continue
+        required_item_uids.add(normalize_item_uid(f"{feature_name}|{feature_source}"))
+
+    if not required_item_uids:
+        return
+
+    granted_uids = collect_starting_equipment_default_data_uids(cls.get("startingEquipment"))
+    missing_uids = sorted(uid for uid in required_item_uids if uid not in granted_uids)
+    if missing_uids:
+        errors.append(
+            f"{label}.startingEquipment.defaultData: missing actor-grant entries for referenced class features: "
+            f"{missing_uids}"
+        )
+
+
+def validate_class_hd(
+    label: str,
+    hd: Any,
+    errors: list[str],
+) -> None:
+    if not isinstance(hd, Mapping):
+        return
+
+    number = parse_int(hd.get("number"), f"{label}.number", errors)
+    faces = parse_int(hd.get("faces"), f"{label}.faces", errors)
+    if number is None or faces is None:
+        return
+
+    if number != 1:
+        errors.append(f"{label}.number: expected 1 for class hd; observed {number}")
+    if faces not in VALID_HIT_DIE_FACES:
+        errors.append(
+            f"{label}.faces: invalid hit die face count {faces}; expected one of {sorted(VALID_HIT_DIE_FACES)}"
+        )
+
+
 def validate_class_tool_proficiency_shape(
     proficiencies: Any,
     label: str,
@@ -631,16 +813,18 @@ def validate_character_spellcasting_additional_spells(
     ],
     errors: list[str],
 ) -> None:
+    progression_fields = [field for field in SPELLCASTING_PROGRESSION_FIELDS if field in entity]
+    has_caster_table_path = entity.get("casterProgression") is not None or entity.get("cantripProgression") is not None
+    if progression_fields and not has_caster_table_path:
+        errors.append(
+            f"{label}: spellcasting progression arrays require a caster-table path; set "
+            f"casterProgression (slot/pact/artificer tables) or cantripProgression (slotless cantrip-table designs) "
+            f"when any of these are present: {progression_fields}"
+        )
+
     spellcasting_ability = entity.get("spellcastingAbility")
     if not isinstance(spellcasting_ability, str) or not spellcasting_ability.strip():
         return
-
-    progression_fields = [field for field in SPELLCASTING_PROGRESSION_FIELDS if field in entity]
-    if progression_fields and not entity.get("casterProgression"):
-        errors.append(
-            f"{label}.casterProgression: required when spellcasting progression arrays exist: "
-            f"{progression_fields}"
-        )
 
     spellcast_feature_records = get_character_option_spellcasting_feature_records(
         entity,
@@ -651,20 +835,30 @@ def validate_character_spellcasting_additional_spells(
         errors,
     )
 
-    required_spell_uids: set[str] = set()
+    required_spell_uids_by_level: dict[int, set[str]] = defaultdict(set)
+    required_spell_uids_without_level: set[str] = set()
+
     for feature in spellcast_feature_records:
         for text in walk_strings(feature.get("entries", [])):
             if SPELLCASTING_FIXED_GRANT_TEXT_RE.search(text):
-                required_spell_uids.update(extract_spell_tag_uids(text))
+                spell_uids = extract_spell_tag_uids(text)
+                if not spell_uids:
+                    continue
+                level_match = SPELLCASTING_FIXED_GRANT_LEVEL_RE.search(text)
+                if level_match:
+                    required_spell_uids_by_level[int(level_match.group("level"))].update(spell_uids)
+                else:
+                    required_spell_uids_without_level.update(spell_uids)
 
-    if not required_spell_uids:
+    all_required_spell_uids = set().union(*required_spell_uids_by_level.values(), required_spell_uids_without_level)
+    if not all_required_spell_uids:
         return
 
     additional_spells = entity.get("additionalSpells")
     if not isinstance(additional_spells, list) or not additional_spells:
         errors.append(
             f"{label}.additionalSpells: required for fixed spell grants in spellcasting prose: "
-            f"{sorted(required_spell_uids)}"
+            f"{sorted(all_required_spell_uids)}"
         )
         return
 
@@ -672,13 +866,24 @@ def validate_character_spellcasting_additional_spells(
         if not isinstance(additional_spell_block, Mapping):
             errors.append(f"{label}.additionalSpells[{additional_spell_index}]: expected object")
 
+    additional_spells_by_level = collect_additional_spells_by_level(additional_spells)
     actual_spell_uids = collect_additional_spell_uids(additional_spells)
-    missing_spell_uids = sorted(required_spell_uids - actual_spell_uids)
-    if missing_spell_uids:
-        errors.append(
-            f"{label}.additionalSpells: missing fixed spell grant UID(s) from spellcasting prose: "
-            f"{missing_spell_uids}"
-        )
+
+    for level, required_spell_uids in required_spell_uids_by_level.items():
+        missing_spell_uids = sorted(required_spell_uids - additional_spells_by_level.get(level, set()))
+        if missing_spell_uids:
+            errors.append(
+                f"{label}.additionalSpells.known[{level}]: missing fixed spell grant UID(s) from spellcasting prose: "
+                f"{missing_spell_uids}"
+            )
+
+    if required_spell_uids_without_level:
+        missing_spell_uids = sorted(required_spell_uids_without_level - actual_spell_uids)
+        if missing_spell_uids:
+            errors.append(
+                f"{label}.additionalSpells: missing fixed spell grant UID(s) from spellcasting prose: "
+                f"{missing_spell_uids}"
+            )
 
 
 def validate_race_advancements(
@@ -704,6 +909,7 @@ def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors
     class_feature_records = collect_class_feature_records(rel, data, errors)
     subclass_feature_ids = collect_subclass_feature_ids(rel, data, errors)
     subclass_feature_records = collect_subclass_feature_records(rel, data, errors)
+    item_records = collect_named_items(data)
 
     for index, race in enumerate(data.get("race", [])):
         if not isinstance(race, Mapping):
@@ -719,6 +925,7 @@ def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors
         label = f"{rel}.class[{index}:{name!r}]"
         if not cls.get("hd"):
             errors.append(f"{label}.hd: required for Foundry HitPoints advancement generation")
+        validate_class_hd(f"{label}.hd", cls.get("hd"), errors)
         if not cls.get("proficiency"):
             errors.append(f"{label}.proficiency: required for Foundry save advancement generation")
         if not cls.get("startingProficiencies"):
@@ -736,6 +943,14 @@ def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors
                 errors,
             )
         get_required_class_feature_targets(cls, label, class_feature_ids, errors)
+        validate_additional_spell_known_keys(cls, label, errors)
+        validate_class_feature_item_grants(
+            cls,
+            label,
+            class_feature_records,
+            item_records,
+            errors,
+        )
         validate_character_spellcasting_additional_spells(
             cls,
             label,
@@ -753,6 +968,7 @@ def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors
         name = subclass.get("name", f"subclass[{index}]")
         label = f"{rel}.subclass[{index}:{name!r}]"
         validate_subclass_header_feature(subclass, label, subclass_feature_records, errors)
+        validate_additional_spell_known_keys(subclass, label, errors)
         get_required_subclass_feature_targets(
             subclass,
             label,

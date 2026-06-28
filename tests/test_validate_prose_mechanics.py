@@ -46,6 +46,7 @@ class ValidateProseMechanicsTests(unittest.TestCase):
         self.assertIn("Dead Battery", result.stdout + result.stderr)
         self.assertIn("Mana Crystal Prototype", result.stdout + result.stderr)
         self.assertIn("Burnt Generator", result.stdout + result.stderr)
+        self.assertIn("startingEquipment.defaultData", text)
 
 
 if __name__ == "__main__":

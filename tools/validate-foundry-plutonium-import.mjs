@@ -31,6 +31,7 @@ const SOURCE_ID = process.env.VO_SOURCE_ID || 'VeiledOmens';
 const FOUNDRY_USER_ID = (process.env.FOUNDRY_USER_ID || '').trim();
 const FOUNDRY_USER_PASSWORD = process.env.FOUNDRY_USER_PASSWORD || '';
 const HEADLESS = process.env.FOUNDRY_HEADLESS ? process.env.FOUNDRY_HEADLESS !== 'false' : true;
+const FOUNDRY_NO_CANVAS = process.env.FOUNDRY_NO_CANVAS ? process.env.FOUNDRY_NO_CANVAS !== 'false' : true;
 const FOUNDRY_IMPORT_STEP_TIMEOUT_MS = (() => {
 	const parsed = Number.parseInt(process.env.FOUNDRY_IMPORT_STEP_TIMEOUT_MS || '', 10);
 	if (Number.isFinite(parsed) && parsed > 0) return parsed;
@@ -686,6 +687,17 @@ const runImport = async (plan) => {
 
 		browser = await playwright.chromium.launch(launchOpts);
 		const context = await browser.newContext({viewport: PLAYWRIGHT_VIEWPORT});
+		report.clientSettings = {
+			noCanvas: FOUNDRY_NO_CANVAS,
+		};
+		await context.addInitScript((noCanvas) => {
+			if (!noCanvas) return;
+			try {
+				window.localStorage.setItem('core.noCanvas', JSON.stringify(true));
+			} catch {
+				// Foundry will report readiness failures if localStorage is unavailable.
+			}
+		}, FOUNDRY_NO_CANVAS);
 		page = await context.newPage();
 		let pageError = null;
 		page.on('console', (msg) => {
@@ -694,6 +706,14 @@ const runImport = async (plan) => {
 		page.on('pageerror', (error) => {
 			pageError = error?.message || String(error);
 			logs.browser.push(`pageerror:${error?.message || String(error)}`);
+		});
+		page.on('requestfailed', (request) => {
+			logs.browser.push(`requestfailed:${request.resourceType()}:${request.url()}:${request.failure()?.errorText || 'unknown'}`);
+		});
+		page.on('response', (response) => {
+			if (response.status() >= 400) {
+				logs.browser.push(`response:${response.status()}:${response.url()}`);
+			}
 		});
 
 		await page.goto(`http://127.0.0.1:${foundryPort}/`, {waitUntil: 'domcontentloaded', timeout: 120000});
@@ -727,7 +747,7 @@ const runImport = async (plan) => {
 		}
 
 		try {
-			await page.waitForFunction(() => window.game && window.game.ready, {timeout: 120000});
+			await page.waitForFunction(() => window.game && window.game.ready, undefined, {timeout: 120000});
 		} catch (error) {
 			await cleanup(1, `window.game.ready did not become true after join attempt: ${error.message}`);
 		}
@@ -805,6 +825,388 @@ const runImport = async (plan) => {
 			const summaries = [];
 			const failures = [];
 			const plutoniumModuleApi = game.modules.get('plutonium')?.api;
+			const importTrace = {
+				events: [],
+				maxEvents: 500,
+				nextId: 1,
+				startedAt: Date.now(),
+			};
+			const promptAutomation = {
+				enabled: true,
+				events: [],
+				handled: {},
+				maxEvents: 200,
+				startedAt: Date.now(),
+			};
+
+			const normText = (value) => (value || '')
+				.toString()
+				.replace(/\s+/g, ' ')
+				.trim()
+				.toLowerCase();
+
+			const isVisible = (element) => {
+				try {
+					if (!element || !(element instanceof Element)) return false;
+					const style = window.getComputedStyle(element);
+					const rect = element.getBoundingClientRect();
+					return style.display !== 'none'
+						&& style.visibility !== 'hidden'
+						&& Number(style.opacity) > 0
+						&& rect.width > 1
+						&& rect.height > 1;
+				} catch {
+					return false;
+				}
+			};
+
+			const recordPromptEvent = (payload) => {
+				promptAutomation.events.push({
+					ts: Date.now(),
+					...payload,
+				});
+				if (promptAutomation.events.length > promptAutomation.maxEvents) {
+					promptAutomation.events.shift();
+				}
+			};
+
+			const recordImportTrace = (payload) => {
+				importTrace.events.push({
+					ts: Date.now(),
+					...payload,
+				});
+				if (importTrace.events.length > importTrace.maxEvents) {
+					importTrace.events.shift();
+				}
+			};
+
+			const summarizeTraceArg = (arg) => {
+				if (arg == null) return arg;
+				if (Array.isArray(arg)) {
+					return {
+						type: 'array',
+						length: arg.length,
+						first: summarizeTraceArg(arg[0]),
+					};
+				}
+				if (typeof arg !== 'object') return {
+					type: typeof arg,
+					value: String(arg).slice(0, 120),
+				};
+				const out = {
+					type: arg.constructor?.name || 'object',
+				};
+				for (const prop of ['name', 'source', '__prop', 'id', '_id', 'type']) {
+					if (arg[prop] != null) out[prop] = arg[prop];
+				}
+				if (arg.actor) out.actor = summarizeTraceArg(arg.actor);
+				return out;
+			};
+
+			const getImportTraceDiagnostics = () => ({
+				eventCount: importTrace.events.length,
+				latestEvents: importTrace.events.slice(-40),
+				events: importTrace.events,
+			});
+
+			const wrapImporterAsyncMethod = (target, methodName, label) => {
+				const original = target?.[methodName];
+				if (typeof original !== 'function') {
+					recordImportTrace({
+						label: 'method-unavailable',
+						methodName,
+						traceLabel: label,
+						targetType: target?.constructor?.name || null,
+					});
+					return;
+				}
+
+				target[methodName] = async function (...args) {
+					const traceId = importTrace.nextId++;
+					const startedAt = Date.now();
+					recordImportTrace({
+						label: 'start',
+						traceId,
+						methodName,
+						traceLabel: label,
+						targetType: this?.constructor?.name || null,
+						args: args.map(summarizeTraceArg),
+					});
+					try {
+						const out = await original.apply(this, args);
+						recordImportTrace({
+							label: 'end',
+							traceId,
+							methodName,
+							traceLabel: label,
+							durationMs: Date.now() - startedAt,
+							result: summarizeTraceArg(out),
+						});
+						return out;
+					} catch (error) {
+						recordImportTrace({
+							label: 'error',
+							traceId,
+							methodName,
+							traceLabel: label,
+							durationMs: Date.now() - startedAt,
+							error: error?.message || String(error),
+						});
+						throw error;
+					}
+				};
+			};
+
+			const getPromptTitle = (root) => {
+				return (root.querySelector('.window-title')?.textContent
+					|| root.querySelector('.dialog-title')?.textContent
+					|| root.querySelector('[data-title]')?.getAttribute('data-title')
+					|| ''
+				).trim();
+			};
+
+			const isImporterPromptRoot = (root, title) => {
+				const promptText = normText([
+					title,
+					root.id || '',
+					String(root.className || ''),
+					root.textContent?.slice(0, 500) || '',
+				].join(' '));
+				return /\b(plutonium|charactermancer|import|choose|select|spells?|features?|proficiencies|proficiency|skills?|tools?|languages?|sizes?|abilities|ability|races?|species|classes|class|subclasses|subclass|feats?|advancements?|advancement)\b/i.test(promptText);
+			};
+
+			const getButtonLabel = (button) => (button.textContent || button.value || button.title || button.getAttribute?.('aria-label') || '').toString().trim();
+
+			const findButton = (buttons) => {
+				const enabled = buttons.filter((button) => !button.disabled && !button.classList?.contains('disabled'));
+				if (!enabled.length) return null;
+
+				const byLabelPreference = [
+					// required confirmation/continuation
+					(ok) => /^ok$|^okay$|^continue$|^next$|^apply$|^import$|^save$|^done$|^yes$/i.test(ok),
+					// explicit yes/no confirmation alternatives
+					(ok) => /^accept$|^create$|^add$|^continue anyway$/i.test(ok),
+					// fallback path for non-critical optional flows
+					(ok) => /^skip$|^skip this$/i.test(ok),
+				];
+
+				for (const matcher of byLabelPreference) {
+					const primary = enabled.find((button) => matcher(normText(getButtonLabel(button))));
+					if (primary) return primary;
+				}
+
+				const primary = enabled.find((button) => button.classList.contains('ve-btn-primary'));
+				if (primary) return primary;
+
+				const nonCancel = enabled.find((button) => !/^cancel$|^close$/i.test(normText(getButtonLabel(button))));
+				if (nonCancel) return nonCancel;
+
+				return enabled[0];
+			};
+
+			const fillPromptInputs = (root) => {
+				const selects = Array.from(root.querySelectorAll('select')).filter((el) => isVisible(el));
+				for (const select of selects) {
+					if (!select.value) {
+						const options = Array.from(select.options || []);
+						const firstEnabled = options.find((option) => option.value != null && option.value !== '');
+						if (firstEnabled) {
+							select.value = firstEnabled.value;
+							select.dispatchEvent(new Event('change', {bubbles: true}));
+						}
+					}
+				}
+
+				const radioGroups = new Map();
+				const radios = Array.from(root.querySelectorAll('input[type="radio"]')).filter((el) => isVisible(el));
+				for (const radio of radios) {
+					const key = radio.name || radio.getAttribute('data-name') || `anon-${radioGroups.size}`;
+					if (!radioGroups.has(key)) {
+						radioGroups.set(key, []);
+					}
+					radioGroups.get(key).push(radio);
+				}
+				for (const group of radioGroups.values()) {
+					if (!group.some((radio) => radio.checked)) {
+						const firstEnabled = group.find((radio) => !radio.disabled);
+						if (firstEnabled) {
+							firstEnabled.checked = true;
+							firstEnabled.dispatchEvent(new Event('change', {bubbles: true}));
+						}
+					}
+				}
+			};
+
+			const automateModal = (root) => {
+				const rootId = root.id || null;
+				const title = getPromptTitle(root) || root.dataset?.title || null;
+				if (!isImporterPromptRoot(root, title)) return false;
+
+				const candidateButtons = Array.from(root.querySelectorAll('button, [role="button"], .ve-btn'));
+				const buttons = candidateButtons
+					.filter((button, index, all) => button instanceof Element && all.indexOf(button) === index)
+					.filter((button) => !button.disabled && !button.classList?.contains('disabled'))
+					.filter((button) => normText(getButtonLabel(button)) !== '');
+				const visibleButtons = buttons.filter(isVisible);
+
+				const button = findButton(buttons);
+				if (!button) {
+					const fingerprintNoButton = `${root.tagName}|${rootId || 'no-id'}|${normText(title)}|no-button`;
+					const nowNoButton = Date.now();
+					const lastNoButton = promptAutomation.handled[fingerprintNoButton] || 0;
+					if (nowNoButton - lastNoButton > 1000) {
+						promptAutomation.handled[fingerprintNoButton] = nowNoButton;
+						recordPromptEvent({
+							label: 'visible-importer-root-no-button',
+							rootTag: root.tagName.toLowerCase(),
+							rootId: rootId,
+							promptTitle: title,
+							rootClasses: String(root.className || ''),
+							buttonCount: buttons.length,
+							visibleButtonCount: visibleButtons.length,
+							text: root.textContent?.trim?.().slice(0, 240) || null,
+						});
+					}
+					return false;
+				}
+
+				const buttonLabel = getButtonLabel(button) || '(unlabeled)';
+				const fingerprint = `${root.tagName}|${rootId || 'no-id'}|${normText(title)}|${normText(buttonLabel)}`;
+				const now = Date.now();
+				const lastSeen = promptAutomation.handled[fingerprint] || 0;
+				if (now - lastSeen < 250) return false;
+				promptAutomation.handled[fingerprint] = now;
+
+				try {
+					fillPromptInputs(root);
+					button.click();
+					recordPromptEvent({
+						label: 'click',
+						rootTag: root.tagName.toLowerCase(),
+						rootId: rootId,
+						promptTitle: title,
+						rootClasses: String(root.className || ''),
+						choices: buttons.map(getButtonLabel),
+						visibleChoices: visibleButtons.map(getButtonLabel),
+						selectedButton: buttonLabel,
+					});
+					return true;
+				} catch (error) {
+					recordPromptEvent({
+						label: 'error',
+						rootTag: root.tagName.toLowerCase(),
+						rootId: rootId,
+						promptTitle: title,
+						error: error?.message || String(error),
+						rootClasses: String(root.className || ''),
+					});
+					return false;
+				}
+			};
+
+			let promptAutomationRunning = false;
+			const promptAutomationTick = () => {
+				if (promptAutomationRunning) return;
+				promptAutomationRunning = true;
+
+				try {
+					const promptRoots = Array.from(document.querySelectorAll('.window-app, .dialog, .application.ve-app, .ve-app'))
+						.filter(isVisible);
+					for (const root of promptRoots) {
+						automateModal(root);
+					}
+				} catch (error) {
+					recordPromptEvent({
+						label: 'automation-error',
+						error: error?.message || String(error),
+					});
+				} finally {
+					promptAutomationRunning = false;
+				}
+			};
+
+			let automationInterval = null;
+			const stopPromptAutomation = () => {
+				if (automationInterval) {
+					clearInterval(automationInterval);
+					automationInterval = null;
+				}
+				promptAutomation.enabled = false;
+				recordPromptEvent({
+					label: 'stopped',
+					durationMs: Date.now() - promptAutomation.startedAt,
+				});
+			};
+
+			const getPromptDiagnostics = () => ({
+				enabled: promptAutomation.enabled,
+				eventCount: promptAutomation.events.length,
+				latestEvents: promptAutomation.events.slice(-15),
+				events: promptAutomation.events,
+			});
+
+			let restoreInputBooleanPrompt = null;
+
+			const installInputBooleanPromptOverride = () => {
+				const inputUiUtil = window.InputUiUtil;
+				if (!inputUiUtil || typeof inputUiUtil.pGetUserBoolean !== 'function') {
+					recordPromptEvent({
+						label: 'pGetUserBoolean-hook-skipped',
+						reason: 'InputUiUtil.pGetUserBoolean unavailable',
+					});
+					return null;
+				}
+
+				const originalPrompt = inputUiUtil.pGetUserBoolean;
+				const wrappedPrompt = async function (...args) {
+					const options = args?.[0] || {};
+					const title = normText(options.title || '');
+					const descriptionRaw = (options.htmlDescription || options.description || options.text || '').toString();
+					const description = normText(descriptionRaw.replace(/<[^>]*>/g, ' '));
+					if (title === 'ability scores?' && description.includes('apply ability score modifications')) {
+						recordPromptEvent({
+							label: 'ability-score-confirmation-intercepted',
+							promptTitle: options.title || '',
+							description: options.htmlDescription || options.description || options.text || null,
+						});
+						return true;
+					}
+					return originalPrompt.apply(this, args);
+				};
+
+				inputUiUtil.pGetUserBoolean = wrappedPrompt;
+				return () => {
+					if (inputUiUtil && inputUiUtil.pGetUserBoolean === wrappedPrompt) {
+						inputUiUtil.pGetUserBoolean = originalPrompt;
+					}
+				};
+			};
+
+			const restoreInputBooleanPromptWrapper = () => {
+				if (typeof restoreInputBooleanPrompt !== 'function') return;
+				restoreInputBooleanPrompt();
+			};
+
+			const finalizeImportResult = (result = {}) => {
+				restoreInputBooleanPromptWrapper();
+				restoreInputBooleanPrompt = null;
+				stopPromptAutomation();
+				return {
+					...result,
+					promptAutomation: getPromptDiagnostics(),
+					importTrace: getImportTraceDiagnostics(),
+					selectedImporterPath,
+					importStepTimeoutMs,
+					summaries,
+					failures,
+				};
+			};
+
+			const buildImportResult = () => finalizeImportResult();
+
+			automationInterval = setInterval(promptAutomationTick, 250);
+			restoreInputBooleanPrompt = installInputBooleanPromptOverride();
+
 			const importerCandidates = [
 				{
 					path: "game.modules.get('plutonium')?.api?.importer",
@@ -882,8 +1284,10 @@ const runImport = async (plan) => {
 					importerApiKeys,
 					missingImporterKeys,
 					availableApiKeys: importerApiKeys,
+					promptAutomation: getPromptDiagnostics(),
+					importTrace: getImportTraceDiagnostics(),
 				});
-				return {summaries, failures};
+				return buildImportResult();
 			}
 
 			let raceImporter;
@@ -895,14 +1299,107 @@ const runImport = async (plan) => {
 				failures.push({
 					label: 'plutonium',
 					error: `Could not acquire importer endpoints: ${error?.message || String(error)}`,
+					promptAutomation: getPromptDiagnostics(),
+					importTrace: getImportTraceDiagnostics(),
 				});
-				return {summaries, failures};
+				return buildImportResult();
 			}
 
-			const getFromBrew = async (prop, name, source) => {
+			[
+				['_pImportEntry_pImportToActor', 'race.importToActor'],
+				['_pImportEntry_pFillAbilities', 'race.fillAbilities'],
+				['_pImportEntry_pFillSkillsAndTraits', 'race.fillSkillsAndTraits'],
+				['_pApplyAllAdditionalSpellsToActor', 'race.applyAdditionalSpells'],
+				['_pImportEntry_pFillItems', 'race.fillItems'],
+				['_pImportEntry_pImportToActor_pImportStartingEquipment', 'race.importStartingEquipment'],
+				['_pImportActorAdditionalFeats', 'race.importAdditionalFeats'],
+				['_pImportEntry_pImportToActor_pAddSubEntities', 'race.addSubEntities'],
+			].forEach(([methodName, label]) => wrapImporterAsyncMethod(raceImporter, methodName, label));
+
+			[
+				['_pImportEntryClass_pImportToActor', 'class.importClassToActor'],
+				['_pImportEntrySubclass_pImportToActor', 'class.importSubclassToActor'],
+				['_pImportEntryClassSubclass_pImportToActor', 'class.importClassSubclassToActor'],
+				['_pImportEntryClass_pGetProficiencyImportMode', 'class.getProficiencyImportMode'],
+				['_pImportEntryClass_pGetHpImportMode', 'class.getHpImportMode'],
+				['_pImportEntry_pImportToActor_pAddSubEntities', 'class.addSubEntities'],
+			].forEach(([methodName, label]) => wrapImporterAsyncMethod(classImporter, methodName, label));
+
+			const getClassForImport = async ({name, source}) => {
+				try {
+					const hash = window.UrlUtil.URL_TO_HASH_BUILDER.class({name, source});
+					const cls = await window.DataLoader.pCacheAndGet('raw_class', source, hash, {isCopy: true});
+					if (cls) {
+						delete cls.subclasses;
+						cls._isFromRivet = true;
+					}
+					return cls;
+				} catch (error) {
+					recordImportTrace({
+						label: 'import-entity-error',
+						prop: 'class',
+						name,
+						source,
+						error: error?.message || String(error),
+					});
+					return null;
+				}
+			};
+
+			const getSubclassForImport = async ({name, source, className, classSource}) => {
+				try {
+					const hash = window.UrlUtil.URL_TO_HASH_BUILDER.subclass({
+						name,
+						shortName: name,
+						source,
+						className,
+						classSource,
+					});
+					const sc = await window.DataLoader.pCacheAndGet('raw_subclass', source, hash, {isCopy: true});
+					if (sc) sc._isFromRivet = true;
+					return sc;
+				} catch (error) {
+					recordImportTrace({
+						label: 'import-entity-error',
+						prop: 'subclass',
+						name,
+						source,
+						className,
+						classSource,
+						error: error?.message || String(error),
+					});
+					return null;
+				}
+			};
+
+			const getFromBrew = async (prop, name, source, opts = {}) => {
+				if (prop === 'class') {
+					const cls = await getClassForImport({name, source});
+					if (cls) return cls;
+				}
+				if (prop === 'subclass') {
+					const sc = await getSubclassForImport({
+						name,
+						source,
+						className: opts.className,
+						classSource: opts.classSource,
+					});
+					if (sc) return sc;
+				}
 				const brew = await window.BrewUtil2.pGetBrewProcessed();
 				const list = brew?.[prop] || [];
-				return list.find((entry) => entry?.name === name && entry?.source === source) || null;
+				const found = list.find((entry) => {
+					if (entry?.name !== name || entry?.source !== source) return false;
+					if (prop === 'subclass' && opts.className && entry.className !== opts.className) return false;
+					if (prop === 'subclass' && opts.classSource && entry.classSource !== opts.classSource) return false;
+					return true;
+				}) || null;
+				if (found && prop === 'class') {
+					delete found.subclasses;
+					found._isFromRivet = true;
+				}
+				if (found && prop === 'subclass') found._isFromRivet = true;
+				return found;
 			};
 
 			const summarizeActor = async (actor, label, expectedType) => {
@@ -916,14 +1413,110 @@ const runImport = async (plan) => {
 				}
 
 				const act = loadedActor.toJSON();
-				const items = (loadedActor.items || []).map((entry) => ({
-					name: entry.name,
-					type: entry.type,
-					flags: entry.flags || {},
-				}));
-				const advancement = act.system?.advancement || [];
-				const malformedAdvancementRows = (advancement || []).filter((it) => !it || typeof it !== 'object' || !it.type);
+				const collectMalformedAdvancementRows = (entries, source, sourceItemName = null) => {
+					const out = [];
+					for (const [index, it] of (entries || []).entries()) {
+						if (!it || typeof it !== 'object') {
+							out.push({
+								source,
+								sourceItem: sourceItemName,
+								index,
+								reason: 'non-object-row',
+							});
+							continue;
+						}
+						if (!it.type) {
+							out.push({
+								source,
+								sourceItem: sourceItemName,
+								index,
+								reason: 'missing-type',
+							});
+							continue;
+						}
+						if (it.type === 'ItemGrant') {
+							const hasConfiguredItems = Array.isArray(it.configuration?.items) && it.configuration.items.length > 0;
+							const hasAdded = Array.isArray(it.value?.added) && it.value.added.length > 0;
+							if (!hasConfiguredItems && !hasAdded) {
+								out.push({
+									source,
+									sourceItem: sourceItemName,
+									index,
+									type: 'ItemGrant',
+									reason: 'item-grant-empty-configuration-and-added',
+								});
+							}
+						}
+					}
+					return out;
+				};
+
+				const collectAdvancementOriginLinks = (value) => {
+					if (!value) return [];
+					const output = [];
+					const walk = (item, rootLabel = 'advancementOrigin') => {
+						if (!item) return;
+						if (typeof item === 'string') {
+							output.push(`${rootLabel}:${item}`);
+							return;
+						}
+						if (Array.isArray(item)) {
+							item.forEach((it, idx) => walk(it, `${rootLabel}[${idx}]`));
+							return;
+						}
+						if (typeof item === 'object') {
+							const link = item.uuid || item.id || item.itemUuid || item.item?.uuid || item.origin || null;
+							if (typeof link === 'string') {
+								output.push(`${rootLabel}:${link}`);
+								return;
+							}
+							output.push(`${rootLabel}:${JSON.stringify(item).slice(0, 140)}`);
+						}
+					};
+					walk(value);
+					return output;
+				};
+
+				const getAdvancementRows = (documentJson) => {
+					const advancement = documentJson?.system?.advancement;
+					if (Array.isArray(advancement)) return advancement;
+					if (advancement && typeof advancement === 'object') return Object.values(advancement);
+					return [];
+				};
+
+				const actorAdvancementRows = getAdvancementRows(act);
+				const itemAdvancementRows = [];
+				const items = [];
+				const itemMalformedAdvancementRows = [];
+				const advancementOriginLinks = [];
+
+				const actorItems = Array.from(loadedActor.items || []);
+				for (const itemEntry of actorItems) {
+					const item = typeof itemEntry?.toJSON === 'function' ? itemEntry.toJSON() : {
+						name: itemEntry?.name || null,
+						type: itemEntry?.type || null,
+						flags: itemEntry?.flags || {},
+						system: itemEntry?.system || null,
+					};
+					const itemAdvancement = getAdvancementRows(item);
+					const itemFlags = item.flags || {};
+					itemAdvancementRows.push(...itemAdvancement);
+					itemMalformedAdvancementRows.push(...collectMalformedAdvancementRows(itemAdvancement, 'item', item.name || null));
+					advancementOriginLinks.push(...collectAdvancementOriginLinks(itemFlags?.dnd5e?.advancementOrigin));
+					items.push({
+						name: item.name || itemEntry?.name,
+						type: item.type || itemEntry?.type,
+						flags: itemFlags,
+						itemAdvancementRowCount: itemAdvancement.length,
+					});
+				}
+
+				const malformedAdvancementRows = [
+					...collectMalformedAdvancementRows(actorAdvancementRows, 'actor', act.name || act._id || null),
+					...itemMalformedAdvancementRows,
+				];
 				const plutoniumFlags = items.filter((entry) => !!entry.flags?.plutonium).length;
+				const hasAdvancementEvidence = actorAdvancementRows.length > 0 || itemAdvancementRows.length > 0 || advancementOriginLinks.length > 0;
 
 				if (!items.length) {
 					failures.push({
@@ -932,7 +1525,7 @@ const runImport = async (plan) => {
 					});
 				}
 
-				if (!Array.isArray(advancement) || advancement.length === 0) {
+				if (!hasAdvancementEvidence) {
 					failures.push({
 						label,
 						error: `No advancement rows for actor (${expectedType})`,
@@ -954,7 +1547,9 @@ const runImport = async (plan) => {
 					actorName: act.name,
 					items,
 					numberOfItems: items.length,
-					advancementRows: Array.isArray(advancement) ? advancement.length : 0,
+					actorAdvancementRows: actorAdvancementRows.length,
+					itemAdvancementRows: itemAdvancementRows.length,
+					advancementOriginLinks: [...new Set(advancementOriginLinks)],
 					malformedAdvancementRows,
 					plutoniumItemFlags: plutoniumFlags,
 				});
@@ -1043,7 +1638,7 @@ const runImport = async (plan) => {
 					}
 				};
 
-				const visibleWindowsAndModals = Array.from(document.querySelectorAll('.window-app, .dialog'))
+				const visibleWindowsAndModals = Array.from(document.querySelectorAll('.window-app, .dialog, .application.ve-app, .ve-app'))
 					.filter((it) => isVisible(it))
 					.map((element) => ({
 						id: element.id || null,
@@ -1064,6 +1659,8 @@ const runImport = async (plan) => {
 					actor: actorSnapshot,
 					activeApplications,
 					visibleWindowsAndModals,
+					promptAutomation: getPromptDiagnostics(),
+					importTrace: getImportTraceDiagnostics(),
 				};
 			};
 
@@ -1136,13 +1733,6 @@ const runImport = async (plan) => {
 				}
 			};
 
-			const buildImportResult = () => ({
-				selectedImporterPath,
-				importStepTimeoutMs,
-				summaries,
-				failures,
-			});
-
 			const actorMultiImportHelperFor = (actor) => new importerApi.ActorMultiImportHelper({actor});
 			const makeImportOpts = ({actor, actorMultiImportHelper}) => new importerApi.ImportOpts({
 				actor,
@@ -1151,6 +1741,16 @@ const runImport = async (plan) => {
 				filterValues: {},
 				isBatched: true,
 			});
+
+			const pDoPreCacheImporter = async (importer) => {
+				if (typeof importer?.pDoPreCachePack !== 'function') return;
+				await importer.pDoPreCachePack({pack: null});
+			};
+
+			const doDumpImporterCache = (importer) => {
+				if (typeof importer?.doDumpPackCache !== 'function') return;
+				importer.doDumpPackCache();
+			};
 
 			for (const race of plan.races || []) {
 				const actor = await toActor(`VO-race-${race.name}`);
@@ -1164,9 +1764,11 @@ const runImport = async (plan) => {
 					actor,
 					actorMultiImportHelper,
 				});
+				await pDoPreCacheImporter(raceImporter);
 				const didImport = await withSafeImport(`race:${race.name}|${race.source}`, async () => {
 					await raceImporter.pImportEntry(raceEnt, importOpts);
 				}, actor);
+				doDumpImporterCache(raceImporter);
 				if (!didImport) {
 					return buildImportResult();
 				}
@@ -1190,9 +1792,11 @@ const runImport = async (plan) => {
 				}
 				const actorMultiImportHelper = actorMultiImportHelperFor(actor);
 				const importOpts = makeImportOpts({actor, actorMultiImportHelper});
+				await pDoPreCacheImporter(classImporter);
 				const didImport = await withSafeImport(`class:${classEntry.name}|${classEntry.source}`, async () => {
-					await classImporter.pImportEntryClass(clsEnt, importOpts);
+					await classImporter.pImportEntry(clsEnt, importOpts);
 				}, actor);
+				doDumpImporterCache(classImporter);
 				if (!didImport) {
 					return buildImportResult();
 				}
@@ -1203,7 +1807,10 @@ const runImport = async (plan) => {
 				await summarizeActor(actor, `class:${classEntry.name}|${classEntry.source}`, 'class');
 
 				for (const subclass of (plan.subclasses || []).filter((entry) => entry.className === classEntry.name && entry.classSource === classEntry.source)) {
-					const subclassEnt = await getFromBrew('subclass', subclass.name, subclass.source);
+					const subclassEnt = await getFromBrew('subclass', subclass.name, subclass.source, {
+						className: subclass.className,
+						classSource: subclass.classSource,
+					});
 					if (!subclassEnt) {
 						failures.push({
 							label: `subclass:${subclass.name}|${subclass.className}`,
@@ -1216,9 +1823,11 @@ const runImport = async (plan) => {
 						actor,
 						actorMultiImportHelper,
 					});
+					await pDoPreCacheImporter(classImporter);
 					const didSubclassImport = await withSafeImport(`subclass:${subclass.name}|${subclass.className}`, async () => {
-						await classImporter.pImportEntrySubclass(clsEnt, subclassEnt, importOptsSubclass);
+						await classImporter.pImportEntry(subclassEnt, importOptsSubclass);
 					}, actor);
+					doDumpImporterCache(classImporter);
 					if (!didSubclassImport) {
 						return buildImportResult();
 					}
@@ -1231,7 +1840,10 @@ const runImport = async (plan) => {
 			}
 
 			for (const subclass of (plan.subclasses || []).filter((entry) => !packageClassKeys.has(`${entry.className}|${entry.classSource}`))) {
-				const subclassEnt = await getFromBrew('subclass', subclass.name, subclass.source);
+				const subclassEnt = await getFromBrew('subclass', subclass.name, subclass.source, {
+					className: subclass.className,
+					classSource: subclass.classSource,
+				});
 				if (!subclassEnt) {
 					failures.push({
 						label: `subclass:${subclass.name}|${subclass.className}`,
@@ -1268,9 +1880,11 @@ const runImport = async (plan) => {
 				const actor = await toActor(`VO-subclass-${subclass.name}`);
 				const actorMultiImportHelper = actorMultiImportHelperFor(actor);
 				const importOptsClass = makeImportOpts({actor, actorMultiImportHelper});
+				await pDoPreCacheImporter(classImporter);
 				const didClassImport = await withSafeImport(`subclass:${subclass.name}|${subclass.className}`, async () => {
-					await classImporter.pImportEntryClass(parentClassEnt, importOptsClass);
+					await classImporter.pImportEntry(parentClassEnt, importOptsClass);
 				}, actor);
+				doDumpImporterCache(classImporter);
 				if (!didClassImport) {
 					return buildImportResult();
 				}
@@ -1283,9 +1897,11 @@ const runImport = async (plan) => {
 					actor,
 					actorMultiImportHelper,
 				});
+				await pDoPreCacheImporter(classImporter);
 				const didSubclassImport = await withSafeImport(`subclass:${subclass.name}|${subclass.className}`, async () => {
-					await classImporter.pImportEntrySubclass(parentClassEnt, subclassEnt, importOptsSubclass);
+					await classImporter.pImportEntry(subclassEnt, importOptsSubclass);
 				}, actor);
+				doDumpImporterCache(classImporter);
 				if (!didSubclassImport) {
 					return buildImportResult();
 				}
@@ -1301,6 +1917,8 @@ const runImport = async (plan) => {
 
 		report.importPlan.selectedImporterPath = importResult?.selectedImporterPath || null;
 		report.importPlan.importStepTimeoutMs = importResult?.importStepTimeoutMs || FOUNDRY_IMPORT_STEP_TIMEOUT_MS;
+		report.promptAutomation = importResult?.promptAutomation || null;
+		report.importTrace = importResult?.importTrace || null;
 		report.imported = (importResult.summaries || []).map(normalizeReport);
 		report.failures.push(...(importResult.failures || []));
 
@@ -1316,7 +1934,7 @@ const runImport = async (plan) => {
 
 if (ARGS.has('--help') || ARGS.has('-h')) {
 	console.log('Usage: node tools/validate-foundry-plutonium-import.mjs [--preflight]');
-	console.log('Environment: FOUNDRY_APP_DIR, FOUNDRY_DATA_DIR, FOUNDRY_WORLD, FOUNDRY_NODE, FOUNDRY_PORT, FOUNDRY_STATIC_PORT, FOUNDRY_IMPORT_REPORT_PATH, FOUNDRY_IMPORT_LEVELS, FOUNDRY_IMPORT_STEP_TIMEOUT_MS, FOUNDRY_USER_ID, FOUNDRY_USER_PASSWORD, CHROMIUM_EXECUTABLE_PATH, PACKAGE_JSON, VO_SOURCE_ID, FOUNDRY_HEADLESS');
+	console.log('Environment: FOUNDRY_APP_DIR, FOUNDRY_DATA_DIR, FOUNDRY_WORLD, FOUNDRY_NODE, FOUNDRY_PORT, FOUNDRY_STATIC_PORT, FOUNDRY_IMPORT_REPORT_PATH, FOUNDRY_IMPORT_LEVELS, FOUNDRY_IMPORT_STEP_TIMEOUT_MS, FOUNDRY_USER_ID, FOUNDRY_USER_PASSWORD, CHROMIUM_EXECUTABLE_PATH, PACKAGE_JSON, VO_SOURCE_ID, FOUNDRY_HEADLESS, FOUNDRY_NO_CANVAS');
 	process.exit(0);
 }
 

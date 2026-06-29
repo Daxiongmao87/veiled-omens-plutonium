@@ -144,11 +144,353 @@
 					"type": "entries",
 					"name": "Languages",
 					"entries": [
-						"You can speak, read, and write Common and Elvish, and you can speak, read, and write one extra language of your choice."
+						"You can speak, read, and write Common and Elvish."
 					]
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/ghost_elf.png",
+			"__prop": "race"
+		},
+		{
+			"name": "Nesherim (Beneshite)",
+			"source": "VeiledOmens",
+			"ability": [
+				{
+					"cha": 2,
+					"con": 1
+				}
+			],
+			"size": [
+				"M"
+			],
+			"speed": 30,
+			"resist": [
+				"fire",
+				"radiant"
+			],
+			"vulnerable": [
+				"force"
+			],
+			"languageProficiencies": [
+				{
+					"common": true
+				},
+				{
+					"choose": {
+						"from": [
+							"celestial",
+							"infernal",
+							"abyssal"
+						],
+						"count": 2
+					}
+				}
+			],
+			"entries": [
+				"You have been born where celestial and infernal bloodlines collide.",
+				{
+					"type": "entries",
+					"name": "Ability Score Increase",
+					"entries": [
+						"Your Charisma score increases by 2, and your Constitution score increases by 1."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Age",
+					"entries": [
+						"Nesherim mature at the same rate as humans, but their lives can vary widely due to their internal conflict."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Alignment",
+					"entries": [
+						"Your dual heritage pulls you toward both mercy and ambition. Some Nesherim favor strict laws, while others choose freedom from constraint."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Size",
+					"entries": [
+						"Nesherim are in the human to near-human size range. Your size is Medium."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Speed",
+					"entries": [
+						"Your base walking speed is 30 feet."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Child of the Flames",
+					"entries": [
+						"You have resistance to fire damage and radiant damage, and vulnerability to force damage."
+					],
+					"_foundryId": "RFa09c05c8f409f1"
+				},
+				{
+					"type": "entries",
+					"name": "Planar Duality",
+					"entries": [
+						"You have advantage on death saving throws. You can count yourself as either celestial or fiend, your choice, when affected by abilities or spells that detect or target creature type."
+					],
+					"_foundryId": "RF0a4015eb547265"
+				},
+				{
+					"type": "entries",
+					"name": "Confluence Brand",
+					"entries": [
+						"As a bonus action, you ignite with fused infernal flame and celestial light for 1 minute. While the brand persists, your melee weapon attacks and unarmed strikes deal extra fire and radiant damage. At the end of each of your turns while this brand lasts, you take damage from both damage types that ignores resistance and immunity. You can do this once and regain use after a long rest."
+					],
+					"_foundryId": "RFd0f0747fe9a7eb"
+				},
+				{
+					"type": "entries",
+					"name": "Torch of Two Suns",
+					"entries": [
+						"As a bonus action, you can kindle a paired flame for 1 hour. Once during this hour, you can flare the torch, changing from dim to bright light and dealing damage to creatures in the bright area before the torch is extinguished. You can do this once and regain the use after a short or long rest."
+					],
+					"_foundryId": "RFe286340637454b"
+				},
+				{
+					"type": "entries",
+					"name": "Subrace",
+					"entries": [
+						"Beneshite"
+					]
+				}
+			],
+			"__prop": "race"
+		},
+		{
+			"name": "Nesherim (Nephilite)",
+			"source": "VeiledOmens",
+			"ability": [
+				{
+					"cha": 2,
+					"int": 1
+				}
+			],
+			"size": [
+				"M"
+			],
+			"speed": 30,
+			"resist": [
+				"fire",
+				"radiant"
+			],
+			"vulnerable": [
+				"force"
+			],
+			"languageProficiencies": [
+				{
+					"common": true
+				},
+				{
+					"choose": {
+						"from": [
+							"celestial",
+							"infernal",
+							"abyssal"
+						],
+						"count": 2
+					}
+				}
+			],
+			"entries": [
+				"Nesherim descendants of infernal-dominant bloodlines.",
+				{
+					"type": "entries",
+					"name": "Ability Score Increase",
+					"entries": [
+						"Your Charisma score increases by 2, and your Intelligence score increases by 1."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Age",
+					"entries": [
+						"Nesherim mature at the same rate as humans, but their lives are often marked by long conflict and sharp turns."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Alignment",
+					"entries": [
+						"Your heritage drives a strict rivalry between discipline and desire."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Size",
+					"entries": [
+						"Your size is Medium."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Speed",
+					"entries": [
+						"Your base walking speed is 30 feet."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Child of the Flames",
+					"entries": [
+						"You have resistance to fire damage and radiant damage, and vulnerability to force damage."
+					],
+					"_foundryId": "RF6bccadb6227a36"
+				},
+				{
+					"type": "entries",
+					"name": "Planar Duality",
+					"entries": [
+						"You have advantage on death saving throws. You can count yourself as either celestial or fiend, your choice, when affected by abilities or spells that detect or target creature type."
+					],
+					"_foundryId": "RF80cf6ab3e38a69"
+				},
+				{
+					"type": "entries",
+					"name": "Flames of Judgment",
+					"entries": [
+						"When you hit a creature with an attack or spell that deals fire damage, the target must make a Constitution save (DC = 8 + your proficiency bonus + your Intelligence modifier). On a failure, the target takes radiant damage and sheds bright light, and you take fire damage equal to your proficiency bonus. You can use this trait once and regain it after a long rest."
+					],
+					"_foundryId": "RF61d0fc7799ce4f"
+				},
+				{
+					"type": "entries",
+					"name": "Hellward Step",
+					"entries": [
+						"When you take fire damage from a creature you can see, you can use your reaction to teleport up to 10 feet. The fire damage you take is reduced by your proficiency bonus. You can use this trait once and regain it after a short or long rest."
+					],
+					"_foundryId": "RFaee56ef4c5bda6"
+				},
+				{
+					"type": "entries",
+					"name": "Subrace",
+					"entries": [
+						"Nephilite"
+					]
+				}
+			],
+			"__prop": "race"
+		},
+		{
+			"name": "Nesherim (Seraphite)",
+			"source": "VeiledOmens",
+			"ability": [
+				{
+					"cha": 2,
+					"wis": 1
+				}
+			],
+			"size": [
+				"M"
+			],
+			"speed": 30,
+			"resist": [
+				"fire",
+				"radiant"
+			],
+			"vulnerable": [
+				"force"
+			],
+			"languageProficiencies": [
+				{
+					"common": true
+				},
+				{
+					"choose": {
+						"from": [
+							"celestial",
+							"infernal",
+							"abyssal"
+						],
+						"count": 2
+					}
+				}
+			],
+			"entries": [
+				"Nesherim whose lineage leans toward celestial fire and celestial duty.",
+				{
+					"type": "entries",
+					"name": "Ability Score Increase",
+					"entries": [
+						"Your Charisma score increases by 2, and your Wisdom score increases by 1."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Age",
+					"entries": [
+						"Nesherim mature as humans, but their long-term fate is tied to the balance between light and infernal fire."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Alignment",
+					"entries": [
+						"Your dual bloodline pulls you toward protective order and stern judgment."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Size",
+					"entries": [
+						"Your size is Medium."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Speed",
+					"entries": [
+						"Your base walking speed is 30 feet."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Child of the Flames",
+					"entries": [
+						"You have resistance to fire damage and radiant damage, and vulnerability to force damage."
+					],
+					"_foundryId": "RFfa3bccc24d589b"
+				},
+				{
+					"type": "entries",
+					"name": "Planar Duality",
+					"entries": [
+						"You have advantage on death saving throws. You can count yourself as either celestial or fiend, your choice, when affected by abilities or spells that detect or target creature type."
+					],
+					"_foundryId": "RFe2834378a951e1"
+				},
+				{
+					"type": "entries",
+					"name": "Sanctifying Lights",
+					"entries": [
+						"As a bonus action, you can grant a creature within 30 feet temporary hit points equal to your proficiency bonus plus your Charisma modifier. You can do this a number of times equal to your proficiency bonus, and you regain all uses on a long rest."
+					],
+					"_foundryId": "RFf0467c4e50c942"
+				},
+				{
+					"type": "entries",
+					"name": "Crown of Atonement",
+					"entries": [
+						"When you see a creature you can see within 30 feet take damage, you can use a reaction to reduce that damage by your proficiency bonus times 2 (minimum 2). The attacker takes damage and you take radiant damage, both unaffected by resistance or immunity. You can do this once and regain use on a short or long rest."
+					],
+					"_foundryId": "RFff0fd7bb5fc9a6"
+				},
+				{
+					"type": "entries",
+					"name": "Subrace",
+					"entries": [
+						"Seraphite"
+					]
+				}
+			],
 			"__prop": "race"
 		},
 		{
@@ -1974,6 +2316,7 @@
 				}
 			],
 			"classFeatures": [
+				"Your Token|Occultist|VeiledOmens|1",
 				"Spellcasting|Occultist|VeiledOmens|1",
 				"Ritualist|Occultist|VeiledOmens|1",
 				"Spectral Awareness|Occultist|VeiledOmens|2",
@@ -2257,6 +2600,21 @@
 		}
 	],
 	"classFeature": [
+		{
+			"name": "Your Token",
+			"source": "VeiledOmens",
+			"className": "Occultist",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"As an occultist, you craft a personal, magical object known as a Token. A Token is an item with deep ties to your past or the Ethereal Plane, such as the belongings of a deceased loved one or a long-lost artifact.",
+				"Creating a Token takes 10 minutes, during which you inscribe or renew occult runes upon the object. Your Token serves as your spellcasting focus for your occultist spells while you are holding it.",
+				"You can have only one Token at a time. If you create a new Token, the previous object immediately loses its occult connection, though the object itself is not destroyed. This connection is bound to you; another creature cannot use your Token as a spellcasting focus."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/occultist.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF2c68a1ed7e6519"
+		},
 		{
 			"name": "Spellcasting",
 			"source": "VeiledOmens",
@@ -2747,8 +3105,8 @@
 			"level": 18,
 			"entries": [
 				"At 18th level, your senses pierce the boundary between the Material Plane and the Border Ethereal. You can see and hear both planes within 60 feet of you.",
-				"As an action, choose one creature you can see within 60 feet of you, or one unattended object or contiguous section of an object or structure you can see within 60 feet and that fits within a 10-foot cube. You shift the target between the Material Plane and the Border Ethereal for 1 minute.",
-				"An unwilling creature can repeat the saving throw at the end of each of its turns to return to its original plane on a success.",
+				"As an action, choose one creature you can see within 60 feet of you, or one unattended object or contiguous section of an object or structure that you can see within 60 feet of you and that fits within a 10-foot cube. You shift the target between the Material Plane and the Border Ethereal for 1 minute. An unwilling creature that succeeds on a Charisma saving throw against your spell save DC is unaffected.",
+				"A shifted target exists only on its new plane for the duration. An unwilling creature can repeat the saving throw at the end of each of its turns, returning to the plane it left on a success. You can end the effect early as a bonus action.",
 				"You can use this feature a number of times equal to your Charisma modifier, and you regain all expended uses when you finish a long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-master-of-the-grey.webp",
@@ -2776,11 +3134,10 @@
 			"level": 20,
 			"entries": [
 				"When you would die, you can choose to pass on normally or anchor your spirit to your body or to the place where you died.",
-				"While anchored, your spirit exists in the Border Ethereal. You can choose to pass on at any time. You cannot cast spells or take actions except to attempt possession.",
-				"As an action, you can target one creature you can see within 60 feet of your anchor. The target must make a Charisma saving throw against your spell save DC, and can choose to fail. On a failure, you possess the target’s body; on a success, the target is immune to this feature for 24 hours.",
-				"While possessing a creature, you control its body and retain your Intelligence, Wisdom, Charisma, personality, memories, spellcasting, class features, and proficiencies. The possessed creature is aware of its surroundings but cannot act.",
-				"The possession ends when the body drops to 0 hit points, you end it as an action, you are forced out by magic, or your original body is restored to life.",
-				"Once your spirit is anchored again, you can return to your body once it is restored."
+				"While anchored, your spirit exists in the Border Ethereal. You can choose to pass on at any time. You cannot cast spells or take actions except to attempt possession. As an action, you can target one creature you can see within 60 feet of your anchor. The target must make a Charisma saving throw against your spell save DC, which it can choose to fail. On a failure, you possess the target's body. On a success, the target is immune to this feature for 24 hours.",
+				"While possessing a creature, you control its body. You retain your Intelligence, Wisdom, Charisma, personality, memories, spellcasting, class features, and proficiencies, but otherwise use the possessed creature's statistics. The possessed creature is aware of its surroundings but cannot act.",
+				"The possession lasts until the body drops to 0 hit points, you end it as an action, you are forced out by magic, or your original body is restored to life. When the possession ends, your spirit returns to your anchor unless your original body has been restored to life, in which case you return to it.",
+				"Once you anchor your spirit with this feature, you cannot do so again until your soul returns to a living body and you finish a long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-eternal-spirit.webp",
 			"__prop": "classFeature",
@@ -3159,7 +3516,31 @@
 				"Fulfilled Portent|Occultist|VeiledOmens|Omens|VeiledOmens|14|VeiledOmens"
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
-			"__prop": "subclass"
+			"__prop": "subclass",
+			"additionalSpells": [
+				{
+					"name": "Rite of Omens Spells",
+					"ability": "cha",
+					"known": {
+						"3": [
+							"bane",
+							"augury"
+						],
+						"5": [
+							"bestow curse",
+							"remove curse"
+						],
+						"7": [
+							"divination",
+							"phantasmal killer"
+						],
+						"9": [
+							"geas",
+							"Malediction|VeiledOmens"
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Rite of Servitude",
@@ -3176,7 +3557,31 @@
 				"Soul Gem Mastery|Occultist|VeiledOmens|Servitude|VeiledOmens|14|VeiledOmens"
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-servitude.webp",
-			"__prop": "subclass"
+			"__prop": "subclass",
+			"additionalSpells": [
+				{
+					"name": "Rite of Servitude Spells",
+					"ability": "cha",
+					"known": {
+						"3": [
+							"unseen servant",
+							"gentle repose"
+						],
+						"5": [
+							"animate dead",
+							"summon undead|TCE"
+						],
+						"7": [
+							"shadow of moil|XGE",
+							"spirit of death|BMT"
+						],
+						"9": [
+							"danse macabre|XGE",
+							"negative energy flood|XGE"
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Art of the Ether",
@@ -3618,11 +4023,12 @@
 			"subclassSource": "VeiledOmens",
 			"level": 3,
 			"entries": [
-				"You have learned a ritual that allows you to form a pact with a spirit.",
-				"Over the course of 1 hour, you perform the ritual in the presence of a spirit, ghost, haunt, incorporeal undead, or ethereal remnant you can perceive, or at a location bound to such a presence.",
-				"If the spirit is unwilling, it must remain within the ritual area for the full hour and fail a Charisma saving throw against your occultist spell save DC. Performing this on an unwilling spirit is a violation and makes the spirit hostile to you.",
-				"When the ritual succeeds, you bind yourself to the spirit. The spirit is not destroyed, controlled, or made into your servant. Choose one spirit from the Spirit Incantation table and gain its 3rd-level incantation.",
-				"You can use your spirit incantations a number of times equal to your proficiency bonus and regain all expended uses after a long rest.",
+				"You have learned a ritual that allows you to form a pact with a spirit. Over the course of 1 hour, you perform the ritual in the presence of a spirit, ghost, haunt, incorporeal undead, or other Ethereal remnant you can perceive, or at a location, object, corpse, or threshold to which such a spirit is bound.",
+				"If the spirit is willing, the ritual succeeds automatically. If the spirit is unwilling, it must remain within the ritual area for the full hour and fail a Charisma saving throw against your occultist spell save DC at the end of the ritual. Performing this ritual on an unwilling spirit is a violation; the spirit becomes hostile to you whether the ritual succeeds or fails, and remembers the violation.",
+				"When the ritual succeeds, you bind yourself to the spirit in a mutual pact. The spirit is not destroyed, controlled, or made into your servant. Choose one spirit from the Spirit Incantation table. You gain that spirit's 3rd-level incantation.",
+				"You can use your spirit incantations a combined number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. If an incantation calls for a saving throw, the DC equals your occultist spell save DC. An incantation is an occultist feature, not a spell, and it does not require spell components unless it modifies a spell you cast. When you use an incantation, your bound spirit collaborates in the effect rather than merely lending you power. Unless an incantation says otherwise, you can use no more than one spirit incantation on the same turn.",
+				"If you later release this spirit and form a new Pact of Incantation, choose a new spirit from the Spirit Incantation table. You retain no incantations from previously bound spirits.",
+				"You can end your pact through a 1-hour release ritual. If the spirit is unwilling to be released, or if you form a new pact without first releasing your bound spirit, the pact breaks. The spirit becomes hostile to you, manifesting in an unoccupied space within 30 feet of you using an appropriate stat block chosen by the DM. A spirit released this way recognizes you on sight, ignoring nonmagical disguise and any effect that would conceal your identity, such as {@spell disguise self} or {@spell alter self}.",
 				{
 					"type": "table",
 					"caption": "Spirit Incantation",
@@ -3668,7 +4074,7 @@
 					"type": "entries",
 					"name": "Veil Step",
 					"entries": [
-						"As a bonus action, you become spectral until the end of the current turn. During this time, you can move up to half your speed without provoking opportunity attacks, and you can move through creatures and objects.",
+						"As a bonus action, you become spectral until the end of the current turn. During this time, you can move up to half your speed without provoking opportunity attacks, and you can move through creatures and objects as if they were difficult terrain.",
 						"If you end your turn inside a creature or object, you are shunted to the nearest unoccupied space and take 1d10 force damage."
 					]
 				},
@@ -3676,16 +4082,39 @@
 					"type": "entries",
 					"name": "Grave Hunger",
 					"entries": [
-						"Immediately after you hit a creature with a melee attack, you can call on your bound wraith to drain the target’s vitality.",
-						"The target takes extra necrotic damage equal to 1d6 + your Charisma modifier, and you gain that many temporary hit points."
+						"Immediately after you hit a creature with a melee attack, you can call on your bound wraith to drain the target's vitality. The target takes extra necrotic damage equal to 1d6 + your Charisma modifier, and you gain temporary hit points equal to the necrotic damage dealt by this incantation."
 					]
 				},
 				{
 					"type": "entries",
 					"name": "Mourning Glimpse",
 					"entries": [
-						"Once per turn, when one creature fails a saving throw against an occultist spell you cast, your bound banshee shows it a glimpse of deathly grief. The creature takes 1d6 + your Charisma modifier psychic damage and cannot regain hit points until the start of your next turn.",
-						"If the failed save caused the creature to be frightened, it also cannot take reactions until the start of your next turn."
+						"Once per turn, when one creature fails a saving throw against an occultist spell you cast, your bound banshee shows it a glimpse of deathly grief. The creature takes psychic damage equal to 1d6 + your Charisma modifier, and it cannot regain hit points until the start of your next turn.",
+						"If the failed saving throw caused the creature to be frightened, the creature also cannot take reactions until the start of your next turn."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Unseen Hand",
+					"entries": [
+						"Immediately after you deal damage to a creature, you can force that creature to make a Strength saving throw. On a failed save, you push the creature up to 10 feet horizontally in a direction of your choice.",
+						"If this movement causes the creature to strike an object, a structure, or another creature, the target takes force damage equal to your Charisma modifier."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Corpse-Light",
+					"entries": [
+						"Immediately after you deal psychic, necrotic, or lightning damage to one creature, you can wreath the creature in corpse-light until the start of your next turn.",
+						"While wreathed in this way, the creature sheds dim light in a 10-foot radius, cannot benefit from being invisible against you, and the next attack roll made against it before the start of your next turn has advantage."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Withering Dark",
+					"entries": [
+						"Immediately after you deal necrotic damage to one creature, you can force that creature to make a Strength saving throw.",
+						"On a failed save, the creature has disadvantage on Strength checks and Strength saving throws until the start of your next turn, its speed is reduced by 10 feet until the start of your next turn, and the first time it deals damage with an attack before the start of your next turn, that damage is reduced by 1d6 + your Charisma modifier."
 					]
 				}
 			],
@@ -3702,31 +4131,31 @@
 			"subclassSource": "VeiledOmens",
 			"level": 6,
 			"entries": [
-				"You learn three mediumship rituals, each requiring 10 minutes to perform.",
-				"You can use these rituals a number of times equal to your proficiency bonus and regain all expended uses when you finish a long rest.",
-				"A ritual use is expended when performed, regardless of outcome.",
+				"You learn three rituals of mediumship, each requiring 10 minutes to perform. You can use these rituals a combined number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+				"A use of any ritual is expended when the ritual is performed, regardless of outcome.",
 				{
 					"type": "entries",
-					"name": "Séance",
+					"name": "Seance",
 					"entries": [
-						"You touch a corpse, object, or place marked by death, violence, or emotion, or call upon a spirit you can perceive. The spirit can answer five questions over 10 minutes.",
-						"An unwilling spirit makes a Charisma saving throw; on a failure it is compelled to answer truthfully, on success it may lie, refuse, or end the ritual."
+						"You touch a corpse, object, or place marked by death, violence, or strong emotion, or you call upon a spirit you can perceive. The spirit becomes audible and visible to you, even if it would normally be invisible, incorporeal, or on the Border Ethereal. You may ask the spirit up to five questions over the next 10 minutes.",
+						"If the spirit is willing, it answers truthfully. An unwilling spirit makes a Charisma saving throw against your occultist spell save DC. On a failure, it is compelled to answer truthfully. On a success, it may lie, refuse to answer, or end the ritual.",
+						"The spirit can answer only what it knew in life or has perceived since death, and it may answer cryptically if a direct answer would be incomplete or misleading."
 					]
 				},
 				{
 					"type": "entries",
 					"name": "Bear Witness",
 					"entries": [
-						"You touch a corpse, object, or place marked by death, violence, or strong emotion. It reveals a vision for 1 minute of the strongest impression of an earlier event.",
-						"The vision can include sights, sounds, and residual spiritual facts but not hidden thoughts or facts without an impression."
+						"You touch a corpse, object, or place marked by death, violence, or strong emotion. The spiritual residue replays the strongest impression of an event before you as a vision lasting up to 1 minute.",
+						"The vision can reveal sights, sounds, words, visible magic, emotional residue, spiritual presences, and the apparent actions of creatures involved, as they were impressed upon the corpse, object, or place. The vision does not reveal thoughts, motives, secrets, or facts that left no spiritual impression. The DM determines what the vision depicts."
 					]
 				},
 				{
 					"type": "entries",
 					"name": "Final Passage",
 					"entries": [
-						"You perform a release ritual for a spirit bound to a location, object, corpse, or creature you can touch. If you solve unfinished business, the spirit is released and the haunt ends.",
-						"An unwilling spirit may succeed on a Charisma saving throw and resist this release."
+						"You perform a release ritual for a spirit bound to a location, object, corpse, or creature you can touch. If you correctly name or symbolically resolve the unfinished business that anchors the spirit, the spirit is peacefully released, its haunt ends, and the anchor no longer draws or sustains spirits.",
+						"The DM determines what counts as resolution, which may require role-played dialogue, the return of an item, the speaking of a name, or another action appropriate to the spirit's nature. An unwilling spirit may make a Charisma saving throw against your occultist spell save DC; on a success, the ritual fails and the spirit is alerted to your attempt. Final Passage does not affect your bound spirit."
 					]
 				}
 			],
@@ -3743,22 +4172,55 @@
 			"subclassSource": "VeiledOmens",
 			"level": 10,
 			"entries": [
-				"Your pact deepens into a covenant. You gain the 10th-level incantation of the spirit chosen earlier.",
-				"Options include: Borrowed Flesh, Gravebound Servant, Death Knell, Spiteful Repulsion, Mortal Draught, and Umbral Cloak.",
+				"Your Pact of Incantation deepens into a covenant. You gain the 10th-level incantation of the spirit you chose from the Spirit Incantation table.",
 				{
 					"type": "entries",
 					"name": "Borrowed Flesh",
 					"entries": [
-						"As an action, choose one humanoid within 5 feet and attempt to force a possession. On a failed Charisma save, your spirit leaves you and inhabits the target for 1 minute.",
-						"The possessed form uses the target’s statistics and can use target actions and traits using the occultist’s body as source."
+						"As an action, choose one Humanoid within 5 feet of you. The target must make a Charisma saving throw. If a spell or other effect prevents the target from being possessed, this incantation fails against it. On a failed save, your bound ghost leaves you, its primary vessel, and enters the target's body for up to 1 minute. The target is incapacitated and loses control of its body, but remains aware of its surroundings.",
+						"While possessing the target, the ghost controls the body as an ally of you and your companions. The DM controls the possessed body. The ghost uses the target's statistics, except it retains its own alignment, personality, Intelligence, Wisdom, and Charisma. It can use the target's actions and traits, including Spellcasting or Innate Spellcasting, using the spell slots, uses, spellcasting ability, spell save DC, and spell attack bonus specified in the target's stat block. The ghost does not gain access to the target's knowledge, class features, legendary actions, lair actions, or mythic actions.",
+						"The possession lasts for 1 minute. It ends early if the possessed body drops to 0 hit points, if you end it as a bonus action, if you use another incantation, if you are incapacitated, or if the ghost is forced out by magic such as {@spell dispel evil and good}. When the possession ends, your bound ghost returns to you. On a successful initial save, the target is immune to this incantation for 24 hours."
 					]
 				},
 				{
 					"type": "entries",
 					"name": "Gravebound Servant",
 					"entries": [
-						"When a humanoid you can see dies within 30 feet, or as an action when you touch a qualifying corpse, you can draw up its spirit and bind it as a specter for 1 minute.",
-						"The specter is friendly, acts immediately after your turn, uses the specter stat block, and disappears after 1 minute or at 0 hit points."
+						"When a Humanoid you can see dies within 30 feet of you, or as an action when you touch the corpse of a Humanoid that died within the last minute, you can draw up its departing spirit. The spirit rises in the corpse's space or the nearest unoccupied space as a specter. The specter lasts for 1 minute, until it drops to 0 hit points, or until you use this incantation again.",
+						"The specter is friendly to you and your allies. It acts immediately after your turn and obeys your verbal commands, which require no action from you. If you issue no command, it takes the Dodge action. It uses the specter stat block, except it gains temporary hit points equal to half your occultist level, gains a bonus to its attack rolls equal to your Charisma modifier, and cannot create spawn or cause another spirit to rise."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Death Knell",
+					"entries": [
+						"As an action, you release a deathly keening that turns fear into grief. Each creature of your choice within 30 feet of you that can hear you must make a Constitution saving throw. On a failed save, a creature takes 3d8 psychic damage and is frightened of you until the end of your next turn. On a successful save, a creature takes half as much damage and is not frightened.",
+						"If a creature is already frightened of you when it fails this saving throw, it takes an extra 2d8 psychic damage, cannot take reactions, and its speed becomes 0 until the end of your next turn."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Spiteful Repulsion",
+					"entries": [
+						"As an action, choose one creature or loose object you can see within 30 feet of you. An object must be Large or smaller, must weigh no more than 500 pounds, and must not be worn or carried.",
+						"A creature must make a Strength saving throw. On a failed save, it takes 4d8 force damage, you move it up to 30 feet horizontally to an unoccupied space you can see, and you can knock it prone. On a successful save, it takes half as much damage and is not moved or knocked prone.",
+						"If you choose an object, you move it up to 30 feet horizontally toward an unoccupied space you can see. If the object would enter a creature's space during this movement, the object's movement ends and that creature must make a Dexterity saving throw. The creature takes 4d8 bludgeoning damage on a failed save, or half as much damage on a successful one. The object then falls in an unoccupied space of the DM's choice within 5 feet of the creature."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Mortal Draught",
+					"entries": [
+						"When a creature that is not a Construct or Undead drops to 0 hit points within 30 feet of you, you can use your reaction to draw in its fading spark. You regain hit points equal to 3d8 + your Charisma modifier, or you gain temporary hit points equal to that amount. You can then become invisible until the end of your next turn. This invisibility ends early immediately after you make an attack roll or cast a spell.",
+						"If the creature dies before the start of your next turn, you regain one expended use of your spirit incantations. Once you regain a use in this way, you cannot do so again until you finish a long rest."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Umbral Cloak",
+					"entries": [
+						"As a bonus action while you are in dim light or darkness, you wrap yourself in your bound shadow for 1 minute. The effect ends early if you are incapacitated or if you end it as a bonus action.",
+						"For the duration, you can take the Hide action as a bonus action while in dim light or darkness. In addition, at the start of each of your turns, if you are in dim light or darkness, you can become invisible until the start of your next turn. This invisibility ends early if you make an attack roll, cast a spell, or enter bright light."
 					]
 				}
 			],
@@ -3775,10 +4237,11 @@
 			"subclassSource": "VeiledOmens",
 			"level": 14,
 			"entries": [
-				"You are recognized by the restless dead as one who keeps the road between life and death.",
-				"When a spirit, haunt, or incorporeal undead starts its turn within 30 feet of you, or enters your area for the first time on its turn, it must make a Charisma saving throw.",
-				"On a failure, it recognizes your authority as a psychopomp for 1 minute, cannot target you with harmful effects, and cannot attack you, though it can still target allies or leave.",
-				"You can displace your bound spirit to extend your incantation’s range for one use; the spirit returns immediately after the effect."
+				"You are recognized by the restless dead as one who keeps the road between life and death. When a spirit, haunt, or incorporeal undead starts its turn within 30 feet of you, or enters that area for the first time on a turn, it must make a Charisma saving throw against your occultist spell save DC. On a failed save, it recognizes your authority as a psychopomp for 1 minute.",
+				"While a creature recognizes your authority in this way, it cannot attack you or target you with harmful abilities or magical effects, and you have advantage on ability checks you make to interact socially with it. The creature is not compelled to obey you, and this recognition does not prevent it from attacking your allies, fleeing, concealing information, or pursuing its own purpose.",
+				"On a successful save, the creature is immune to this feature for 24 hours. The recognition ends early if you or your allies damage the creature, or if you attempt to bind, command, or release it against its will.",
+				"In addition, when you use an incantation that has a range, target, area, or triggering distance measured from you, you can briefly send your bound spirit across the threshold. Choose an unoccupied space you can see within 30 feet of you. Your bound spirit manifests there only long enough to deliver the incantation, and the incantation's range, target, area, or triggering distance is measured from that space instead of yours. The spirit then immediately returns to you.",
+				"You must still take the incantation's normal action, bonus action, or reaction and expend any use of the incantation. If the incantation requires a target, the target must be valid from the chosen space."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-haunts.webp",
 			"__prop": "subclassFeature",
@@ -3796,12 +4259,57 @@
 				"The Rite of Omens is for Occultists who read the residue of coming events where it gathers in the Border Ethereal. To them, fate leaves pressure before it arrives: in death echoes, spirit traces, old curses, fearful places, broken oaths, planar bleeds, and haunt-like impressions caught between the living world and the dead. Their power lies not merely in harming enemies, but in recognizing the patterns of fate that cling to all things and choosing how to meet them, bear them, or bind others to the doom already gathering around them.",
 				{
 					"type": "refSubclassFeature",
+					"subclassFeature": "Rite Spells|Occultist|VeiledOmens|Omens|VeiledOmens|3|VeiledOmens"
+				},
+				{
+					"type": "refSubclassFeature",
 					"subclassFeature": "Cast the Lots|Occultist|VeiledOmens|Omens|VeiledOmens|3|VeiledOmens"
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
 			"__prop": "subclassFeature",
 			"_foundryId": "SFb681e4733aa823"
+		},
+		{
+			"name": "Rite Spells",
+			"source": "VeiledOmens",
+			"className": "Occultist",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Omens",
+			"subclassSource": "VeiledOmens",
+			"level": 3,
+			"entries": [
+				"You learn the following spells at the listed occultist levels. They count as occultist spells for you and do not count against your spells known. These spells are your omen spells. If you already know one of these spells, choose another occultist spell of the same level from the divination, enchantment, or necromancy schools.",
+				{
+					"type": "table",
+					"caption": "Rite of Omens Spells",
+					"colLabels": [
+						"Occultist Level",
+						"Spells"
+					],
+					"rows": [
+						[
+							"3rd",
+							"{@spell bane}, {@spell augury}"
+						],
+						[
+							"5th",
+							"{@spell bestow curse}, {@spell remove curse}"
+						],
+						[
+							"7th",
+							"{@spell divination}, {@spell phantasmal killer}"
+						],
+						[
+							"9th",
+							"{@spell geas}, {@spell Malediction|VeiledOmens}"
+						]
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF412978bc617562"
 		},
 		{
 			"name": "Cast the Lots",
@@ -3812,13 +4320,16 @@
 			"subclassSource": "VeiledOmens",
 			"level": 3,
 			"entries": [
-				"You prepare a set of divinatory implements, using them as your Token if you wish.",
-				"After each long rest, you cast the lots and roll a d6, d8, d10, and d12 together. These dice form your foretold portent, which lasts until you finish your next long rest.",
-				"Each die maps to part of the portent and creates a conditional effect when triggered.",
-				"The portent does not trigger by itself, and it ends when invoked unless a feature says otherwise.",
+				"You prepare a set of divinatory implements for this rite. Your implement set can be marked bones, teeth, coins, knucklebones, rune-scraps, cards, lots, carved sticks, shells, or other objects that suit your practice. Each piece is marked to catch spirit traces, death echoes, and other pressures gathering in the Border Ethereal before they break into the present.",
+				"You use your divinatory implements for your Cast the Lots feature. When you create or renew your Token, you can choose your divinatory implements as the object that becomes your Token. If you do, the set counts as one object for the purpose of your Token feature.",
+				"When you finish a long rest, cast the lots with your divinatory implements and roll a d6, d8, d10, and d12 together, then record the results. These dice form your foretold portent, which lasts until you finish your next long rest.",
+				"Each die determines part of the portent. The d6 determines the subject, the d8 determines the trigger, the d10 determines the sign, and the d12 determines the shadow.",
+				"The portent never invokes itself. When your portent's trigger occurs within 60 feet of you and you can see or otherwise perceive it, you can use your reaction to invoke the portent, speaking or otherwise manifesting the cast words. When you do, apply the sign to the portent's subject. Once invoked, the portent is lost, unless a feature says otherwise.",
+				"Some Rite of Omens features refer to your imposed fate effects. An imposed fate effect is an occultist spell or Rite of Omens feature you create that curses, hexes, marks, seals, burdens, or binds a creature's fate, such as {@spell bane}, {@spell hex}, {@spell bestow curse}, {@spell geas}, {@spell Malediction|VeiledOmens}, {@spell Doom|VeiledOmens}, or a feature from this subclass.",
+				"The dice also form a cryptic phrase in this order: subject, trigger, sign, shadow. The phrase is read as \"[Subject] [Trigger] [Sign], [Shadow],\" such as \"The Crown Rises Ashen, or Falters.\" The full reading includes the shadow, but only the subject, trigger, and sign are invoked when you use the portent. Speaking or otherwise manifesting the shadow has no mechanical effect unless the portent curdles.",
 				{
 					"type": "table",
-					"caption": "Foretold Portent: Subject",
+					"caption": "d6: Subject",
 					"colLabels": [
 						"d6",
 						"Subject",
@@ -3837,17 +4348,17 @@
 						],
 						[
 							"3",
-							"One creature you can see within 30 feet of triggering creature",
+							"One creature you can see within 30 feet of the triggering creature",
 							"The Gate"
 						],
 						[
 							"4",
-							"The triggering creature and one nearby creature",
+							"The triggering creature and one other creature you can see within 30 feet of it",
 							"The Crown"
 						],
 						[
 							"5",
-							"The creature nearest to triggering creature",
+							"The creature nearest to the triggering creature, other than itself",
 							"The Mirror"
 						],
 						[
@@ -3857,9 +4368,10 @@
 						]
 					]
 				},
+				"If the trigger does not involve a creature, you are the triggering creature for the purpose of determining the subject. If a result names more than one subject, each named creature is a subject of the portent. A sign applies to each subject it can affect. If a sign modifies a single triggering roll or event, it modifies that roll or event only once.",
 				{
 					"type": "table",
-					"caption": "Foretold Portent: Trigger",
+					"caption": "d8: Trigger",
 					"colLabels": [
 						"d8",
 						"Trigger",
@@ -3868,49 +4380,49 @@
 					"rows": [
 						[
 							"1",
-							"A creature makes an attack roll",
+							"A creature makes an attack roll.",
 							"Strikes"
 						],
 						[
 							"2",
-							"A creature makes an ability check",
+							"A creature makes an ability check.",
 							"Tests"
 						],
 						[
 							"3",
-							"A creature makes a saving throw",
+							"A creature makes a saving throw.",
 							"Rises"
 						],
 						[
 							"4",
-							"A creature takes or deals damage",
+							"A creature takes or deals damage.",
 							"Bleeds"
 						],
 						[
 							"5",
-							"A creature moves or is moved",
+							"A creature moves or is moved.",
 							"Crosses"
 						],
 						[
 							"6",
-							"A creature casts a spell or is targeted by one",
+							"A creature casts a spell or is targeted by a spell or magical effect.",
 							"Echoes"
 						],
 						[
 							"7",
-							"A curse or imposed fate effect begins, ends, or is challenged",
+							"A curse, charm, fear, possession, or imposed fate effect begins, ends, or is challenged.",
 							"Frays"
 						],
 						[
 							"8",
-							"A creature speaks a meaningful truth, lie, oath, threat, or confession",
+							"A creature speaks a meaningful truth, lie, oath, threat, or confession.",
 							"Names"
 						]
 					]
 				},
 				{
 					"type": "table",
-					"caption": "Foretold Portent: Sign",
+					"caption": "d10: Sign",
 					"colLabels": [
 						"d10",
 						"Sign",
@@ -3919,59 +4431,60 @@
 					"rows": [
 						[
 							"1",
-							"Favor",
+							"Favor. Add your proficiency bonus to a triggering d20 roll made by a subject. If no subject made a triggering d20 roll, add your proficiency bonus to the subject's next attack roll, ability check, or saving throw before the start of your next turn.",
 							"Starred"
 						],
 						[
 							"2",
-							"Misfortune",
+							"Misfortune. Subtract your proficiency bonus from a triggering d20 roll made by a subject. If no subject made a triggering d20 roll, subtract your proficiency bonus from the subject's next attack roll, ability check, or saving throw before the start of your next turn.",
 							"Broken"
 						],
 						[
 							"3",
-							"Shelter",
+							"Shelter. Reduce damage the subject takes from the trigger by your proficiency bonus + your Charisma modifier. If the subject took no damage from the trigger, the subject gains temporary hit points equal to your proficiency bonus + your Charisma modifier.",
 							"Warded"
 						],
 						[
 							"4",
-							"Ruin",
+							"Ruin. The subject takes psychic or necrotic damage, your choice, equal to your proficiency bonus + your Charisma modifier.",
 							"Ashen"
 						],
 						[
 							"5",
-							"Revelation",
+							"Revelation. You learn one useful true detail about the subject, the trigger, or the scene. The DM chooses the detail, which can include a hidden condition, a relevant resistance or vulnerability, a spiritual attachment, the presence of a curse or possession, a likely immediate danger, or the broad meaning of an omen.",
 							"Unveiled"
 						],
 						[
 							"6",
-							"Binding",
+							"Binding. The subject's speed becomes 0 and it cannot teleport or willingly move to another plane until the start of your next turn.",
 							"Bound"
 						],
 						[
 							"7",
-							"Severance",
+							"Severance. The next saving throw or ability check made before the start of your next turn to end, resist, or suppress a curse, charm, fear, possession, spell, or imposed fate effect affecting the subject gains or loses your proficiency bonus, your choice.",
 							"Severed"
 						],
 						[
 							"8",
-							"Burden",
+							"Burden. The subject cannot take reactions until the start of your next turn, and the next time it willingly moves before then, its speed is reduced by 10 feet for that movement.",
 							"Laden"
 						],
 						[
 							"9",
-							"Turning",
+							"Turning. Move the subject up to 10 feet to an unoccupied space you can see. An unwilling subject can make a Strength saving throw against your spell save DC to resist this movement.",
 							"Turned"
 						],
 						[
 							"10",
-							"Withering",
+							"Withering. Until the start of your next turn, the subject cannot regain hit points, and any temporary hit points it would gain are reduced by your proficiency bonus + your Charisma modifier.",
 							"Withered"
 						]
 					]
 				},
+				"The Shadow is the curdled consequence. It is read in the phrase, but it only takes effect if the omen curdles.",
 				{
 					"type": "table",
-					"caption": "Foretold Portent: Shadow",
+					"caption": "d12: Shadow",
 					"colLabels": [
 						"d12",
 						"Shadow",
@@ -3996,27 +4509,27 @@
 						[
 							"4",
 							"or Splinters",
-							"Disadvantage on Constitution saves to maintain concentration."
+							"You have disadvantage on Constitution saving throws you make to maintain concentration."
 						],
 						[
 							"5",
 							"or Hungers",
-							"Reduce restored hit points by your proficiency bonus once per turn."
+							"When you regain hit points, reduce the hit points regained by your proficiency bonus, once per turn."
 						],
 						[
 							"6",
 							"or Burns",
-							"You shed dim light and cannot benefit from invisibility."
+							"You shed dim, ghostly light in a 5-foot radius and cannot benefit from being invisible."
 						],
 						[
 							"7",
 							"or Hushes",
-							"You cannot take reactions until after your first turn in combat."
+							"You cannot take reactions until after your first turn in each combat."
 						],
 						[
 							"8",
 							"or Veils",
-							"Disadvantage on Wisdom (Perception) checks."
+							"You have disadvantage on Wisdom (Perception) checks."
 						],
 						[
 							"9",
@@ -4026,20 +4539,21 @@
 						[
 							"10",
 							"or Withers",
-							"On first attack each turn you deal psychic damage equal to proficiency bonus."
+							"The first time on each of your turns that you deal damage to a creature, you take psychic damage equal to your proficiency bonus."
 						],
 						[
 							"11",
 							"or Darkens",
-							"Disadvantage on Insight and Persuasion checks."
+							"You have disadvantage on Wisdom (Insight) and Charisma (Persuasion) checks."
 						],
 						[
 							"12",
 							"or Vanishes",
-							"You cannot take or benefit from the Help action."
+							"You cannot take the Help action, and you cannot benefit from the Help action."
 						]
 					]
-				}
+				},
+				"If you finish a long rest while your foretold portent has not been invoked, the omen curdles and is lost. You do not make a new foretold portent at the end of that long rest. The curdled omen shadows you until you finish your next long rest, after which you can use Cast the Lots again. While the curdled omen shadows you, you suffer the curdled consequence shown by the d12."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
 			"__prop": "subclassFeature",
@@ -4054,9 +4568,18 @@
 			"subclassSource": "VeiledOmens",
 			"level": 6,
 			"entries": [
-				"Your spells disturb spiritual residue and leave signs in their passing.",
-				"When you cast an occultist spell with a spell slot, you can target one creature affected by, targeted by, or perceived through the spell and learn one detail: resistance/vulnerability/immunity, condition, highest or lowest save, or curses/possession/curse effects.",
-				"You can use this feature a number of times equal to your proficiency bonus and regain all expended uses on a long rest."
+				"Your spells disturb the spiritual residue that clings to fate and leave signs in their passing. When you cast an occultist spell using a spell slot, you can choose one creature targeted by the spell, affected by the spell, or perceived by you through the spell. You learn one of the following facts about that creature, your choice:",
+				{
+					"type": "list",
+					"items": [
+						"One damage resistance, immunity, or vulnerability it has, if any.",
+						"One condition currently affecting it.",
+						"Its highest or lowest saving throw modifier, your choice.",
+						"Whether it is cursed, possessed, charmed, frightened, or under one of your imposed fate effects.",
+						"Whether it is below half its hit point maximum."
+					]
+				},
+				"You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
 			"__prop": "subclassFeature",
@@ -4071,10 +4594,9 @@
 			"subclassSource": "VeiledOmens",
 			"level": 10,
 			"entries": [
-				"After you make your foretold portent, choose up to half your proficiency bonus (rounded up) dials and reroll each on the same dice type.",
-				"When the portent is invoked or curdled, you choose which result applies for each chosen die. If more than one trigger happens, you choose one.",
-				"If your foretelling curdles, both readings are lost.",
-				"This allows you to preserve a fulfilled interpretation for the feature’s omen mechanics."
+				"You learn that fate may be fixed while its signs remain difficult to read. After you make your foretold portent, choose a number of the portent dice up to half your proficiency bonus, rounded up, and roll another die of the same size for each chosen die. Record both results for each chosen die.",
+				"When your portent is invoked or when it curdles, choose which recorded result applies for each chosen die. The chosen results determine both the portent's mechanics and its cryptic phrase. If one of the chosen dice is the d8, either recorded trigger can bring the portent due; when you invoke the portent, the triggering result that occurred is the result that applies. If more than one recorded trigger occurs at the same time, choose which triggering result applies.",
+				"If your foretold portent curdles, both readings of each chosen die are lost."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
 			"__prop": "subclassFeature",
@@ -4089,9 +4611,10 @@
 			"subclassSource": "VeiledOmens",
 			"level": 14,
 			"entries": [
-				"When your foretold portent is invoked, it becomes fulfilled until you finish a long rest. A fulfilled portent can no longer be invoked.",
-				"While fulfilled, you can cast {@spell bestow curse} and {@spell remove curse} without expending spell slots, each as a 30-foot range spell.",
-				"Any new portent replaces the fulfilled one after this rest."
+				"When your foretold portent is invoked, it becomes fulfilled until you finish your next long rest. A fulfilled portent can no longer be invoked.",
+				"While your portent is fulfilled, you can cast {@spell bestow curse} and {@spell remove curse} without expending a spell slot.",
+				"When you cast either spell in this way, the spell is cast at its lowest level, counts as an omen spell for you, and has a range of 30 feet.",
+				"When you finish a long rest, any fulfilled portent is lost before you make a new foretold portent."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-omens.webp",
 			"__prop": "subclassFeature",
@@ -4109,12 +4632,57 @@
 				"The Rite of Servitude is for those who would rather command the dead than commune with them. Practitioners of this rite call and bind spirits, settling them into prepared vessels and seating them in lifeless flesh to serve. Most cultures that know the rite call it taboo. The Shinjo, where the practice is best documented, exile its students.",
 				{
 					"type": "refSubclassFeature",
+					"subclassFeature": "Rite Spells|Occultist|VeiledOmens|Servitude|VeiledOmens|3|VeiledOmens"
+				},
+				{
+					"type": "refSubclassFeature",
 					"subclassFeature": "Soul Binder|Occultist|VeiledOmens|Servitude|VeiledOmens|3|VeiledOmens"
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-servitude.webp",
 			"__prop": "subclassFeature",
 			"_foundryId": "SFcbe9a4568f3ba7"
+		},
+		{
+			"name": "Rite Spells",
+			"source": "VeiledOmens",
+			"className": "Occultist",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Servitude",
+			"subclassSource": "VeiledOmens",
+			"level": 3,
+			"entries": [
+				"You learn the following spells at the listed occultist levels. They count as occultist spells for you and do not count against your spells known. If you already know one of these spells, choose another occultist spell of the same level from the necromancy or conjuration school.",
+				{
+					"type": "table",
+					"caption": "Rite of Servitude Spells",
+					"colLabels": [
+						"Occultist Level",
+						"Spells"
+					],
+					"rows": [
+						[
+							"3rd",
+							"{@spell unseen servant}, {@spell gentle repose}"
+						],
+						[
+							"5th",
+							"{@spell animate dead}, {@spell summon undead|TCE}"
+						],
+						[
+							"7th",
+							"{@spell shadow of moil|XGE}, {@spell spirit of death|BMT}"
+						],
+						[
+							"9th",
+							"{@spell danse macabre|XGE}, {@spell negative energy flood|XGE}"
+						]
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/rite-of-servitude.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF6dee0d12547d49"
 		},
 		{
 			"name": "Soul Binder",
@@ -4125,10 +4693,16 @@
 			"subclassSource": "VeiledOmens",
 			"level": 3,
 			"entries": [
-				"You can bind a willing spirit into a gem and seat it in dead flesh as your servant.",
-				"At the end of a 1-hour ritual in an area where the border is thin, a willing spirit is bound into a gem worth at least 100 gp per spirit CR (minimum 100 gp).",
-				"As an action, you can seat the gem into a suitable corpse and animate it as a servant. The corpse must be one of the listed creature types and within CR limits.",
-				"The servant’s corpse must have a slot expenditure equal to the corpse’s CR (minimum one 1st-level slot), and you can animate only one servant at a time.",
+				"You have learned to bind a willing spirit into a gem and seat it in dead flesh.",
+				"Over the course of 1 hour, you perform a ritual in the presence of a spirit you can perceive or at a place where the boundary to the Border Ethereal is thin. At the end of the ritual, a willing spirit is bound into a gem worth at least 100 gp per the spirit's challenge rating, minimum 100 gp. The spirit's CR cannot exceed the maximum shown in the Soul Binding table.",
+				"As an action, you can seat the soul gem into the corpse of a creature you touch, animating it as your servant. The corpse must be the body of a Beast, Dragon, Fey, Giant, Humanoid, or Monstrosity. The corpse's CR must be equal to or lower than the soul gem's CR, and its size cannot exceed the maximum shown in the Soul Binding table. To animate the corpse, you expend spell slots with a combined level equal to the corpse's CR, minimum one 1st-level spell slot.",
+				"The servant uses the corpse's stat block, with the following changes: its type becomes Undead, its alignment becomes unaligned, and it loses any legendary actions, lair actions, and mythic actions. It is immune to poison damage and the poisoned condition, it does not require air, food, drink, or sleep, and it is immune to disease.",
+				"If the soul gem contains a soul that did not belong to the corpse in life, the servant is a foreign spirit. Its Intelligence becomes 3, its Wisdom becomes 6, and its Charisma becomes 5. It has no memories, languages, or personality from the corpse's life, and it obeys your commands. If one of the servant's statistics uses Intelligence, Wisdom, or Charisma, use the servant's new score to determine any relevant modifier, save DC, or attack bonus.",
+				"If the soul gem contains the soul that belonged to the corpse in life, the servant is a returned soul. It retains the creature's Intelligence, Wisdom, Charisma, memories, languages, personality, and other statistics. A returned soul is friendly to you and your companions, but it is not under your control. The DM controls the returned soul, which acts according to its own nature and judgment.",
+				"The servant rolls its own initiative. On each of your turns, you can use a bonus action to command a foreign spirit to move, attack, or take another action. If you issue no command, it takes the Dodge action. You can issue simple noncombat commands, such as \"follow me\" or \"wait here,\" without using an action.",
+				"When the servant makes an ability check or saving throw that uses a proficiency bonus, it uses your proficiency bonus if yours is higher.",
+				"You can remove a seated soul gem from your servant over 1 minute while you are within 5 feet of it, causing the servant to become an inert corpse. If the servant is destroyed while the soul gem is seated in it, the gem is destroyed and the soul is released.",
+				"You can have only one soul gem and one active servant at a time. If you bind a new spirit, your previous soul gem is destroyed and the spirit within it is released.",
 				{
 					"type": "table",
 					"caption": "Soul Binding",
@@ -4179,25 +4753,25 @@
 			"subclassSource": "VeiledOmens",
 			"level": 6,
 			"entries": [
-				"You can carve one lesser facet into your soul gem during a 1-hour occult-tools ritual.",
-				"A gem can hold one lesser facet at a time, and each can only be cut once.",
+				"You learn to cut lesser facets into a soul gem. A soul gem can hold one lesser facet. During a 1-hour ritual with occult tools, you can cut or replace the lesser facet in a soul gem you possess that is not currently seated in a corpse. A soul gem cannot contain the same facet more than once.",
+				"Choose from the following lesser facets:",
 				{
 					"type": "list",
 					"items": [
-						"**Spirit Conduit:** You and your servant can perceive through the servant’s senses for 1 round while you lose yours. You can use this once per turn when the servant attacks.",
-						"**Refined Attribute:** One ability score of your servant increases by 2 to a maximum of 20.",
-						"**Grave-Hardened Hide:** Your servant gains +1 AC.",
-						"**Fortified Frame:** Your servant gains HP equal to twice your occultist level.",
-						"**Dead March:** Your servant’s walking speed increases by 10 feet.",
-						"**Corpse Grip:** The servant has advantage on checks to grapple.",
-						"**Elemental Ward:** The servant gains resistance to one chosen damage type (non-physical).",
-						"**Hollow Nerves:** The servant is immune to frightened.",
-						"**Dead Flesh:** The servant has advantage on Constitution saves.",
-						"**Vicious Implements:** The servant deals extra damage equal to proficiency bonus on one hit per turn.",
-						"**Bone Hooks:** A hit can reduce target speed by 10 feet until the servant’s next turn ends.",
-						"**Grave Weight:** A hit can prevent the target from taking reactions until your servant’s next turn ends.",
-						"**Silent Command:** Telepathic communication with a returned soul servant within 120 feet.",
-						"**Easy Reseating:** Reseating into a corpse reduces slot costs by 1, minimum 1st level."
+						"**Spirit Conduit.** Your bond with the servant runs in both directions while you and the servant are on the same plane. As a bonus action, you can perceive through the servant's senses until the start of your next turn. While doing so, you are blinded and deafened to your own surroundings. Once per turn, when your servant hits a creature with an attack, you can channel ethereal energy through the bond, dealing additional necrotic or psychic damage, your choice, equal to your Charisma modifier (minimum of 1).",
+						"**Refined Attribute.** Choose one ability score. The servant's chosen score increases by 2, to a maximum of 20.",
+						"**Grave-Hardened Hide.** The servant gains a +1 bonus to AC.",
+						"**Fortified Frame.** The servant's hit point maximum increases by twice your occultist level.",
+						"**Dead March.** The servant's walking speed increases by 10 feet.",
+						"**Corpse Grip.** The servant has advantage on ability checks made to grapple a creature or resist being shoved.",
+						"**Elemental Ward.** The servant gains resistance to one damage type of your choice other than bludgeoning, piercing, or slashing.",
+						"**Hollow Nerves.** The servant is immune to the frightened condition.",
+						"**Dead Flesh.** The servant has advantage on Constitution saving throws.",
+						"**Vicious Implements.** Once per turn, when the servant hits with a weapon attack or natural weapon attack, it deals extra damage equal to your proficiency bonus.",
+						"**Bone Hooks.** Once per turn, when the servant hits a creature with a melee attack, the target's speed is reduced by 10 feet until the start of the servant's next turn.",
+						"**Grave Weight.** Once per turn, when the servant hits a creature with a melee attack, the target cannot take reactions until the start of the servant's next turn.",
+						"**Silent Command.** You can communicate telepathically with the servant while it is within 120 feet of you. If the servant is a returned soul, it can respond telepathically.",
+						"**Easy Reseating.** When you re-seat this soul gem into a corpse, the spell slot levels required to animate the corpse are reduced by 1, to a minimum of one 1st-level slot."
 					]
 				}
 			],
@@ -4214,16 +4788,17 @@
 			"subclassSource": "VeiledOmens",
 			"level": 10,
 			"entries": [
-				"Your soul gem can hold two lesser facets and one greater facet.",
+				"Your soul gem can now hold two lesser facets and one greater facet. A soul gem can contain only one greater facet.",
+				"Choose from the following greater facets:",
 				{
 					"type": "list",
 					"items": [
-						"**Shared Vessel:** You can transfer hit points between yourself and your servant, up to your occultist level, as a bonus action.",
-						"**Imprinted Talent:** Your servant gains one feat appropriate to the feat’s requirements.",
-						"**Eldritch Bond:** Spells with a range other than self can originate from your servant if within 60 feet, using your modifiers.",
-						"**Incorporeal Passage:** The servant can move through creatures and objects; it takes force damage on ending its turn within an object.",
-						"**Soul-Snare:** A struck target cannot teleport, become incorporeal, or willingly leave the plane until the effect ends.",
-						"**Borrowed Body:** As a bonus action, you can perceive and speak through your servant for 1 minute."
+						"**Shared Vessel.** As a bonus action, while your servant is within 60 feet of you, you can transfer hit points between yourself and your servant in any combination, up to a total equal to your occultist level. Neither you nor the servant can exceed your respective hit point maximums, and you cannot transfer hit points to a servant whose current hit points are 0. You can use this facet a number of times equal to your proficiency bonus, regaining all expended uses when you finish a long rest. In addition, you always know the direction and approximate distance to your active servant, even across planar boundaries.",
+						"**Imprinted Talent.** The animated creature gains one feat of your choice, provided it meets the feat's requirements.",
+						"**Eldritch Bond.** When you cast a spell with a range other than self, you can have the spell originate from the servant's space instead of yours, provided the servant is within 60 feet of you. You must still provide the spell's components, and you use your own spell attack bonus and spell save DC. If the servant has spellcasting, it can also have a spell it casts with a range other than self originate from your space, provided you are within 60 feet of it. The servant must still provide the spell's components, and it uses its own spell attack bonus and spell save DC.",
+						"**Incorporeal Passage.** The servant can move through creatures and objects as if they were difficult terrain. It takes force damage equal to twice your proficiency bonus if it ends its turn inside an object.",
+						"**Soul-Snare.** Once per turn when the servant hits a creature with an attack, it can bind part of the target's spirit until the start of the servant's next turn. Until the effect ends, the target cannot teleport, become incorporeal, or willingly move to another plane.",
+						"**Borrowed Body.** As a bonus action, you can speak through the servant and perceive through its senses for 1 minute while it is within 120 feet of you. During this time, you are blinded and deafened to your own surroundings. If the servant is a returned soul, it can speak through you for the same duration. You can end this effect early as a bonus action."
 					]
 				}
 			],
@@ -4241,9 +4816,10 @@
 			"level": 14,
 			"entries": [
 				"Your soul gem can now hold three lesser facets and one greater facet.",
-				"You can transfer your soul into the gem as an action. Your body enters an unconscious incapacitated deathlike stasis while your soul occupies the gem.",
-				"While your soul occupies the gem, you control the servant body with your former abilities, using your class features and spellcasting but the servant’s physical traits.",
-				"You can return to your body as an action if your body is on the same plane. If the gem or body is destroyed, your soul returns to your body or passes on."
+				"In addition, you can become the soul that occupies your own prepared vessel. As an action while touching your seated soul gem, you transfer your soul into the gem. If another soul or spirit is bound in the gem, it is expelled to the Border Ethereal or its afterlife. Your body falls unconscious, becomes incapacitated, and enters a deathlike stasis until your soul returns.",
+				"While your soul occupies the gem, you control the servant's body as your own. You retain your Intelligence, Wisdom, Charisma, memories, class features, proficiencies, and spellcasting, but use the servant's Strength, Dexterity, Constitution, size, speeds, senses, and physical traits. The body remains undead.",
+				"You can return to your body as an action, provided your body is on the same plane. When you do, the servant becomes an inert corpse. The soul gem remains intact, but it is empty and cannot animate a corpse until you bind another spirit into it.",
+				"If the soul gem or the servant's body is destroyed while your soul occupies the gem, your soul immediately returns to your own body. If your own body has been destroyed in the meantime, your soul departs to its afterlife as normal."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-soul-gem-mastery.webp",
 			"__prop": "subclassFeature",

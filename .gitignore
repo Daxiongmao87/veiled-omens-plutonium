@@ -2,3 +2,6 @@
 /reference/
 /AGENTS.md
 __pycache__/
+/tmp/
+/.codex/
+/node_modules/

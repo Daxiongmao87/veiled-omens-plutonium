@@ -421,3 +421,75 @@ If race/species traits appear in Description but not Advancement:
 - Do not add source-authored `ItemGrant` rows. Create or repair the concrete race entries, class feature records, subclass feature records, and references, then prove Plutonium generated the actor-owned `ItemGrant` rows through real actor import output.
 - If the missing trait is racial spellcasting, add or repair `additionalSpells` instead of adding fake spell-level `ItemGrant` rows.
 - Use direct Foundry item JSON or portable compendium UUIDs only when exact child-item linking is required outside the 5etools/Plutonium feature-reference import path.
+
+## Foundry / Plutonium import validation
+
+The Python validators check JSON structure, source indexes, and link resolution. The Foundry import validation tests real actor import behavior through a running FoundryVTT instance with dnd5e and Plutonium. They are separate evidence paths.
+
+### Prerequisites
+
+1. A FoundryVTT application directory (containing `package.json` and `main.js`)
+2. A Foundry data directory with `Data/systems/dnd5e`, `Data/modules/plutonium`, `Data/modules/lib-wrapper`, and the target world
+3. A system Chromium browser (e.g. `/snap/bin/chromium`)
+4. `npm install` in this repository to install `playwright-core` (does not download browsers)
+
+### Preflight
+
+```bash
+FOUNDRY_APP_DIR=/path/to/foundry \
+FOUNDRY_DATA_DIR=/path/to/foundry-data \
+CHROMIUM_EXECUTABLE_PATH=/snap/bin/chromium \
+node tools/validate-foundry-plutonium-import.mjs --preflight
+```
+
+The preflight checks:
+- Foundry app directory exists with `package.json` and `main.js`
+- Foundry data template contains dnd5e, Plutonium, and lib-wrapper modules
+- Foundry data template contains the target world directory
+- `playwright-core` is installed
+- `CHROMIUM_EXECUTABLE_PATH` points to an existing browser binary
+- Package JSON file is valid and contains player-facing arrays
+
+### Full import
+
+```bash
+FOUNDRY_APP_DIR=/path/to/foundry \
+FOUNDRY_DATA_DIR=/path/to/foundry-data \
+CHROMIUM_EXECUTABLE_PATH=/snap/bin/chromium \
+node tools/validate-foundry-plutonium-import.mjs
+```
+
+The full run:
+1. Runs preflight checks
+2. Copies the Foundry data template to `tmp/` to avoid mutating the source
+3. Starts a local static HTTP server for the package JSON
+4. Launches Foundry via `node main.js` with the temp data path
+5. Opens Foundry in a headless Chromium browser
+6. Verifies `game.ready`, dnd5e, Plutonium, and lib-wrapper are active
+7. Loads the Veiled Omens package through `BrewUtil2.pAddBrewFromUrl`
+8. Imports every race into a test character actor via the Plutonium importer
+9. Imports every class and subclass through the Plutonium importer with configured levels
+10. Records actor items, advancement rows, malformed advancement rows, Plutonium flags, boot versions, package URL, and failures
+11. Writes the report to `tmp/foundry-plutonium-import-result.json`
+12. Closes the browser, stops the static server, and terminates the Foundry child process
+
+If Plutonium prompts or blocks on choices during import, the exact failure is recorded as a blocker in the result JSON rather than being reported as a pass.
+Use shorter values of `FOUNDRY_IMPORT_STEP_TIMEOUT_MS` to quickly reproduce interactive blockers; a timeout is blocker evidence with diagnostics, not Foundry verification.
+
+### Environment variables
+
+| Variable | Default | Required | Description |
+|---|---|---|---|
+| `FOUNDRY_APP_DIR` | none | yes | Foundry application directory containing `package.json` and `main.js` |
+| `FOUNDRY_DATA_DIR` | none | yes | Foundry data template directory containing `Data/systems/dnd5e`, `Data/modules/plutonium`, `Data/modules/lib-wrapper`, and the target world |
+| `FOUNDRY_WORLD` | `veiled-omens-import` | no | World name to load |
+| `FOUNDRY_NODE` | `process.execPath` | no | Node.js executable for Foundry |
+| `FOUNDRY_PORT` | `30000` | no | Foundry HTTP port |
+| `FOUNDRY_STATIC_PORT` | none | no | Static file server port for serving the package JSON |
+| `FOUNDRY_IMPORT_REPORT_PATH` | `tmp/foundry-plutonium-import-result.json` | no | Output report path |
+| `CHROMIUM_EXECUTABLE_PATH` | none | yes | Path to a system Chromium binary (e.g. `/snap/bin/chromium`) |
+| `FOUNDRY_IMPORT_STEP_TIMEOUT_MS` | `300000` | no | Per real Plutonium import/finalize step timeout in milliseconds; timeout reports a blocker with diagnostics |
+| `PACKAGE_JSON` | `collection/Patrick Richardson; Veiled Omens Campaign Setting.json` | no | Package JSON file path |
+| `VO_SOURCE_ID` | `VeiledOmens` | no | Source ID to verify after BrewUtil2 load |
+| `FOUNDRY_IMPORT_LEVELS` | `1,2,3` | no | Character levels for class import |
+| `FOUNDRY_HEADLESS` | `true` | no | Run Chromium headless |

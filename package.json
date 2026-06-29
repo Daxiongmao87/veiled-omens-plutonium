@@ -1,0 +1,9 @@
+{
+  "name": "veiled-omens-plutonium",
+  "version": "1.0.0",
+  "description": "Plutonium/5etools-ready Veiled Omens JSON for Foundry VTT import",
+  "type": "module",
+  "dependencies": {
+    "playwright-core": "^1.50.0"
+  }
+}

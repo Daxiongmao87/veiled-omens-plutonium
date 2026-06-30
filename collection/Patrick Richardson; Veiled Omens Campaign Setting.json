@@ -199,7 +199,7 @@
 					"type": "entries",
 					"name": "Age",
 					"entries": [
-						"Nesherim mature at the same rate as humans, but their lives can vary widely due to their internal conflict."
+						"Nesherim mature at the same rate as humans, but their lifespans vary wildly. The clash of their warring heritages suspends the passage of time within their bodies. Death comes not from age but from the inevitable moment when constitution and will fail against the ceaseless internal strife. Most live every year as if it were their last."
 					]
 				},
 				{
@@ -213,7 +213,7 @@
 					"type": "entries",
 					"name": "Size",
 					"entries": [
-						"Nesherim are in the human to near-human size range. Your size is Medium."
+						"Nesherim stand between 5 and 6 feet tall, their builds ranging from lithe to powerfully corded. Your size is Medium."
 					]
 				},
 				{
@@ -227,7 +227,7 @@
 					"type": "entries",
 					"name": "Child of the Flames",
 					"entries": [
-						"You have resistance to fire damage and radiant damage, and vulnerability to force damage."
+						"You have resistance to fire damage and radiant damage, but you are vulnerable to force damage; raw, unaligned magic disrupts the fragile equilibrium within you."
 					],
 					"_foundryId": "RFa09c05c8f409f1"
 				},
@@ -235,7 +235,7 @@
 					"type": "entries",
 					"name": "Planar Duality",
 					"entries": [
-						"You have advantage on death saving throws. You can count yourself as either celestial or fiend, your choice, when affected by abilities or spells that detect or target creature type."
+						"Your body remains a contested battleground. You have advantage on death saving throws. Additionally, you can count yourself as either celestial or fiend (your choice each time) for the purpose of spells or abilities that detect or affect creature type."
 					],
 					"_foundryId": "RF0a4015eb547265"
 				},
@@ -243,7 +243,7 @@
 					"type": "entries",
 					"name": "Confluence Brand",
 					"entries": [
-						"As a bonus action, you ignite with fused infernal flame and celestial light for 1 minute. While the brand persists, your melee weapon attacks and unarmed strikes deal extra fire and radiant damage. At the end of each of your turns while this brand lasts, you take damage from both damage types that ignores resistance and immunity. You can do this once and regain use after a long rest."
+						"As a bonus action, you ignite with fused infernal flame and celestial light for 1 minute. While the brand persists, your melee weapon attacks and unarmed strikes deal an extra 1d4 fire damage and an extra 1d4 radiant damage on a hit. At the end of each of your turns while the brand lasts, you take 1 fire damage and 1 radiant damage (this damage ignores resistance and immunity). Once you use this trait, you can't use it again until you finish a long rest."
 					],
 					"_foundryId": "RFd0f0747fe9a7eb"
 				},
@@ -251,7 +251,7 @@
 					"type": "entries",
 					"name": "Torch of Two Suns",
 					"entries": [
-						"As a bonus action, you can kindle a paired flame for 1 hour. Once during this hour, you can flare the torch, changing from dim to bright light and dealing damage to creatures in the bright area before the torch is extinguished. You can do this once and regain the use after a short or long rest."
+						"As a bonus action, you can kindle a paired flame of radiant and infernal light that sheds dim light in a 15-foot radius for 1 hour or until you dismiss it (no action required). Once during that hour, you can use an action to flare the torch. When you do, the light becomes bright light in a 15-foot radius and dim light for an additional 15 feet until the end of the current turn. Each creature in the bright light other than you takes 2d6 fire damage and 2d6 radiant damage. You then take 2d6 fire damage and 2d6 radiant damage (this damage ignores resistance and immunity), and the torch is extinguished. Once you use this trait, you can't use it again until you finish a short or long rest."
 					],
 					"_foundryId": "RFe286340637454b"
 				},
@@ -313,7 +313,7 @@
 					"type": "entries",
 					"name": "Age",
 					"entries": [
-						"Nesherim mature at the same rate as humans, but their lives are often marked by long conflict and sharp turns."
+						"Nesherim mature at the same rate as humans, but their lifespans vary wildly. The clash of their warring heritages suspends the passage of time within their bodies. Death comes not from age but from the inevitable moment when constitution and will fail against the ceaseless internal strife. Most live every year as if it were their last."
 					]
 				},
 				{
@@ -327,7 +327,7 @@
 					"type": "entries",
 					"name": "Size",
 					"entries": [
-						"Your size is Medium."
+						"Nesherim stand between 5 and 6 feet tall, their builds ranging from lithe to powerfully corded. Your size is Medium."
 					]
 				},
 				{
@@ -341,7 +341,7 @@
 					"type": "entries",
 					"name": "Child of the Flames",
 					"entries": [
-						"You have resistance to fire damage and radiant damage, and vulnerability to force damage."
+						"You have resistance to fire damage and radiant damage, but you are vulnerable to force damage; raw, unaligned magic disrupts the fragile equilibrium within you."
 					],
 					"_foundryId": "RF6bccadb6227a36"
 				},
@@ -349,7 +349,7 @@
 					"type": "entries",
 					"name": "Planar Duality",
 					"entries": [
-						"You have advantage on death saving throws. You can count yourself as either celestial or fiend, your choice, when affected by abilities or spells that detect or target creature type."
+						"Your body remains a contested battleground. You have advantage on death saving throws. Additionally, you can count yourself as either celestial or fiend (your choice each time) for the purpose of spells or abilities that detect or affect creature type."
 					],
 					"_foundryId": "RF80cf6ab3e38a69"
 				},
@@ -357,7 +357,7 @@
 					"type": "entries",
 					"name": "Flames of Judgment",
 					"entries": [
-						"When you hit a creature with an attack or spell that deals fire damage, the target must make a Constitution save (DC = 8 + your proficiency bonus + your Intelligence modifier). On a failure, the target takes radiant damage and sheds bright light, and you take fire damage equal to your proficiency bonus. You can use this trait once and regain it after a long rest."
+						"When you hit a creature with an attack or spell that deals fire damage, you can force the target to make a Constitution saving throw (DC = 8 + your proficiency bonus + your Intelligence modifier). On a failed save, the target takes radiant damage equal to twice your proficiency bonus and sheds bright light in a 10-foot radius until the end of your next turn. On a successful save, it takes half as much radiant damage and doesn't shed light. After the radiant damage is applied, you take fire damage equal to your proficiency bonus; this damage ignores resistance and immunity. Once you use this trait, you can't use it again until you finish a long rest."
 					],
 					"_foundryId": "RF61d0fc7799ce4f"
 				},
@@ -365,7 +365,7 @@
 					"type": "entries",
 					"name": "Hellward Step",
 					"entries": [
-						"When you take fire damage from a creature you can see, you can use your reaction to teleport up to 10 feet. The fire damage you take is reduced by your proficiency bonus. You can use this trait once and regain it after a short or long rest."
+						"When you take fire damage from a creature you can see, you can use your reaction to teleport up to 10 feet to an unoccupied space you can see. The fire damage you take from that source is reduced by your proficiency bonus. Once you use this trait, you can't use it again until you finish a short or long rest."
 					],
 					"_foundryId": "RFaee56ef4c5bda6"
 				},
@@ -427,7 +427,7 @@
 					"type": "entries",
 					"name": "Age",
 					"entries": [
-						"Nesherim mature as humans, but their long-term fate is tied to the balance between light and infernal fire."
+						"Nesherim mature at the same rate as humans, but their lifespans vary wildly. The clash of their warring heritages suspends the passage of time within their bodies. Death comes not from age but from the inevitable moment when constitution and will fail against the ceaseless internal strife. Most live every year as if it were their last."
 					]
 				},
 				{
@@ -441,7 +441,7 @@
 					"type": "entries",
 					"name": "Size",
 					"entries": [
-						"Your size is Medium."
+						"Nesherim stand between 5 and 6 feet tall, their builds ranging from lithe to powerfully corded. Your size is Medium."
 					]
 				},
 				{
@@ -455,7 +455,7 @@
 					"type": "entries",
 					"name": "Child of the Flames",
 					"entries": [
-						"You have resistance to fire damage and radiant damage, and vulnerability to force damage."
+						"You have resistance to fire damage and radiant damage, but you are vulnerable to force damage; raw, unaligned magic disrupts the fragile equilibrium within you."
 					],
 					"_foundryId": "RFfa3bccc24d589b"
 				},
@@ -463,7 +463,7 @@
 					"type": "entries",
 					"name": "Planar Duality",
 					"entries": [
-						"You have advantage on death saving throws. You can count yourself as either celestial or fiend, your choice, when affected by abilities or spells that detect or target creature type."
+						"Your body remains a contested battleground. You have advantage on death saving throws. Additionally, you can count yourself as either celestial or fiend (your choice each time) for the purpose of spells or abilities that detect or affect creature type."
 					],
 					"_foundryId": "RFe2834378a951e1"
 				},
@@ -471,7 +471,7 @@
 					"type": "entries",
 					"name": "Sanctifying Lights",
 					"entries": [
-						"As a bonus action, you can grant a creature within 30 feet temporary hit points equal to your proficiency bonus plus your Charisma modifier. You can do this a number of times equal to your proficiency bonus, and you regain all uses on a long rest."
+						"As a bonus action, you can choose a creature you can see within 30 feet of you (including yourself). The target gains temporary hit points equal to your proficiency bonus + your Charisma modifier. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 					],
 					"_foundryId": "RFf0467c4e50c942"
 				},
@@ -479,7 +479,7 @@
 					"type": "entries",
 					"name": "Crown of Atonement",
 					"entries": [
-						"When you see a creature you can see within 30 feet take damage, you can use a reaction to reduce that damage by your proficiency bonus times 2 (minimum 2). The attacker takes damage and you take radiant damage, both unaffected by resistance or immunity. You can do this once and regain use on a short or long rest."
+						"When a creature you can see within 30 feet of you takes damage from another creature, you can use your reaction to reduce the damage the target takes by twice your proficiency bonus (minimum 2). The attacker then takes fire damage equal to twice your proficiency bonus, and you take radiant damage equal to your proficiency bonus (this damage ignores resistance and immunity). Once you use this trait, you can't use it again until you finish a long rest."
 					],
 					"_foundryId": "RFff0fd7bb5fc9a6"
 				},
@@ -1816,7 +1816,7 @@
 					"type": "entries",
 					"name": "Speed",
 					"entries": [
-						"Your base walking speed is 30 feet."
+						"Your base walking speed is based on your humanoid parentage."
 					]
 				},
 				{
@@ -3617,303 +3617,6 @@
 			"__prop": "subclass"
 		},
 		{
-			"name": "Occult Knight",
-			"shortName": "Occult Knight",
-			"source": "VeiledOmens",
-			"className": "Fighter",
-			"classSource": "PHB",
-			"page": 0,
-			"edition": "classic",
-			"spellcastingAbility": "cha",
-			"casterProgression": "1/3",
-			"cantripProgression": [
-				0,
-				0,
-				2,
-				2,
-				2,
-				2,
-				2,
-				2,
-				2,
-				3,
-				3,
-				3,
-				3,
-				3,
-				3,
-				3,
-				3,
-				3,
-				3,
-				3
-			],
-			"spellsKnownProgression": [
-				0,
-				0,
-				3,
-				4,
-				4,
-				4,
-				5,
-				6,
-				6,
-				7,
-				8,
-				8,
-				9,
-				10,
-				10,
-				11,
-				11,
-				11,
-				12,
-				13
-			],
-			"subclassTableGroups": [
-				{
-					"subclasses": [
-						{
-							"name": "Occult Knight",
-							"source": "VeiledOmens"
-						}
-					],
-					"colLabels": [
-						"{@filter Cantrips Known|spells|level=0|class=Occultist}",
-						"{@filter Spells Known|spells|class=Occultist}"
-					],
-					"rows": [
-						[
-							0,
-							0
-						],
-						[
-							0,
-							0
-						],
-						[
-							2,
-							3
-						],
-						[
-							2,
-							4
-						],
-						[
-							2,
-							4
-						],
-						[
-							2,
-							4
-						],
-						[
-							2,
-							5
-						],
-						[
-							2,
-							6
-						],
-						[
-							2,
-							6
-						],
-						[
-							3,
-							7
-						],
-						[
-							3,
-							8
-						],
-						[
-							3,
-							8
-						],
-						[
-							3,
-							9
-						],
-						[
-							3,
-							10
-						],
-						[
-							3,
-							10
-						],
-						[
-							3,
-							11
-						],
-						[
-							3,
-							11
-						],
-						[
-							3,
-							11
-						],
-						[
-							3,
-							12
-						],
-						[
-							3,
-							13
-						]
-					]
-				},
-				{
-					"title": "Spell Slots per Spell Level",
-					"subclasses": [
-						{
-							"name": "Occult Knight",
-							"source": "VeiledOmens"
-						}
-					],
-					"colLabels": [
-						"{@filter 1st|spells|level=1|class=Occultist}",
-						"{@filter 2nd|spells|level=2|class=Occultist}",
-						"{@filter 3rd|spells|level=3|class=Occultist}",
-						"{@filter 4th|spells|level=4|class=Occultist}"
-					],
-					"rowsSpellProgression": [
-						[
-							0,
-							0,
-							0,
-							0
-						],
-						[
-							0,
-							0,
-							0,
-							0
-						],
-						[
-							2,
-							0,
-							0,
-							0
-						],
-						[
-							3,
-							0,
-							0,
-							0
-						],
-						[
-							3,
-							0,
-							0,
-							0
-						],
-						[
-							3,
-							0,
-							0,
-							0
-						],
-						[
-							4,
-							2,
-							0,
-							0
-						],
-						[
-							4,
-							2,
-							0,
-							0
-						],
-						[
-							4,
-							2,
-							0,
-							0
-						],
-						[
-							4,
-							3,
-							0,
-							0
-						],
-						[
-							4,
-							3,
-							0,
-							0
-						],
-						[
-							4,
-							3,
-							0,
-							0
-						],
-						[
-							4,
-							3,
-							2,
-							0
-						],
-						[
-							4,
-							3,
-							2,
-							0
-						],
-						[
-							4,
-							3,
-							2,
-							0
-						],
-						[
-							4,
-							3,
-							3,
-							0
-						],
-						[
-							4,
-							3,
-							3,
-							0
-						],
-						[
-							4,
-							3,
-							3,
-							0
-						],
-						[
-							4,
-							3,
-							3,
-							1
-						],
-						[
-							4,
-							3,
-							3,
-							1
-						]
-					]
-				}
-			],
-			"subclassFeatures": [
-				"Occult Knight|Fighter|PHB|Occult Knight|VeiledOmens|3|VeiledOmens",
-				"Sign-Read Imprint|Fighter|PHB|Occult Knight|VeiledOmens|7|VeiledOmens",
-				"Cursed Strike|Fighter|PHB|Occult Knight|VeiledOmens|10|VeiledOmens",
-				"Twin Imprint|Fighter|PHB|Occult Knight|VeiledOmens|15|VeiledOmens",
-				"Mortal Haunt|Fighter|PHB|Occult Knight|VeiledOmens|18|VeiledOmens"
-			],
-			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclass"
-		},
-		{
 			"name": "Pale Touched",
 			"shortName": "Pale Touched",
 			"source": "VeiledOmens",
@@ -5015,314 +4718,6 @@
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-flesh.webp",
 			"__prop": "subclassFeature",
 			"_foundryId": "SF7d4e4870dc258a"
-		},
-		{
-			"name": "Occult Knight",
-			"source": "VeiledOmens",
-			"className": "Fighter",
-			"classSource": "PHB",
-			"subclassShortName": "Occult Knight",
-			"subclassSource": "VeiledOmens",
-			"level": 3,
-			"entries": [
-				"Occult Knights are warriors who turn mortal trauma into technique. They study the traces left behind by violence, terror, betrayal, sacrifice, wasting, hunger, binding, and fate, then bind those traces into their weapons. To an Occult Knight, a battlefield is not merely a place of combat. It is a field of lingering signs, each traumatic death leaving pressure in the Border Ethereal.",
-				"An Occult Knight does not command the dead. The knight reads what death leaves behind and teaches steel to remember it.",
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Occult Knight Spellcasting|Fighter|PHB|Occult Knight|VeiledOmens|3|VeiledOmens"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Mortal Imprint|Fighter|PHB|Occult Knight|VeiledOmens|3|VeiledOmens"
-				}
-			],
-			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature",
-			"_foundryId": "SF5649080f981aec"
-		},
-		{
-			"name": "Occult Knight Spellcasting",
-			"source": "VeiledOmens",
-			"className": "Fighter",
-			"classSource": "PHB",
-			"subclassShortName": "Occult Knight",
-			"subclassSource": "VeiledOmens",
-			"level": 3,
-			"entries": [
-				"When you reach 3rd level, you augment your martial prowess with occult magic.",
-				{
-					"type": "entries",
-					"name": "Cantrips",
-					"entries": [
-						"You learn two cantrips of your choice from the occultist spell list.",
-						"You learn an additional occultist cantrip of your choice at 10th level."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Spell Slots",
-					"entries": [
-						"The Occult Knight Spellcasting table shows how many spell slots you have to cast your occult knight spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Spells Known of 1st Level and Higher",
-					"entries": [
-						"You know three 1st-level occultist spells of your choice, two of which you must choose from the divination and necromancy spells on the occultist spell list.",
-						"The Spells Known column of the Occult Knight Spellcasting table shows when you learn more occultist spells of 1st level or higher. Each of these spells must be a divination or necromancy spell of your choice from the occultist spell list and must be of a level for which you have spell slots, except for the spells you learn at 8th, 14th, and 20th level, which can come from any school of magic on the occultist spell list.",
-						"Whenever you gain a level in this class, you can replace one of the occult knight spells you know with another spell of your choice from the occultist spell list. The new spell must be of a level for which you have spell slots, and it must be a divination or necromancy spell unless you are replacing a spell you gained from any school of magic."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Spellcasting Ability",
-					"entries": [
-						"Charisma is your spellcasting ability for your occult knight spells, since your magic comes from will, presence, and spiritual pressure. You use your Charisma whenever a spell refers to your spellcasting ability.",
-						"{@b Spell save DC} = 8 + your proficiency bonus + your Charisma modifier",
-						"{@b Spell attack modifier} = your proficiency bonus + your Charisma modifier"
-					]
-				}
-			],
-			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature",
-			"_foundryId": "SF4c2f90dd0d1544"
-		},
-		{
-			"name": "Mortal Imprint",
-			"source": "VeiledOmens",
-			"className": "Fighter",
-			"classSource": "PHB",
-			"subclassShortName": "Occult Knight",
-			"subclassSource": "VeiledOmens",
-			"level": 3,
-			"entries": [
-				"Also at 3rd level, you can bind the Ethereal residue of a traumatic death into a weapon.",
-				"You can perform a 10-minute rite over a death-source, such as a corpse, grave, battlefield remnant, murder weapon, execution site, bloodstained ground, funerary token, or other object or place marked by traumatic death. When you do, choose one Trauma from the Trauma list that reasonably describes the death-source. The weapon becomes your imprinted weapon and gains the property associated with that Trauma.",
-				"You can have only one imprinted weapon at a time. If you bind a new Mortal Imprint, the previous imprint fades.",
-				"Once a death-source has been used for your Mortal Imprint, you cannot use that same death-source to bind a Mortal Imprint again. The DM decides whether a corpse, grave, site, weapon, token, remnant, or other marked object or place is a distinct death-source.",
-				"While holding your imprinted weapon, you can use it as a spellcasting focus for your occult knight spells.",
-				"If a Trauma property forces a creature to make a saving throw, the DC equals your occult knight spell save DC.",
-				{
-					"type": "entries",
-					"name": "Haunting",
-					"entries": [
-						"Unless a Trauma says otherwise, once on each of your turns when you hit a creature with a weapon attack using your imprinted weapon, you can haunt the target with your weapon's Trauma until the start of your next turn.",
-						"When the Trauma's trigger occurs, you can use your reaction to invoke the haunting. The haunting ends early when you invoke it.",
-						"You can have only one creature haunted by your Mortal Imprint at a time. If you haunt a new creature, the previous haunting ends."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Wound Value",
-					"entries": [
-						"Some Trauma properties refer to the attack's Wound Value.",
-						"The Wound Value is the total rolled on the weapon's own damage dice for the attack that created the haunting. Do not include your ability modifier, damage from spells, damage from magic item effects, poison damage, class feature damage, feat damage, or damage from other Trauma properties.",
-						"If the attack is a critical hit, use the total rolled on the weapon's doubled damage dice."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Trauma Properties",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Violence",
-							"entries": [
-								"{@b Deaths It Represents:} Battle, impact, weapons, mutilation, crushing force, or bodily destruction.",
-								"When the haunted target deals damage to another creature before the start of your next turn, you can use your reaction to deal psychic damage to the haunted target equal to the Wound Value. The haunting then ends."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Wasting",
-							"entries": [
-								"{@b Deaths It Represents:} Poison, sickness, exhaustion, exposure, decay, weakness, or slow bodily failure.",
-								"When the haunted target starts its turn or regains hit points before the start of your next turn, you can use your reaction to deal 1d4 necrotic damage to it. Its hit point maximum is reduced by an amount equal to the necrotic damage dealt. This reduction lasts until the target finishes a long rest and cannot reduce its hit point maximum below 1. The haunting then ends."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Consumption",
-							"entries": [
-								"{@b Deaths It Represents:} Fire, acid, devouring, starvation, suffocation, thirst, draining, or being used up.",
-								"When the haunted target takes damage before the start of your next turn, you can use your reaction to deal necrotic damage to it equal to the Wound Value, and you gain temporary hit points equal to the necrotic damage dealt. The haunting then ends."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Dread",
-							"entries": [
-								"{@b Deaths It Represents:} Terror, panic, despair, pursuit, helplessness, or horror at the moment of death.",
-								"At the start of the haunted target's turn, you can use your reaction to force it to make a Wisdom saving throw. On a failure, it is frightened of you until the start of your next turn. The haunting then ends."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Binding",
-							"entries": [
-								"{@b Deaths It Represents:} Restraint, imprisonment, curse, possession, execution, paralysis, or inescapable fate.",
-								"When the haunted target willingly moves, teleports, or attempts to leave its current plane before the start of your next turn, you can use your reaction to force it to make a Charisma saving throw. On a failure, its speed becomes 0 until the start of your next turn, and the triggering movement, teleportation, or planar movement fails. The haunting then ends."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Sacrifice",
-							"entries": [
-								"{@b Deaths It Represents:} Willing death, protection, martyrdom, oath, devotion, or dying for another creature or cause.",
-								"When you haunt a creature with this Trauma, record the attack's Wound Value. Until the start of your next turn, when you or a creature you can see within 30 feet of you takes damage, you can use your reaction to reduce that damage by an amount up to the recorded Wound Value. The haunting then ends."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Betrayal",
-							"entries": [
-								"{@b Deaths It Represents:} Treachery, ambush, false safety, broken trust, oath-breaking, or murder by an unexpected hand.",
-								"At the start of the haunted target's turn, you can use your reaction to force it to make a Wisdom saving throw. On a failure, choose one creature you can see that the haunted target regards as an ally or enemy. Until the end of the haunted target's turn, the haunted target regards the chosen creature as the opposite of what it otherwise would: an ally becomes an enemy, and an enemy becomes an ally.",
-								"The first time before the effect ends that the haunted target chooses a target for an attack, spell, or other feature, it must choose the designated creature if that creature is a valid target. The haunting then ends."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Rune",
-							"entries": [
-								"{@b Deaths It Represents:} Death by magic, spell-fire, arcane backlash, enchanted killing, or a fatal enchantment.",
-								"When you hit a creature with this weapon as part of the Attack action, you can use your reaction to cast one occult knight spell of 1st level or higher with a casting time of 1 action and a range of touch, expending a spell slot as normal. The spell is delivered through the weapon and must target the creature you hit.",
-								"If the spell requires a spell attack roll, the weapon attack replaces that spell attack roll. If the spell requires a saving throw, the target makes the saving throw normally.",
-								"Rune does not create a lingering haunting unless another feature causes it to do so."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Fate",
-							"entries": [
-								"{@b Deaths It Represents:} A foretold death, fulfilled omen, fated doom, prophecy, curse of inevitability, or a death seen before it happened.",
-								"When you bind this Trauma, roll a d20 and record the result as your fate die.",
-								"When you hit a creature with this weapon and haunt it with this Trauma, the target's fate is bound to yours until the start of your next turn. While the target's fate is bound this way, when it rolls a d20 for an attack roll, ability check, or saving throw, you can use your reaction to swap that roll with your fate die after the roll is made but before the outcome is declared. The replaced roll becomes your new fate die, and the haunting ends."
-							]
-						}
-					]
-				}
-			],
-			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature",
-			"_foundryId": "SF1263744421de4c"
-		},
-		{
-			"name": "Sign-Read Imprint",
-			"source": "VeiledOmens",
-			"className": "Fighter",
-			"classSource": "PHB",
-			"subclassShortName": "Occult Knight",
-			"subclassSource": "VeiledOmens",
-			"level": 7,
-			"entries": [
-				"At 7th level, you learn to read the sign that gathers around a mortal imprint.",
-				"When you bind a Mortal Imprint into a weapon, roll on the Imprint Sign table. The weapon gains the rolled Sign property until its Mortal Imprint ends.",
-				"A Sign changes how the weapon creates or delivers its haunting. It does not change the weapon's normal attacks unless the Sign says otherwise.",
-				"While a weapon bears both a Trauma and a Sign, it counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.",
-				{
-					"type": "table",
-					"caption": "Imprint Sign",
-					"colLabels": [
-						"d6",
-						"Sign",
-						"Weapon Property"
-					],
-					"rows": [
-						[
-							"1",
-							"**Gate-Signed**",
-							"When you make a melee attack with your imprinted weapon that can create a haunting, your reach for that attack increases by 10 feet."
-						],
-						[
-							"2",
-							"**Arrow-Signed**",
-							"You can create your weapon's haunting with a ranged attack using the imprinted weapon."
-						],
-						[
-							"3",
-							"**Thorn-Signed**",
-							"When a creature haunted by your weapon damages you while it is within the weapon's normal reach, you can make one melee attack with the imprinted weapon against that creature as part of the same reaction you use to invoke the haunting."
-						],
-						[
-							"4",
-							"**Chain-Signed**",
-							"When a creature haunted by your weapon willingly moves at least 5 feet while it is within the weapon's normal reach, you can treat that movement as the trigger for the weapon's Trauma property."
-						],
-						[
-							"5",
-							"**Lantern-Signed**",
-							"You can create your weapon's haunting against a creature you cannot see, provided you know the creature's space. The attack does not have disadvantage solely because you cannot see the target. If the attack hits, the target gains no benefit from being hidden or invisible from you until the start of your next turn."
-						],
-						[
-							"6",
-							"**Echo-Signed**",
-							"If you miss a creature with an attack that could create your weapon's haunting, the next attack you make with this weapon against the same creature before the end of the current turn can create the haunting even if you have already created a haunting this turn."
-						]
-					]
-				}
-			],
-			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature",
-			"_foundryId": "SFd442b20b217e6d"
-		},
-		{
-			"name": "Cursed Strike",
-			"source": "VeiledOmens",
-			"className": "Fighter",
-			"classSource": "PHB",
-			"subclassShortName": "Occult Knight",
-			"subclassSource": "VeiledOmens",
-			"level": 10,
-			"entries": [
-				"At 10th level, your imprinted weapon can drive a curse into the wound it opens.",
-				"When you invoke a Trauma property against a haunted target, roll 1d4.",
-				"If the Trauma property forces the target to make a saving throw, subtract the roll from that saving throw.",
-				"If the Trauma property deals damage, reduces damage, grants temporary hit points, or reduces a creature's hit point maximum, increase one such value caused by that Trauma property by the roll.",
-				"If the Trauma property does none of these, the haunted target takes psychic damage equal to the roll after the Trauma property resolves."
-			],
-			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature",
-			"_foundryId": "SF7a1bc07c4beb43"
-		},
-		{
-			"name": "Twin Imprint",
-			"source": "VeiledOmens",
-			"className": "Fighter",
-			"classSource": "PHB",
-			"subclassShortName": "Occult Knight",
-			"subclassSource": "VeiledOmens",
-			"level": 15,
-			"entries": [
-				"At 15th level, your imprinted weapon can bear two Traumas at once.",
-				"When you bind a Mortal Imprint into your weapon, you can choose two Traumas instead of one. Each Trauma must reasonably describe the death-source, or you must perform the rite over death-sources that support both Traumas.",
-				"Your weapon still has only one Imprint Sign. The Sign applies to both Traumas.",
-				"When you hit a creature with your imprinted weapon and create a haunting, you can haunt the target with both Traumas bound to your weapon. This is a single haunting.",
-				"When a triggering event occurs, you can use your reaction to invoke one or both Trauma properties whose triggers are satisfied by that same event. Once you invoke any part of the haunting, the haunting ends."
-			],
-			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature",
-			"_foundryId": "SF869b42773df49a"
-		},
-		{
-			"name": "Mortal Haunt",
-			"source": "VeiledOmens",
-			"className": "Fighter",
-			"classSource": "PHB",
-			"subclassShortName": "Occult Knight",
-			"subclassSource": "VeiledOmens",
-			"level": 18,
-			"entries": [
-				"At 18th level, your imprinted weapon's residue deepens.",
-				"When a creature dies while haunted by your imprinted weapon, or dies as a result of one of your Trauma properties, you can cause the death to echo through the Border Ethereal.",
-				"Choose a number of hostile creatures up to your Charisma modifier, minimum one, that can see the creature die. Each chosen creature becomes haunted by one Trauma currently bound to your weapon until the start of your next turn. This haunting does not require a weapon attack.",
-				"Until the start of your next turn, when one of these hauntings is triggered, you can invoke that haunting without using your reaction. Each creature can suffer only one Trauma property from this feature.",
-				"Once you use this feature, you cannot use it again until you finish a short or long rest."
-			],
-			"foundryImg": "systems/dnd5e/icons/classes/fighter.webp",
-			"__prop": "subclassFeature",
-			"_foundryId": "SF06fd01e1b03f00"
 		},
 		{
 			"name": "Pale Touched",

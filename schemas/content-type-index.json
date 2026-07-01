@@ -15,6 +15,7 @@
     {"name": "Creature", "topLevelArray": "monster", "prop": "monster"},
     {"name": "Spell", "topLevelArray": "spell", "prop": "spell"},
     {"name": "Item", "topLevelArray": "item", "prop": "item"},
+    {"name": "Magic Variant", "topLevelArray": "magicvariant", "prop": "magicvariant"},
     {"name": "Feat", "topLevelArray": "feat", "prop": "feat"},
     {"name": "Optional Feature", "topLevelArray": "optionalfeature", "prop": "optionalfeature"},
     {"name": "Reward", "topLevelArray": "reward", "prop": "reward"},

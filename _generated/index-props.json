@@ -8,6 +8,9 @@
   "item": {
     "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
   },
+  "magicvariant": {
+    "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
+  },
   "race": {
     "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
   },
@@ -18,9 +21,6 @@
     "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
   },
   "subclassFeature": {
-    "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
-  },
-  "variantrule": {
     "collection/Patrick Richardson; Veiled Omens Campaign Setting.json": "collection"
   }
 }

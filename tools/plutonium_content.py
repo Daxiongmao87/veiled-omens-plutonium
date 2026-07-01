@@ -21,6 +21,7 @@ CONTENT_DIRS = {
     "reward",
     "action",
     "monster",
+    "magicvariant",
     "vehicle",
     "vehicleUpgrade",
     "deck",

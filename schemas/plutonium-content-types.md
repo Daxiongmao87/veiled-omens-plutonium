@@ -640,6 +640,47 @@ Card core fields:
 }
 ```
 
+## Magic Variant
+
+Top-level array: `magicvariant`
+
+Entry discriminator:
+
+```json
+"__prop": "magicvariant"
+```
+
+Core fields:
+
+```json
+{
+  "name": "Magic Variant Name",
+  "source": "VeiledOmens",
+  "type": "GV|DMG",
+  "requires": [
+    {
+      "weapon": true
+    }
+  ],
+  "inherits": {
+    "namePrefix": "Material Name ",
+    "source": "VeiledOmens",
+    "nameSuffix": "(optional) Example Suffix",
+    "rarity": "rare",
+    "dmgType": "N",
+    "entries": [
+      "Base rule entries are inherited by generated item variants."
+    ]
+  },
+  "entries": [
+    "Base family entries used when the variant cannot be expressed in inheritance alone."
+  ],
+  "__prop": "magicvariant"
+}
+```
+
+Use a top-level `magicvariant` entry when a material family should generate item variants that keep player-facing base-item behavior (for example Adamantine/Silvered weapon and armor variants).
+
 ## Variant rule
 
 Top-level array: `variantrule`

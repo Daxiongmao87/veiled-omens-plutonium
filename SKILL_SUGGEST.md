@@ -1,21 +1,19 @@
 ---
 name: veiled-omens-plutonium-daily-alignment
-description: Align the Veiled Omens Plutonium package to current player-options source and verify it through repo validators plus the real Foundry/Plutonium import harness.
+description: Align the Veiled Omens Plutonium package to current player-options source material and verify it through repo validators plus the real Foundry/Plutonium import harness.
 ---
 
-Work from `/home/agent/projects/veiled-omens-plutonium`. Treat `AGENTS.md`, `README.md`, `DEVELOPMENT.md`, `docs/5etools-homebrew-conventions.md`, and repo validators as governing requirements. The canonical package is `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`; the player-options source is the symlink `veiled-omens-player-options-source -> /home/agent/projects/venoure/Veiled_Omens/Player_Options`.
+Work from `/home/agent/projects/veiled-omens-plutonium`. Treat `AGENTS.md`, `README.md`, `DEVELOPMENT.md`, `docs/5etools-homebrew-conventions.md`, repo validators, and the canonical package `collection/Patrick Richardson; Veiled Omens Campaign Setting.json` as governing requirements. The player-options source is the symlink `veiled-omens-player-options-source -> /home/agent/projects/venoure/Veiled_Omens/Player_Options`; inspect through the symlink and treat the symlink target plus `reference/` as read-only.
 
-Start at the symlink root each run and discover source files live with `find -L veiled-omens-player-options-source -maxdepth 4 -type f` or `rg --files -L veiled-omens-player-options-source`. Treat the symlink target and `reference/` as read-only. For the 2026-07-01 run, rules-bearing source files inspected included `Races/ghost_elf.md`, `Races/nesherim.md`, `Races/onihan.md`, `Races/vaetyr.md`, `Races/wyrmblooded.md`, `Races/goliath_ogre_blooded.md`, `Races/goliath_ogre_blooded.local.md`, `Races/goliath_troll_blooded.md`, `Races/rimeheart_dwarves.md`, `Races/half_troll.txt`, `Races/_race_metadata/wyrmblooded.yaml`, `Species/Elves/ghost_elf.md`, `Classes/occultist.txt`, `Classes/occultist_spell_list.md`, `Classes/occultist_homebrew_spells.md`, `Classes/occultist_rite_of_haunts.txt`, `Classes/occultist_rite_of_omens.txt`, `Classes/occultist_rite_of_servitude.txt`, `Classes/thaumaphage.md`, `Classes/sorcerer_pale_touched.md`, `Classes/sorcerer_veil_touched.txt`, `Classes/barbarian_path_of_the_shaman.md`, and `Items/README.md`.
+Start each run by discovering source material live from the symlink root. In the 2026-07-01 run, `find -L veiled-omens-player-options-source -maxdepth 4 -type f` found source files under `Classes/`, `Races/`, `Races/_race_metadata/`, `Species/Elves/`, and `Items/`. No source file documented a narrower discovery root. The represented-package comparison inspected these rules-bearing source paths: `Classes/occultist.txt`, `Classes/occultist_spell_list.md`, `Classes/occultist_homebrew_spells.md`, `Classes/occultist_rite_of_haunts.txt`, `Classes/occultist_rite_of_omens.txt`, `Classes/occultist_rite_of_servitude.txt`, `Classes/thaumaphage.md`, `Classes/sorcerer_pale_touched.md`, `Classes/barbarian_path_of_the_shaman.md`, `Races/ghost_elf.md`, `Species/Elves/ghost_elf.md`, `Races/nesherim.md`, `Races/goliath_ogre_blooded.md`, `Races/goliath_ogre_blooded.local.md`, `Races/goliath_troll_blooded.md`, `Races/onihan.md`, `Races/vaetyr.md`, `Races/wyrmblooded.md`, and `Races/_race_metadata/wyrmblooded.yaml`.
 
-Inventory the package with parsed JSON. Extract represented `race`, `class`, `classFeature`, `subclass`, `subclassFeature`, `spell`, and `item` entries, then compare each represented mechanic to source for names, prerequisites, level gates, granted features, spell lists, uses, recovery, DCs, damage, scaling, charges, attunement, rarity, item type, activities, proficiencies, languages, size, movement, senses, and rules-affecting text. On 2026-07-01 the represented mechanics were 12 races, 2 classes, 30 class features, 7 subclasses, 39 subclass features, 23 spells, and 1 item.
+Inventory the canonical package with parsed JSON before comparing source text. For the 2026-07-01 run, the package represented 12 races/species, 2 classes, 7 subclasses, 30 class features, 39 subclass features, 23 spells, and 1 item. Compare represented mechanics against source for names, prerequisites, level gates, granted features, spell lists, uses, recovery, DCs, damage, scaling, charges, attunement, rarity, item type, activities, proficiencies, languages, size, movement, senses, and rules-affecting text. Use structured JSON parsing for package fields such as `ability`, `size`, `speed`, `languageProficiencies`, `skillProficiencies`, `toolProficiencies`, `resist`, `vulnerable`, `additionalSpells`, `classSpells`, `classFeatures`, `subclassFeatures`, and item charge/recharge fields.
 
-Inspect matching TheGiddyLimit/homebrew and Plutonium reference examples before changing content conventions. For class spell lists, the 2026-07-01 governing examples were `reference/TheGiddyLimit-homebrew/class/KibblesTasty; Occultist.json` and `reference/TheGiddyLimit-homebrew/class/LaserLlama; Alternate Paladin.json`, which use class-level `classSpells`. Source-local spell UIDs use `Name|VeiledOmens`; official spells keep their official sources such as `|GGR`, `|TCE`, `|EGW`, `|SCC`, `|SatO`, and `|BMT`.
+High-risk checks from this execution: Occultist `classSpells` matched `Classes/occultist_spell_list.md` exactly at 89 entries with no missing or extra UIDs; all 21 Occultist homebrew spell records existed; Thaumaphage had the Constitution 13 and Wisdom 13 multiclass requirements, string tool proficiencies, `Convert Essence|VeiledOmens` and `Ether Burn|VeiledOmens` class spell entries, and Mana Crystal starting equipment; races matched source mechanics for ability changes, size, speed, languages, darkvision, skill/tool proficiencies, resistances, vulnerability, and racial spell grants; Mana Crystal used `wondrous: true`, rarity `uncommon`, attunement, variable charges, and `recharge: "restLong"`. No content discrepancy was established and no Plutonium JSON/tool/doc fix was made in this execution.
 
-Use same-class audits for drift classes. On 2026-07-01, the discrepancy was missing class spell-list wiring: `Classes/occultist_spell_list.md` defined the Occultist spell list, but the package had no Occultist `classSpells`; Thaumaphage source spells also lacked `classSpells`. The correction added 89 Occultist `classSpells` entries matching source order, added Thaumaphage `Convert Essence|VeiledOmens` and `Ether Burn|VeiledOmens`, documented the convention, and added `validate_class_spells` coverage plus regression tests.
+If a discrepancy requires code, validator, JSON, or doc edits, use the executor wrapper for implementation, then independently inspect the diff and rerun the full validation path. Do not edit `reference/` or the symlink target. Regenerate indexes after JSON changes.
 
-Check high-risk Plutonium conversion fields directly: `additionalSpells` for racial and fixed spell grants, string tool proficiencies for classes, `classFeatures` and `subclassFeatures` references, subclass header `refSubclassFeature` wiring, absence of source-authored `ItemGrant` rows, absence of source feature-grant `foundryAdvancement` rows, item `wondrous: true`, item charge/recharge fields, and `_generated/index-sources.json` mapping one `VeiledOmens` source to the canonical collection file.
-
-Use the executor wrapper for code or validator edits, then independently inspect the diff and run verification. Regenerate indexes after JSON changes and run this exact validator sequence:
+Run this validator sequence exactly and record pass/fail output:
 
 ```sh
 python3 tools/generate-plutonium-indexes.py
@@ -28,22 +26,25 @@ python3 tools/validate-foundry-advancements.py
 python3 -m unittest discover -s tests -v
 ```
 
-Audit `_generated/index-sources.json` and `_generated/index-props.json` after regeneration. On 2026-07-01, `index-sources.json` mapped `VeiledOmens` to `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`, `index-props.json` mapped `class`, `classFeature`, `item`, `race`, `spell`, `subclass`, and `subclassFeature` to `collection`, and the package source-field audit returned the single source ID `VeiledOmens`.
+In the 2026-07-01 run, all eight commands passed. Index generation reported already up to date; content validation checked 1 content file and parsed 14 repository JSON files; prose mechanics scanned 1 content file; unittest discovery ran 5 tests with `OK`.
 
-Run the real Foundry import harness after verifying paths are live:
+Audit `_generated/index-sources.json` and `_generated/index-props.json` after validation. In this execution, `index-sources.json` mapped `VeiledOmens` to `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`; `index-props.json` mapped `class`, `classFeature`, `item`, `race`, `spell`, `subclass`, and `subclassFeature` to `collection`; active content source fields contained only `VeiledOmens`.
+
+Verify the real Foundry harness paths live before running the browser-driven import:
 
 ```sh
-test -d /home/agent/tmp/veiled-omens-foundry-import-1782310453848/foundry
-test -d /home/agent/tmp/veiled-omens-foundry-import-1782310453848/data
-test -f /home/agent/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
-
-TMPDIR=/dev/shm \
-FOUNDRY_APP_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/foundry \
-FOUNDRY_DATA_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/data \
-CHROMIUM_EXECUTABLE_PATH=/home/agent/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome \
-node tools/validate-foundry-plutonium-import.mjs
+ls -ld /home/agent/tmp/veiled-omens-foundry-import-1782310453848/foundry
+ls -ld /home/agent/tmp/veiled-omens-foundry-import-1782310453848/data
+ls -l /home/agent/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
+df -h / /dev/shm
 ```
 
-Read `tmp/foundry-plutonium-import-result.json` after the harness. Report `status`, `sourceLoaded`, Foundry/dnd5e/Plutonium versions, package source, import plan, imported labels, failures, malformed advancement row counts, item advancement row counts, and import count. On 2026-07-01 the report status was `passed`, `sourceLoaded` was `true`, versions were Foundry `14.364.0`, dnd5e `5.3.3`, Plutonium `2.15.10`, package source was `VeiledOmens`, imported count was 21, failures were empty, and malformed advancement rows were empty.
+Then run the real harness with actual FoundryVTT, dnd5e, Plutonium, lib-wrapper, and Chromium:
 
-Final report format: source paths inspected, Plutonium files changed, exact commands run with pass/fail results, FoundryVTT/Plutonium evidence, alignment discrepancies fixed, unresolved blockers, residual risk, and commit/push result. Do not claim Foundry verification from JSON validators, generated indexes, process exit, or summaries without the real report evidence.
+```sh
+env TMPDIR=/dev/shm FOUNDRY_APP_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/foundry FOUNDRY_DATA_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/data CHROMIUM_EXECUTABLE_PATH=/home/agent/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome node tools/validate-foundry-plutonium-import.mjs
+```
+
+Read `tmp/foundry-plutonium-import-result.json` after the harness. In this execution, the harness exited 0, wrote the report, and the report status was `passed`; `sourceLoaded` was `true`; package source was `VeiledOmens`; versions were Foundry `14.364.0`, dnd5e `5.3.3`, Plutonium `2.15.10`, and lib-wrapper `1.13.5.1` from preflight output; the import plan covered 12 races, 2 classes, and 7 subclasses at levels `1,2,3`; imported count was 21 and failures count was 0.
+
+Final report format: source paths inspected, Plutonium files changed, exact commands run with pass/fail results, FoundryVTT/Plutonium evidence from the report, alignment discrepancies fixed, unresolved blockers, residual risk, and commit/push result. Do not claim Foundry verification from JSON validators, generated indexes, process exit, or package parsing without report evidence from the real harness.

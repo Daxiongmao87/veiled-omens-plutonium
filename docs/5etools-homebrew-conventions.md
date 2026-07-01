@@ -59,6 +59,10 @@ This document records the upstream 5etools homebrew conventions this repository 
   - Custom-source fixed spell grants use source-qualified spell UIDs in `additionalSpells`, such as `Convert Essence|VeiledOmens#c` for a cantrip and `Ether Burn|VeiledOmens` for a leveled spell.
   - Source examples with this convention include `reference/TheGiddyLimit-homebrew/class/LaserLlama; Psion.json` and `reference/TheGiddyLimit-homebrew/class/LaserLlama; Shaman.json`.
   - Source-authored `ItemGrant` rows are not used for spell grants in this surface.
+- Custom class spell lists use `classSpells` arrays on class objects.
+  - Upstream examples include `reference/TheGiddyLimit-homebrew/class/KibblesTasty; Occultist.json` and `reference/TheGiddyLimit-homebrew/class/LaserLlama; Alternate Paladin.json`.
+  - Local homebrew entries in `classSpells` are source-qualified with `|VeiledOmens` and must resolve against local `spell` entities.
+  - Official or non-`VeiledOmens` `classSpells` UIDs are not treated as local-missing in link validation.
 - If a class references a class feature with the same name and source as a top-level item record, class grants must include that item in `startingEquipment.defaultData`.
 
 ## Item Prose-To-Mechanics Source Data

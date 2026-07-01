@@ -123,6 +123,36 @@ def parse_subclass_feature_ref(value: str, label: str, errors: list[str]) -> tup
     return (name, class_name, class_source, subclass_short_name, subclass_source, level, source)
 
 
+def validate_class_spells(
+    class_spells: Any,
+    rel: str,
+    local_entities: Mapping[tuple[str, str, str], str],
+    errors: list[str],
+) -> None:
+    if class_spells is None:
+        return
+    if not isinstance(class_spells, list):
+        errors.append(f"{rel}: classSpells must be a list, got {type(class_spells).__name__}")
+        return
+
+    for index, raw_ref in enumerate(class_spells):
+        label = f"{rel}.classSpells[{index}]"
+        if not isinstance(raw_ref, str):
+            errors.append(f"{label}: non-string classSpells entry")
+            continue
+        raw_ref = raw_ref.strip()
+        parts = raw_ref.split("|", 1)
+        if len(parts) != 2:
+            continue
+        spell_name = parts[0].strip()
+        source = parts[1].split("#", 1)[0].strip()
+        if source != "VeiledOmens":
+            continue
+        key = ("spell", spell_name, source)
+        if key not in local_entities:
+            errors.append(f"{label}: missing local spell entity for classSpells UID {raw_ref!r}")
+
+
 def get_class_feature_ref(value: Any, label: str, errors: list[str]) -> str | None:
     if isinstance(value, str):
         return value
@@ -199,6 +229,12 @@ def validate(data_by_path: Mapping[str, Mapping[str, Any]]) -> list[str]:
                 errors.append(f"{rel}.class[{class_index}]: expected object")
                 continue
             class_name = cls.get("name", f"class[{class_index}]")
+            validate_class_spells(
+                cls.get("classSpells"),
+                f"{rel}.class[{class_index}:{class_name!r}]",
+                local_entities,
+                errors,
+            )
             for ref_index, raw_ref in enumerate(cls.get("classFeatures", [])):
                 label = f"{rel}.class[{class_index}:{class_name!r}].classFeatures[{ref_index}]"
                 ref = get_class_feature_ref(raw_ref, label, errors)

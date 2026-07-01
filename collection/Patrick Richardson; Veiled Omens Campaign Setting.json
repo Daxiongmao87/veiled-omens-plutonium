@@ -6592,5 +6592,493 @@
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/mana-crystal.webp",
 			"__prop": "item"
 		}
+	],
+	"variantrule": [
+		{
+			"name": "Shadesilver Weapons",
+			"source": "VeiledOmens",
+			"ruleType": "rule",
+			"entries": [
+				"These rules define base weapons made from Shadesilver. They do not define the additional powers of named magic items, hauntings, bound spirits, runes, or special forging.",
+				{
+					"type": "entries",
+					"name": "Rules Basis",
+					"entries": [
+						"These rules use D&D 5e 2014 damage-type conventions.",
+						{
+							"type": "list",
+							"items": [
+								"Direct spirit contact, life drain, soul-wounding, withering, and incorporeal undead touch use necrotic damage.",
+								"Fear, madness, psionics, forced thoughts, forbidden knowledge, mental assault, and traumatic visions use psychic damage."
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Weapon Rules",
+					"entries": [
+						"A weapon made of Shadesilver deals necrotic damage instead of its normal bludgeoning, piercing, or slashing damage.",
+						"This is replacement damage, not bonus damage.",
+						"A Shadesilver weapon can pass through nonliving, nonmagical physical objects and barriers rather than striking them. It does not damage ignored objects by default.",
+						"The material does not grant sight through barriers. Attacks against creatures behind objects still require the wielder to perceive, locate, or correctly guess the target's space under normal unseen-target adjudication."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Example: Shadesilver Longsword",
+					"entries": [
+						"Damage: 1d8 necrotic, or 1d10 necrotic when wielded with two hands.",
+						"The weapon does not deal slashing damage unless another property changes its damage type.",
+						"The blade can pass through a mundane door, wall, shield, or other nonliving object, but the door, wall, or shield is not cut apart by that contact."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Named Item Boundary",
+					"entries": [
+						"Named Shadesilver weapons can have additional powers from enchantment, haunting, runes, bound spirits, or special forging. Those item-specific powers are not base Shadesilver weapon rules.",
+						{
+							"type": "list",
+							"items": [
+								"A haunted dagger can add hunger, psychic echoes, bonuses, or undead-specific effects.",
+								"An etherforged weapon can add stronger phasing or extra necrotic damage."
+							]
+						}
+					]
+				}
+			],
+			"__prop": "variantrule"
+		},
+		{
+			"name": "Shadesilver Armor",
+			"source": "VeiledOmens",
+			"ruleType": "rule",
+			"entries": [
+				"These rules define base armor made from Shadesilver. They do not define the additional powers of named magic items, hauntings, bound spirits, runes, or special forging.",
+				{
+					"type": "entries",
+					"name": "Rules Basis",
+					"entries": [
+						"These rules use D&D 5e 2014 damage-type conventions.",
+						{
+							"type": "list",
+							"items": [
+								"Direct spirit contact, life drain, soul-wounding, withering, and incorporeal undead touch use necrotic damage.",
+								"Fear, madness, psionics, forced thoughts, forbidden knowledge, mental assault, and traumatic visions use psychic damage."
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Armor Rules",
+					"entries": [
+						"Shadesilver armor grants no AC.",
+						"Shadesilver armor weighs one-tenth as much as a normal suit of armor of the same form.",
+						"Shadesilver armor is coincident armor: it anchors to the wearer's animating presence and does not occupy the same physical layer as mundane clothing or armor.",
+						"Because ordinary objects pass through it, it can be worn simultaneously with normal clothing or armor.",
+						"While wearing Shadesilver armor, the wearer has resistance to necrotic damage."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Named Item Boundary",
+					"entries": [
+						"Named Shadesilver armor can have additional powers from enchantment, haunting, runes, bound spirits, or special forging. Those item-specific powers are not base Shadesilver armor rules.",
+						{
+							"type": "list",
+							"items": [
+								"Soul-warded armor can add stronger protection against spirit contact.",
+								"Etherforged armor can add stronger phasing or specialized incorporeal defenses."
+							]
+						}
+					]
+				}
+			],
+			"__prop": "variantrule"
+		},
+		{
+			"name": "Arcavene Weapons",
+			"source": "VeiledOmens",
+			"ruleType": "rule",
+			"entries": [
+				"These rules define base weapons made from Arcavene. They do not define the additional powers of named Arcavene items.",
+				{
+					"type": "entries",
+					"name": "Shared Arcavene Enchantment Rules for Weapons",
+					"entries": [
+						"Arcavene is a spell matrix material. A weapon made from Arcavene has no enchantment by default.",
+						"An unenchanted Arcavene weapon functions as a normal weapon of its ordinary type.",
+						"Arcavene enchantment works at the item level; the wielder's spell save DC and attack bonus do not apply by default.",
+						{
+							"type": "list",
+							"items": [
+								"Arcavene save DC is 12 + bound spell level.",
+								"Cantrip matrix DC is 12 (treated as spell level 0).",
+								"Arcavene uses a fixed item DC and fixed item spellcasting profile unless a named item says otherwise.",
+								"A named item may explicitly use the wielder's spell save DC or spell attack bonus, and must state that exception clearly."
+							]
+						},
+						"An enchanted Arcavene weapon always notes:",
+						{
+							"type": "list",
+							"items": [
+								"Bound spell and spell level.",
+								"Activation method.",
+								"Save DC or spell attack bonus when needed.",
+								"Attunement requirement.",
+								"Trigger, use limit, and reset condition.",
+								"Concentration handling.",
+								"Discharge behavior on use and after depletion.",
+								"Suppression and ending behavior."
+							]
+						},
+						{
+							"type": "list",
+							"items": [
+								"Costly or consumed material components are supplied during enchantment.",
+								"Without an enchantment, Arcavene weapons have no Arcavene spell effect.",
+								"Enchanted Arcavene items require attunement unless the item entry says otherwise."
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Arcavene Weapon Rules",
+					"entries": [
+						"Category: Weapon (rare or very rare).",
+						"No default attack bonus, damage bonus, extra damage, damage-type change, or additional passive benefit.",
+						"Uses ordinary weapon properties and base item statistics until enchanted.",
+						"Arcavene weapons can anchor Touch spells.",
+						"The wielder's hit against a creature is the contact for melee spell attacks.",
+						"For spells with saving throws, use the weapon's Arcavene save DC.",
+						"Spell targeting limits remain in force (for example, unwilling-target limits on self-only or willing-only effects stay enforced)."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Arcavene Weapon Trigger Process",
+					"entries": [
+						"When an arcavene weapon has a valid bound spell and hits a creature:",
+						{
+							"type": "list",
+							"items": [
+								"Roll 1d10.",
+								"If the result is greater than the bound spell proc level, the bound spell triggers against the hit target.",
+								"If the result is less than or equal to the proc level, no spell effect occurs."
+							]
+						},
+						"There is no once-per-turn trigger limit.",
+						"Each hit can trigger a separate check.",
+						"The struck creature is the spell target.",
+						{
+							"type": "table",
+							"caption": "Arcavene Weapon Non-Cantrip Proc Levels",
+							"colLabels": [
+								"Spell Level",
+								"Proc Result",
+								"1d10 Trigger Range"
+							],
+							"rows": [
+								[
+									"1st-level spell",
+									"2-10",
+									"2+"
+								],
+								[
+									"5th-level spell",
+									"6-10",
+									"6+"
+								],
+								[
+									"9th-level spell",
+									"10",
+									"10"
+								]
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Cantrip Proc Levels",
+					"entries": [
+						"Cantrips do not scale with wielder level once bound. They keep a fixed effect profile by effective caster level.",
+						{
+							"type": "table",
+							"caption": "Arcavene Cantrip Proc Levels",
+							"colLabels": [
+								"Effective Cantrip Profile",
+								"Proc Level"
+							],
+							"rows": [
+								[
+									"1st-level cantrip effect",
+									0
+								],
+								[
+									"5th-level cantrip effect",
+									1
+								],
+								[
+									"11th-level cantrip effect",
+									2
+								],
+								[
+									"17th-level cantrip effect",
+									3
+								]
+							]
+						},
+						"Cantrip spell level is still 0 for save DC math (12 + 0 = 12).",
+						"A 17th-level cantrip matrix (proc level 3) activates when 1d10 is higher than 3."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Named Item Boundary",
+					"entries": [
+						"Named Arcavene weapons can define additional named-item mechanics beyond these base rules, including altered activation conditions, altered proc levels, recharge behavior, and special targeting clauses."
+					]
+				}
+			],
+			"__prop": "variantrule"
+		},
+		{
+			"name": "Arcavene Armor",
+			"source": "VeiledOmens",
+			"ruleType": "rule",
+			"entries": [
+				"These rules define base armor made from Arcavene. They do not define the additional powers of named Arcavene items.",
+				{
+					"type": "entries",
+					"name": "Shared Arcavene Enchantment Rules",
+					"entries": [
+						"Arcavene is a spell matrix material. Arcavene armor has no enchantment by default.",
+						"An unenchanted Arcavene armor behaves as normal armor of its listed type.",
+						"Enchanted Arcavene items require attunement unless the item entry says otherwise.",
+						{
+							"type": "list",
+							"items": [
+								"Arcavene uses a fixed item save DC and fixed item spellcasting profile.",
+								"Arcavene save DC = 12 + bound spell level.",
+								"Cantrip matrix DC = 12 (spell level 0).",
+								"Fixed item DC and attack values are used again on repeat checks unless the named item overrides."
+							]
+						},
+						"An enchanted Arcavene item must name:",
+						{
+							"type": "list",
+							"items": [
+								"Bound spell and spell level.",
+								"Activation method and trigger.",
+								"Save DC or spell attack bonus.",
+								"Attunement requirement.",
+								"Use limit and reset condition.",
+								"Concentration handling.",
+								"Discharge, suppression, and end behavior."
+							]
+						},
+						{
+							"type": "list",
+							"items": [
+								"Costly or consumed material components are supplied when enchanting.",
+								"Without a bound spell, Arcavene items have no spell effect."
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Arcavene Armor Rules",
+					"entries": [
+						"Category: Armor (rare or very rare).",
+						"No default enchantment benefits:",
+						{
+							"type": "list",
+							"items": [
+								"No AC bonus.",
+								"No resistance, damage-type change, weight reduction, or stealth benefit."
+							]
+						},
+						"Can anchor a Touch or Self spell that targets the wearer.",
+						"Duration spells can remain on the wearer while the armor is worn and the item remains attuned.",
+						"Instant spells can be triggered by events named in the item entry."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Concentration Handling for Arcavene Armor",
+					"entries": [
+						"If the bound spell requires concentration, the item entry must say whether:",
+						{
+							"type": "list",
+							"items": [
+								"The wearer maintains concentration, or",
+								"Arcavene matrix maintains concentration (this is allowed as a dangerous option)."
+							]
+						},
+						"If the wearer drops concentration, concentration-maintained by the wearer ends immediately and cannot be assumed to persist.",
+						"Matrix-maintained concentration ends when attunement is broken, the item is removed, or an explicit suppression condition triggers."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Named Item Boundary",
+					"entries": [
+						"Named Arcavene armor can add restrictions and special interactions, including alternate triggers, self-only matrices, and nonstandard concentration behavior."
+					]
+				}
+			],
+			"__prop": "variantrule"
+		},
+		{
+			"name": "Arcavene Rings",
+			"source": "VeiledOmens",
+			"ruleType": "rule",
+			"entries": [
+				"These rules define Arcavene rings and provide the base enchantment model for ring-specific spell matrices. They do not define the additional powers of named Arcavene items.",
+				{
+					"type": "entries",
+					"name": "Shared Arcavene Ring Enchantment Rules",
+					"entries": [
+						"Arcavene is a spell matrix material. Arcavene rings have no enchantment by default.",
+						"An unenchanted Arcavene ring functions as a normal ring of its kind.",
+						"Enchanted Arcavene items require attunement unless the item entry says otherwise.",
+						{
+							"type": "list",
+							"items": [
+								"Arcavene uses a fixed item save DC and fixed item spellcasting profile.",
+								"Arcavene save DC = 12 + bound spell level.",
+								"Cantrip matrix DC = 12.",
+								"The same DC applies on repeated uses unless the item says otherwise.",
+								"An enchanted Arcavene item must name:",
+								"Bound spell and spell level.",
+								"Activation method and trigger.",
+								"Save DC or spell attack bonus.",
+								"Attunement requirement.",
+								"Use limit and reset condition.",
+								"Concentration handling.",
+								"Discharge, suppression, and end behavior."
+							]
+						},
+						{
+							"type": "list",
+							"items": [
+								"Costly or consumed material components are supplied during enchantment.",
+								"Without a bound spell, there is no Arcavene spell effect."
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Arcavene Ring Rules",
+					"entries": [
+						"Category: Ring (rare or very rare).",
+						"Functions as a normal ring unless enchanted.",
+						"Can anchor Self or Touch spells that affect the wearer.",
+						"Duration spells can be maintained on the wearer while the ring is worn and the wearer is attuned.",
+						{
+							"type": "entries",
+							"name": "Concentration Handling",
+							"entries": [
+								"If the named spell uses concentration, the item entry must specify whether:",
+								{
+									"type": "list",
+									"items": [
+										"Wearer-held concentration, or",
+										"Arcavene matrix-maintained concentration."
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Named Item Boundary",
+					"entries": [
+						"Named Arcavene rings can define additional triggers, cooldowns, and targeted effects."
+					]
+				}
+			],
+			"__prop": "variantrule"
+		},
+		{
+			"name": "Arcavene Wondrous Items",
+			"source": "VeiledOmens",
+			"ruleType": "rule",
+			"entries": [
+				"These rules define Arcavene wondrous items used as amulets, circlets, masks, bracers, cloaks, shackles, and similar equipment classes. They do not define the additional powers of named Arcavene items.",
+				{
+					"type": "entries",
+					"name": "Shared Arcavene Wondrous-Item Enchantment Rules",
+					"entries": [
+						"Arcavene is a spell matrix material. Arcavene wondrous items have no enchantment by default.",
+						"An unenchanted Arcavene wondrous item functions as a normal item.",
+						"Enchanted Arcavene items require attunement unless the item entry says otherwise.",
+						{
+							"type": "list",
+							"items": [
+								"Arcavene uses a fixed item save DC and fixed item spellcasting profile.",
+								"Arcavene save DC = 12 + bound spell level.",
+								"Cantrip matrix DC = 12.",
+								"The same DC is used for repeated checks unless the item entry changes it.",
+								"An enchanted Arcavene item must name:",
+								"Bound spell and spell level.",
+								"Activation method and trigger.",
+								"Save DC or spell attack bonus.",
+								"Attunement requirement.",
+								"Use limit and reset condition.",
+								"Concentration handling.",
+								"Discharge, suppression, and end behavior."
+							]
+						},
+						{
+							"type": "list",
+							"items": [
+								"Costly or consumed material components are supplied during enchantment.",
+								"Without a bound spell, there is no Arcavene spell effect."
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Arcavene Wondrous-Item Rules",
+					"entries": [
+						"Category: Wondrous item (rare or very rare).",
+						"Functions as a normal wondrous item unless enchanted.",
+						"Can anchor Self or Touch spells that affect the wearer.",
+						"Duration spells can be maintained while the item is worn and the wearer is attuned.",
+						{
+							"type": "entries",
+							"name": "Concentration Handling",
+							"entries": [
+								"If the bound spell requires concentration, the item entry must specify whether the:",
+								{
+									"type": "list",
+									"items": [
+										"wearer maintains concentration, or",
+										"Arcavene matrix maintains concentration."
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Named Item Boundary",
+					"entries": [
+						"Named Arcavene wondrous items can define wearer-specific targets, additional triggers, and alternate charge cycles."
+					]
+				}
+			],
+			"__prop": "variantrule"
+		}
 	]
 }

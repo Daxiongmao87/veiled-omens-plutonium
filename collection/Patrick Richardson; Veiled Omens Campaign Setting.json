@@ -1999,9 +1999,6 @@
 				]
 			},
 			"multiclassing": {
-				"requirements": {
-					"cha": 13
-				},
 				"proficienciesGained": {
 					"armor": [
 						"light"
@@ -4149,7 +4146,7 @@
 						],
 						[
 							"4",
-							"Ruin. The subject takes psychic or necrotic damage, your choice, equal to your proficiency bonus + your Charisma modifier.",
+							"Ruin. The subject takes necrotic damage equal to your proficiency bonus + your Charisma modifier.",
 							"Ashen"
 						],
 						[
@@ -4242,7 +4239,7 @@
 						[
 							"10",
 							"or Withers",
-							"The first time on each of your turns that you deal damage to a creature, you take psychic damage equal to your proficiency bonus."
+							"The first time on each of your turns that you deal damage to a creature, you take necrotic damage equal to your proficiency bonus."
 						],
 						[
 							"11",
@@ -4461,7 +4458,7 @@
 				{
 					"type": "list",
 					"items": [
-						"**Spirit Conduit.** Your bond with the servant runs in both directions while you and the servant are on the same plane. As a bonus action, you can perceive through the servant's senses until the start of your next turn. While doing so, you are blinded and deafened to your own surroundings. Once per turn, when your servant hits a creature with an attack, you can channel ethereal energy through the bond, dealing additional necrotic or psychic damage, your choice, equal to your Charisma modifier (minimum of 1).",
+						"**Spirit Conduit.** Your bond with the servant runs in both directions while you and the servant are on the same plane. As a bonus action, you can perceive through the servant's senses until the start of your next turn. While doing so, you are blinded and deafened to your own surroundings. Once per turn, when your servant hits a creature with an attack, you can channel ethereal energy through the bond, dealing additional necrotic damage equal to your Charisma modifier (minimum of 1).",
 						"**Refined Attribute.** Choose one ability score. The servant's chosen score increases by 2, to a maximum of 20.",
 						"**Grave-Hardened Hide.** The servant gains a +1 bonus to AC.",
 						"**Fortified Frame.** The servant's hit point maximum increases by twice your occultist level.",
@@ -4824,7 +4821,7 @@
 			"level": 18,
 			"entries": [
 				"You learn to summon a tide of tormented souls from the Ethereal Plane to engulf your foes, ripping their spirits from their bodies. As an action, you can choose up to three creatures you can see within 60 feet of you. Each target must make a Charisma saving throw against your spell save DC.",
-				"On a failed save, a creature's spirit is forcefully taken to the depths of the misty shore, beyond the Border Ethereal, while its physical body collapses where it stands and is {@condition incapacitated}. At the end of each of the creature's turns, its spirit takes 3d6 psychic damage as wailing souls assault it.",
+				"On a failed save, a creature's spirit is forcefully taken to the depths of the misty shore, beyond the Border Ethereal, while its physical body collapses where it stands and is {@condition incapacitated}. At the end of each of the creature's turns, its spirit takes 3d6 necrotic damage as wailing souls assault it.",
 				"A creature affected by this feature can repeat the Charisma saving throw at the end of each of its turns, ending the effect on itself on a success. The effect also ends if the creature's incapacitated body is reduced to 0 hit points, or after 1 minute. When the effect ends, the creature's spirit instantly returns to its body. The creature must then succeed on a Wisdom saving throw against your spell save DC or be {@condition frightened} of you until the end of its next turn.",
 				"Once you use this feature, you cannot use it again until you finish a long rest. Alternatively, you can spend 5 sorcery points to use this feature again."
 			],
@@ -5211,7 +5208,7 @@
 					]
 				},
 				"You can return to your body as an action, provided you are on the same plane of existence as your body. Your spirit instantly returns to your body, and you awaken in it.",
-				"{@b If your bonded companion is reduced to 0 hit points while you inhabit it,} your spirit is violently forced back into your body. You immediately take {@dice 4d10} psychic damage. If this damage reduces you to 0 hit points, you are dying.",
+				"{@b If your bonded companion is reduced to 0 hit points while you inhabit it,} your spirit is violently forced back into your body. You immediately take {@dice 4d10} necrotic damage. If this damage reduces you to 0 hit points, you are dying.",
 				"{@b If your body is killed while your spirit inhabits your bonded companion,} your spirit becomes permanently bound to the beast. You continue to exist within your bonded companion with your mental ability scores, personality, and class features, but you can never return to humanoid form. You have become the beast, retaining only your mind and soul. The beast's original consciousness accepts your presence, and you share the body as co-inhabitants -- you control the body, but the beast's instincts and nature remain part of you."
 			],
 			"foundryImg": "icons/creatures/magical/spirit-undead-ghost-blue.webp",
@@ -5256,11 +5253,11 @@
 			},
 			"spellAttack": true,
 			"damageInflict": [
-				"psychic"
+				"necrotic"
 			],
 			"entries": [
 				"You summon a ghostly, ethereal one-handed weapon that manifests in your hand. As part of casting this spell, you make one melee spell attack against a creature within reach using this weapon. The weapon's form reflects aspects of your existence, tied to your ancestry, occupation, or personality, such as an ancestral blade, a spectral warrior's weapon from your past, or an ethereal representation of your inner spirit.",
-				"You have proficiency with the weapon, and it is considered magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. You use your spellcasting ability for the attack roll. On a hit, the attack deals 2d4 psychic damage. The spectral weapon disappears at the end of your turn.",
+				"You have proficiency with the weapon, and it is considered magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. You use your spellcasting ability for the attack roll. On a hit, the attack deals 2d4 necrotic damage. The spectral weapon disappears at the end of your turn.",
 				"This spell's damage increases by 2d4 when you reach 5th level (4d4), 11th level (6d4), and 17th level (8d4)."
 			],
 			"__prop": "spell"
@@ -5402,14 +5399,13 @@
 			},
 			"spellAttack": true,
 			"damageInflict": [
-				"psychic",
 				"necrotic",
 				"force"
 			],
 			"entries": [
 				"You conjure a ghostly light that hovers around you, shedding dim light in a 10-foot radius. This spectral illumination also grants Ethereal Sight within the same 10-foot radius.",
 				"The ghostly light remains in the same space as you, moving as you move.",
-				"As a bonus action, you can direct the ghostly light to attack a target within 60 feet. Make a ranged spell attack against the target. On a hit, the target takes 1d6 psychic damage, 1d6 necrotic damage, and 1d6 force damage. After the attack, the spell ends.",
+				"As a bonus action, you can direct the ghostly light to attack a target within 60 feet. Make a ranged spell attack against the target. On a hit, the target takes 2d6 necrotic damage and 1d6 force damage. After the attack, the spell ends.",
 				"Ethereal Sight allows a creature to perceive the Ethereal Plane within the range. Unlike Truesight, Ethereal Sight is limited to detecting incorporeal undead and ghostly remnants of the dead that reside in the Ethereal Plane. Creatures with Ethereal Sight can see these entities and any other spectral phenomena within the range of their sight."
 			],
 			"entriesHigherLevel": [
@@ -5417,7 +5413,7 @@
 					"type": "entries",
 					"name": "At Higher Levels",
 					"entries": [
-						"When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st. The dice are assigned in the order of psychic, necrotic, and force damage."
+						"When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st. The additional dice are added to the necrotic damage."
 					]
 				}
 			],
@@ -5518,11 +5514,11 @@
 			},
 			"entries": [
 				"You mark a creature within range with an ethereal brand visible only to you and those who can see spirits.",
-				"While marked, the target has disadvantage on saving throws against your necromancy spells and takes 2d6 psychic damage the first time it is hit by an attack each turn."
+				"While marked, the target has disadvantage on saving throws against your necromancy spells and takes 2d6 necrotic damage the first time it is hit by an attack each turn."
 			],
 			"__prop": "spell",
 			"damageInflict": [
-				"psychic"
+				"necrotic"
 			]
 		},
 		{
@@ -5745,14 +5741,13 @@
 			],
 			"spellAttack": true,
 			"damageInflict": [
-				"psychic",
 				"necrotic"
 			],
 			"entries": [
 				"You sacrifice fragments of your own soul, igniting them into spectral flames that surge toward a creature within range. Roll 4d4; the result is the number of soul fragments you sacrifice.",
-				"Make a ranged spell attack against the target. On a hit, the target takes a number of d6s of psychic damage equal to the number of soul fragments sacrificed.",
+				"Make a ranged spell attack against the target. On a hit, the target takes a number of d6s of necrotic damage equal to the number of soul fragments sacrificed.",
 				"Immediately after casting this spell, you take 1 necrotic damage for each soul fragment sacrificed.",
-				"On the target's next turn, it must succeed on a Charisma saving throw or take 1 psychic damage for each soul fragment sacrificed."
+				"On the target's next turn, it must succeed on a Charisma saving throw or take 1 necrotic damage for each soul fragment sacrificed."
 			],
 			"entriesHigherLevel": [
 				{

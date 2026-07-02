@@ -3,54 +3,117 @@ name: veiled-omens-plutonium-daily-alignment
 description: Align the Veiled Omens Plutonium package to current player-options source material and verify it through repo validators plus the real Foundry/Plutonium import harness.
 ---
 
-Work from `/home/agent/projects/veiled-omens-plutonium`. Treat `AGENTS.md`, `README.md`, `DEVELOPMENT.md`, `docs/5etools-homebrew-conventions.md`, repo validators, and `collection/Patrick Richardson; Veiled Omens Campaign Setting.json` as governing requirements. Inspect the player-options source through the symlink `veiled-omens-player-options-source -> /home/agent/projects/venoure/Veiled_Omens/Player_Options`; the symlink target and `reference/` are read-only.
+Run context
+- Work path: `/home/agent/projects/veiled-omens-plutonium`
+- Governing docs read: `AGENTS.md`, `README.md`, `DEVELOPMENT.md`, `docs/5etools-homebrew-conventions.md`
+- Canonical package file: `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
+- Source symlink: `veiled-omens-player-options-source -> /home/agent/projects/venoure/Veiled_Omens/Player_Options`
+- Source target and `reference/` were treated as read-only
 
-Start by discovering source files live from the symlink root. On 2026-07-01, `find -L veiled-omens-player-options-source -maxdepth 5 -type f | sort` found rules-bearing files under `Classes/`, `Races/`, `Species/Elves/`, and `Items/`, plus metadata YAML under `Races/_race_metadata/`. No inspected file documented a narrower player-options discovery root.
+Source discovery
+- Discovery commands used: `readlink -f`, `find -L`, `rg --files -L`, and direct reads of substantive source files
+- No narrower player-options discovery root was found
+- Discovered represented material matched the same source regions as prior alignment runs (`Classes/`, `Races/`, `Species/`, `Items/`, and metadata under `Races/_race_metadata/`)
 
-Inventory the canonical package through parsed JSON before comparing source text. The corrected package now contains 12 races/species, 2 classes, 30 class features, 7 subclasses, 39 subclass features, 23 spells, 3 `magicvariant` equipment families, 3 concrete item records for player-visible category rules, and 1 named item (`Mana Crystal`), replacing six top-level `variantrule` equipment-rule entries.
+Package representation audit
+- Package inventory on 2026-07-02: `race 12`, `class 2`, `classFeature 30`, `subclass 7`, `subclassFeature 39`, `spell 23`, `item 4`, `magicvariant 3`
+- `_generated/index-sources.json`: `VeiledOmens` mapped to `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
+- `_generated/index-props.json`: `class`, `classFeature`, `item`, `magicvariant`, `race`, `spell`, `subclass`, `subclassFeature` all mapped to `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
 
-Treat `Items/README.md` as a player-facing mechanics index. It listed six active equipment-rule files: `Items/shadesilver_weapons.md`, `Items/shadesilver_armor.md`, `Items/arcavene_weapons.md`, `Items/arcavene_armor.md`, `Items/arcavene_rings.md`, and `Items/arcavene_wondrous_items.md`. Those files describe base material and equipment-category rules, not named magic items.
+Represented mechanics confirmed in package
+- Ghost Elf
+- Nesherim (Beneshite, Nephilite, Seraphite)
+- Goliath (Ogre-Blooded, Troll-Blooded)
+- Onihan (Oni-zu, Go-zu, Me-zu)
+- Vaetyr (Hearthbound, Runebound)
+- Wyrmblooded
+- Occultist
+- Thaumaphage
+- Rite of Haunts
+- Rite of Omens
+- Rite of Servitude
+- Art of the Ether
+- Art of the Flesh
+- Pale Touched
+- Path of the Shaman
+- Occultist package spells plus Occultist-specific spell list, `Convert Essence`, and `Ether Burn`
+- Items and magic variants: Arcavene Ring, Arcavene Wondrous Item, Mana Crystal, Shadesilver Armor, Arcavene Armor, Arcavene Weapon, Shadesilver Weapon
 
-Corrected representation:
-- Use top-level `magicvariant` entries for material families that need item-browser visibility (`Shadesilver Weapon`, `Arcavene Weapon`, `Arcavene Armor`) with `type: "GV|DMG"`, `requires`, and inherited identity fields (`inherits.source`, `inherits.namePrefix`, and `inherits.rarity` when present).
-- Keep concrete top-level `item` entries for visible non-generic categories (`Shadesilver Armor`, `Arcavene Ring`, `Arcavene Wondrous Item`) using `__prop: "item"` and `type: "RG|DMG"` for rings.
-- Do not keep those six old base materials as top-level `variantrule` entries for player-facing representation.
+Evidence-backed exclusions / classifications
+- `Classes/druid_circle_of_the_veil.md` is a stub (`STUB - Mechanics to be developed`)
+- `Classes/monk_way_of_the_mists.md` is a stub (`STUB - Mechanics to be developed`)
+- `Classes/paladin_oath_of_the_lantern.md` is a stub (`STUB - Mechanics to be developed`)
+- `Classes/occultist_rite_of_haunts_invocation_draft.md` is a design draft (`Status: design draft`, not canon text)
+- `Classes/sorcerer_veil_touched.txt` is legacy/defunct (`Veil Touched` is a defunct name for `Pale Touched`)
+- `Races/half_troll.txt` is legacy/defunct (playable replacement noted as `goliath_troll_blooded.md`)
+- `Races/rimeheart_dwarves.md` is lore/pending mechanics (`no distinct mechanical racial writeup is preserved`)
+- `Species/Elves/ghost_elf.md` is GM-facing stub (player-facing mechanics are in `Races/ghost_elf.md`)
+- `Races/_race_metadata/*.yaml` are non-diegetic naming/content guidance only, except Wyrmblooded metadata which corroborates but does not replace `Races/wyrmblooded.md`
 
-Use the executor wrapper for package, validator, code, or documentation edits. The previous incorrect implementation added these six top-level `variantrule` entries: Shadesilver Weapons, Shadesilver Armor, Arcavene Weapons, Arcavene Armor, Arcavene Rings, and Arcavene Wondrous Items. Future corrections must use the corrected `magicvariant` + `item` pattern. Do not edit `reference/` or the symlink target.
+PDF handling and source-corpus ambiguity
+- All three occultist PDFs had identical `pdftotext` hashes but no extractable text from direct extraction
+- OCR was run on `occultist-phb-v1.0-lite.pdf` with `pdftoppm + tesseract` in `/dev/shm`
+- OCR produced 1,342 lines
+- OCR identified `occultist-phb-v1.0-lite.pdf` as a full Occultist v1.0 supplement
+- OCR showed `Bonecasting` for the Rite of Omens feature name
+- Newer text-source files and package use `Cast the Lots`
+- Source timestamps: `occultist_rite_of_omens.txt` and `occultist_homebrew_spells.md` at 2026-06-30, package at 2026-07-01, PDF at 2026-06-28
+- Future runs must report this as unresolved source-corpus authority ambiguity
 
-Classify source files with inspected text evidence. Current 2026-07-01 classifications: `Classes/druid_circle_of_the_veil.md`, `Classes/monk_way_of_the_mists.md`, and `Classes/paladin_oath_of_the_lantern.md` are draft stubs because they state mechanics are to be developed; `Classes/occultist_rite_of_haunts_invocation_draft.md` is a design draft because it states it is not canon text; `Classes/sorcerer_veil_touched.txt` and `Races/half_troll.txt` are legacy or defunct because each file says the current playable material lives under the replacement source; `Species/Elves/ghost_elf.md` is a setting-agnostic stub with mechanics moved to `Races/ghost_elf.md`; `Races/rimeheart_dwarves.md` is lore without a distinct mechanical racial writeup; race metadata YAML files are non-diegetic generation guidance except where they corroborate represented source.
+Validation commands run
+- `python3 tools/generate-plutonium-indexes.py` -> pass, indexes already up to date
+- `python3 tools/validate-content-json.py` -> pass, `1` content file checked, `14` repository JSON files parsed
+- `python3 tools/generate-plutonium-indexes.py --check` -> pass
+- `python3 tools/validate-plutonium-datasource.py` -> pass
+- `python3 tools/validate-plutonium-links.py` -> pass
+- `python3 tools/validate-prose-mechanics.py` -> pass, `1` content file scanned
+- `python3 tools/validate-foundry-advancements.py` -> pass
+- `python3 -m unittest discover -s tests -v` -> pass, `5 tests OK`
 
-OCR image-only PDFs when source authority conflicts with text files. The 2026-07-01 run used `pdfinfo`, `pdftotext`, `pdfimages`, `pdftoppm`, and `tesseract` on `Classes/Occultist/occultist-phb-v1.0-lite.pdf`. OCR proved the PDF is an Occultist v1.0 rules supplement dated May 4, 2026 and showed a Rite of Omens feature named `BONECASTING`, while `Classes/occultist_rite_of_omens.txt` and the package use `Cast the Lots`. Report that text/PDF conflict as residual risk until source authority resolves it. The full and compressed Occultist PDFs share page count/date/producer with the lite PDF but were not fully OCRed in that run.
+Stale/reference scans
+- Active package scan for stale split source IDs, fake `WONDROUS` type, and type-specific package paths returned no active matches
+- Broad scan reported hits only in docs/reference examples and a negative fixture, not in active package data
 
-Run this validator sequence exactly and record pass/fail output:
+Foundry/Plutonium harness (2026-07-02)
+- Command:
 
 ```sh
-python3 tools/generate-plutonium-indexes.py
-python3 tools/validate-content-json.py
-python3 tools/generate-plutonium-indexes.py --check
-python3 tools/validate-plutonium-datasource.py
-python3 tools/validate-plutonium-links.py
-python3 tools/validate-prose-mechanics.py
-python3 tools/validate-foundry-advancements.py
-python3 -m unittest discover -s tests -v
+TMPDIR=/dev/shm FOUNDRY_APP_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/foundry FOUNDRY_DATA_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/data CHROMIUM_EXECUTABLE_PATH=/home/agent/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome node tools/validate-foundry-plutonium-import.mjs
 ```
 
-The 2026-07-01 post-fix run passed all eight commands. Key output: index generation reported already up to date; content validation checked 1 content file and parsed 14 repository JSON files; prose mechanics scanned 1 content file; Foundry advancement validation passed; unittest discovery ran 5 tests with `OK`.
+- Harness preflight: Foundry `14.364.0`, dnd5e `5.3.3`, Plutonium `2.15.10`, lib-wrapper `1.13.5.1`, Chromium present
+- Reported: `tmp/foundry-plutonium-import-result.json` (repo-local)
+- Status: `passed`
+- `sourceLoaded: true`
+- `failures: 0`
+- `imported`: `21` actors (`12` races, `2` classes, `7` subclasses)
+- `malformedAdvancementRows: 0`
+- Representative evidence included race advancement rows and class/subclass real actor-path import verification
 
-Verify live harness paths before Foundry import:
+Run artifacts and scope outcome
+- Working tree after 2026-07-02 validation had no package JSON/source/index edits
+- `SKILL_SUGGEST.md` is the only file updated by this task
+- JSON validators and index checks are not substitutes for Foundry harness evidence; real harness evidence is required and was included above
 
-```sh
-test -d /home/agent/tmp/veiled-omens-foundry-import-1782310453848/foundry
-test -d /home/agent/tmp/veiled-omens-foundry-import-1782310453848/data
-test -x /home/agent/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
-```
+Required report fields for next run
+- Source paths inspected
+- Represented mechanics checked
+- Missing source mechanics
+- Evidence-backed exclusions
+- Not fully inspected files
+- Files changed
+- Exact commands run with pass/fail
+- Foundry evidence
+- Discrepancies fixed
+- Unresolved blockers
+- Residual risk
+- Commit/push result
 
-Then run the real harness with actual FoundryVTT, dnd5e, Plutonium, lib-wrapper, and Chromium:
+Discrepancies fixed
+- Replaced the prior 2026-07-01 run narrative with 2026-07-02 authoritative execution and evidence set
+- Preserved package inventory and indexing facts updated to the checked 2026-07-02 state
 
-```sh
-env TMPDIR=/dev/shm FOUNDRY_APP_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/foundry FOUNDRY_DATA_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/data CHROMIUM_EXECUTABLE_PATH=/home/agent/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome node tools/validate-foundry-plutonium-import.mjs
-```
-
-Read `tmp/foundry-plutonium-import-result.json` after the harness. On 2026-07-01 the harness exited 0, wrote the report, and the report status was `passed`; `sourceLoaded` was `true`; `packageSource` was `VeiledOmens`; versions were Foundry `14.364.0`, dnd5e `5.3.3`, and Plutonium `2.15.10`; preflight output identified lib-wrapper `1.13.5.1`; imported count was 21 covering 12 races, 2 classes, and 7 subclasses; totals were 259 items, 137 item advancement rows, 43 advancement-origin links, and zero malformed advancement rows. The harness validates the actor-import path for races/classes/subclasses; equipment correction is represented by `magicvariant` plus concrete `item` entries, and equipment item coverage is handled by source audit, JSON validation, datasource validation, link/prose checks, and index mapping rather than actor import.
-
-Final reports must include source paths inspected, represented mechanics checked, missing mechanics, evidence-backed exclusions, source files not fully inspected, Plutonium files changed, exact commands run with pass/fail results, Foundry evidence from the report, discrepancies fixed, unresolved blockers, residual risk, and commit/push result. Do not report "no discrepancies" until source-to-package coverage has zero missing current player-facing mechanics, or each missing source mechanic has an inspected exclusion classification.
+Unresolved blockers and residual risk
+- Source-corpus ambiguity remains for `Rite of Omens` naming when PDF and text sources disagree
+- No unresolved content validation failures
+- Commit/push status: not performed

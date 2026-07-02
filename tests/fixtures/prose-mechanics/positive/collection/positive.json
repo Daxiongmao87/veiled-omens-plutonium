@@ -68,6 +68,14 @@
       "entries": [
         "This token is tied to your class magic and appears in class starting equipment."
       ]
+    },
+    {
+      "name": "Enchanted Matrix Frame",
+      "source": "PM",
+      "wondrous": true,
+      "entries": [
+        "An enchanted Arcavene item must name: bound spell and spell level; activation method and trigger; save DC or spell attack bonus; attunement requirement; use limit and reset condition; concentration handling; discharge, suppression, and end behavior."
+      ]
     }
   ],
   "class": [

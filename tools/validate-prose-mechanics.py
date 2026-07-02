@@ -64,6 +64,14 @@ BONUS_WEAPON_RE = re.compile(
 BONUS_AC_RE = re.compile(r"\bbonus\b[^.!?]{0,60}\bac\b|\bac\b[^.!?]{0,60}\bbonus\b", re.IGNORECASE)
 BONUS_SPELL_ATTACK_RE = re.compile(r"\bspell\s+attack\b", re.IGNORECASE)
 BONUS_SPELL_SAVE_RE = re.compile(r"\bspell\s+save\b\s+dc\b", re.IGNORECASE)
+META_REQUIREMENT_RE = re.compile(
+    r"\b(?:must\s+(?:name|specify|state|define|include|provide|list|have|set)\b"
+    r"|\b(?:item\s+)?entry\s+must\s+"
+    r"|\bshall\s+(?:name|specify|state|define|include)\b"
+    r"|\brequires?\s+(?:the\s+)?entry\s+(?:to\s+)?(?:name|specify|state|define)\b"
+    r")",
+    re.IGNORECASE,
+)
 CHOICE_RE = re.compile(
     r"\bchoose\s+(?:(?P<number_word>one|two|three|four|five|six|seven|eight|nine|ten)|(?P<number>\d+))\b",
     re.IGNORECASE,
@@ -361,6 +369,8 @@ def validate_item_bonus_fields(
 
     required_fields: dict[str, str] = {}
     for sentence in collect_strings(item.get("entries", [])):
+        if META_REQUIREMENT_RE.search(sentence):
+            continue
         lower = sentence.lower()
         if "bonus" in lower and ("attack" in lower or "to hit" in lower or "damage" in lower):
             if BONUS_WEAPON_RE.search(sentence):

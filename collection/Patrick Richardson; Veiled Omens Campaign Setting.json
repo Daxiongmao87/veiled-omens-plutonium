@@ -530,12 +530,11 @@
 				}
 			],
 			"entries": [
-				"Your goliath character has certain characteristics in common with all other goliaths.",
 				{
 					"type": "entries",
 					"name": "Ability Score Increase",
 					"entries": [
-						"Your Strength score increases by 2, and your Constitution score increases by 1."
+						"Your Strength score increases by 2. Your Constitution score increases by 2 instead of 1. Your Intelligence score decreases by 2, and your Wisdom score decreases by 2."
 					]
 				},
 				{
@@ -592,46 +591,34 @@
 				},
 				{
 					"type": "entries",
-					"name": "Ogre-Blooded",
+					"name": "Size",
 					"entries": [
+						"Ogre-blooded goliaths are between 8 and 10 feet tall and weigh between 400 and 600 pounds. Your size is Large."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Great Physique",
+					"_foundryId": "RF50a81d3885a543",
+					"entries": [
+						"You gain +1 hit point per level. You also gain a +2 bonus to all Constitution checks and Strength checks."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Oversized",
+					"_foundryId": "RFd80be92b1bb747",
+					"entries": [
+						"Due to your Large size, you cannot wear non-magical equipment designed for Medium or smaller creatures. Equipment made for your size costs 1.5x the original price, and refitting existing equipment costs half its original price. You also treat Medium weapons differently due to your large stature:",
 						{
-							"type": "entries",
-							"name": "Ability Score Increase",
-							"entries": [
-								"Your Constitution score increases by 2 (instead of 1). Your Intelligence score decreases by 2, and your Wisdom score decreases by 2."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Size",
-							"entries": [
-								"Ogre-Blooded Goliaths are between 8 to 10 feet tall and weigh between 400 to 600 pounds. Your size is Large."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Great Physique",
-							"entries": [
-								"You gain +1 hit point per level. You have a +2 bonus to all Constitution checks and Strength checks."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Oversized",
-							"entries": [
-								"Due to your Large size, you cannot wear non-magical equipment designed for Medium or Smaller creatures. Equipment for your size costs 1.5x the original price, and refitting existing equipment will cost half its original price. You treat medium-sized weapons differently due to your large stature. Below is a list of trait changes when wielded by a Large creature.",
-								{
-									"type": "list",
-									"items": [
-										"Two-Handed becomes Versatile",
-										"Versatile becomes One-Handed",
-										"Anything else is considered an Improvised Weapon"
-									]
-								}
+							"type": "list",
+							"items": [
+								"Two-Handed becomes Versatile.",
+								"Versatile becomes One-Handed.",
+								"Anything else is considered an Improvised Weapon."
 							]
 						}
-					],
-					"_foundryId": "RFb0b9e836b17cc8"
+					]
 				}
 			],
 			"foundryImg": "icons/magic/control/buff-strength-muscle-damage.webp",
@@ -673,7 +660,7 @@
 				}
 			],
 			"entries": [
-				"Troll-blooded goliaths are a giant-blooded strain of goliath whose inherited troll vitality makes them larger and tougher than standard goliaths.",
+				"Your troll-blooded goliath character has the following traits.",
 				{
 					"type": "entries",
 					"name": "Ability Score Increase",
@@ -735,46 +722,34 @@
 				},
 				{
 					"type": "entries",
-					"name": "Troll-Blooded",
+					"name": "Size",
 					"entries": [
+						"Troll-blooded goliaths are between 8 and 10 feet tall and weigh between 400 and 600 pounds. Your size is Large."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Troll-Blooded Regeneration",
+					"_foundryId": "RFa71a3ccf1a0e4e",
+					"entries": [
+						"You have advantage on death saving throws. When you become stable while at 0 hit points, you can choose to regain 1 hit point and become conscious instead of remaining unconscious. Once you regain hit points this way, you cannot use this trait again until you finish a long rest."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Oversized",
+					"_foundryId": "RF4e19f52d80824f",
+					"entries": [
+						"Due to your Large size, you cannot wear non-magical equipment designed for Medium or smaller creatures. Equipment made for your size costs 1.5x the original price, and refitting existing equipment costs half its original price. You also treat Medium weapons differently due to your large stature:",
 						{
-							"type": "entries",
-							"name": "Ability Score Increase",
-							"entries": [
-								"Your Constitution score increases by 2 instead of 1. Your Charisma score decreases by 1."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Size",
-							"entries": [
-								"Troll-blooded goliaths are between 8 and 10 feet tall and weigh between 400 and 600 pounds. Your size is Large."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Troll-Blooded Regeneration",
-							"entries": [
-								"You have advantage on death saving throws. When you become stable while at 0 hit points, you can choose to regain 1 hit point and become conscious instead of remaining unconscious. Once you regain hit points this way, you cannot use this trait again until you finish a long rest."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Oversized",
-							"entries": [
-								"Due to your Large size, you cannot wear non-magical equipment designed for Medium or smaller creatures. Equipment made for your size costs 1.5x the original price, and refitting existing equipment costs half its original price. You also treat Medium weapons differently due to your large stature:",
-								{
-									"type": "list",
-									"items": [
-										"Two-Handed becomes Versatile",
-										"Versatile becomes One-Handed",
-										"Anything else is considered an Improvised Weapon"
-									]
-								}
+							"type": "list",
+							"items": [
+								"Two-Handed becomes Versatile.",
+								"Versatile becomes One-Handed.",
+								"Anything else is considered an Improvised Weapon."
 							]
 						}
-					],
-					"_foundryId": "RF8fcdd0982d8041"
+					]
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/troll-blooded.webp",
@@ -6590,8 +6565,11 @@
 				"Cantrip matrix DC = 12.",
 				"Without a bound spell, there is no Arcavene spell effect.",
 				"The same DC applies on repeated uses unless the item says otherwise.",
+				"Costly or consumed material components are supplied during enchantment.",
+				"An enchanted Arcavene item must name: bound spell and spell level; activation method and trigger; save DC or spell attack bonus; attunement requirement; use limit and reset condition; concentration handling; discharge, suppression, and end behavior.",
+				"Duration spells can be maintained on the wearer while the ring is worn and the wearer is attuned.",
 				"Arcavene items can anchor Self or Touch spells that affect the wearer.",
-				"If the named spell uses concentration, the item entry must specify whether the wearer or the Arcavene matrix maintains concentration.",
+				"If the named spell uses concentration, the item entry must specify whether the wearer holds concentration or the Arcavene matrix maintains concentration.",
 				{
 					"type": "entries",
 					"name": "Named Item Boundary",
@@ -6615,9 +6593,12 @@
 				"Cantrip matrix DC = 12.",
 				"Without a bound spell, there is no Arcavene spell effect.",
 				"The same DC is used for repeated checks unless the item entry changes it.",
+				"Costly or consumed material components are supplied during enchantment.",
+				"An enchanted Arcavene item must name: bound spell and spell level; activation method and trigger; save DC or spell attack bonus; attunement requirement; use limit and reset condition; concentration handling; discharge, suppression, and end behavior.",
 				"Enchanted Arcavene items require attunement unless the item entry says otherwise.",
+				"Duration spells can be maintained while the item is worn and the wearer is attuned.",
 				"Arcavene wondrous items can anchor Self or Touch spells that affect the wearer.",
-				"If the bound spell uses concentration, the item entry must specify whether the wearer maintains concentration or the Arcavene matrix maintains concentration.",
+				"If the bound spell requires concentration, the item entry must specify whether the wearer maintains concentration or the Arcavene matrix maintains concentration.",
 				{
 					"type": "entries",
 					"name": "Named Item Boundary",
@@ -6690,7 +6671,8 @@
 					"An unenchanted Arcavene armor behaves as a normal armor of its listed type.",
 					"No default enchantment benefits: no AC bonus, no resistance, no damage-type change, no weight reduction, no stealth benefit.",
 					"Can anchor a Touch or Self spell that targets the wearer.",
-					"Duration spells can remain on the wearer while the armor is worn and the item remains attuned."
+					"Duration spells can remain on the wearer while the armor is worn and the item remains attuned.",
+					"Instant spells can be triggered by events named in the item entry."
 				]
 			},
 			"entries": [
@@ -6698,9 +6680,13 @@
 				"Arcavene uses a fixed item save DC and fixed item spellcasting profile unless a named item says otherwise.",
 				"Arcavene save DC = 12 + bound spell level.",
 				"Cantrip matrix DC = 12.",
+				"Costly or consumed material components are supplied during enchantment.",
+				"An enchanted Arcavene item must name: bound spell and spell level; activation method and trigger; save DC or spell attack bonus; attunement requirement; trigger/use limit/reset condition; concentration handling; discharge, suppression, and end behavior.",
 				"Without a bound spell, Arcavene items have no Arcavene spell effect.",
 				"Enchanted Arcavene items require attunement unless the item entry says otherwise.",
-				"If a bound spell requires concentration, the item entry must say whether the wearer maintains it or the Arcavene matrix maintains it.",
+				"If the bound spell requires concentration, the item entry must say whether the wearer maintains concentration or the Arcavene matrix maintains concentration.",
+				"If the wearer maintains concentration and drops it, the wearer-maintained effect ends immediately and cannot be assumed to persist.",
+				"Matrix-maintained concentration ends when attunement is broken, the item is removed, or an explicit suppression condition triggers.",
 				{
 					"type": "entries",
 					"name": "Named Item Boundary",
@@ -6742,9 +6728,15 @@
 				"Arcavene uses a fixed item save DC and fixed item spellcasting profile unless a named item says otherwise.",
 				"Arcavene save DC = 12 + bound spell level.",
 				"Cantrip matrix DC is 12 (spell level 0).",
-				"An enchanted Arcavene item must name the bound spell and spell level, activation, save DC or spell attack bonus, attunement requirement, trigger, use limit, reset condition, concentration handling, and suppression rules.",
-				"Without an enchantment, Arcavene weapons have no Arcavene spell effect.",
+				"Costly or consumed material components are supplied during enchantment.",
+				"An enchanted Arcavene item must name: bound spell and spell level; activation method and trigger; save DC or spell attack bonus; attunement requirement; trigger/use limit/reset condition; concentration handling; discharge, suppression, and end behavior.",
+				"Without a bound spell, Arcavene weapons have no Arcavene spell effect.",
 				"Enchanted Arcavene items require attunement unless the named item says otherwise.",
+				"Spell targeting limits remain in force.",
+				"When an enchanted Arcavene weapon has a valid bound spell and hits a creature, roll 1d10; a result greater than the bound spell proc level triggers the spell against the hit target; a result less than or equal to the proc level causes no spell effect.",
+				"There is no once-per-turn trigger limit; each hit can trigger a separate check; the struck creature is the spell target.",
+				"Normal non-cantrip spells use spell level as proc level.",
+				"Cantrip proc levels are 0 for 1st-level effect, 1 for 5th-level effect, 2 for 11th-level effect, and 3 for 17th-level effect; a 17th-level cantrip matrix activates when 1d10 is higher than 3.",
 				{
 					"type": "table",
 					"caption": "Arcavene Weapon Non-Cantrip Proc Levels",

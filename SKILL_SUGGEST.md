@@ -1,110 +1,45 @@
 ---
 name: veiled-omens-plutonium-daily-alignment
-description: Align the Veiled Omens Plutonium package to current player-options source material and verify it through repo validators plus the real Foundry/Plutonium import harness.
+description: Run the daily Veiled Omens Plutonium source/package alignment with full validators and Foundry import evidence.
 ---
 
-Run context
-- Work path: `/home/agent/projects/veiled-omens-plutonium`
-- Governing docs read: `AGENTS.md`, `README.md`, `DEVELOPMENT.md`, `docs/5etools-homebrew-conventions.md`
-- Canonical package file: `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
-- Source symlink: `veiled-omens-player-options-source -> /home/agent/projects/venoure/Veiled_Omens/Player_Options` (treated read-only)
-- `reference/` was treated as read-only
+Use this skill for the Veiled Omens Plutonium Daily Alignment task in `/home/agent/projects/veiled-omens-plutonium`.
 
-Source discovery and evidence
-- Source discovery covered `Classes`, `Races`, `Species`, `Items`, `Races/_race_metadata`, and Occultist PDF OCR artifacts.
-- `druid_circle_of_the_veil.md` — `STUB` mechanics-to-be-developed
-- `monk_way_of_the_mists.md` — `STUB` mechanics-to-be-developed
-- `paladin_oath_of_the_lantern.md` — `STUB` mechanics-to-be-developed
-- `occultist_rite_of_haunts_invocation_draft.md` — design draft, explicitly stated not canon text
-- `sorcerer_veil_touched.txt` — `Veil Touched` is a defunct name for current `Pale Touched`
-- `half_troll.txt` — legacy and not a current playable race
-- `rimeheart_dwarves.md` — no distinct mechanical racial writeup preserved
-- `Species/Elves/ghost_elf.md` — setting-agnostic GM-facing stub; active player mechanics are in `Races/ghost_elf.md`
-- `Races/_race_metadata` YAMLs are non-mechanical naming/source guidance except `wyrmblooded` metadata, which corroborates active `Races/wyrmblooded.md`
+Start by reading `AGENTS.md`, `README.md`, `DEVELOPMENT.md`, `docs/5etools-homebrew-conventions.md`, and the repo validators as governing instructions. Treat `collection/Patrick Richardson; Veiled Omens Campaign Setting.json` as the canonical package and `veiled-omens-player-options-source` as read-only source material. Do not use Venoure testing, mounted-Foundry, SSHFS, object-manager, or VTT data-management instructions.
 
-Package inventory and index evidence
-- Inventory: `race 12`, `class 2`, `classFeature 30`, `subclass 7`, `subclassFeature 39`, `spell 23`, `item 4`, `magicvariant 3`
-- `_generated/index-sources.json`: maps `VeiledOmens` to `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
-- `_generated/index-props.json`: maps `class`, `classFeature`, `item`, `magicvariant`, `race`, `spell`, `subclass`, `subclassFeature` to `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
+Discover source material from the symlink root each run. Inspect substantive text files under `Classes/`, `Items/`, `Races/`, and `Species/`; follow cross-references. For image-only PDFs, run OCR when source text is otherwise unavailable, then classify conflicts against newer text files by source date and content. In the July 2, 2026 run, the Occultist PDFs were May 4 image PDFs that conflicted with June text sources, so the current `.txt` and `.md` sources controlled.
 
-Discrepancy fixed
-- Changed Arcavene rarity inheritance from fixed `rare` to `varies` where source category is variable:
-  - `arcavene_rings.md` category Ring (rare or very rare)
-  - `arcavene_wondrous_items.md` category Wondrous item (rare or very rare)
-  - `arcavene_armor.md` category Armor (rare or very rare)
-  - `arcavene_weapons.md` category Weapon (rare or very rare)
-- This resolved the package entries:
-  - `Arcavene Ring`
-  - `Arcavene Wondrous Item`
-  - `Arcavene Armor`
-  - `Arcavene Weapon`
+Inventory the package from the canonical JSON and `_generated` indexes. List represented races/species, classes, subclasses, spells, items, and magic variants. Independently classify every source file as represented, missing, draft/legacy/lore-only/non-mechanical, or blocked/ambiguous, with exact source evidence. Do not classify a mechanic as excluded because it is absent from the package.
 
-PDF handling and source-corpus conflict
-- Tools present: `/usr/bin/pdftotext`, `/usr/bin/pdftoppm`, `/usr/bin/tesseract`
-- `occultist-phb-v1.0-lite.pdf` direct `pdftotext` produced no usable text.
-- Binary hashes were recorded for all three Occultist PDFs.
-- OCR was run with `pdftoppm + tesseract` in `/dev/shm` for all three Occultist PDFs:
-  - `occultist-phb-v1.0-compressed.pdf` -> `2426` OCR lines
-  - `occultist-phb-v1.0-lite.pdf` -> `2707` OCR lines
-  - `occultist-phb-v1.0.pdf` -> `2402` OCR lines
-- All three OCR outputs surfaced the older Rite of Omens `Bonecasting` wording.
-- The later text source `occultist_rite_of_omens.txt` states the current structure and names `Cast the Lots`; the package is aligned to that later text source.
-- This creates a residual source-corpus authority conflict and is explicitly retained here until canonical text resolution is complete.
+Compare both directions. Package-to-source must check names, prerequisites, level gates, granted features, spell lists, uses, recovery, DCs, damage, scaling, charges, attunement, rarity, item type, activities, proficiencies, languages, size, movement, senses, and rules-affecting prose. Source-to-package must prove every current player-facing mechanic is represented or evidence-backed as draft, legacy, lore-only, non-mechanical, or blocked.
 
-Official 2014 reference and homebrew convention checks
-- Sampled reference/prose review rows were checked from `reference/5etools-live-2014/raw/data`:
-  - `Elf|PHB`, `Tiefling|PHB`
-  - `Ring of Protection|DMG`
-  - `Robe of the Archmagi|DMG`
-  - `Bracers of Defense|DMG`
-  - `Spiritual Weapon|PHB`
-  - `False Life|PHB`
-  - `Bestow Curse|PHB`
-  - `Warding Bond|PHB`
-  - `Speak with Dead|PHB`
-- The `Rarity varies` convention was verified against `TheGiddyLimit/homebrew` examples for magic variants.
+Fix discrepancies in this repo only. Preserve `VeiledOmens` as the single source ID. Use TheGiddyLimit/homebrew and Plutonium bundled data for source-shape conventions. Keep source-authored `ItemGrant` rows out of package JSON. Add stable 16-character `_foundryId` values to race feature entries that flatten into Foundry feature items. When validator behavior conflicts with its documented invariant, repair the validator with a regression test rather than weakening source-accurate package text.
 
-Validation and harness evidence
-- `python3 tools/generate-plutonium-indexes.py` (pass; indexes already up to date)
-- `python3 tools/validate-content-json.py` (pass; `1` content file checked, `14` repository JSON files parsed)
-- `python3 tools/generate-plutonium-indexes.py --check` (pass)
-- `python3 tools/validate-plutonium-datasource.py` (pass)
-- `python3 tools/validate-plutonium-links.py` (pass)
-- `python3 tools/validate-prose-mechanics.py` (pass; `1` content file scanned)
-- `python3 tools/validate-foundry-advancements.py` (pass)
-- `python3 -m unittest discover -s tests -v` (pass; `5 tests OK`)
-- `tmp/foundry-plutonium-import-result.json` generated from this run; command:
+Run the exact validation command list after every package/tool/test fix:
 
 ```sh
-TMPDIR=/dev/shm \
-FOUNDRY_APP_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/foundry \
-FOUNDRY_DATA_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/data \
-CHROMIUM_EXECUTABLE_PATH=/home/agent/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome \
-node tools/validate-foundry-plutonium-import.mjs
+python3 tools/generate-plutonium-indexes.py
+python3 tools/validate-content-json.py
+python3 tools/generate-plutonium-indexes.py --check
+python3 tools/validate-plutonium-datasource.py
+python3 tools/validate-plutonium-links.py
+python3 tools/validate-prose-mechanics.py
+python3 tools/validate-foundry-advancements.py
+python3 -m unittest discover -s tests -v
 ```
 
-- Foundry preflight: Foundry `14.364.0`, dnd5e `5.3.3`, Plutonium `2.15.10`, lib-wrapper `1.13.5.1`, Chromium present.
-- Reported `tmp/foundry-plutonium-import-result.json` values:
-  - `status: passed`
-  - `sourceLoaded: true`
-  - `packageSource: VeiledOmens`
-  - `importedCount: 21`
-  - `failuresCount: 0`
-  - `malformedRows: 0`
-  - `timestamp: 2026-07-02T12:54:43.319Z`
-  - breakdown: `12` races, `2` classes, `7` subclasses
+Audit `_generated/index-sources.json` for one source ID per source package and `_generated/index-props.json` for collection mappings. Run stale-reference scans when source IDs or package paths change; record "none changed" when no such surface changed.
 
-Stale/reference scan and residual risk
-- Scan covered removed source IDs, fake `WONDROUS` type paths, and type-specific package paths for the active package and generated indexes.
-- No active matches were returned.
-- Residual risk remains: `occultist-phb-v1.0-lite.pdf` conflicts with newer text source for Rite of Omens naming; this run keeps package content aligned to the newer text source and requires explicit reporting until source authority is resolved.
+Run the real FoundryVTT/dnd5e + Plutonium path, not a JSON substitute. Verify `FOUNDRY_APP_DIR`, `FOUNDRY_DATA_DIR`, and `CHROMIUM_EXECUTABLE_PATH` exist. Use `TMPDIR=/dev/shm` on this host:
 
-Required future-run pattern
-- Create explicit coverage inventory.
-- Classify every source file with evidence.
-- Never treat not represented as an exclusion.
-- Fix package discrepancies.
-- Re-run exact validators in this order.
-- Run the real Foundry/Plutonium harness.
-- Inspect the report JSON.
-- Update this file with execution results.
+```sh
+env TMPDIR=/dev/shm \
+  FOUNDRY_APP_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/foundry \
+  FOUNDRY_DATA_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/data \
+  CHROMIUM_EXECUTABLE_PATH=/home/agent/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome \
+  node tools/validate-foundry-plutonium-import.mjs
+```
+
+Inspect `tmp/foundry-plutonium-import-result.json` for `status: "passed"`, `sourceLoaded: true`, package source `VeiledOmens`, imported race/class/subclass labels, no malformed advancement rows, and actor item evidence for changed mechanics. In the July 2 run, the harness used Foundry 14.364.0, dnd5e 5.3.3, Plutonium 2.15.10, imported 21 actor paths, and proved the flattened Goliath feature items imported with the added `_foundryId` values.
+
+Report with these sections: inspected source paths, represented package mechanics checked, source mechanics missing from package, draft/legacy/lore-only/non-mechanical classifications with evidence, source files not fully inspected, changed files, exact commands run with pass/fail, Foundry/Plutonium evidence, discrepancies fixed, unresolved blockers, residual risk, and commit/push result. Commit and push verified fixes by default; if push fails, report the exact blocker and leave the local commit intact.

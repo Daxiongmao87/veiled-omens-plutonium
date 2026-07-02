@@ -6579,7 +6579,7 @@
 			"name": "Arcavene Ring",
 			"source": "VeiledOmens",
 			"type": "RG|DMG",
-			"rarity": "rare",
+			"rarity": "varies",
 			"entries": [
 				"These rules define Arcavene rings and provide the base enchantment model for ring-specific spell matrices. They do not define the additional powers of named Arcavene items.",
 				"Category: Ring (rare or very rare).",
@@ -6606,7 +6606,7 @@
 			"name": "Arcavene Wondrous Item",
 			"source": "VeiledOmens",
 			"wondrous": true,
-			"rarity": "rare",
+			"rarity": "varies",
 			"entries": [
 				"These rules define Arcavene wondrous items and provide the base enchantment model for focused equipment classes. They do not define the additional powers of named Arcavene items.",
 				"Arcavene wondrous items have no enchantment by default and function as normal items until enchanted.",
@@ -6684,7 +6684,7 @@
 			"inherits": {
 				"namePrefix": "Arcavene ",
 				"source": "VeiledOmens",
-				"rarity": "rare",
+				"rarity": "varies",
 				"entries": [
 					"Arcavene is a spell matrix material. Arcavene armor has no enchantment by default.",
 					"An unenchanted Arcavene armor behaves as a normal armor of its listed type.",
@@ -6726,7 +6726,7 @@
 			"inherits": {
 				"namePrefix": "Arcavene ",
 				"source": "VeiledOmens",
-				"rarity": "rare",
+				"rarity": "varies",
 				"entries": [
 					"Arcavene is a spell matrix material. A weapon made from Arcavene has no enchantment by default.",
 					"An unenchanted Arcavene weapon functions as a normal weapon of its ordinary type.",

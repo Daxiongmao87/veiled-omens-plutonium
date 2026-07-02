@@ -43,10 +43,13 @@ PDF handling and source-corpus conflict
 - Tools present: `/usr/bin/pdftotext`, `/usr/bin/pdftoppm`, `/usr/bin/tesseract`
 - `occultist-phb-v1.0-lite.pdf` direct `pdftotext` produced no usable text.
 - Binary hashes were recorded for all three Occultist PDFs.
-- OCR was run on all 20 pages of `occultist-phb-v1.0-lite.pdf` with `pdftoppm + tesseract` in `/dev/shm`.
-- OCR output length: `2707` lines.
-- `occultist_rite_of_omens.txt` states current feature text as `Cast the Lots` and notes: `Working mechanical draft. The current structure treats subclass spells as part of the feature budget`.
-- OCR source still surfaced older Rite of Omens naming (`Bonecasting`), creating a source-corpus authority conflict.
+- OCR was run with `pdftoppm + tesseract` in `/dev/shm` for all three Occultist PDFs:
+  - `occultist-phb-v1.0-compressed.pdf` -> `2426` OCR lines
+  - `occultist-phb-v1.0-lite.pdf` -> `2707` OCR lines
+  - `occultist-phb-v1.0.pdf` -> `2402` OCR lines
+- All three OCR outputs surfaced the older Rite of Omens `Bonecasting` wording.
+- The later text source `occultist_rite_of_omens.txt` states the current structure and names `Cast the Lots`; the package is aligned to that later text source.
+- This creates a residual source-corpus authority conflict and is explicitly retained here until canonical text resolution is complete.
 
 Official 2014 reference and homebrew convention checks
 - Sampled reference/prose review rows were checked from `reference/5etools-live-2014/raw/data`:

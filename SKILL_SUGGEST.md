@@ -1,45 +1,47 @@
 ---
 name: veiled-omens-plutonium-daily-alignment
-description: Run the daily Veiled Omens Plutonium source/package alignment with full validators and Foundry import evidence.
+description: Run the Veiled Omens Plutonium daily source-to-package alignment audit and real Foundry validation.
 ---
 
-Use this skill for the Veiled Omens Plutonium Daily Alignment task in `/home/agent/projects/veiled-omens-plutonium`.
+Use this pattern for the daily Veiled Omens Plutonium alignment run.
 
-Start by reading `AGENTS.md`, `README.md`, `DEVELOPMENT.md`, `docs/5etools-homebrew-conventions.md`, and the repo validators as governing instructions. Treat `collection/Patrick Richardson; Veiled Omens Campaign Setting.json` as the canonical package and `veiled-omens-player-options-source` as read-only source material. Do not use Venoure testing, mounted-Foundry, SSHFS, object-manager, or VTT data-management instructions.
+Start with the Patrick gates required by the active AGENTS.md: first-action retrieval of `/home/agent/.codex/AGENTS.md` and `/home/agent/.codex/patrick-correction-ledger.md`, the Patrick Reality Check counts, an Exact-Request Allowlist, a Same-Class Contract, and a Power and Authority Gate. Do not replace source-to-package alignment with JSON validity, generated indexes, summaries, or partial samples.
 
-Discover source material from the symlink root each run. Inspect substantive text files under `Classes/`, `Items/`, `Races/`, and `Species/`; follow cross-references. For image-only PDFs, run OCR when source text is otherwise unavailable, then classify conflicts against newer text files by source date and content. In the July 2, 2026 run, the Occultist PDFs were May 4 image PDFs that conflicted with June text sources, so the current `.txt` and `.md` sources controlled.
+Read the governing repo surfaces before touching data: `AGENTS.md`, `README.md`, `DEVELOPMENT.md`, `docs/5etools-homebrew-conventions.md`, `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`, `_generated/index-sources.json`, and `_generated/index-props.json`. Keep the canonical source package as one collection file with source ID `VeiledOmens`.
 
-Inventory the package from the canonical JSON and `_generated` indexes. List represented races/species, classes, subclasses, spells, items, and magic variants. Independently classify every source file as represented, missing, draft/legacy/lore-only/non-mechanical, or blocked/ambiguous, with exact source evidence. Do not classify a mechanic as excluded because it is absent from the package.
+Discover current player-facing source material from the symlink `veiled-omens-player-options-source -> /home/agent/projects/venoure/Veiled_Omens/Player_Options`. Treat the symlink target and `reference/` as read-only. Inspect all substantive source files, including image-only PDFs through OCR when needed. In this run, the Occultist PDFs were image PDFs; OCR classified them as the current Occultist v1.0 supplement containing the Occultist class, three rites, spell list, and original spells.
 
-Compare both directions. Package-to-source must check names, prerequisites, level gates, granted features, spell lists, uses, recovery, DCs, damage, scaling, charges, attunement, rarity, item type, activities, proficiencies, languages, size, movement, senses, and rules-affecting prose. Source-to-package must prove every current player-facing mechanic is represented or evidence-backed as draft, legacy, lore-only, non-mechanical, or blocked.
+Build a two-way alignment table:
+- Package represented mechanics: races/species, classes, subclasses, class features, subclass features, spells, items, magic variants, feats/backgrounds if present.
+- Source mechanics: every substantive `.md`, `.txt`, `.yaml`, and `.pdf` source file under the symlink.
+- Evidence-backed exclusions: stubs with "Mechanics to be developed"; legacy files marked "Legacy Source / Defunct"; lore-only files that state no current mechanical writeup; non-diegetic metadata YAML files.
 
-Fix discrepancies in this repo only. Preserve `VeiledOmens` as the single source ID. Use TheGiddyLimit/homebrew and Plutonium bundled data for source-shape conventions. Keep source-authored `ItemGrant` rows out of package JSON. Add stable 16-character `_foundryId` values to race feature entries that flatten into Foundry feature items. When validator behavior conflicts with its documented invariant, repair the validator with a regression test rather than weakening source-accurate package text.
+Use TheGiddyLimit/homebrew and Plutonium bundled data as convention controls before changing source shape. For this run, relevant controls were official/bundled race, class, subclass, item, and magicvariant examples. Keep source-authored `ItemGrant` rows out of source JSON. Preserve existing `_foundryId` values and 5etools tags.
 
-Run the exact validation command list after every package/tool/test fix:
+When fixing discrepancies, update the canonical package JSON, then inspect the actual resulting entries with `jq` and `git diff`. Do not accept an executor summary or validator pass if the diff reverts a prior source-aligned correction. In this run the repaired discrepancies were the Ghost Elf quote and Vaetyr shared and trait prose, aligned to `Races/ghost_elf.md` and `Races/vaetyr.md` while preserving mechanics.
+
+Run the exact validator sequence after all JSON changes:
+1. `python3 tools/generate-plutonium-indexes.py`
+2. `python3 tools/validate-content-json.py`
+3. `python3 tools/generate-plutonium-indexes.py --check`
+4. `python3 tools/validate-plutonium-datasource.py`
+5. `python3 tools/validate-plutonium-links.py`
+6. `python3 tools/validate-prose-mechanics.py`
+7. `python3 tools/validate-foundry-advancements.py`
+8. `python3 -m unittest discover -s tests -v`
+
+Audit `_generated/index-sources.json` for one source ID per source package and `_generated/index-props.json` for collection mappings. Run stale-reference checks for deleted package paths or removed source IDs; if no source IDs or package paths were removed, record that evidence.
+
+Run the real FoundryVTT/dnd5e + Plutonium harness, not a substitute:
 
 ```sh
-python3 tools/generate-plutonium-indexes.py
-python3 tools/validate-content-json.py
-python3 tools/generate-plutonium-indexes.py --check
-python3 tools/validate-plutonium-datasource.py
-python3 tools/validate-plutonium-links.py
-python3 tools/validate-prose-mechanics.py
-python3 tools/validate-foundry-advancements.py
-python3 -m unittest discover -s tests -v
+TMPDIR=/dev/shm \
+FOUNDRY_APP_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/foundry \
+FOUNDRY_DATA_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/data \
+CHROMIUM_EXECUTABLE_PATH=/home/agent/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome \
+node tools/validate-foundry-plutonium-import.mjs
 ```
 
-Audit `_generated/index-sources.json` for one source ID per source package and `_generated/index-props.json` for collection mappings. Run stale-reference scans when source IDs or package paths change; record "none changed" when no such surface changed.
+Verify those three environment paths live before running. Read `tmp/foundry-plutonium-import-result.json` after the harness and report `status`, versions, imported labels, malformed advancement row count, and item advancement row count. A clean run in this execution reported Foundry 14.364.0, dnd5e 5.3.3, Plutonium 2.15.10, `status: passed`, 21 imported race/class/subclass labels, 0 malformed rows, and 137 item advancement rows.
 
-Run the real FoundryVTT/dnd5e + Plutonium path, not a JSON substitute. Verify `FOUNDRY_APP_DIR`, `FOUNDRY_DATA_DIR`, and `CHROMIUM_EXECUTABLE_PATH` exist. Use `TMPDIR=/dev/shm` on this host:
-
-```sh
-env TMPDIR=/dev/shm \
-  FOUNDRY_APP_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/foundry \
-  FOUNDRY_DATA_DIR=/home/agent/tmp/veiled-omens-foundry-import-1782310453848/data \
-  CHROMIUM_EXECUTABLE_PATH=/home/agent/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome \
-  node tools/validate-foundry-plutonium-import.mjs
-```
-
-Inspect `tmp/foundry-plutonium-import-result.json` for `status: "passed"`, `sourceLoaded: true`, package source `VeiledOmens`, imported race/class/subclass labels, no malformed advancement rows, and actor item evidence for changed mechanics. In the July 2 run, the harness used Foundry 14.364.0, dnd5e 5.3.3, Plutonium 2.15.10, imported 21 actor paths, and proved the flattened Goliath feature items imported with the added `_foundryId` values.
-
-Report with these sections: inspected source paths, represented package mechanics checked, source mechanics missing from package, draft/legacy/lore-only/non-mechanical classifications with evidence, source files not fully inspected, changed files, exact commands run with pass/fail, Foundry/Plutonium evidence, discrepancies fixed, unresolved blockers, residual risk, and commit/push result. Commit and push verified fixes by default; if push fails, report the exact blocker and leave the local commit intact.
+Final reporting must include: source paths inspected, represented mechanics checked, missing source mechanics, excluded source files with evidence, uninspected files, package files changed, exact commands run with pass/fail results, Foundry evidence, discrepancies fixed, unresolved blockers, residual risk, and commit/push result.

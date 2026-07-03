@@ -97,7 +97,19 @@ TEMPORARY_ACTIVE_RE = re.compile(
     r"\b(?:once|until|for\s+\d+\s+(?:minute|hour|day|round|turn|week)|as\s+an\s+action|bonus\s+action|reaction|activation|activated)\b",
     re.IGNORECASE,
 )
+NEGATION_RE = re.compile(
+    r"\b(?:no|none|not|without)\b[^.!?,]{0,20}\b(?:resist|immune|immunity|bonus|benefit)\b",
+    re.IGNORECASE,
+)
 OPTION_ENTRY_TYPES = {"refOptionalfeature", "refSubclassFeature"}
+
+
+def is_negated_sentence(sentence: str) -> bool:
+    """Return True if the sentence contains negation phrasing before defense/bonus keywords.
+
+    Examples: 'No AC bonus', 'no resistance', 'without immunity'.
+    """
+    return bool(NEGATION_RE.search(sentence))
 
 
 def parse_args() -> argparse.Namespace:
@@ -371,6 +383,8 @@ def validate_item_bonus_fields(
     for sentence in collect_strings(item.get("entries", [])):
         if META_REQUIREMENT_RE.search(sentence):
             continue
+        if is_negated_sentence(sentence):
+            continue
         lower = sentence.lower()
         if "bonus" in lower and ("attack" in lower or "to hit" in lower or "damage" in lower):
             if BONUS_WEAPON_RE.search(sentence):
@@ -413,6 +427,8 @@ def validate_item_defenses(
         if not DEFENSE_IMMUNITY_RE.search(sentence):
             continue
         if TEMPORARY_ACTIVE_RE.search(sentence):
+            continue
+        if is_negated_sentence(sentence):
             continue
 
         lower = sentence.lower()
@@ -530,6 +546,40 @@ def validate_option_blocks(
             )
 
 
+def build_effective_magicvariant_item(
+    magicvariant: Mapping[str, Any],
+) -> Mapping[str, Any] | None:
+    """Merge a magicvariant's top-level fields with its inherits block into an effective item.
+
+    inherits provides structured item mechanics (charges, attachedSpells, wondrous, bonus fields,
+    defense fields). Top-level entries and inherits.entries are combined so collect_strings
+    traverses all prose. Returns None if the magicvariant has no inherits block.
+    """
+    inherits = magicvariant.get("inherits")
+    if not isinstance(inherits, Mapping):
+        return None
+
+    effective: dict[str, Any] = dict(magicvariant)
+
+    # Merge entries from both levels
+    top_entries = magicvariant.get("entries")
+    inherits_entries = inherits.get("entries")
+    if isinstance(top_entries, list) and isinstance(inherits_entries, list):
+        effective["entries"] = list(top_entries) + list(inherits_entries)
+    elif isinstance(inherits_entries, list):
+        effective["entries"] = list(inherits_entries)
+    # If only top-level entries exist, they're already in effective via dict(magicvariant)
+
+    # inherits fields for mechanics overlay onto top-level
+    for key in ("charges", "recharge", "rechargeAmount", "attachedSpells", "wondrous",
+                 "type", "bonusAc", "bonusWeapon", "bonusSpellAttack", "bonusSpellSaveDc",
+                 "resist", "immune", "conditionImmune"):
+        if key in inherits:
+            effective[key] = inherits[key]
+
+    return effective
+
+
 def validate_file(rel: str, data: Mapping[str, Any], errors: list[str]) -> None:
     class_feature_records = collect_class_feature_records(rel, data, errors)
     subclass_feature_records = collect_subclass_feature_records(rel, data, errors)
@@ -553,6 +603,18 @@ def validate_file(rel: str, data: Mapping[str, Any], errors: list[str]) -> None:
         validate_item_charge_mechanics(rel, "item", index, item, errors)
         validate_item_bonus_fields(rel, "item", index, item, errors)
         validate_item_defenses(rel, "item", index, item, errors)
+
+    for index, magicvariant in enumerate(data.get("magicvariant", [])):
+        if not isinstance(magicvariant, Mapping):
+            continue
+        effective = build_effective_magicvariant_item(magicvariant)
+        if effective is None:
+            continue
+        validate_item_wondrous_type(rel, "magicvariant", index, effective, errors)
+        validate_item_attached_spells(rel, "magicvariant", index, effective, errors)
+        validate_item_charge_mechanics(rel, "magicvariant", index, effective, errors)
+        validate_item_bonus_fields(rel, "magicvariant", index, effective, errors)
+        validate_item_defenses(rel, "magicvariant", index, effective, errors)
 
     for index, cls in enumerate(data.get("class", [])):
         if not isinstance(cls, Mapping):

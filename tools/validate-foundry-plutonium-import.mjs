@@ -513,6 +513,16 @@ const buildPlaywrightImportPlan = async () => {
 		className: entry.className,
 		classSource: entry.classSource,
 	}));
+	const items = (packageData.item || []).map((entry) => ({
+		name: entry.name,
+		source: entry.source,
+		prop: entry.__prop || 'item',
+	}));
+	const magicvariants = (packageData.magicvariant || []).map((entry) => ({
+		name: entry.name,
+		source: entry.source,
+		prop: entry.__prop || 'magicvariant',
+	}));
 
 	return {
 		sourceId: SOURCE_ID,
@@ -520,6 +530,8 @@ const buildPlaywrightImportPlan = async () => {
 		races,
 		classes,
 		subclasses,
+		items,
+		magicvariants,
 	};
 };
 
@@ -540,6 +552,11 @@ const buildResultBase = async (packageData) => {
 		sourceLoaded: null,
 		storage: {},
 		imported: [],
+		importedItems: [],
+		importedMagicvariants: [],
+		magicvariantBlockers: [],
+		generatedMagicvariantItems: [],
+		magicvariantGenerationBlockers: [],
 		failures: [],
 		serverLogs: [],
 		browserLogs: [],
@@ -819,10 +836,17 @@ const runImport = async (plan) => {
 			races: plan.races || [],
 			classes: plan.classes || [],
 			subclasses: plan.subclasses || [],
+			items: plan.items || [],
+			magicvariants: plan.magicvariants || [],
 		};
 
 		const importResult = await page.evaluate(async ({plan, levels, importStepTimeoutMs}) => {
 			const summaries = [];
+			const standaloneItemSummaries = [];
+			const magicvariantSummaries = [];
+			const magicvariantBlockers = [];
+			const generatedMagicvariantSummaries = [];
+			const magicvariantGenerationBlockers = [];
 			const failures = [];
 			const plutoniumModuleApi = game.modules.get('plutonium')?.api;
 			const importTrace = {
@@ -1198,6 +1222,11 @@ const runImport = async (plan) => {
 					selectedImporterPath,
 					importStepTimeoutMs,
 					summaries,
+					standaloneItemSummaries,
+					magicvariantSummaries,
+					magicvariantBlockers,
+					generatedMagicvariantSummaries,
+					magicvariantGenerationBlockers,
 					failures,
 				};
 			};
@@ -1292,13 +1321,30 @@ const runImport = async (plan) => {
 
 			let raceImporter;
 			let classImporter;
+			let itemImporter;
 			try {
 				raceImporter = await importerApi.pGetImporter({prop: 'race', isRequired: true});
 				classImporter = await importerApi.pGetImporter({prop: 'class', isRequired: true});
+				if ((plan.items || []).length || (plan.magicvariants || []).length) {
+					itemImporter = await importerApi.pGetImporter({page: window.UrlUtil?.PG_ITEMS || 'items.html', isRequired: true});
+					if (!itemImporter) itemImporter = await importerApi.pGetImporter({prop: 'item', isRequired: true});
+				}
 			} catch (error) {
 				failures.push({
 					label: 'plutonium',
 					error: `Could not acquire importer endpoints: ${error?.message || String(error)}`,
+					promptAutomation: getPromptDiagnostics(),
+					importTrace: getImportTraceDiagnostics(),
+				});
+				return buildImportResult();
+			}
+
+			if (((plan.items || []).length || (plan.magicvariants || []).length) && !itemImporter) {
+				failures.push({
+					label: 'item-importer',
+					error: 'Could not acquire Plutonium Items importer for standalone item/magicvariant validation',
+					selectedImporterPath,
+					availableApiKeys: importerApiKeys,
 					promptAutomation: getPromptDiagnostics(),
 					importTrace: getImportTraceDiagnostics(),
 				});
@@ -1324,6 +1370,17 @@ const runImport = async (plan) => {
 				['_pImportEntryClass_pGetHpImportMode', 'class.getHpImportMode'],
 				['_pImportEntry_pImportToActor_pAddSubEntities', 'class.addSubEntities'],
 			].forEach(([methodName, label]) => wrapImporterAsyncMethod(classImporter, methodName, label));
+
+			if (itemImporter) {
+				[
+					['_pImportEntry', 'item.importEntry'],
+					['_pImportEntry_pImportToDirectoryGeneric', 'item.importToDirectoryGeneric'],
+					['_pImportEntry_pImportToDirectoryGeneric_toDirectory', 'item.importToDirectory'],
+					['_pImportEntry_pImportToDirectoryGeneric_pGetFolderIdMeta', 'item.getFolderIdMeta'],
+					['_pImportEntry_pImportToActor', 'item.importToActor'],
+					['_pImportEntry_pImportToActor_pAddSubEntities', 'item.addSubEntities'],
+				].forEach(([methodName, label]) => wrapImporterAsyncMethod(itemImporter, methodName, label));
+			}
 
 			const getClassForImport = async ({name, source}) => {
 				try {
@@ -1400,6 +1457,44 @@ const runImport = async (plan) => {
 				}
 				if (found && prop === 'subclass') found._isFromRivet = true;
 				return found;
+			};
+
+			const getItemEntityForImport = async ({name, source, prop}) => {
+				const page = window.UrlUtil?.PG_ITEMS || 'items.html';
+				const hash = window.UrlUtil.URL_TO_HASH_BUILDER[page]({name, source});
+				try {
+					const loaded = await window.DataLoader.pCacheAndGet(page, source, hash, {isCopy: true});
+					if (loaded) {
+						return {
+							entity: loaded,
+							hash,
+							page,
+							prop: loaded.__prop || prop || null,
+							resolvedVia: 'DataLoader.pCacheAndGet(items.html)',
+						};
+					}
+				} catch (error) {
+					recordImportTrace({
+						label: 'import-entity-error',
+						prop,
+						name,
+						source,
+						page,
+						hash,
+						error: error?.message || String(error),
+					});
+				}
+
+				const brew = await window.BrewUtil2.pGetBrewProcessed();
+				const list = brew?.[prop] || [];
+				const found = list.find((entry) => entry?.name === name && entry?.source === source) || null;
+				return {
+					entity: found,
+					hash,
+					page,
+					prop: found?.__prop || prop || null,
+					resolvedVia: found ? `BrewUtil2.pGetBrewProcessed().${prop}` : null,
+				};
 			};
 
 			const summarizeActor = async (actor, label, expectedType) => {
@@ -1664,7 +1759,7 @@ const runImport = async (plan) => {
 				};
 			};
 
-			const withSafeImport = async (label, importCall, actor) => {
+			const runImportWithCapture = async (label, importCall, actor) => {
 				const startedAt = Date.now();
 				let timeoutHandle = null;
 				const timeoutMarker = {};
@@ -1684,7 +1779,7 @@ const runImport = async (plan) => {
 					const result = await Promise.race([importPromise, timeoutPromise]);
 					if (result === timeoutMarker) {
 						const elapsedMs = Date.now() - startedAt;
-						failures.push({
+						const failure = {
 							label,
 							error: `Import timed out after ${elapsedMs} ms`,
 							diagnostics: await collectImportDiagnostics({
@@ -1692,24 +1787,38 @@ const runImport = async (plan) => {
 								actor,
 								elapsedMs,
 							}),
-						});
-						return false;
+						};
+						return {
+							ok: false,
+							failure,
+						};
 					}
 
-					return true;
+					return {
+						ok: true,
+					};
 				} catch (error) {
 					const elapsedMs = Date.now() - startedAt;
-					failures.push({
+					return {
+						ok: false,
 						label,
-						error: `Import call failed: ${error?.message || String(error)}`,
-						elapsedMs,
-					});
-					return false;
+						failure: {
+							label,
+							error: `Import call failed: ${error?.message || String(error)}`,
+							elapsedMs,
+						},
+					};
 				} finally {
 					if (timeoutHandle) {
 						clearTimeout(timeoutHandle);
 					}
 				}
+			};
+
+			const withSafeImport = async (label, importCall, actor) => {
+				const result = await runImportWithCapture(label, importCall, actor);
+				if (!result.ok) failures.push(result.failure);
+				return result.ok;
 			};
 
 			const withSafeFinalize = async (label, actorMultiImportHelper, actor) => {
@@ -1742,6 +1851,13 @@ const runImport = async (plan) => {
 				isBatched: true,
 			});
 
+			const makeStandaloneItemImportOpts = () => new importerApi.ImportOpts({
+				filterValues: {},
+				isBatched: true,
+				isAddDefaultOwnershipFromConfig: false,
+				userOwnership: game.user?.isGM ? null : {[game.user.id]: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER},
+			});
+
 			const pDoPreCacheImporter = async (importer) => {
 				if (typeof importer?.pDoPreCachePack !== 'function') return;
 				await importer.pDoPreCachePack({pack: null});
@@ -1751,6 +1867,647 @@ const runImport = async (plan) => {
 				if (typeof importer?.doDumpPackCache !== 'function') return;
 				importer.doDumpPackCache();
 			};
+
+			const summarizeSystem = (system = {}) => {
+				const activities = system?.activities;
+				const activitiesArray = activities
+					? Array.from(activities instanceof Map ? activities.values() : Object.values(activities))
+					: [];
+				const descriptionValue = typeof system?.description?.value === 'string' ? system.description.value : '';
+				const descriptionLower = descriptionValue.toLowerCase();
+				return {
+					type: system?.type || null,
+					rarity: system?.rarity || null,
+					attunement: system?.attunement || null,
+					equipped: system?.equipped ?? null,
+					quantity: system?.quantity ?? null,
+					weight: system?.weight || null,
+					price: system?.price || null,
+					uses: system?.uses || null,
+					charges: system?.charges || null,
+					properties: system?.properties || null,
+					armor: system?.armor || null,
+					damage: system?.damage || null,
+					range: system?.range || null,
+					target: system?.target || null,
+					magicalBonus: system?.magicalBonus ?? null,
+					descriptionValueLength: descriptionValue.length || null,
+					descriptionContains: {
+						arcavene: descriptionLower.includes('arcavene'),
+						shadesilver: descriptionLower.includes('shadesilver'),
+						necrotic: descriptionLower.includes('necrotic'),
+						resistance: descriptionLower.includes('resistance'),
+						spellMatrix: descriptionLower.includes('spell matrix'),
+					},
+					activities: {
+						count: activitiesArray.length,
+						entries: activitiesArray.map((activity) => ({
+							id: activity?._id || activity?.id || null,
+							name: activity?.name || null,
+							type: activity?.type || null,
+						})),
+					},
+				};
+			};
+
+			const summarizeEffects = (document, json = {}) => {
+				const fromDocument = document?.effects
+					? Array.from(document.effects instanceof Map ? document.effects.values() : document.effects)
+						.map((effect) => (typeof effect?.toJSON === 'function' ? effect.toJSON() : effect))
+					: [];
+				const fromJson = Array.isArray(json.effects) ? json.effects : [];
+				const effects = (fromDocument.length ? fromDocument : fromJson)
+					.filter(Boolean);
+				return {
+					count: effects.length,
+					entries: effects.map((effect) => ({
+						id: effect?._id || effect?.id || null,
+						name: effect?.name || effect?.label || null,
+						disabled: effect?.disabled ?? null,
+						transfer: effect?.transfer ?? null,
+						changes: (effect?.changes || []).map((change) => ({
+							key: change?.key || null,
+							mode: change?.mode ?? null,
+							value: change?.value ?? null,
+						})),
+					})),
+				};
+			};
+
+			const summarizeImportedDocument = ({input, inputProp, resolvedMeta, importSummary}) => {
+				const importedDocuments = (importSummary?.imported || [])
+					.map((importedDocument) => importedDocument?.getPrimaryDocument?.() || importedDocument?.document || importedDocument?.embeddedDocument || null)
+					.filter(Boolean);
+				const primaryDocument = importSummary?.getPrimaryDocument?.() || importedDocuments[0] || null;
+				const documents = importedDocuments.map((document) => {
+					const json = typeof document?.toJSON === 'function'
+						? document.toJSON()
+						: typeof document?.toObject === 'function'
+							? document.toObject()
+							: document;
+					const documentId = document?.id || json?._id || json?.id || null;
+					return {
+						documentId,
+						documentName: document?.name || json?.name || null,
+						documentType: document?.type || json?.type || null,
+						uuid: document?.uuid || null,
+						foundInGameItems: !!(documentId && game.items?.get(documentId)),
+						flags: json?.flags || {},
+						system: summarizeSystem(json?.system || document?.system || {}),
+						effects: summarizeEffects(document, json),
+					};
+				});
+
+				return {
+					input: {
+						name: input.name,
+						source: input.source,
+						prop: inputProp,
+					},
+					resolved: !!resolvedMeta?.entity,
+					visible: !!resolvedMeta?.entity,
+					resolvedVia: resolvedMeta?.resolvedVia || null,
+					resolvedProp: resolvedMeta?.prop || null,
+					page: resolvedMeta?.page || null,
+					hash: resolvedMeta?.hash || null,
+					importStatus: importSummary?.status || null,
+					converted: !!primaryDocument,
+					documents,
+				};
+			};
+
+			const getMagicvariantKind = (genericVariant) => {
+				const requires = Array.isArray(genericVariant?.requires) ? genericVariant.requires : [];
+				return {
+					requiresArmor: requires.some((requirement) => requirement?.armor === true),
+					requiresWeapon: requires.some((requirement) => requirement?.weapon === true),
+				};
+			};
+
+			const getBaseName = (item) => item?._baseName || (typeof item?.baseItem === 'string' ? item.baseItem.split('|')[0] : null);
+
+			const getBaseSource = (item) => item?._baseSource || (typeof item?.baseItem === 'string' ? item.baseItem.split('|')[1] : null);
+
+			const getPreferredGeneratedMagicvariant = ({genericVariant, candidates}) => {
+				const kind = getMagicvariantKind(genericVariant);
+				const preferredBaseNames = kind.requiresArmor
+					? ['Leather Armor', 'Chain Mail', 'Plate Armor']
+					: ['Longsword', 'Dagger', 'Greatsword', 'Rapier'];
+				const preferredSources = ['XPHB', 'PHB', 'XDMG', 'DMG'];
+				const scoreCandidate = (candidate) => {
+					const baseName = getBaseName(candidate);
+					const baseSource = getBaseSource(candidate);
+					const nameScore = preferredBaseNames.includes(baseName)
+						? preferredBaseNames.indexOf(baseName)
+						: preferredBaseNames.length;
+					const sourceScore = preferredSources.includes(baseSource)
+						? preferredSources.indexOf(baseSource)
+						: preferredSources.length;
+					return (nameScore * 100) + sourceScore;
+				};
+				return [...candidates].sort((a, b) => scoreCandidate(a) - scoreCandidate(b))[0] || null;
+			};
+
+			const safeJsonString = (value) => {
+				try {
+					return JSON.stringify(value ?? null) || '';
+				} catch {
+					return '';
+				}
+			};
+
+			const summarizeGeneratedMagicvariantEntity = (entity) => {
+				const entriesText = safeJsonString([entity?.entries, entity?._fullEntries]).toLowerCase();
+				return {
+					name: entity?.name || null,
+					source: entity?.source || null,
+					prop: entity?.__prop || null,
+					category: entity?._category || null,
+					baseName: getBaseName(entity),
+					baseSource: getBaseSource(entity),
+					baseItem: entity?.baseItem || null,
+					genericVariant: entity?.genericVariant || null,
+					type: entity?.type || null,
+					armor: entity?.armor ?? null,
+					weapon: entity?.weapon ?? null,
+					ac: entity?.ac ?? null,
+					weight: entity?.weight ?? null,
+					dmg1: entity?.dmg1 || null,
+					dmg2: entity?.dmg2 || null,
+					dmgType: entity?.dmgType || null,
+					resist: entity?.resist || null,
+					rarity: entity?.rarity || null,
+					textContains: {
+						arcavene: entriesText.includes('arcavene'),
+						shadesilver: entriesText.includes('shadesilver'),
+						necrotic: entriesText.includes('necrotic'),
+						resistance: entriesText.includes('resistance'),
+						spellMatrix: entriesText.includes('spell matrix'),
+					},
+				};
+			};
+
+			const DAMAGE_TYPE_ABBREVIATIONS = {
+				A: 'acid',
+				B: 'bludgeoning',
+				C: 'cold',
+				F: 'fire',
+				L: 'lightning',
+				N: 'necrotic',
+				O: 'force',
+				P: 'piercing',
+				I: 'poison',
+				Y: 'psychic',
+				R: 'radiant',
+				S: 'slashing',
+				T: 'thunder',
+			};
+
+			const normalizeDamageType = (value) => {
+				if (value == null) return null;
+				const text = String(value).trim();
+				if (!text) return null;
+				return DAMAGE_TYPE_ABBREVIATIONS[text.toUpperCase()] || text.toLowerCase();
+			};
+
+			const getFlatDamageTerms = (values) => {
+				const out = [];
+				const collect = (value) => {
+					if (value == null) return;
+					if (Array.isArray(value)) return value.forEach(collect);
+					if (typeof value === 'string') {
+						const normalized = normalizeDamageType(value);
+						if (normalized) out.push(normalized);
+						return;
+					}
+					if (typeof value === 'object') {
+						['resist', 'immune', 'vulnerable'].forEach((prop) => collect(value[prop]));
+					}
+				};
+				collect(values);
+				return [...new Set(out)];
+			};
+
+			const getGeneratedMagicvariantAssertions = ({genericVariant, generatedEntity, summary}) => {
+				const assertionFailures = [];
+				const inherited = genericVariant?.inherits || {};
+				const kind = getMagicvariantKind(genericVariant);
+				const document = summary.documents?.[0] || null;
+				const systemJsonLower = safeJsonString(document?.system).toLowerCase();
+				const effectsJsonLower = safeJsonString(document?.effects).toLowerCase();
+				const armorJson = safeJsonString(document?.system?.armor).toLowerCase();
+				const weightJson = safeJsonString(document?.system?.weight).toLowerCase();
+				const sourceEntityJsonLower = safeJsonString(generatedEntity).toLowerCase();
+
+				if (!document) {
+					assertionFailures.push('generated variant import produced no Foundry Item document');
+				}
+
+				if (kind.requiresArmor) {
+					if (!generatedEntity?.armor) assertionFailures.push('generated source entity is not armor-tagged');
+					if (document?.documentType !== 'equipment') assertionFailures.push(`generated armor imported as ${document?.documentType || 'missing'} instead of equipment`);
+					if (!document?.system?.armor) assertionFailures.push('generated armor document has no system.armor data');
+				}
+
+				if (kind.requiresWeapon) {
+					if (!generatedEntity?.weapon) assertionFailures.push('generated source entity is not weapon-tagged');
+					if (document?.documentType !== 'weapon') assertionFailures.push(`generated weapon imported as ${document?.documentType || 'missing'} instead of weapon`);
+					if (!document?.system?.damage) assertionFailures.push('generated weapon document has no system.damage data');
+				}
+
+				if (Array.isArray(inherited.entries) && inherited.entries.length) {
+					const materialName = (genericVariant?.name || '').split(/\s+/)[0]?.toLowerCase();
+					if (materialName && !document?.system?.descriptionContains?.[materialName]) {
+						assertionFailures.push(`generated document description does not contain inherited ${materialName} material entries`);
+					}
+				}
+
+				const expectedResist = getFlatDamageTerms(inherited.resist);
+				if (expectedResist.length) {
+					expectedResist.forEach((damageType) => {
+						if (!sourceEntityJsonLower.includes(damageType)) {
+							assertionFailures.push(`generated source entity does not include inherited ${damageType} resistance`);
+						}
+						if (!effectsJsonLower.includes('system.traits.dr.value') || !effectsJsonLower.includes(damageType)) {
+							assertionFailures.push(`generated Foundry Item effects do not include ${damageType} damage resistance`);
+						}
+					});
+				}
+
+				if (inherited.dmgType) {
+					const expectedDamageType = normalizeDamageType(inherited.dmgType);
+					const sourceDamageType = normalizeDamageType(generatedEntity?.dmgType);
+					if (sourceDamageType !== expectedDamageType) {
+						assertionFailures.push(`generated source entity dmgType is ${sourceDamageType || 'missing'} instead of ${expectedDamageType}`);
+					}
+					if (!systemJsonLower.includes(expectedDamageType)) {
+						assertionFailures.push(`generated Foundry weapon system data does not include ${expectedDamageType} damage`);
+					}
+				}
+
+				if (inherited.weightExpression) {
+					if (generatedEntity?.weight == null) {
+						assertionFailures.push('generated source entity does not include inherited weight expression result');
+					} else if (!weightJson.includes(String(generatedEntity.weight))) {
+						assertionFailures.push(`generated Foundry Item weight does not include inherited value ${generatedEntity.weight}`);
+					}
+				}
+
+				if (Object.hasOwn(inherited, 'ac')) {
+					if (generatedEntity?.ac !== inherited.ac) {
+						assertionFailures.push(`generated source entity AC is ${generatedEntity?.ac ?? 'missing'} instead of inherited ${inherited.ac}`);
+					}
+					const expectedFoundryArmorValue = inherited.ac || 10;
+					if (document?.system?.armor?.value !== expectedFoundryArmorValue && !armorJson.includes(`"value":${expectedFoundryArmorValue}`)) {
+						assertionFailures.push(`generated Foundry armor data value ${document?.system?.armor?.value ?? 'missing'} does not match inherited AC ${inherited.ac} encoded as Foundry armor value ${expectedFoundryArmorValue}`);
+					}
+				}
+
+				return {
+					pass: assertionFailures.length === 0,
+					assertionFailures,
+					expected: {
+						requiresArmor: kind.requiresArmor,
+						requiresWeapon: kind.requiresWeapon,
+						inheritedResist: expectedResist,
+						inheritedDmgType: inherited.dmgType ? normalizeDamageType(inherited.dmgType) : null,
+						inheritedWeightExpression: inherited.weightExpression || null,
+						inheritedAc: Object.hasOwn(inherited, 'ac') ? inherited.ac : null,
+						expectedFoundryArmorValue: Object.hasOwn(inherited, 'ac') ? (inherited.ac || 10) : null,
+					},
+				};
+			};
+
+			const importGeneratedMagicvariantDocument = async ({entry}) => {
+				const label = `generated-magicvariant:${entry.name}|${entry.source}`;
+				const genericMeta = await getItemEntityForImport({
+					name: entry.name,
+					source: entry.source,
+					prop: entry.prop || 'magicvariant',
+				});
+
+				const pushBlocker = (blocker, partialSummary = {}) => {
+					magicvariantGenerationBlockers.push(blocker);
+					generatedMagicvariantSummaries.push({
+						input: {
+							name: entry.name,
+							source: entry.source,
+							prop: entry.prop || 'magicvariant',
+						},
+						visible: !!genericMeta.entity,
+						resolved: !!genericMeta.entity,
+						converted: false,
+						generatedVia: 'Renderer.item.pGetItemsFromBrew()',
+						blocker,
+						...partialSummary,
+					});
+				};
+
+				if (!genericMeta.entity) {
+					pushBlocker({
+						label,
+						blockerType: 'magicvariant-template-not-resolved-for-generated-variant',
+						error: 'Magicvariant template was not visible to the live Items page data source',
+						input: entry,
+						page: genericMeta.page,
+						hash: genericMeta.hash,
+					});
+					return true;
+				}
+
+				if (typeof window.Renderer?.item?.pGetItemsFromBrew !== 'function') {
+					pushBlocker({
+						label,
+						blockerType: 'magicvariant-generated-path-unavailable',
+						error: 'Renderer.item.pGetItemsFromBrew is not available in the live Foundry/Plutonium browser context',
+						input: entry,
+					});
+					return true;
+				}
+
+				let brewItems = [];
+				try {
+					brewItems = await window.Renderer.item.pGetItemsFromBrew();
+				} catch (error) {
+					pushBlocker({
+						label,
+						blockerType: 'magicvariant-generated-path-threw',
+						error: `Renderer.item.pGetItemsFromBrew failed: ${error?.message || String(error)}`,
+						input: entry,
+					});
+					return true;
+				}
+
+				const candidates = (brewItems || [])
+					.filter((item) => item?.genericVariant?.name === genericMeta.entity.name && item?.genericVariant?.source === genericMeta.entity.source)
+					.filter((item) => item?.__prop === 'item' || !item?.__prop);
+				const generatedEntity = getPreferredGeneratedMagicvariant({
+					genericVariant: genericMeta.entity,
+					candidates,
+				});
+
+				if (!generatedEntity) {
+					pushBlocker({
+						label,
+						blockerType: 'magicvariant-generated-specific-variant-missing',
+						error: 'The live Plutonium item data source exposed the magicvariant template but no generated base-item variants for it',
+						input: entry,
+						candidateCount: candidates.length,
+						genericTemplate: {
+							name: genericMeta.entity.name,
+							source: genericMeta.entity.source,
+							requires: genericMeta.entity.requires || null,
+							inherits: genericMeta.entity.inherits || null,
+						},
+					});
+					return true;
+				}
+
+				const page = window.UrlUtil?.PG_ITEMS || 'items.html';
+				const generatedHash = window.UrlUtil.URL_TO_HASH_BUILDER[page]({
+					name: generatedEntity.name,
+					source: generatedEntity.source,
+				});
+				const generatedMeta = {
+					entity: generatedEntity,
+					hash: generatedHash,
+					page,
+					prop: generatedEntity.__prop || 'item',
+					resolvedVia: 'Renderer.item.pGetItemsFromBrew():specificVariant',
+				};
+
+				let importSummary = null;
+				await pDoPreCacheImporter(itemImporter);
+				const importResult = await runImportWithCapture(label, async () => {
+					importSummary = await itemImporter.pImportEntry(generatedEntity, makeStandaloneItemImportOpts());
+				}, null);
+				doDumpImporterCache(itemImporter);
+
+				if (!importResult.ok) {
+					pushBlocker({
+						...importResult.failure,
+						blockerType: 'magicvariant-generated-specific-variant-import-failed',
+						input: entry,
+						generatedEntity: summarizeGeneratedMagicvariantEntity(generatedEntity),
+						candidateCount: candidates.length,
+					});
+					return true;
+				}
+
+				const summary = summarizeImportedDocument({
+					input: generatedEntity,
+					inputProp: generatedEntity.__prop || 'item',
+					resolvedMeta: generatedMeta,
+					importSummary,
+				});
+				summary.generatedFromMagicvariant = {
+					name: genericMeta.entity.name,
+					source: genericMeta.entity.source,
+					requires: genericMeta.entity.requires || null,
+					inherits: genericMeta.entity.inherits || null,
+				};
+				summary.generatedVia = 'Renderer.item.pGetItemsFromBrew()';
+				summary.candidateCount = candidates.length;
+				summary.generatedEntity = summarizeGeneratedMagicvariantEntity(generatedEntity);
+				summary.assertions = getGeneratedMagicvariantAssertions({
+					genericVariant: genericMeta.entity,
+					generatedEntity,
+					summary,
+				});
+
+				if (!summary.converted || !summary.assertions.pass) {
+					const blocker = {
+						label,
+						blockerType: 'magicvariant-generated-equipment-inherited-mechanics-missing',
+						error: 'Generated magicvariant item imported without required inherited equipment/mechanics/effects evidence',
+						input: entry,
+						generatedEntity: summary.generatedEntity,
+						assertions: summary.assertions,
+						documents: summary.documents,
+					};
+					magicvariantGenerationBlockers.push(blocker);
+					generatedMagicvariantSummaries.push({
+						...summary,
+						blocker,
+					});
+					return true;
+				}
+
+				generatedMagicvariantSummaries.push(summary);
+				return true;
+			};
+
+			const importStandaloneItemDocument = async ({entry, inputProp, isMagicvariant = false}) => {
+				const label = `${inputProp}:${entry.name}|${entry.source}`;
+				const resolvedMeta = await getItemEntityForImport({
+					name: entry.name,
+					source: entry.source,
+					prop: inputProp,
+				});
+
+				if (!resolvedMeta.entity) {
+					const failure = {
+						label,
+						error: `Entity not found for ${inputProp} import through Items page`,
+						input: entry,
+						page: resolvedMeta.page,
+						hash: resolvedMeta.hash,
+						resolvedVia: resolvedMeta.resolvedVia,
+					};
+					if (isMagicvariant) {
+						const blocker = {
+							...failure,
+							blockerType: 'magicvariant-not-resolved-through-live-items-page',
+							visible: false,
+							resolved: false,
+							converted: false,
+						};
+						magicvariantBlockers.push(blocker);
+						magicvariantSummaries.push({
+							input: {
+								name: entry.name,
+								source: entry.source,
+								prop: inputProp,
+							},
+							visible: false,
+							resolved: false,
+							converted: false,
+							blocker,
+						});
+						return true;
+					}
+					failures.push(failure);
+					return false;
+				}
+
+				let importSummary = null;
+				await pDoPreCacheImporter(itemImporter);
+				const importResult = isMagicvariant
+					? await runImportWithCapture(label, async () => {
+						importSummary = await itemImporter.pImportEntry(resolvedMeta.entity, makeStandaloneItemImportOpts());
+					}, null)
+					: await runImportWithCapture(label, async () => {
+						importSummary = await itemImporter.pImportEntry(resolvedMeta.entity, makeStandaloneItemImportOpts());
+					}, null);
+				doDumpImporterCache(itemImporter);
+
+				if (!importResult.ok) {
+					if (isMagicvariant && !importResult.failure?.error?.includes('timed out')) {
+						const blocker = {
+							...importResult.failure,
+							blockerType: 'magicvariant-items-importer-rejected-direct-conversion',
+							input: entry,
+							page: resolvedMeta.page,
+							hash: resolvedMeta.hash,
+							resolvedVia: resolvedMeta.resolvedVia,
+							resolvedProp: resolvedMeta.prop,
+							visible: true,
+							resolved: true,
+							converted: false,
+						};
+						magicvariantBlockers.push(blocker);
+						magicvariantSummaries.push({
+							input: {
+								name: entry.name,
+								source: entry.source,
+								prop: inputProp,
+							},
+							visible: true,
+							resolved: true,
+							converted: false,
+							resolvedVia: resolvedMeta.resolvedVia,
+							resolvedProp: resolvedMeta.prop,
+							page: resolvedMeta.page,
+							hash: resolvedMeta.hash,
+							blocker,
+						});
+						return true;
+					}
+					failures.push(importResult.failure);
+					return false;
+				}
+
+				const summary = summarizeImportedDocument({
+					input: entry,
+					inputProp,
+					resolvedMeta,
+					importSummary,
+				});
+
+				if (isMagicvariant) {
+					if (!summary.converted) {
+						const blocker = {
+							label,
+							error: 'Magicvariant import completed without a primary Foundry Item document',
+							blockerType: 'magicvariant-import-summary-without-document',
+							input: entry,
+							status: importSummary?.status || null,
+							visible: summary.visible,
+							resolved: summary.resolved,
+							converted: false,
+							page: summary.page,
+							hash: summary.hash,
+							resolvedVia: summary.resolvedVia,
+							resolvedProp: summary.resolvedProp,
+						};
+						magicvariantBlockers.push(blocker);
+						magicvariantSummaries.push({
+							...summary,
+							blocker,
+						});
+						return true;
+					}
+					magicvariantSummaries.push(summary);
+					return true;
+				}
+
+				if (!summary.converted) {
+					failures.push({
+						label,
+						error: 'Standalone item import completed without a primary Foundry Item document',
+						input: entry,
+						status: importSummary?.status || null,
+					});
+					return false;
+				}
+
+				standaloneItemSummaries.push(summary);
+				return true;
+			};
+
+			for (const item of plan.items || []) {
+				const didImport = await importStandaloneItemDocument({
+					entry: item,
+					inputProp: item.prop || 'item',
+					isMagicvariant: false,
+				});
+				if (!didImport) return buildImportResult();
+			}
+
+			for (const magicvariant of plan.magicvariants || []) {
+				const didImport = await importStandaloneItemDocument({
+					entry: magicvariant,
+					inputProp: magicvariant.prop || 'magicvariant',
+					isMagicvariant: true,
+				});
+				if (!didImport) return buildImportResult();
+			}
+
+			for (const magicvariant of plan.magicvariants || []) {
+				const didImport = await importGeneratedMagicvariantDocument({
+					entry: magicvariant,
+				});
+				if (!didImport) return buildImportResult();
+			}
+
+			if (magicvariantGenerationBlockers.length) {
+				failures.push({
+					label: 'magicvariant-generated-equipment',
+					error: 'Generated/base-item magicvariant conversion did not produce required inherited equipment/mechanics/effects evidence',
+					blockerType: 'magicvariant-generated-equipment-blocked',
+					blockers: magicvariantGenerationBlockers,
+				});
+			}
 
 			for (const race of plan.races || []) {
 				const actor = await toActor(`VO-race-${race.name}`);
@@ -1920,6 +2677,11 @@ const runImport = async (plan) => {
 		report.promptAutomation = importResult?.promptAutomation || null;
 		report.importTrace = importResult?.importTrace || null;
 		report.imported = (importResult.summaries || []).map(normalizeReport);
+		report.importedItems = importResult?.standaloneItemSummaries || [];
+		report.importedMagicvariants = importResult?.magicvariantSummaries || [];
+		report.magicvariantBlockers = importResult?.magicvariantBlockers || [];
+		report.generatedMagicvariantItems = importResult?.generatedMagicvariantSummaries || [];
+		report.magicvariantGenerationBlockers = importResult?.magicvariantGenerationBlockers || [];
 		report.failures.push(...(importResult.failures || []));
 
 		if ((report.failures || []).length) {

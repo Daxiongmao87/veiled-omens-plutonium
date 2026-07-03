@@ -2,6 +2,14 @@
 
 This document records the upstream 5etools homebrew conventions this repository follows and the local rules needed for Plutonium imports.
 
+## Living Governance
+
+This document is the maintained repository reference for Plutonium/5etools source-shape conventions, reference-corpus lookup procedure, importer-behavior evidence boundaries, validator implications, and update rules.
+
+When a convention finding from a Team message, source audit, validator failure, Plutonium import result, or review changes how this repository should represent player options, record the finding in this document before validation or final review closes. A task note, chat report, prompt, or validator-only change is not a substitute for updating this living document.
+
+This document owns convention claims for the current Veiled Omens Plutonium package. `AGENTS.md` owns workflow and local reference-location rules; source material under `veiled-omens-player-options-source` owns campaign design text; `reference/` owns read-only evidence. If these surfaces disagree, inspect the authoritative source for the claim class before editing package JSON or validators.
+
 ## Reference Sources
 
 - TheGiddyLimit/homebrew repository: `https://github.com/TheGiddyLimit/homebrew`
@@ -12,6 +20,28 @@ This document records the upstream 5etools homebrew conventions this repository 
 - TheGiddyLimit/homebrew image repository: `https://github.com/TheGiddyLimit/homebrew-img`
 - Upstream schemas: `https://github.com/TheGiddyLimit/5etools-utils/tree/master/schema/brew`
 - 5etools homebrew helpers: `https://wiki.tercept.net/en/5eTools/HelpPages/makebrew`
+- Local TheGiddyLimit/homebrew reference clone: `reference/TheGiddyLimit-homebrew/`
+- Local Plutonium module reference corpus: `reference/plutonium/`
+
+## Reference Lookup Procedure
+
+Before changing source JSON, schema notes, validators, or convention documentation for a content class, inspect the same-class evidence in this order as applicable:
+
+1. Local source/package evidence: source material under `veiled-omens-player-options-source` and the active package file `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`.
+2. TheGiddyLimit/homebrew valid JSON examples for the same content class, from `reference/TheGiddyLimit-homebrew/`.
+3. Plutonium bundled 5etools source data, from `reference/plutonium/data/`.
+4. Plutonium side-data and importer behavior, including `reference/plutonium/js/Bundle.js`, when the claim concerns Foundry import behavior or Plutonium-specific conversion.
+5. Official 2014 examples where they govern a core D&D shape, such as PHB race spellcasting, class/subclass feature references, spells, and item fields.
+
+Record exact reference files or search results in this document whenever the finding changes conventions, validators, implementation, or review expectations. Do not rely on memory, official rules alone, schema-only checks, source-authored actor-import rows, or unrelated content classes as convention evidence.
+
+## Importer-Behavior Evidence Boundaries
+
+- Source JSON can prove source shape, package/source identity, link resolution, and fields that the importer is expected to consume.
+- TheGiddyLimit/homebrew and Plutonium bundled source/side-data can prove accepted source patterns for the inspected content class.
+- Plutonium importer code can prove inspected importer mechanics, but code inspection alone does not prove the local package imports into a correct Foundry actor or item.
+- Generated actor import output or the real Foundry/Plutonium harness is required to prove actor-owned dnd5e `system.advancement`, `ItemGrant` UUIDs, non-empty `configuration.items`, matching `value.added`, item activities, uses/effects, and browser/import behavior.
+- JSON parsing, generated indexes, Plutonium link validation, description rendering, and the absence of malformed source data are not substitutes for Foundry import evidence.
 
 ## Adopted Upstream Rules
 
@@ -30,11 +60,27 @@ This document records the upstream 5etools homebrew conventions this repository 
 - Current canonical source package: `collection/Patrick Richardson; Veiled Omens Campaign Setting.json`
 - Current canonical source ID: `VeiledOmens`
 - Current canonical source author: `Patrick Richardson`
+- Current discovered package content arrays: `race` 12, `class` 2, `classFeature` 30, `subclass` 7, `subclassFeature` 39, `spell` 23, `item` 3, and `magicvariant` 4.
 - Current package images live under `img/VeiledOmens/icons/` and are referenced through raw GitHub URLs.
 - Current Veiled Omens player-facing content remains one collection package/source unless a future source material is a separate publication/package.
 - Individual classes, subclasses, species, spells, items, and features inside the current package must not receive separate source IDs.
 - Plutonium URL Source fields need raw JSON files. Do not use GitHub HTML pages or raw GitHub directory roots as URL Sources.
 - Plutonium Base Homebrew Repository URL uses a branch root in the form `https://raw.githubusercontent.com/<user>/<repo>/<branch>/`.
+
+## Player-Option Source-Shape Rules
+
+- Races, species, and subraces use `race` and `subrace` source arrays with advancement-producing fields where the source grants them: `ability`, `size`, `speed`, languages, skills, tool proficiencies, senses, entries, and `additionalSpells` for fixed racial spellcasting. Governing evidence includes PHB Drow in `reference/plutonium/data/races.json`, homebrew race spell examples in `reference/TheGiddyLimit-homebrew/race/Yunisverse; Toonkind.json`, and subrace spell examples in `reference/TheGiddyLimit-homebrew/subrace/Dade F., Jonah M.; Dusk Elf.json`.
+- Drow-style racial spellcasting traits use `additionalSpells`; do not model later spell availability as source-authored `ItemGrant` rows unless the source has separate named feature entries at those levels.
+- Classes use `hd`, `proficiency`, `startingProficiencies`, `multiclassing` where applicable, spell/cantrip progression fields, `classSpells` for class spell-list membership, `classFeatures` references, and concrete `classFeature` records. Governing evidence includes `reference/plutonium/data/class/class-warlock.json`, `reference/TheGiddyLimit-homebrew/class/KibblesTasty; Occultist.json`, and `reference/TheGiddyLimit-homebrew/class/LaserLlama; Alternate Paladin.json`.
+- Subclasses use `subclassFeatures` references and concrete `subclassFeature` records. The first listed subclass feature is the subclass-named header. Same-level mechanical subclass features are referenced from that header with `refSubclassFeature`; later-level mechanical features are sibling `subclassFeatures`. Governing evidence includes `reference/plutonium/data/class/class-warlock.json` and `reference/TheGiddyLimit-homebrew/subclass/gockblock; Sorcerous Origin Spell Variants.json`.
+- Normal `classFeatures` and `subclassFeatures` references are strings. Object references are reserved for reference-backed metadata such as `gainSubclassFeature`, `gainSubclassFeatureHasContent`, or `tableDisplayName`.
+- Class tool-proficiency arrays use strings, including free-choice strings; do not use object `choose` blocks in class tool arrays.
+- Spells use complete 5etools spell records with `level`, `school`, `time`, `range`, `components`, `duration`, `entries`, and, where applicable, `entriesHigherLevel`, `scalingLevelDice`, class lists, `classSpells`, or `additionalSpells` references. Governing evidence includes `reference/plutonium/data/spells/spells-phb.json` and `reference/TheGiddyLimit-homebrew/spell/LaserLlama; LaserLlama's Compendium of Spells.json`.
+- `additionalSpells` represents fixed spell grants and racial, class, or subclass granted spells. `classSpells` represents class spell-list membership, and `subclassSpells` represents subclass spell-list membership. Plutonium compatibility/importer code in `reference/plutonium/js/Bundle.js` handles `classSpells`, `subclassSpells`, and `subSubclassSpells`; it is not evidence for source-authored `ItemGrant` spell grants.
+- Items use real 5etools item fields. Spell-casting item prose uses `attachedSpells`; charge prose uses `charges` plus `recharge` and/or `rechargeAmount`; static bonuses and defenses use structured fields such as `bonusWeapon`, `bonusAc`, `bonusSpellAttack`, `bonusSpellSaveDc`, `resist`, `immune`, and `conditionImmune`. Governing evidence includes `reference/plutonium/data/items.json`, `reference/TheGiddyLimit-homebrew/item/CaelReader; All the Weapons.json`, and `reference/TheGiddyLimit-homebrew/item/CrazyBastard; Exotic Weapons and Items.json`.
+- Wondrous magic items use `wondrous: true`; do not add fake item type values such as `type: "WONDROUS"`, `type: "wondrous"`, or `type: "wondrous item"`.
+- Material/equipment families that should appear as player-facing base-item variants use top-level `magicvariant` entries with `type`, `requires`, optional `excludes`, and `inherits` fields such as `namePrefix`, `nameSuffix`, `source`, and `entries`. Governing evidence includes `reference/plutonium/data/magicvariants.json`.
+- `foundryAdvancement` source-side data is allowed for non-item advancement such as `ScaleValue`. Do not source-author `ItemGrant` rows for class, subclass, race, or subrace feature grants.
 
 ## Foundry Advancement Source Data
 
@@ -97,6 +143,18 @@ Reference audit evidence from the 2026-06-24 TheGiddyLimit/homebrew clone:
   - `reference/TheGiddyLimit-homebrew/item/hakr14; Weave of Karo - Items.json` `Elemental Salve` has `wondrous: true`, `recharge: "restLong"`, `charges: 5`, and dice recharge prose for partial charge recovery.
 - Structured item bonus and defense fields appear in TheGiddyLimit/homebrew item examples, including `bonusWeapon`, `bonusAc`, `bonusSpellAttack`, `resist`, `immune`, and `conditionImmune` in `reference/TheGiddyLimit-homebrew/item/CaelReader; All the Weapons.json` and other item files.
 
+## Validator Implications and Forbidden Substitutions
+
+- Validators must encode the class-wide invariants recorded in this document and reject source shapes that violate the same-class reference evidence.
+- Reject source-authored `ItemGrant` rows for class, subclass, race, or subrace feature grants, including empty `configuration.items` rows or rows treated as proof that a feature grant exists.
+- Reject Drow-style racial spellcasting modeled as level-gated `ItemGrant` rows instead of `additionalSpells`.
+- Reject fake wondrous item type strings and item prose that grants spells, charges, bonuses, or defenses without the matching structured source fields.
+- Reject class tool-proficiency object `choose` blocks; class tool arrays use strings.
+- Reject same-level subclass mechanical features placed only as sibling `subclassFeatures` when the subclass header should reference them through `refSubclassFeature`.
+- Reject package changes that create class, subclass, race, spell, item, or feature-specific source IDs inside the current mixed `VeiledOmens` package.
+- Reject `variantrule` as a substitute for material/equipment families that should appear as item-browser `magicvariant` entries.
+- Reject Foundry behavior claims based only on source JSON, link checks, generated indexes, description rendering, or absence of bad data. Actor-owned advancements, item activities, uses/effects, and import-browser behavior require generated import output or the Foundry/Plutonium harness.
+
 ## Directory To Top-Level Property Mapping
 
 - `collection/` -> mixed top-level arrays from one source package
@@ -129,6 +187,13 @@ Before accepting any source organization change:
 7. Run the datasource validator.
 8. Run the Plutonium link validator.
 9. Run stale-reference scans for removed source IDs and removed file paths.
+
+## Update Rules By Role
+
+- Implementers must inspect this document and same-class reference examples before changing source JSON. When a new convention, exception, or Team-message finding changes the representation rule, update this document in the same workstream. Do not edit `reference/` or the source-material symlink.
+- Validator Engineer must encode the class-wide invariants from this document, reject forbidden substitutions, and require both validator coverage and documented evidence when a new player-option class appears.
+- Foundry Import Operator must record real Foundry/Plutonium harness evidence for claims about actor-owned advancements, item conversion, spell behavior, activities, uses/effects, and browser/import behavior. If the harness cannot prove the behavior, report the blocker rather than deriving Foundry behavior from source data alone.
+- Adversarial Reviewer / Git Integrator must review diffs against this document, `AGENTS.md`, source material, and exact reference evidence. New convention claims require exact reference paths or searches. Before validation/final review closes, verify that Team-message convention findings are recorded here and that `git status` excludes changes under `reference/` and `veiled-omens-player-options-source`.
 
 ## Commit-Time Validation
 

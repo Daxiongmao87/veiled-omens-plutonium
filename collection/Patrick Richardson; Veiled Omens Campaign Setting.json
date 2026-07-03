@@ -1731,20 +1731,14 @@
 							"wis",
 							"cha"
 						],
-						"count": 1,
-						"amount": 2
+						"count": 1
 					}
 				}
 			],
 			"size": [
-				"T",
-				"S",
-				"M",
-				"L",
-				"H",
-				"G"
+				"V"
 			],
-			"speed": 30,
+			"speed": "Varies",
 			"blindsight": 10,
 			"creatureTypes": [
 				"humanoid"
@@ -1763,7 +1757,7 @@
 					"type": "entries",
 					"name": "Ability Score Changes",
 					"entries": [
-						"Your Constitution score decreases by 2, your Intelligence score decreases by 1, your Wisdom score decreases by 1, and your Charisma score decreases by 1. You choose one ability score from Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma to increase by 2. This ability change follows the race's Ability Score Improvement advancement."
+						"Your Constitution score decreases by 2, your Intelligence score decreases by 1, your Wisdom score decreases by 1, and your Charisma score decreases by 1. Choose one ability score to increase, based on the race of your humanoid parentage."
 					]
 				},
 				{
@@ -3691,6 +3685,61 @@
 			"classSource": "PHB",
 			"page": 0,
 			"edition": "classic",
+			"additionalSpells": [
+				{
+					"name": "Gift from the Veil",
+					"expanded": {
+						"1": [
+							{
+								"all": "level=0|class=Occultist|VeiledOmens"
+							},
+							{
+								"all": "level=1|class=Occultist|VeiledOmens"
+							}
+						],
+						"3": [
+							{
+								"all": "level=2|class=Occultist|VeiledOmens"
+							}
+						],
+						"5": [
+							{
+								"all": "level=3|class=Occultist|VeiledOmens"
+							}
+						],
+						"7": [
+							{
+								"all": "level=4|class=Occultist|VeiledOmens"
+							}
+						],
+						"9": [
+							{
+								"all": "level=5|class=Occultist|VeiledOmens"
+							}
+						],
+						"11": [
+							{
+								"all": "level=6|class=Occultist|VeiledOmens"
+							}
+						],
+						"13": [
+							{
+								"all": "level=7|class=Occultist|VeiledOmens"
+							}
+						],
+						"15": [
+							{
+								"all": "level=8|class=Occultist|VeiledOmens"
+							}
+						],
+						"17": [
+							{
+								"all": "level=9|class=Occultist|VeiledOmens"
+							}
+						]
+					}
+				}
+			],
 			"subclassFeatures": [
 				"Pale Touched|Sorcerer|PHB|Pale Touched|VeiledOmens|1|VeiledOmens",
 				"Ghostwalk|Sorcerer|PHB|Pale Touched|VeiledOmens|6|VeiledOmens",
@@ -3753,6 +3802,16 @@
 				2,
 				2,
 				2
+			],
+			"subclassSpells": [
+				{
+					"className": "Druid",
+					"classSource": "PHB"
+				},
+				{
+					"className": "Occultist",
+					"classSource": "VeiledOmens"
+				}
 			],
 			"subclassFeatures": [
 				"Path of the Shaman|Barbarian|PHB|Shaman|VeiledOmens|3|VeiledOmens",
@@ -6625,31 +6684,6 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/mana-crystal.webp",
 			"__prop": "item"
-		},
-		{
-			"name": "Shadesilver Armor",
-			"source": "VeiledOmens",
-			"wondrous": true,
-			"rarity": "unknown",
-			"resist": [
-				"necrotic"
-			],
-			"entries": [
-				"These rules define base armor made from Shadesilver. They do not define the additional powers of named magic items, hauntings, bound spirits, runes, or special forging.",
-				"Shadesilver armor grants no AC.",
-				"Shadesilver armor weighs one-tenth as much as a normal suit of armor of the same form.",
-				"Shadesilver armor is coincident armor: it anchors to the wearer's animating presence and does not occupy the same physical layer as mundane clothing or armor.",
-				"Because ordinary objects pass through it, it can be worn simultaneously with normal clothing or armor.",
-				"While wearing Shadesilver armor, the wearer has resistance to necrotic damage.",
-				{
-					"type": "entries",
-					"name": "Named Item Boundary",
-					"entries": [
-						"Named Shadesilver armor can have additional powers from enchantment, haunting, runes, bound spirits, or special forging. Those item-specific powers are not base Shadesilver armor rules."
-					]
-				}
-			],
-			"__prop": "item"
 		}
 	],
 	"magicvariant": [
@@ -6794,6 +6828,45 @@
 					"name": "Named Item Boundary",
 					"entries": [
 						"Named Arcavene weapons can define additional named-item mechanics beyond these base rules."
+					]
+				}
+			],
+			"source": "VeiledOmens"
+		},
+		{
+			"name": "Shadesilver Armor",
+			"type": "GV|DMG",
+			"__prop": "magicvariant",
+			"requires": [
+				{
+					"armor": true
+				}
+			],
+			"inherits": {
+				"namePrefix": "Shadesilver ",
+				"source": "VeiledOmens",
+				"rarity": "unknown",
+				"ac": 0,
+				"weightExpression": "[[baseItem.weight]] / 10",
+				"resist": [
+					"necrotic"
+				],
+				"entries": [
+					"These rules define base armor made from Shadesilver. They do not define the additional powers of named magic items, hauntings, bound spirits, runes, or special forging.",
+					"Shadesilver armor grants no AC.",
+					"Shadesilver armor weighs one-tenth as much as a normal suit of armor of the same form.",
+					"Shadesilver armor is coincident armor: it anchors to the wearer's animating presence and does not occupy the same physical layer as mundane clothing or armor.",
+					"Because ordinary objects pass through it, it can be worn simultaneously with normal clothing or armor.",
+					"While wearing Shadesilver armor, the wearer has resistance to necrotic damage."
+				]
+			},
+			"entries": [
+				"These rules define base armor made from Shadesilver. They do not define the additional powers of named magic items, hauntings, bound spirits, runes, or special forging.",
+				{
+					"type": "entries",
+					"name": "Named Item Boundary",
+					"entries": [
+						"Named Shadesilver armor can have additional powers from enchantment, haunting, runes, bound spirits, or special forging. Those item-specific powers are not base Shadesilver armor rules."
 					]
 				}
 			],

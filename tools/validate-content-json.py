@@ -79,6 +79,17 @@ def validate_content_file(path: Path, data: Any) -> list[str]:
 
             if prop == "item":
                 errors.extend(validate_item_entry(label, entry))
+            elif prop == "spell" and "spellAttack" in entry:
+                spell_attack = entry["spellAttack"]
+                if (
+                    not isinstance(spell_attack, list)
+                    or not spell_attack
+                    or any(attack not in ("M", "R", "O") for attack in spell_attack)
+                ):
+                    errors.append(
+                        f"{label} ({entry.get('name', 'unnamed')}).spellAttack "
+                        'must be a non-empty array of "M", "R", or "O" attack types'
+                    )
 
     return errors
 

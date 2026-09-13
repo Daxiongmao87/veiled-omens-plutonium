@@ -15,7 +15,7 @@
 			}
 		],
 		"dateAdded": 1780786407,
-		"dateLastModified": 1782258840,
+		"dateLastModified": 1789268181,
 		"status": "ready",
 		"edition": "classic"
 	},
@@ -5380,7 +5380,9 @@
 					}
 				]
 			},
-			"spellAttack": true,
+			"spellAttack": [
+				"M"
+			],
 			"damageInflict": [
 				"necrotic"
 			],
@@ -5526,7 +5528,9 @@
 					}
 				]
 			},
-			"spellAttack": true,
+			"spellAttack": [
+				"R"
+			],
 			"damageInflict": [
 				"necrotic",
 				"force"
@@ -5868,7 +5872,9 @@
 			"savingThrow": [
 				"charisma"
 			],
-			"spellAttack": true,
+			"spellAttack": [
+				"R"
+			],
 			"damageInflict": [
 				"necrotic"
 			],

@@ -45,6 +45,32 @@ Record exact reference files or search results in this document whenever the fin
 
 ## Adopted Upstream Rules
 
+### Spell attack metadata
+
+`spellAttack`, when present, is a non-empty array of attack codes: `"M"`
+(melee), `"R"` (ranged), or `"O"` (other). Omit it for spells without
+attack metadata; booleans and bare strings do not follow the convention.
+
+Evidence inspected for the Spirit Lantern import failure:
+
+- `reference/TheGiddyLimit-homebrew/spell/Rynosaur94; Divinity Spells.json`:
+  Decaying Touch uses `["M"]`; Tentacle Lash uses `["O"]`.
+- `reference/plutonium/data/spells/spells-phb.json`: Fire Bolt uses `["R"]`;
+  Shocking Grasp uses `["M"]`.
+- `reference/plutonium/js/Bundle.js`,
+  `_pGetDocumentData_mutTarget_getApproximateTargetInfo`: the importer calls
+  `entry?.spellAttack?.includes("R")` and `.includes("M")` to select ranged
+  and melee spell attacks. A boolean throws the reported TypeError.
+- `veiled-omens-player-options-source/Classes/occultist_homebrew_spells.md`:
+  Spirit Lantern and Soulfire explicitly make ranged spell attacks;
+  Spectral Weapon explicitly makes a melee spell attack.
+
+`tools/validate-content-json.py` rejects malformed attack metadata before
+import. This establishes source format and the cause of the exception;
+successful Foundry import still requires runtime evidence.
+
+### Package conventions
+
 - Homebrew JSON files are compatible with 5etools and are loaded through the 5etools Brew Manager or by direct raw JSON.
 - Repository content is organized by top-level package/content directories such as `collection`, `race`, `class`, `subclass`, `feat`, `optionalfeature`, `spell`, `item`, and `background`.
 - `collection/` is used when one source material package spans multiple content types.

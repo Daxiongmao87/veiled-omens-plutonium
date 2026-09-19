@@ -4530,45 +4530,8 @@
 						"You can perform a 1-hour ritual using a gem worth at least 100 gp for each point of the spirit's challenge rating, with a minimum value of 100 gp. When you begin the ritual, choose the challenge rating of the spirit you seek.",
 						"At the end of the ritual, a spirit of the chosen challenge rating answers your call. During the soul calling, you and the spirit can see and hear one another across the boundary of the Border Ethereal. Other creatures cannot perceive the spirit or the exchange.",
 						"The gem serves as the link between you and the spirit. The spirit understands that entering the gem binds it to you and allows it to inhabit a corpse.",
-						"The soul calling has a DC equal to 10 + twice the spirit's challenge rating."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Spirit Disposition",
-					"entries": [
-						"When the spirit appears, make a Charisma check, adding your proficiency bonus to the check. Compare the result to the soul calling DC.",
-						{
-							"type": "table",
-							"caption": "Spirit Disposition",
-							"colLabels": [
-								"Check Result",
-								"Disposition",
-								"Effect"
-							],
-							"rows": [
-								[
-									"DC + 5 or higher",
-									"Receptive",
-									"You begin with 1 success."
-								],
-								[
-									"DC to DC + 4",
-									"Neutral",
-									"No effect."
-								],
-								[
-									"DC - 1 to DC - 4",
-									"Resistant",
-									"You begin with 1 failure."
-								],
-								[
-									"DC - 5 or lower",
-									"Hostile",
-									"You begin with 1 failure and have disadvantage on your first check made to bind the spirit."
-								]
-							]
-						}
+						"The soul calling has a DC equal to 10 + twice the spirit's challenge rating.",
+						"Binding begins with 0 successes and 0 failures."
 					]
 				},
 				{

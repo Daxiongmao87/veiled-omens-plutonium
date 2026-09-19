@@ -4522,23 +4522,73 @@
 			"subclassSource": "VeiledOmens",
 			"level": 3,
 			"entries": [
-				"You have learned to bind a willing spirit into a gem and seat it in dead flesh.",
-				"Over the course of 1 hour, you perform a ritual in the presence of a spirit you can perceive or at a place where the boundary to the Border Ethereal is thin. At the end of the ritual, a willing spirit is bound into a gem worth at least 100 gp per the spirit's challenge rating, minimum 100 gp. The spirit's CR cannot exceed the maximum shown in the Soul Binding table.",
-				"As an action, you can seat the soul gem into the corpse of a creature you touch, animating it as your servant. The corpse must be the body of a Beast, Dragon, Fey, Giant, Humanoid, or Monstrosity. The corpse's CR must be equal to or lower than the soul gem's CR, and its size cannot exceed the maximum shown in the Soul Binding table. To animate the corpse, you expend spell slots with a combined level equal to the corpse's CR, minimum one 1st-level spell slot.",
-				"The servant uses the corpse's stat block, with the following changes: its type becomes Undead, its alignment becomes unaligned, and it loses any legendary actions, lair actions, and mythic actions. It is immune to poison damage and the poisoned condition, it does not require air, food, drink, or sleep, and it is immune to disease.",
-				"If the soul gem contains a soul that did not belong to the corpse in life, the servant is a foreign spirit. Its Intelligence becomes 3, its Wisdom becomes 6, and its Charisma becomes 5. It has no memories, languages, or personality from the corpse's life, and it obeys your commands. If one of the servant's statistics uses Intelligence, Wisdom, or Charisma, use the servant's new score to determine any relevant modifier, save DC, or attack bonus.",
-				"If the soul gem contains the soul that belonged to the corpse in life, the servant is a returned soul. It retains the creature's Intelligence, Wisdom, Charisma, memories, languages, personality, and other statistics. A returned soul is friendly to you and your companions, but it is not under your control. The DM controls the returned soul, which acts according to its own nature and judgment.",
-				"The servant rolls its own initiative. On each of your turns, you can use a bonus action to command a foreign spirit to move, attack, or take another action. If you issue no command, it takes the Dodge action. You can issue simple noncombat commands, such as \"follow me\" or \"wait here,\" without using an action.",
-				"When the servant makes an ability check or saving throw that uses a proficiency bonus, it uses your proficiency bonus if yours is higher.",
-				"You can remove a seated soul gem from your servant over 1 minute while you are within 5 feet of it, causing the servant to become an inert corpse. If the servant is destroyed while the soul gem is seated in it, the gem is destroyed and the soul is released.",
-				"You can have only one soul gem and one active servant at a time. If you bind a new spirit, your previous soul gem is destroyed and the spirit within it is released.",
+				"Starting at 3rd level, you can call a spirit from the Border Ethereal, bind it within a gem, and seat it in a corpse.",
+				{
+					"type": "entries",
+					"name": "Soul Calling",
+					"entries": [
+						"You can perform a 1-hour ritual using a gem worth at least 100 gp for each point of the spirit's challenge rating, with a minimum value of 100 gp. When you begin the ritual, choose the challenge rating of the spirit you seek.",
+						"At the end of the ritual, a spirit of the chosen challenge rating answers your call. During the soul calling, you and the spirit can see and hear one another across the boundary of the Border Ethereal. Other creatures cannot perceive the spirit or the exchange.",
+						"The gem serves as the link between you and the spirit. The spirit understands that entering the gem binds it to you and allows it to inhabit a corpse.",
+						"The soul calling has a DC equal to 10 + twice the spirit's challenge rating."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Spirit Disposition",
+					"entries": [
+						"When the spirit appears, make a Charisma check, adding your proficiency bonus to the check. Compare the result to the soul calling DC.",
+						{
+							"type": "table",
+							"caption": "Spirit Disposition",
+							"colLabels": [
+								"Check Result",
+								"Disposition",
+								"Effect"
+							],
+							"rows": [
+								[
+									"DC + 5 or higher",
+									"Receptive",
+									"You begin with 1 success."
+								],
+								[
+									"DC to DC + 4",
+									"Neutral",
+									"No effect."
+								],
+								[
+									"DC - 1 to DC - 4",
+									"Resistant",
+									"You begin with 1 failure."
+								],
+								[
+									"DC - 5 or lower",
+									"Hostile",
+									"You begin with 1 failure and have disadvantage on your first check made to bind the spirit."
+								]
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Binding the Spirit",
+					"entries": [
+						"You must gain three successes before gaining three failures. On each exchange with the spirit, describe how you attempt to secure its service and make a Charisma (Persuasion) check, a Charisma (Intimidation) check, or a Charisma check to impose your will, adding your proficiency bonus to the latter check. The check is made against the soul calling DC.",
+						"The DM can grant advantage or impose disadvantage on a check based on your approach and the spirit's response.",
+						"If the spirit's challenge rating exceeds your Stable Binding CR, you require one additional success for each point by which its challenge rating exceeds your Stable Binding CR.",
+						"When you make a check to bind the spirit, a roll of 20 on the d20 counts as a success regardless of the check's total, and a roll of 1 on the d20 counts as a failure regardless of the check's total.",
+						"If you gain the required number of successes first, the spirit enters the gem and becomes bound to you. If you gain three failures first, the spirit departs and the ritual fails. The gem is not destroyed. Once a soul calling fails, you can't perform another soul calling until you finish a long rest."
+					]
+				},
 				{
 					"type": "table",
-					"caption": "Soul Binding",
+					"caption": "Stable Binding",
 					"colLabels": [
 						"Occultist Level",
-						"Max Soul / Servant CR",
-						"Max Servant Size"
+						"Stable Binding CR",
+						"Maximum Servant Size"
 					],
 					"rows": [
 						[
@@ -4566,6 +4616,18 @@
 							6,
 							"Huge"
 						]
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Seating the Spirit",
+					"entries": [
+						"As an action, you can seat your soul gem in the corpse of a Beast, Dragon, Fey, Giant, Humanoid, or Monstrosity you touch. The corpse's challenge rating can't exceed the bound spirit's challenge rating, and its size can't exceed the maximum shown in the Stable Binding table. To animate the corpse, you expend spell slots with a combined level equal to the corpse's challenge rating, with a minimum expenditure of one 1st-level spell slot.",
+						"The servant uses the corpse's stat block, with the following changes: its type becomes Undead, its alignment becomes unaligned, and it loses any legendary actions, lair actions, and mythic actions. Its Intelligence becomes 3, its Wisdom becomes 6, and its Charisma becomes 5. It has none of the corpse's memories, languages, or personality. It is immune to poison damage, the poisoned condition, and disease, and it doesn't require air, food, drink, or sleep.",
+						"The servant rolls its own initiative. On each of your turns, you can use a bonus action to command it to move, attack, or take another action. If you issue no command, it takes the Dodge action. You can issue simple noncombat commands, such as \"follow me\" or \"wait here,\" without using an action.",
+						"When the servant makes an ability check or saving throw that uses a proficiency bonus, it uses your proficiency bonus if yours is higher.",
+						"You can remove a seated soul gem from your servant over 1 minute while you are within 5 feet of it, causing the servant to become an inert corpse. If the servant is destroyed while the soul gem is seated in it, the gem is destroyed and the spirit is released.",
+						"You can have only one bound spirit and one active servant at a time. If you bind a new spirit, your previous soul gem is destroyed and the spirit within it is released."
 					]
 				}
 			],
@@ -4599,7 +4661,7 @@
 						"**Vicious Implements.** Once per turn, when the servant hits with a weapon attack or natural weapon attack, it deals extra damage equal to your proficiency bonus.",
 						"**Bone Hooks.** Once per turn, when the servant hits a creature with a melee attack, the target's speed is reduced by 10 feet until the start of the servant's next turn.",
 						"**Grave Weight.** Once per turn, when the servant hits a creature with a melee attack, the target cannot take reactions until the start of the servant's next turn.",
-						"**Silent Command.** You can communicate telepathically with the servant while it is within 120 feet of you. If the servant is a returned soul, it can respond telepathically.",
+						"**Silent Command.** You can communicate telepathically with the servant while it is within 120 feet of you.",
 						"**Easy Reseating.** When you re-seat this soul gem into a corpse, the spell slot levels required to animate the corpse are reduced by 1, to a minimum of one 1st-level slot."
 					]
 				}
@@ -4627,7 +4689,7 @@
 						"**Eldritch Bond.** When you cast a spell with a range other than self, you can have the spell originate from the servant's space instead of yours, provided the servant is within 60 feet of you. You must still provide the spell's components, and you use your own spell attack bonus and spell save DC. If the servant has spellcasting, it can also have a spell it casts with a range other than self originate from your space, provided you are within 60 feet of it. The servant must still provide the spell's components, and it uses its own spell attack bonus and spell save DC.",
 						"**Incorporeal Passage.** The servant can move through creatures and objects as if they were difficult terrain. It takes force damage equal to twice your proficiency bonus if it ends its turn inside an object.",
 						"**Soul-Snare.** Once per turn when the servant hits a creature with an attack, it can bind part of the target's spirit until the start of the servant's next turn. Until the effect ends, the target cannot teleport, become incorporeal, or willingly move to another plane.",
-						"**Borrowed Body.** As a bonus action, you can speak through the servant and perceive through its senses for 1 minute while it is within 120 feet of you. During this time, you are blinded and deafened to your own surroundings. If the servant is a returned soul, it can speak through you for the same duration. You can end this effect early as a bonus action."
+						"**Borrowed Body.** As a bonus action, you can speak through the servant and perceive through its senses for 1 minute while it is within 120 feet of you. During this time, you are blinded and deafened to your own surroundings. You can end this effect early as a bonus action."
 					]
 				}
 			],
@@ -4645,7 +4707,7 @@
 			"level": 14,
 			"entries": [
 				"Your soul gem can now hold three lesser facets and one greater facet.",
-				"In addition, you can become the soul that occupies your own prepared vessel. As an action while touching your seated soul gem, you transfer your soul into the gem. If another soul or spirit is bound in the gem, it is expelled to the Border Ethereal or its afterlife. Your body falls unconscious, becomes incapacitated, and enters a deathlike stasis until your soul returns.",
+				"In addition, you can become the soul that occupies your own prepared vessel. As an action while touching your seated soul gem, you transfer your soul into the gem. If a spirit is bound in the gem, it is expelled to the Border Ethereal or its afterlife. Your body falls unconscious, becomes incapacitated, and enters a deathlike stasis until your soul returns.",
 				"While your soul occupies the gem, you control the servant's body as your own. You retain your Intelligence, Wisdom, Charisma, memories, class features, proficiencies, and spellcasting, but use the servant's Strength, Dexterity, Constitution, size, speeds, senses, and physical traits. The body remains undead.",
 				"You can return to your body as an action, provided your body is on the same plane. When you do, the servant becomes an inert corpse. The soul gem remains intact, but it is empty and cannot animate a corpse until you bind another spirit into it.",
 				"If the soul gem or the servant's body is destroyed while your soul occupies the gem, your soul immediately returns to your own body. If your own body has been destroyed in the meantime, your soul departs to its afterlife as normal."

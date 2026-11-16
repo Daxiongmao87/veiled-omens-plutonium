@@ -886,6 +886,45 @@ def validate_character_spellcasting_additional_spells(
             )
 
 
+SAVE_ABILITIES = {"str", "dex", "con", "int", "wis", "cha"}
+
+
+def validate_class_save_choice(starting_proficiencies: Any, label: str, errors: list[str]) -> None:
+    """Accept a chosen-save class (no fixed `proficiency`) only when it carries a well-formed
+    `startingProficiencies.savingThrowProficiencies` block.
+
+    Evidence: Plutonium's actor import passes `{proficiency: cls.proficiency, ...cls.startingProficiencies}`
+    to `getStandardProficiencies`, whose save reader returns `savingThrowProficiencies` before falling back
+    to `proficiency` (reference/plutonium/js/Bundle.js:145140-145146 and :101437-101440). The block uses the
+    same shape as the Resilient feat's `savingThrowProficiencies` in the bundled feats.json.
+    """
+    saves = starting_proficiencies.get("savingThrowProficiencies") if isinstance(starting_proficiencies, Mapping) else None
+    if not saves:
+        errors.append(
+            f"{label}.proficiency: required for Foundry save advancement generation "
+            "(or provide startingProficiencies.savingThrowProficiencies for chosen saves)"
+        )
+        return
+    if not isinstance(saves, list):
+        errors.append(f"{label}.startingProficiencies.savingThrowProficiencies: expected array")
+        return
+    for index, option in enumerate(saves):
+        option_label = f"{label}.startingProficiencies.savingThrowProficiencies[{index}]"
+        if not isinstance(option, Mapping) or not option:
+            errors.append(f"{option_label}: expected non-empty object")
+            continue
+        for key, value in option.items():
+            if key == "choose":
+                choose_from = value.get("from") if isinstance(value, Mapping) else None
+                if not isinstance(choose_from, list) or not choose_from or not set(choose_from) <= SAVE_ABILITIES:
+                    errors.append(f"{option_label}.choose.from: expected ability abbreviations from {sorted(SAVE_ABILITIES)}")
+                count = value.get("count", 1) if isinstance(value, Mapping) else None
+                if not isinstance(count, int) or count < 1 or (isinstance(choose_from, list) and count > len(choose_from)):
+                    errors.append(f"{option_label}.choose.count: expected an integer from 1 to the number of choices")
+            elif key not in SAVE_ABILITIES or value is not True:
+                errors.append(f"{option_label}.{key}: expected an ability abbreviation set to true, or a choose block")
+
+
 def validate_race_advancements(
     rel: str,
     index: int,
@@ -927,7 +966,7 @@ def validate_character_option_surfaces(rel: str, data: Mapping[str, Any], errors
             errors.append(f"{label}.hd: required for Foundry HitPoints advancement generation")
         validate_class_hd(f"{label}.hd", cls.get("hd"), errors)
         if not cls.get("proficiency"):
-            errors.append(f"{label}.proficiency: required for Foundry save advancement generation")
+            validate_class_save_choice(cls.get("startingProficiencies"), label, errors)
         if not cls.get("startingProficiencies"):
             errors.append(f"{label}.startingProficiencies: required for Foundry skill/proficiency advancement generation")
         validate_class_tool_proficiency_shape(

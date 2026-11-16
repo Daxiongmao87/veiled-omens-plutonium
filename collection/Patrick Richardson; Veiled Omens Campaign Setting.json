@@ -2874,6 +2874,7 @@
 				"Ability Score Improvement|Gestalt|VeiledOmens|19"
 			],
 			"subclassTitle": "Convergence",
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "class"
 		}
 	],
@@ -3800,6 +3801,7 @@
 					]
 				}
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CF8e6c7dc440b631"
 		},
@@ -3883,6 +3885,7 @@
 					]
 				}
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-full-progression.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CF98dc207c916e16"
 		},
@@ -3947,6 +3950,7 @@
 					]
 				}
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-selection.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CFbbb03da597dfd5"
 		},
@@ -3961,6 +3965,7 @@
 				"For each class whose Spellcasting you have selected, you know and prepare spells as a single-classed member of that class at your Gestalt level. That class level sets the highest spell level you can learn.",
 				"Under Dual Specialization, you use the class's own spell slots at your Gestalt level. Under Dual Class, your spell slots, pact slots, and mana follow your Divided Power feature."
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CF03065898cd255d"
 		},
@@ -3982,6 +3987,7 @@
 					]
 				}
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CF54e80b926d8e38"
 		},
@@ -4006,6 +4012,7 @@
 					]
 				}
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CFc406a42197f3cc"
 		},
@@ -4019,6 +4026,7 @@
 			"entries": [
 				"At 1st level, you choose your Convergence: Dual Class or Dual Specialization. It determines your two Practices, the sources your features come from. The choice is permanent."
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-convergence.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CFd6ba7fcf9e60ce"
 		},
@@ -4032,6 +4040,7 @@
 			"entries": [
 				"At 4th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CFf9411dd50e9a0b"
 		},
@@ -4045,6 +4054,7 @@
 			"entries": [
 				"At 8th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CF76289436d83761"
 		},
@@ -4058,6 +4068,7 @@
 			"entries": [
 				"At 12th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CFe3d0462f900be2"
 		},
@@ -4071,6 +4082,7 @@
 			"entries": [
 				"At 16th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CF87119a6203c6c4"
 		},
@@ -4084,6 +4096,7 @@
 			"entries": [
 				"At 19th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
 			"_foundryId": "CF5e7b0cc184df8d"
 		}
@@ -4378,6 +4391,7 @@
 			"subclassFeatures": [
 				"Dual Class|Gestalt|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
 			"__prop": "subclass"
 		},
 		{
@@ -4391,6 +4405,7 @@
 			"subclassFeatures": [
 				"Dual Specialization|Gestalt|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
 			"__prop": "subclass"
 		}
 	],
@@ -5971,6 +5986,7 @@
 					"subclassFeature": "Divided Power|Gestalt|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
 				}
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
 			"__prop": "subclassFeature",
 			"_foundryId": "SF305b44e4260825"
 		},
@@ -6286,6 +6302,7 @@
 					]
 				}
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
 			"__prop": "subclassFeature",
 			"_foundryId": "SFca665fc7f1fc39"
 		},
@@ -6305,6 +6322,7 @@
 					"subclassFeature": "One Class|Gestalt|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
 				}
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
 			"__prop": "subclassFeature",
 			"_foundryId": "SF5ed7dbae18ac36"
 		},
@@ -6320,6 +6338,7 @@
 			"entries": [
 				"You have the class's normal spell slots and resource pools at your Gestalt level, exactly as a single-classed member of it. Your only limit on breadth is your selection budget, which must cover the base class's features and both subclasses."
 			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
 			"__prop": "subclassFeature",
 			"_foundryId": "SFd8448426321039"
 		}

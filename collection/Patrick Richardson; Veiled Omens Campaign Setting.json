@@ -2640,7 +2640,245 @@
 			"__prop": "class"
 		},
 		{
-			"name": "Gestalt",
+			"name": "Gestalt (d6)",
+			"source": "VeiledOmens",
+			"page": 0,
+			"edition": "classic",
+			"hd": {
+				"number": 1,
+				"faces": 6
+			},
+			"startingProficiencies": {
+				"skills": [
+					{
+						"any": 2
+					}
+				],
+				"savingThrowProficiencies": [
+					{
+						"choose": {
+							"from": [
+								"str",
+								"dex",
+								"con",
+								"int",
+								"wis",
+								"cha"
+							],
+							"count": 2
+						}
+					}
+				]
+			},
+			"startingEquipment": {
+				"additionalFromBackground": true,
+				"default": [
+					"{@item studded leather armor|phb}",
+					"(a) a {@item spear|phb} or (b) a {@item quarterstaff|phb}",
+					"(a) a {@item light crossbow|phb} and {@item crossbow bolts (20)|phb|20 bolts} or (b) a {@item sling|phb} and {@item sling bullets (20)|phb|20 sling bullets}",
+					"two {@item dagger|phb|daggers}",
+					"an {@item explorer's pack|phb}",
+					"a {@item component pouch|phb}, if either of your classes casts spells"
+				],
+				"defaultData": [
+					{
+						"_": [
+							"studded leather armor|phb"
+						]
+					},
+					{
+						"a": [
+							"spear|phb"
+						],
+						"b": [
+							"quarterstaff|phb"
+						]
+					},
+					{
+						"a": [
+							"light crossbow|phb",
+							"crossbow bolts (20)|phb"
+						],
+						"b": [
+							"sling|phb",
+							"sling bullets (20)|phb"
+						]
+					},
+					{
+						"_": [
+							{
+								"item": "dagger|phb",
+								"quantity": 2
+							}
+						]
+					},
+					{
+						"_": [
+							"explorer's pack|phb"
+						]
+					},
+					{
+						"_": [
+							"component pouch|phb"
+						]
+					}
+				]
+			},
+			"classTableGroups": [
+				{
+					"colLabels": [
+						"Level",
+						"Proficiency Bonus",
+						"Selections",
+						"Features"
+					],
+					"rows": [
+						[
+							1,
+							"+2",
+							"2",
+							"Convergence, Foundations, Full Progression, Feature Selection, Gestalt Spellcasting, Shared Features, Gestalt Multiclassing"
+						],
+						[
+							2,
+							"+2",
+							"1",
+							"Feature Selection"
+						],
+						[
+							3,
+							"+2",
+							"1",
+							"Feature Selection"
+						],
+						[
+							4,
+							"+2",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							5,
+							"+3",
+							"1",
+							"Feature Selection"
+						],
+						[
+							6,
+							"+3",
+							"1",
+							"Feature Selection"
+						],
+						[
+							7,
+							"+3",
+							"1",
+							"Feature Selection"
+						],
+						[
+							8,
+							"+3",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							9,
+							"+4",
+							"1",
+							"Feature Selection"
+						],
+						[
+							10,
+							"+4",
+							"1",
+							"Feature Selection"
+						],
+						[
+							11,
+							"+4",
+							"—",
+							"—"
+						],
+						[
+							12,
+							"+4",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							13,
+							"+5",
+							"—",
+							"—"
+						],
+						[
+							14,
+							"+5",
+							"1",
+							"Feature Selection"
+						],
+						[
+							15,
+							"+5",
+							"1",
+							"Feature Selection"
+						],
+						[
+							16,
+							"+5",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							17,
+							"+6",
+							"—",
+							"—"
+						],
+						[
+							18,
+							"+6",
+							"—",
+							"—"
+						],
+						[
+							19,
+							"+6",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							20,
+							"+6",
+							"1",
+							"Feature Selection"
+						]
+					]
+				}
+			],
+			"classFeatures": [
+				"Foundations|Gestalt (d6)|VeiledOmens|1",
+				"Full Progression|Gestalt (d6)|VeiledOmens|1",
+				"Feature Selection|Gestalt (d6)|VeiledOmens|1",
+				"Gestalt Spellcasting|Gestalt (d6)|VeiledOmens|1",
+				"Shared Features|Gestalt (d6)|VeiledOmens|1",
+				"Gestalt Multiclassing|Gestalt (d6)|VeiledOmens|1",
+				{
+					"classFeature": "Convergence|Gestalt (d6)|VeiledOmens|1",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Gestalt (d6)|VeiledOmens|4",
+				"Ability Score Improvement|Gestalt (d6)|VeiledOmens|8",
+				"Ability Score Improvement|Gestalt (d6)|VeiledOmens|12",
+				"Ability Score Improvement|Gestalt (d6)|VeiledOmens|16",
+				"Ability Score Improvement|Gestalt (d6)|VeiledOmens|19"
+			],
+			"subclassTitle": "Convergence",
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "class"
+		},
+		{
+			"name": "Gestalt (d8)",
 			"source": "VeiledOmens",
 			"page": 0,
 			"edition": "classic",
@@ -2857,21 +3095,497 @@
 				}
 			],
 			"classFeatures": [
-				"Foundations|Gestalt|VeiledOmens|1",
-				"Full Progression|Gestalt|VeiledOmens|1",
-				"Feature Selection|Gestalt|VeiledOmens|1",
-				"Gestalt Spellcasting|Gestalt|VeiledOmens|1",
-				"Shared Features|Gestalt|VeiledOmens|1",
-				"Gestalt Multiclassing|Gestalt|VeiledOmens|1",
+				"Foundations|Gestalt (d8)|VeiledOmens|1",
+				"Full Progression|Gestalt (d8)|VeiledOmens|1",
+				"Feature Selection|Gestalt (d8)|VeiledOmens|1",
+				"Gestalt Spellcasting|Gestalt (d8)|VeiledOmens|1",
+				"Shared Features|Gestalt (d8)|VeiledOmens|1",
+				"Gestalt Multiclassing|Gestalt (d8)|VeiledOmens|1",
 				{
-					"classFeature": "Convergence|Gestalt|VeiledOmens|1",
+					"classFeature": "Convergence|Gestalt (d8)|VeiledOmens|1",
 					"gainSubclassFeature": true
 				},
-				"Ability Score Improvement|Gestalt|VeiledOmens|4",
-				"Ability Score Improvement|Gestalt|VeiledOmens|8",
-				"Ability Score Improvement|Gestalt|VeiledOmens|12",
-				"Ability Score Improvement|Gestalt|VeiledOmens|16",
-				"Ability Score Improvement|Gestalt|VeiledOmens|19"
+				"Ability Score Improvement|Gestalt (d8)|VeiledOmens|4",
+				"Ability Score Improvement|Gestalt (d8)|VeiledOmens|8",
+				"Ability Score Improvement|Gestalt (d8)|VeiledOmens|12",
+				"Ability Score Improvement|Gestalt (d8)|VeiledOmens|16",
+				"Ability Score Improvement|Gestalt (d8)|VeiledOmens|19"
+			],
+			"subclassTitle": "Convergence",
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "class"
+		},
+		{
+			"name": "Gestalt (d10)",
+			"source": "VeiledOmens",
+			"page": 0,
+			"edition": "classic",
+			"hd": {
+				"number": 1,
+				"faces": 10
+			},
+			"startingProficiencies": {
+				"skills": [
+					{
+						"any": 2
+					}
+				],
+				"savingThrowProficiencies": [
+					{
+						"choose": {
+							"from": [
+								"str",
+								"dex",
+								"con",
+								"int",
+								"wis",
+								"cha"
+							],
+							"count": 2
+						}
+					}
+				]
+			},
+			"startingEquipment": {
+				"additionalFromBackground": true,
+				"default": [
+					"{@item studded leather armor|phb}",
+					"(a) a {@item spear|phb} or (b) a {@item quarterstaff|phb}",
+					"(a) a {@item light crossbow|phb} and {@item crossbow bolts (20)|phb|20 bolts} or (b) a {@item sling|phb} and {@item sling bullets (20)|phb|20 sling bullets}",
+					"two {@item dagger|phb|daggers}",
+					"an {@item explorer's pack|phb}",
+					"a {@item component pouch|phb}, if either of your classes casts spells"
+				],
+				"defaultData": [
+					{
+						"_": [
+							"studded leather armor|phb"
+						]
+					},
+					{
+						"a": [
+							"spear|phb"
+						],
+						"b": [
+							"quarterstaff|phb"
+						]
+					},
+					{
+						"a": [
+							"light crossbow|phb",
+							"crossbow bolts (20)|phb"
+						],
+						"b": [
+							"sling|phb",
+							"sling bullets (20)|phb"
+						]
+					},
+					{
+						"_": [
+							{
+								"item": "dagger|phb",
+								"quantity": 2
+							}
+						]
+					},
+					{
+						"_": [
+							"explorer's pack|phb"
+						]
+					},
+					{
+						"_": [
+							"component pouch|phb"
+						]
+					}
+				]
+			},
+			"classTableGroups": [
+				{
+					"colLabels": [
+						"Level",
+						"Proficiency Bonus",
+						"Selections",
+						"Features"
+					],
+					"rows": [
+						[
+							1,
+							"+2",
+							"2",
+							"Convergence, Foundations, Full Progression, Feature Selection, Gestalt Spellcasting, Shared Features, Gestalt Multiclassing"
+						],
+						[
+							2,
+							"+2",
+							"1",
+							"Feature Selection"
+						],
+						[
+							3,
+							"+2",
+							"1",
+							"Feature Selection"
+						],
+						[
+							4,
+							"+2",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							5,
+							"+3",
+							"1",
+							"Feature Selection"
+						],
+						[
+							6,
+							"+3",
+							"1",
+							"Feature Selection"
+						],
+						[
+							7,
+							"+3",
+							"1",
+							"Feature Selection"
+						],
+						[
+							8,
+							"+3",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							9,
+							"+4",
+							"1",
+							"Feature Selection"
+						],
+						[
+							10,
+							"+4",
+							"1",
+							"Feature Selection"
+						],
+						[
+							11,
+							"+4",
+							"—",
+							"—"
+						],
+						[
+							12,
+							"+4",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							13,
+							"+5",
+							"—",
+							"—"
+						],
+						[
+							14,
+							"+5",
+							"1",
+							"Feature Selection"
+						],
+						[
+							15,
+							"+5",
+							"1",
+							"Feature Selection"
+						],
+						[
+							16,
+							"+5",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							17,
+							"+6",
+							"—",
+							"—"
+						],
+						[
+							18,
+							"+6",
+							"—",
+							"—"
+						],
+						[
+							19,
+							"+6",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							20,
+							"+6",
+							"1",
+							"Feature Selection"
+						]
+					]
+				}
+			],
+			"classFeatures": [
+				"Foundations|Gestalt (d10)|VeiledOmens|1",
+				"Full Progression|Gestalt (d10)|VeiledOmens|1",
+				"Feature Selection|Gestalt (d10)|VeiledOmens|1",
+				"Gestalt Spellcasting|Gestalt (d10)|VeiledOmens|1",
+				"Shared Features|Gestalt (d10)|VeiledOmens|1",
+				"Gestalt Multiclassing|Gestalt (d10)|VeiledOmens|1",
+				{
+					"classFeature": "Convergence|Gestalt (d10)|VeiledOmens|1",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Gestalt (d10)|VeiledOmens|4",
+				"Ability Score Improvement|Gestalt (d10)|VeiledOmens|8",
+				"Ability Score Improvement|Gestalt (d10)|VeiledOmens|12",
+				"Ability Score Improvement|Gestalt (d10)|VeiledOmens|16",
+				"Ability Score Improvement|Gestalt (d10)|VeiledOmens|19"
+			],
+			"subclassTitle": "Convergence",
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "class"
+		},
+		{
+			"name": "Gestalt (d12)",
+			"source": "VeiledOmens",
+			"page": 0,
+			"edition": "classic",
+			"hd": {
+				"number": 1,
+				"faces": 12
+			},
+			"startingProficiencies": {
+				"skills": [
+					{
+						"any": 2
+					}
+				],
+				"savingThrowProficiencies": [
+					{
+						"choose": {
+							"from": [
+								"str",
+								"dex",
+								"con",
+								"int",
+								"wis",
+								"cha"
+							],
+							"count": 2
+						}
+					}
+				]
+			},
+			"startingEquipment": {
+				"additionalFromBackground": true,
+				"default": [
+					"{@item studded leather armor|phb}",
+					"(a) a {@item spear|phb} or (b) a {@item quarterstaff|phb}",
+					"(a) a {@item light crossbow|phb} and {@item crossbow bolts (20)|phb|20 bolts} or (b) a {@item sling|phb} and {@item sling bullets (20)|phb|20 sling bullets}",
+					"two {@item dagger|phb|daggers}",
+					"an {@item explorer's pack|phb}",
+					"a {@item component pouch|phb}, if either of your classes casts spells"
+				],
+				"defaultData": [
+					{
+						"_": [
+							"studded leather armor|phb"
+						]
+					},
+					{
+						"a": [
+							"spear|phb"
+						],
+						"b": [
+							"quarterstaff|phb"
+						]
+					},
+					{
+						"a": [
+							"light crossbow|phb",
+							"crossbow bolts (20)|phb"
+						],
+						"b": [
+							"sling|phb",
+							"sling bullets (20)|phb"
+						]
+					},
+					{
+						"_": [
+							{
+								"item": "dagger|phb",
+								"quantity": 2
+							}
+						]
+					},
+					{
+						"_": [
+							"explorer's pack|phb"
+						]
+					},
+					{
+						"_": [
+							"component pouch|phb"
+						]
+					}
+				]
+			},
+			"classTableGroups": [
+				{
+					"colLabels": [
+						"Level",
+						"Proficiency Bonus",
+						"Selections",
+						"Features"
+					],
+					"rows": [
+						[
+							1,
+							"+2",
+							"2",
+							"Convergence, Foundations, Full Progression, Feature Selection, Gestalt Spellcasting, Shared Features, Gestalt Multiclassing"
+						],
+						[
+							2,
+							"+2",
+							"1",
+							"Feature Selection"
+						],
+						[
+							3,
+							"+2",
+							"1",
+							"Feature Selection"
+						],
+						[
+							4,
+							"+2",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							5,
+							"+3",
+							"1",
+							"Feature Selection"
+						],
+						[
+							6,
+							"+3",
+							"1",
+							"Feature Selection"
+						],
+						[
+							7,
+							"+3",
+							"1",
+							"Feature Selection"
+						],
+						[
+							8,
+							"+3",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							9,
+							"+4",
+							"1",
+							"Feature Selection"
+						],
+						[
+							10,
+							"+4",
+							"1",
+							"Feature Selection"
+						],
+						[
+							11,
+							"+4",
+							"—",
+							"—"
+						],
+						[
+							12,
+							"+4",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							13,
+							"+5",
+							"—",
+							"—"
+						],
+						[
+							14,
+							"+5",
+							"1",
+							"Feature Selection"
+						],
+						[
+							15,
+							"+5",
+							"1",
+							"Feature Selection"
+						],
+						[
+							16,
+							"+5",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							17,
+							"+6",
+							"—",
+							"—"
+						],
+						[
+							18,
+							"+6",
+							"—",
+							"—"
+						],
+						[
+							19,
+							"+6",
+							"—",
+							"Ability Score Improvement"
+						],
+						[
+							20,
+							"+6",
+							"1",
+							"Feature Selection"
+						]
+					]
+				}
+			],
+			"classFeatures": [
+				"Foundations|Gestalt (d12)|VeiledOmens|1",
+				"Full Progression|Gestalt (d12)|VeiledOmens|1",
+				"Feature Selection|Gestalt (d12)|VeiledOmens|1",
+				"Gestalt Spellcasting|Gestalt (d12)|VeiledOmens|1",
+				"Shared Features|Gestalt (d12)|VeiledOmens|1",
+				"Gestalt Multiclassing|Gestalt (d12)|VeiledOmens|1",
+				{
+					"classFeature": "Convergence|Gestalt (d12)|VeiledOmens|1",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Gestalt (d12)|VeiledOmens|4",
+				"Ability Score Improvement|Gestalt (d12)|VeiledOmens|8",
+				"Ability Score Improvement|Gestalt (d12)|VeiledOmens|12",
+				"Ability Score Improvement|Gestalt (d12)|VeiledOmens|16",
+				"Ability Score Improvement|Gestalt (d12)|VeiledOmens|19"
 			],
 			"subclassTitle": "Convergence",
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
@@ -3765,7 +4479,7 @@
 			"name": "Foundations",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 1,
 			"entries": [
@@ -3776,7 +4490,7 @@
 					"entries": [
 						"Under Dual Class, your Gestalt Hit Die is the average of your two classes' Hit Dice, rounded down to the nearest standard die: d12 + d10 or d12 + d8 gives a d10; d12 + d6, d10 + d8, or d10 + d6 gives a d8; d8 + d6 gives a d6; two of the same die gives that die. Under Dual Specialization, use the class's Hit Die.",
 						"At 1st level, your hit points equal the maximum of your Gestalt Hit Die + your Constitution modifier. For each Gestalt level after 1st, you gain your Gestalt Hit Die (or its average) + your Constitution modifier.",
-						"This class record lists a d8 Hit Die; if your Gestalt Hit Die differs, adjust it on your character sheet."
+						"Import the Gestalt variant whose Hit Die matches yours. This is Gestalt (d6), for a d6 Hit Die; if your Gestalt Hit Die is different, use the matching variant instead."
 					]
 				},
 				{
@@ -3803,13 +4517,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CF8e6c7dc440b631"
+			"_foundryId": "CFc5c5b88e82aef0"
 		},
 		{
 			"name": "Full Progression",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 1,
 			"entries": [
@@ -3887,13 +4601,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-full-progression.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CF98dc207c916e16"
+			"_foundryId": "CF6d1c079338e820"
 		},
 		{
 			"name": "Feature Selection",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 1,
 			"entries": [
@@ -3952,13 +4666,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-selection.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CFbbb03da597dfd5"
+			"_foundryId": "CF437de5304cea71"
 		},
 		{
 			"name": "Gestalt Spellcasting",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 1,
 			"entries": [
@@ -3967,13 +4681,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CF03065898cd255d"
+			"_foundryId": "CF540b43ed29ecf0"
 		},
 		{
 			"name": "Shared Features",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 1,
 			"entries": [
@@ -3989,13 +4703,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CF54e80b926d8e38"
+			"_foundryId": "CF5d82210ffdce45"
 		},
 		{
 			"name": "Gestalt Multiclassing",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 1,
 			"entries": [
@@ -4014,13 +4728,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CFc406a42197f3cc"
+			"_foundryId": "CF23f849316552cf"
 		},
 		{
 			"name": "Convergence",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 1,
 			"entries": [
@@ -4028,13 +4742,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-convergence.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CFd6ba7fcf9e60ce"
+			"_foundryId": "CF89d445e6fd7fe5"
 		},
 		{
 			"name": "Ability Score Improvement",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 4,
 			"entries": [
@@ -4042,13 +4756,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CFf9411dd50e9a0b"
+			"_foundryId": "CFc44565fb740024"
 		},
 		{
 			"name": "Ability Score Improvement",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 8,
 			"entries": [
@@ -4056,13 +4770,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CF76289436d83761"
+			"_foundryId": "CFba8ee95350d641"
 		},
 		{
 			"name": "Ability Score Improvement",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 12,
 			"entries": [
@@ -4070,13 +4784,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CFe3d0462f900be2"
+			"_foundryId": "CF8737f834b5df98"
 		},
 		{
 			"name": "Ability Score Improvement",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 16,
 			"entries": [
@@ -4084,13 +4798,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CF87119a6203c6c4"
+			"_foundryId": "CFf7819c97877cce"
 		},
 		{
 			"name": "Ability Score Improvement",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"level": 19,
 			"entries": [
@@ -4098,7 +4812,1024 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
 			"__prop": "classFeature",
-			"_foundryId": "CF5e7b0cc184df8d"
+			"_foundryId": "CFc40fb1055b7a35"
+		},
+		{
+			"name": "Foundations",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Your Gestalt chassis is built from your two Practices rather than from a single class.",
+				{
+					"type": "entries",
+					"name": "Hit Dice",
+					"entries": [
+						"Under Dual Class, your Gestalt Hit Die is the average of your two classes' Hit Dice, rounded down to the nearest standard die: d12 + d10 or d12 + d8 gives a d10; d12 + d6, d10 + d8, or d10 + d6 gives a d8; d8 + d6 gives a d6; two of the same die gives that die. Under Dual Specialization, use the class's Hit Die.",
+						"At 1st level, your hit points equal the maximum of your Gestalt Hit Die + your Constitution modifier. For each Gestalt level after 1st, you gain your Gestalt Hit Die (or its average) + your Constitution modifier.",
+						"Import the Gestalt variant whose Hit Die matches yours. This is Gestalt (d8), for a d8 Hit Die; if your Gestalt Hit Die is different, use the matching variant instead."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Saving Throws",
+					"entries": [
+						"You are proficient in two saving throws granted by your classes: one of Dexterity, Constitution, or Wisdom, and one of Strength, Intelligence, or Charisma. Under Dual Specialization, use the class's saving throws."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Skills",
+					"entries": [
+						"You gain proficiency in a number of skills equal to the average of your two classes' starting skill counts, rounded down, chosen from either class's skill list. If either class lets you pick any skill, you can pick any skill. Under Dual Specialization, use the class's skills."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Armor, Weapons, and Tools",
+					"entries": [
+						"Pick one of your classes as your Proficiency Practice. You gain all of its 1st-level armor, weapon, and tool proficiencies. From your other class, you gain only the proficiencies that class grants when you multiclass into it. Under Dual Specialization, use the class's proficiencies."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF648485a33b994f"
+		},
+		{
+			"name": "Full Progression",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"You advance in both of your Practices as if you were a single-classed member of each, at your Gestalt level (your level in this class).",
+				"Whenever a class feature, class table, or feature's text refers to your level in one of your Practices' classes, use your Gestalt level. This covers spell levels, cantrips, spells known or prepared, Rage damage, Sneak Attack dice, the Martial Arts die, a Thaumaphage's Mana Exertion Limit, and formulas such as Lay on Hands. Anything that uses your character level, such as cantrip damage, keeps doing so.",
+				{
+					"type": "entries",
+					"name": "Improvements",
+					"entries": [
+						"Features that only strengthen a feature you already have don't cost a selection. You gain each one automatically at its normal level, as long as you have the feature it improves.",
+						{
+							"type": "table",
+							"caption": "Improvements",
+							"colLabels": [
+								"Class",
+								"Improvements (level)"
+							],
+							"colStyles": [
+								"col-3",
+								"col-9"
+							],
+							"rows": [
+								[
+									"Barbarian",
+									"Brutal Critical (2 dice) 13th, (3 dice) 17th"
+								],
+								[
+									"Bard",
+									"Bardic Inspiration d8 5th, d10 10th, d12 15th; Song of Rest d8 9th, d10 13th, d12 17th; Expertise 10th; Magical Secrets 14th, 18th"
+								],
+								[
+									"Cleric",
+									"Channel Divinity 6th, 18th; Destroy Undead CR 1 8th, CR 2 11th, CR 3 14th, CR 4 17th; Divine Intervention Improvement 20th"
+								],
+								[
+									"Druid",
+									"Wild Shape Improvement 4th, 8th"
+								],
+								[
+									"Fighter",
+									"Extra Attack (2) 11th, (3) 20th; Indomitable (two uses) 13th, (three uses) 17th; Action Surge (two uses) 17th"
+								],
+								[
+									"Monk",
+									"Unarmored Movement improvement 9th"
+								],
+								[
+									"Paladin",
+									"Aura improvements 18th"
+								],
+								[
+									"Ranger",
+									"Favored Enemy and Natural Explorer improvements 6th; Natural Explorer improvement 10th; Favored Enemy improvement 14th"
+								],
+								[
+									"Rogue",
+									"Expertise 6th"
+								],
+								[
+									"Sorcerer",
+									"Metamagic 10th, 17th"
+								],
+								[
+									"Warlock",
+									"Mystic Arcanum (7th level) 13th, (8th level) 15th, (9th level) 17th"
+								],
+								[
+									"Wizard, Occultist, Thaumaphage",
+									"—"
+								]
+							]
+						}
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-full-progression.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF7b781980475115"
+		},
+		{
+			"name": "Feature Selection",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Each time the Selections column of the Gestalt table grants a selection, you gain one feature from either Practice's class.",
+				{
+					"type": "entries",
+					"name": "Eligibility",
+					"entries": [
+						{
+							"type": "list",
+							"items": [
+								"Your Gestalt level is at least the class level at which the feature normally appears.",
+								"You have every feature it depends on.",
+								"You don't already have it, unless it says you can take it more than once."
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Subclasses",
+					"entries": [
+						"Your first subclass selection from a Practice's class must be that subclass's earliest level, and it fixes your subclass for that class. All the subclass features granted at one class level count as a single selection."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Dependencies",
+					"entries": [
+						"A feature depends on another feature if it can't function without it: it spends that feature's resource, works only while that feature is active, or uses that class's spell attack or spell save DC. A subclass level depends on everything any part of it needs. A passing mention of another feature isn't a dependency.",
+						"If only part of a feature uses another feature, such as spending a sorcery point for an extra use, you can take it, and that part starts working once you have the other feature. A dependency can be met by a same-named feature from either Practice; for example, a Paladin and Cleric Gestalt's Domain options can use the Channel Divinity from its Paladin oath.",
+						"Examples: the Berserker, Totem Warrior, and Shaman paths depend on Rage; Domain Channel Divinity options depend on Channel Divinity; ki-based monastic traditions depend on Ki; Circle of the Moon depends on Wild Shape; Cutting Words and Combat Inspiration depend on Bardic Inspiration; Occultist Rites depend on Occultist Spellcasting; Art of the Ether depends on Thaumaphage Spellcasting. Paladin oaths grant Channel Divinity rather than depending on it."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Bonus Ability Score Improvements",
+					"entries": [
+						"The extra Ability Score Improvements some classes grant (Fighter at 6th and 14th level, Rogue at 10th) are selections belonging to that class."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Investment",
+					"entries": [
+						"At least 25 percent of your selections, rounded down, must belong to each Practice at all times. At 1st level under Dual Class, take one selection from each Practice. Under Dual Specialization, this rule counts subclass selections only, and each subclass must hold at least a quarter of them."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "No Eligible Feature",
+					"entries": [
+						"If no feature from either Practice is eligible, take an Ability Score Improvement (or a feat) instead. It belongs to neither Practice."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-selection.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF2241cb9831a9eb"
+		},
+		{
+			"name": "Gestalt Spellcasting",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"For each class whose Spellcasting you have selected, you know and prepare spells as a single-classed member of that class at your Gestalt level. That class level sets the highest spell level you can learn.",
+				"Under Dual Specialization, you use the class's own spell slots at your Gestalt level. Under Dual Class, your spell slots, pact slots, and mana follow your Divided Power feature."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF9d82cae61ec65c"
+		},
+		{
+			"name": "Shared Features",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"When both of your Practices grant the same feature, use the multiclassing rules:",
+				{
+					"type": "list",
+					"items": [
+						"Extra Attack: versions from different classes don't add together. Only the Fighter's own Improvements add attacks.",
+						"Unarmored Defense: you can have it from only one class.",
+						"Channel Divinity: you gain the second class's effects but no extra uses. Use whichever class grants more uses."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF3edd8a0fc8cc75"
+		},
+		{
+			"name": "Gestalt Multiclassing",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Gestalt follows the multiclassing rules, with these additions:",
+				{
+					"type": "list",
+					"items": [
+						"To multiclass into or out of Gestalt, you must meet the multiclassing prerequisites of both of your Practices' classes.",
+						"You can't take levels in a class that is one of your Practices, and you can't choose a Practice from a class you already have levels in. Under Dual Specialization, the shared class counts as a Practice class.",
+						"Selections, Improvements, and scaling all use your Gestalt level, never your character level.",
+						"You choose your Convergence at your first Gestalt level. If Gestalt isn't your first class, you don't gain its saving throws, skills, Proficiency Practice, or equipment; instead, pick one of your Practices and gain the proficiencies that class grants when you multiclass into it.",
+						"With another spellcasting class, a Dual Class Gestalt adds half its Gestalt caster level, rounded up, to the other classes' caster levels on the Multiclass Spellcaster table. A Dual Specialization Gestalt counts as its class, with levels equal to your Gestalt level.",
+						"Shared features between Gestalt and your other classes follow the multiclassing rules, the same as between your two Practices."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF2f8378a98e96ae"
+		},
+		{
+			"name": "Convergence",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"At 1st level, you choose your Convergence: Dual Class or Dual Specialization. It determines your two Practices, the sources your features come from. The choice is permanent."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-convergence.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF097ce7f96dba15"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 4,
+			"entries": [
+				"At 4th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CFe7f92eb227c04c"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 8,
+			"entries": [
+				"At 8th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CFbf66442ff87278"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 12,
+			"entries": [
+				"At 12th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF8df73cc44f566a"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 16,
+			"entries": [
+				"At 16th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF092ec8f9b9e972"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"level": 19,
+			"entries": [
+				"At 19th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF829304af781cc9"
+		},
+		{
+			"name": "Foundations",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Your Gestalt chassis is built from your two Practices rather than from a single class.",
+				{
+					"type": "entries",
+					"name": "Hit Dice",
+					"entries": [
+						"Under Dual Class, your Gestalt Hit Die is the average of your two classes' Hit Dice, rounded down to the nearest standard die: d12 + d10 or d12 + d8 gives a d10; d12 + d6, d10 + d8, or d10 + d6 gives a d8; d8 + d6 gives a d6; two of the same die gives that die. Under Dual Specialization, use the class's Hit Die.",
+						"At 1st level, your hit points equal the maximum of your Gestalt Hit Die + your Constitution modifier. For each Gestalt level after 1st, you gain your Gestalt Hit Die (or its average) + your Constitution modifier.",
+						"Import the Gestalt variant whose Hit Die matches yours. This is Gestalt (d10), for a d10 Hit Die; if your Gestalt Hit Die is different, use the matching variant instead."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Saving Throws",
+					"entries": [
+						"You are proficient in two saving throws granted by your classes: one of Dexterity, Constitution, or Wisdom, and one of Strength, Intelligence, or Charisma. Under Dual Specialization, use the class's saving throws."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Skills",
+					"entries": [
+						"You gain proficiency in a number of skills equal to the average of your two classes' starting skill counts, rounded down, chosen from either class's skill list. If either class lets you pick any skill, you can pick any skill. Under Dual Specialization, use the class's skills."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Armor, Weapons, and Tools",
+					"entries": [
+						"Pick one of your classes as your Proficiency Practice. You gain all of its 1st-level armor, weapon, and tool proficiencies. From your other class, you gain only the proficiencies that class grants when you multiclass into it. Under Dual Specialization, use the class's proficiencies."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF2b4e633606adc4"
+		},
+		{
+			"name": "Full Progression",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"You advance in both of your Practices as if you were a single-classed member of each, at your Gestalt level (your level in this class).",
+				"Whenever a class feature, class table, or feature's text refers to your level in one of your Practices' classes, use your Gestalt level. This covers spell levels, cantrips, spells known or prepared, Rage damage, Sneak Attack dice, the Martial Arts die, a Thaumaphage's Mana Exertion Limit, and formulas such as Lay on Hands. Anything that uses your character level, such as cantrip damage, keeps doing so.",
+				{
+					"type": "entries",
+					"name": "Improvements",
+					"entries": [
+						"Features that only strengthen a feature you already have don't cost a selection. You gain each one automatically at its normal level, as long as you have the feature it improves.",
+						{
+							"type": "table",
+							"caption": "Improvements",
+							"colLabels": [
+								"Class",
+								"Improvements (level)"
+							],
+							"colStyles": [
+								"col-3",
+								"col-9"
+							],
+							"rows": [
+								[
+									"Barbarian",
+									"Brutal Critical (2 dice) 13th, (3 dice) 17th"
+								],
+								[
+									"Bard",
+									"Bardic Inspiration d8 5th, d10 10th, d12 15th; Song of Rest d8 9th, d10 13th, d12 17th; Expertise 10th; Magical Secrets 14th, 18th"
+								],
+								[
+									"Cleric",
+									"Channel Divinity 6th, 18th; Destroy Undead CR 1 8th, CR 2 11th, CR 3 14th, CR 4 17th; Divine Intervention Improvement 20th"
+								],
+								[
+									"Druid",
+									"Wild Shape Improvement 4th, 8th"
+								],
+								[
+									"Fighter",
+									"Extra Attack (2) 11th, (3) 20th; Indomitable (two uses) 13th, (three uses) 17th; Action Surge (two uses) 17th"
+								],
+								[
+									"Monk",
+									"Unarmored Movement improvement 9th"
+								],
+								[
+									"Paladin",
+									"Aura improvements 18th"
+								],
+								[
+									"Ranger",
+									"Favored Enemy and Natural Explorer improvements 6th; Natural Explorer improvement 10th; Favored Enemy improvement 14th"
+								],
+								[
+									"Rogue",
+									"Expertise 6th"
+								],
+								[
+									"Sorcerer",
+									"Metamagic 10th, 17th"
+								],
+								[
+									"Warlock",
+									"Mystic Arcanum (7th level) 13th, (8th level) 15th, (9th level) 17th"
+								],
+								[
+									"Wizard, Occultist, Thaumaphage",
+									"—"
+								]
+							]
+						}
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-full-progression.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF0ff7c20dd603a4"
+		},
+		{
+			"name": "Feature Selection",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Each time the Selections column of the Gestalt table grants a selection, you gain one feature from either Practice's class.",
+				{
+					"type": "entries",
+					"name": "Eligibility",
+					"entries": [
+						{
+							"type": "list",
+							"items": [
+								"Your Gestalt level is at least the class level at which the feature normally appears.",
+								"You have every feature it depends on.",
+								"You don't already have it, unless it says you can take it more than once."
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Subclasses",
+					"entries": [
+						"Your first subclass selection from a Practice's class must be that subclass's earliest level, and it fixes your subclass for that class. All the subclass features granted at one class level count as a single selection."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Dependencies",
+					"entries": [
+						"A feature depends on another feature if it can't function without it: it spends that feature's resource, works only while that feature is active, or uses that class's spell attack or spell save DC. A subclass level depends on everything any part of it needs. A passing mention of another feature isn't a dependency.",
+						"If only part of a feature uses another feature, such as spending a sorcery point for an extra use, you can take it, and that part starts working once you have the other feature. A dependency can be met by a same-named feature from either Practice; for example, a Paladin and Cleric Gestalt's Domain options can use the Channel Divinity from its Paladin oath.",
+						"Examples: the Berserker, Totem Warrior, and Shaman paths depend on Rage; Domain Channel Divinity options depend on Channel Divinity; ki-based monastic traditions depend on Ki; Circle of the Moon depends on Wild Shape; Cutting Words and Combat Inspiration depend on Bardic Inspiration; Occultist Rites depend on Occultist Spellcasting; Art of the Ether depends on Thaumaphage Spellcasting. Paladin oaths grant Channel Divinity rather than depending on it."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Bonus Ability Score Improvements",
+					"entries": [
+						"The extra Ability Score Improvements some classes grant (Fighter at 6th and 14th level, Rogue at 10th) are selections belonging to that class."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Investment",
+					"entries": [
+						"At least 25 percent of your selections, rounded down, must belong to each Practice at all times. At 1st level under Dual Class, take one selection from each Practice. Under Dual Specialization, this rule counts subclass selections only, and each subclass must hold at least a quarter of them."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "No Eligible Feature",
+					"entries": [
+						"If no feature from either Practice is eligible, take an Ability Score Improvement (or a feat) instead. It belongs to neither Practice."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-selection.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF285b27884962cb"
+		},
+		{
+			"name": "Gestalt Spellcasting",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"For each class whose Spellcasting you have selected, you know and prepare spells as a single-classed member of that class at your Gestalt level. That class level sets the highest spell level you can learn.",
+				"Under Dual Specialization, you use the class's own spell slots at your Gestalt level. Under Dual Class, your spell slots, pact slots, and mana follow your Divided Power feature."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF87623d9de6ca18"
+		},
+		{
+			"name": "Shared Features",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"When both of your Practices grant the same feature, use the multiclassing rules:",
+				{
+					"type": "list",
+					"items": [
+						"Extra Attack: versions from different classes don't add together. Only the Fighter's own Improvements add attacks.",
+						"Unarmored Defense: you can have it from only one class.",
+						"Channel Divinity: you gain the second class's effects but no extra uses. Use whichever class grants more uses."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF24f408c283ded0"
+		},
+		{
+			"name": "Gestalt Multiclassing",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Gestalt follows the multiclassing rules, with these additions:",
+				{
+					"type": "list",
+					"items": [
+						"To multiclass into or out of Gestalt, you must meet the multiclassing prerequisites of both of your Practices' classes.",
+						"You can't take levels in a class that is one of your Practices, and you can't choose a Practice from a class you already have levels in. Under Dual Specialization, the shared class counts as a Practice class.",
+						"Selections, Improvements, and scaling all use your Gestalt level, never your character level.",
+						"You choose your Convergence at your first Gestalt level. If Gestalt isn't your first class, you don't gain its saving throws, skills, Proficiency Practice, or equipment; instead, pick one of your Practices and gain the proficiencies that class grants when you multiclass into it.",
+						"With another spellcasting class, a Dual Class Gestalt adds half its Gestalt caster level, rounded up, to the other classes' caster levels on the Multiclass Spellcaster table. A Dual Specialization Gestalt counts as its class, with levels equal to your Gestalt level.",
+						"Shared features between Gestalt and your other classes follow the multiclassing rules, the same as between your two Practices."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF24d2a2251ecf98"
+		},
+		{
+			"name": "Convergence",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"At 1st level, you choose your Convergence: Dual Class or Dual Specialization. It determines your two Practices, the sources your features come from. The choice is permanent."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-convergence.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF75fd412b4f1438"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 4,
+			"entries": [
+				"At 4th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CFf108a54297391c"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 8,
+			"entries": [
+				"At 8th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF66a521cff74aae"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 12,
+			"entries": [
+				"At 12th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF7d6cabc83b5744"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 16,
+			"entries": [
+				"At 16th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CFa270bba7725455"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"level": 19,
+			"entries": [
+				"At 19th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CFd050a55fd8664a"
+		},
+		{
+			"name": "Foundations",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Your Gestalt chassis is built from your two Practices rather than from a single class.",
+				{
+					"type": "entries",
+					"name": "Hit Dice",
+					"entries": [
+						"Under Dual Class, your Gestalt Hit Die is the average of your two classes' Hit Dice, rounded down to the nearest standard die: d12 + d10 or d12 + d8 gives a d10; d12 + d6, d10 + d8, or d10 + d6 gives a d8; d8 + d6 gives a d6; two of the same die gives that die. Under Dual Specialization, use the class's Hit Die.",
+						"At 1st level, your hit points equal the maximum of your Gestalt Hit Die + your Constitution modifier. For each Gestalt level after 1st, you gain your Gestalt Hit Die (or its average) + your Constitution modifier.",
+						"Import the Gestalt variant whose Hit Die matches yours. This is Gestalt (d12), for a d12 Hit Die; if your Gestalt Hit Die is different, use the matching variant instead."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Saving Throws",
+					"entries": [
+						"You are proficient in two saving throws granted by your classes: one of Dexterity, Constitution, or Wisdom, and one of Strength, Intelligence, or Charisma. Under Dual Specialization, use the class's saving throws."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Skills",
+					"entries": [
+						"You gain proficiency in a number of skills equal to the average of your two classes' starting skill counts, rounded down, chosen from either class's skill list. If either class lets you pick any skill, you can pick any skill. Under Dual Specialization, use the class's skills."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Armor, Weapons, and Tools",
+					"entries": [
+						"Pick one of your classes as your Proficiency Practice. You gain all of its 1st-level armor, weapon, and tool proficiencies. From your other class, you gain only the proficiencies that class grants when you multiclass into it. Under Dual Specialization, use the class's proficiencies."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF1e0e7336059ea2"
+		},
+		{
+			"name": "Full Progression",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"You advance in both of your Practices as if you were a single-classed member of each, at your Gestalt level (your level in this class).",
+				"Whenever a class feature, class table, or feature's text refers to your level in one of your Practices' classes, use your Gestalt level. This covers spell levels, cantrips, spells known or prepared, Rage damage, Sneak Attack dice, the Martial Arts die, a Thaumaphage's Mana Exertion Limit, and formulas such as Lay on Hands. Anything that uses your character level, such as cantrip damage, keeps doing so.",
+				{
+					"type": "entries",
+					"name": "Improvements",
+					"entries": [
+						"Features that only strengthen a feature you already have don't cost a selection. You gain each one automatically at its normal level, as long as you have the feature it improves.",
+						{
+							"type": "table",
+							"caption": "Improvements",
+							"colLabels": [
+								"Class",
+								"Improvements (level)"
+							],
+							"colStyles": [
+								"col-3",
+								"col-9"
+							],
+							"rows": [
+								[
+									"Barbarian",
+									"Brutal Critical (2 dice) 13th, (3 dice) 17th"
+								],
+								[
+									"Bard",
+									"Bardic Inspiration d8 5th, d10 10th, d12 15th; Song of Rest d8 9th, d10 13th, d12 17th; Expertise 10th; Magical Secrets 14th, 18th"
+								],
+								[
+									"Cleric",
+									"Channel Divinity 6th, 18th; Destroy Undead CR 1 8th, CR 2 11th, CR 3 14th, CR 4 17th; Divine Intervention Improvement 20th"
+								],
+								[
+									"Druid",
+									"Wild Shape Improvement 4th, 8th"
+								],
+								[
+									"Fighter",
+									"Extra Attack (2) 11th, (3) 20th; Indomitable (two uses) 13th, (three uses) 17th; Action Surge (two uses) 17th"
+								],
+								[
+									"Monk",
+									"Unarmored Movement improvement 9th"
+								],
+								[
+									"Paladin",
+									"Aura improvements 18th"
+								],
+								[
+									"Ranger",
+									"Favored Enemy and Natural Explorer improvements 6th; Natural Explorer improvement 10th; Favored Enemy improvement 14th"
+								],
+								[
+									"Rogue",
+									"Expertise 6th"
+								],
+								[
+									"Sorcerer",
+									"Metamagic 10th, 17th"
+								],
+								[
+									"Warlock",
+									"Mystic Arcanum (7th level) 13th, (8th level) 15th, (9th level) 17th"
+								],
+								[
+									"Wizard, Occultist, Thaumaphage",
+									"—"
+								]
+							]
+						}
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-full-progression.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CFa764d9a56bdce3"
+		},
+		{
+			"name": "Feature Selection",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Each time the Selections column of the Gestalt table grants a selection, you gain one feature from either Practice's class.",
+				{
+					"type": "entries",
+					"name": "Eligibility",
+					"entries": [
+						{
+							"type": "list",
+							"items": [
+								"Your Gestalt level is at least the class level at which the feature normally appears.",
+								"You have every feature it depends on.",
+								"You don't already have it, unless it says you can take it more than once."
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Subclasses",
+					"entries": [
+						"Your first subclass selection from a Practice's class must be that subclass's earliest level, and it fixes your subclass for that class. All the subclass features granted at one class level count as a single selection."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Dependencies",
+					"entries": [
+						"A feature depends on another feature if it can't function without it: it spends that feature's resource, works only while that feature is active, or uses that class's spell attack or spell save DC. A subclass level depends on everything any part of it needs. A passing mention of another feature isn't a dependency.",
+						"If only part of a feature uses another feature, such as spending a sorcery point for an extra use, you can take it, and that part starts working once you have the other feature. A dependency can be met by a same-named feature from either Practice; for example, a Paladin and Cleric Gestalt's Domain options can use the Channel Divinity from its Paladin oath.",
+						"Examples: the Berserker, Totem Warrior, and Shaman paths depend on Rage; Domain Channel Divinity options depend on Channel Divinity; ki-based monastic traditions depend on Ki; Circle of the Moon depends on Wild Shape; Cutting Words and Combat Inspiration depend on Bardic Inspiration; Occultist Rites depend on Occultist Spellcasting; Art of the Ether depends on Thaumaphage Spellcasting. Paladin oaths grant Channel Divinity rather than depending on it."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Bonus Ability Score Improvements",
+					"entries": [
+						"The extra Ability Score Improvements some classes grant (Fighter at 6th and 14th level, Rogue at 10th) are selections belonging to that class."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Investment",
+					"entries": [
+						"At least 25 percent of your selections, rounded down, must belong to each Practice at all times. At 1st level under Dual Class, take one selection from each Practice. Under Dual Specialization, this rule counts subclass selections only, and each subclass must hold at least a quarter of them."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "No Eligible Feature",
+					"entries": [
+						"If no feature from either Practice is eligible, take an Ability Score Improvement (or a feat) instead. It belongs to neither Practice."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-selection.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF1cea424b5ba8c9"
+		},
+		{
+			"name": "Gestalt Spellcasting",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"For each class whose Spellcasting you have selected, you know and prepare spells as a single-classed member of that class at your Gestalt level. That class level sets the highest spell level you can learn.",
+				"Under Dual Specialization, you use the class's own spell slots at your Gestalt level. Under Dual Class, your spell slots, pact slots, and mana follow your Divided Power feature."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF366181cb5f5368"
+		},
+		{
+			"name": "Shared Features",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"When both of your Practices grant the same feature, use the multiclassing rules:",
+				{
+					"type": "list",
+					"items": [
+						"Extra Attack: versions from different classes don't add together. Only the Fighter's own Improvements add attacks.",
+						"Unarmored Defense: you can have it from only one class.",
+						"Channel Divinity: you gain the second class's effects but no extra uses. Use whichever class grants more uses."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF641072537bc074"
+		},
+		{
+			"name": "Gestalt Multiclassing",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Gestalt follows the multiclassing rules, with these additions:",
+				{
+					"type": "list",
+					"items": [
+						"To multiclass into or out of Gestalt, you must meet the multiclassing prerequisites of both of your Practices' classes.",
+						"You can't take levels in a class that is one of your Practices, and you can't choose a Practice from a class you already have levels in. Under Dual Specialization, the shared class counts as a Practice class.",
+						"Selections, Improvements, and scaling all use your Gestalt level, never your character level.",
+						"You choose your Convergence at your first Gestalt level. If Gestalt isn't your first class, you don't gain its saving throws, skills, Proficiency Practice, or equipment; instead, pick one of your Practices and gain the proficiencies that class grants when you multiclass into it.",
+						"With another spellcasting class, a Dual Class Gestalt adds half its Gestalt caster level, rounded up, to the other classes' caster levels on the Multiclass Spellcaster table. A Dual Specialization Gestalt counts as its class, with levels equal to your Gestalt level.",
+						"Shared features between Gestalt and your other classes follow the multiclassing rules, the same as between your two Practices."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CFe9248d8223adca"
+		},
+		{
+			"name": "Convergence",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"At 1st level, you choose your Convergence: Dual Class or Dual Specialization. It determines your two Practices, the sources your features come from. The choice is permanent."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/feature-convergence.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF2d8e6c8168f0b8"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 4,
+			"entries": [
+				"At 4th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF1b84a4011210aa"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 8,
+			"entries": [
+				"At 8th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CF3b808f636628f3"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 12,
+			"entries": [
+				"At 12th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CFb4fcace3e15f95"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 16,
+			"entries": [
+				"At 16th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CFcb630237399305"
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"level": 19,
+			"entries": [
+				"At 19th level, you can increase one ability score by 2, or two ability scores by 1 each. You can't increase an ability score above 20 using this feature. If your table uses feats, you can take a feat instead. These improvements don't use selections."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/gestalt.webp",
+			"__prop": "classFeature",
+			"_foundryId": "CFb6b5d5f716a1e4"
 		}
 	],
 	"subclass": [
@@ -4384,12 +6115,12 @@
 			"name": "Dual Class",
 			"shortName": "Dual Class",
 			"source": "VeiledOmens",
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"page": 0,
 			"edition": "classic",
 			"subclassFeatures": [
-				"Dual Class|Gestalt|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
+				"Dual Class|Gestalt (d6)|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
 			"__prop": "subclass"
@@ -4398,12 +6129,96 @@
 			"name": "Dual Specialization",
 			"shortName": "Dual Specialization",
 			"source": "VeiledOmens",
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"page": 0,
 			"edition": "classic",
 			"subclassFeatures": [
-				"Dual Specialization|Gestalt|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
+				"Dual Specialization|Gestalt (d6)|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
+			"__prop": "subclass"
+		},
+		{
+			"name": "Dual Class",
+			"shortName": "Dual Class",
+			"source": "VeiledOmens",
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"page": 0,
+			"edition": "classic",
+			"subclassFeatures": [
+				"Dual Class|Gestalt (d8)|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
+			"__prop": "subclass"
+		},
+		{
+			"name": "Dual Specialization",
+			"shortName": "Dual Specialization",
+			"source": "VeiledOmens",
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"page": 0,
+			"edition": "classic",
+			"subclassFeatures": [
+				"Dual Specialization|Gestalt (d8)|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
+			"__prop": "subclass"
+		},
+		{
+			"name": "Dual Class",
+			"shortName": "Dual Class",
+			"source": "VeiledOmens",
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"page": 0,
+			"edition": "classic",
+			"subclassFeatures": [
+				"Dual Class|Gestalt (d10)|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
+			"__prop": "subclass"
+		},
+		{
+			"name": "Dual Specialization",
+			"shortName": "Dual Specialization",
+			"source": "VeiledOmens",
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"page": 0,
+			"edition": "classic",
+			"subclassFeatures": [
+				"Dual Specialization|Gestalt (d10)|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
+			"__prop": "subclass"
+		},
+		{
+			"name": "Dual Class",
+			"shortName": "Dual Class",
+			"source": "VeiledOmens",
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"page": 0,
+			"edition": "classic",
+			"subclassFeatures": [
+				"Dual Class|Gestalt (d12)|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
+			"__prop": "subclass"
+		},
+		{
+			"name": "Dual Specialization",
+			"shortName": "Dual Specialization",
+			"source": "VeiledOmens",
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"page": 0,
+			"edition": "classic",
+			"subclassFeatures": [
+				"Dual Specialization|Gestalt (d12)|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
 			"__prop": "subclass"
@@ -5328,7 +7143,7 @@
 			"subclassSource": "VeiledOmens",
 			"level": 6,
 			"entries": [
-								"Beginning at 6th level, you can convert your magical knowledge into raw mana. As a bonus action, you can choose one spell you know through your Mana Shaping feature and temporarily unlearn it until you finish a long rest. When you do so, you regain mana equal to half the spell's base mana cost, rounded down. You can use this ability a number of times equal to your Wisdom modifier, minimum once, per long rest."
+				"Beginning at 6th level, you can convert your magical knowledge into raw mana. As a bonus action, you can choose one spell you know through your Mana Shaping feature and temporarily unlearn it until you finish a long rest. When you do so, you regain mana equal to half the spell's base mana cost, rounded down. You can use this ability a number of times equal to your Wisdom modifier, minimum once, per long rest."
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/art-of-the-ether.webp",
 			"__prop": "subclassFeature",
@@ -5974,7 +7789,7 @@
 			"name": "Dual Class",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"subclassShortName": "Dual Class",
 			"subclassSource": "VeiledOmens",
@@ -5983,18 +7798,18 @@
 				"You choose two different classes. Each class is one of your Practices.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Divided Power|Gestalt|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
+					"subclassFeature": "Divided Power|Gestalt (d6)|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
 			"__prop": "subclassFeature",
-			"_foundryId": "SF305b44e4260825"
+			"_foundryId": "SF801d45db916ff3"
 		},
 		{
 			"name": "Divided Power",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"subclassShortName": "Dual Class",
 			"subclassSource": "VeiledOmens",
@@ -6304,13 +8119,13 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
 			"__prop": "subclassFeature",
-			"_foundryId": "SFca665fc7f1fc39"
+			"_foundryId": "SF6412c4a0bfd179"
 		},
 		{
 			"name": "Dual Specialization",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"subclassShortName": "Dual Specialization",
 			"subclassSource": "VeiledOmens",
@@ -6319,18 +8134,18 @@
 				"With the DM's permission, you choose one class and two of its subclasses. Each subclass is one of your Practices, and the class itself is shared by both.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "One Class|Gestalt|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
+					"subclassFeature": "One Class|Gestalt (d6)|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
 				}
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
 			"__prop": "subclassFeature",
-			"_foundryId": "SF5ed7dbae18ac36"
+			"_foundryId": "SF2f5ff10235301c"
 		},
 		{
 			"name": "One Class",
 			"source": "VeiledOmens",
 			"page": 0,
-			"className": "Gestalt",
+			"className": "Gestalt (d6)",
 			"classSource": "VeiledOmens",
 			"subclassShortName": "Dual Specialization",
 			"subclassSource": "VeiledOmens",
@@ -6340,7 +8155,1123 @@
 			],
 			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
 			"__prop": "subclassFeature",
-			"_foundryId": "SFd8448426321039"
+			"_foundryId": "SFb7032dda9e6c9b"
+		},
+		{
+			"name": "Dual Class",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Class",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"You choose two different classes. Each class is one of your Practices.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Divided Power|Gestalt (d8)|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SFf8e8e6bc847960"
+		},
+		{
+			"name": "Divided Power",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Class",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Your spell slots come from the Gestalt Spell Slots table, and every resource pool your Practices give you is halved, rounded up.",
+				{
+					"type": "entries",
+					"name": "Resource Pools",
+					"entries": [
+						"A resource pool is any number of uses, points, or charges that you spend and regain on a rest, such as Rage uses, ki points, sorcery points, superiority dice, Bardic Inspiration uses, Channel Divinity uses, Wild Shape uses, Lay on Hands hit points, the slot levels Arcane Recovery restores, Consume Magic uses, and a Thaumaphage's mana. A pool of 1 stays 1.",
+						"Die sizes, damage, dice that apply per hit or per turn (such as Sneak Attack, Rage damage, and the Martial Arts die), numbers of attacks, and anything that isn't spent are not halved."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Spell Slots",
+					"entries": [
+						"You use the Gestalt Spell Slots table whether one of your Practices casts spells or both. Your Gestalt caster level depends on the best caster among the Practices whose Spellcasting you have: your Gestalt level for a full caster (Bard, Cleric, Druid, Sorcerer, Wizard, Occultist); half your Gestalt level, rounded down, for a Paladin or Ranger; and one third, rounded down, for a one-third-caster subclass such as the Eldritch Knight, Arcane Trickster, or Path of the Shaman.",
+						"You can cast spells from either Practice with these slots. A slot above the highest spell level you know can only be used to cast a lower-level spell at a higher level.",
+						{
+							"type": "table",
+							"caption": "Gestalt Spell Slots",
+							"colLabels": [
+								"Caster Level",
+								"1st",
+								"2nd",
+								"3rd",
+								"4th",
+								"5th",
+								"6th",
+								"7th",
+								"8th",
+								"9th"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center"
+							],
+							"rows": [
+								[
+									1,
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									2,
+									"2",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									3,
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									4,
+									"2",
+									"2",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									5,
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									6,
+									"2",
+									"2",
+									"2",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									7,
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									8,
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									9,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									10,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									11,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									12,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									13,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"—",
+									"—"
+								],
+								[
+									14,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"—",
+									"—"
+								],
+								[
+									15,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1",
+									"—"
+								],
+								[
+									16,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1",
+									"—"
+								],
+								[
+									17,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1",
+									"1"
+								],
+								[
+									18,
+									"2",
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1"
+								],
+								[
+									19,
+									"2",
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1"
+								],
+								[
+									20,
+									"2",
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1"
+								]
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Pact Magic",
+					"entries": [
+						"A Warlock Practice's pact slots use your Gestalt level, halved and rounded up: 1 slot from 1st through 10th level and 2 slots from 11th level. They are kept alongside any Gestalt Spell Slots."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Thaumaphage Mana",
+					"entries": [
+						"You gain Mana Capacity with your first Thaumaphage feature that spends or regains mana; it isn't a selection. Your mana maximum is halved, rounded up, but never below your current Mana Exertion Limit, so you can always cast at least one spell of your highest level. Your Mana Crystal's charges follow your mana maximum. Thaumaphage spells use mana, and other spells use spell slots."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SFb078174a0dea88"
+		},
+		{
+			"name": "Dual Specialization",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Specialization",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"With the DM's permission, you choose one class and two of its subclasses. Each subclass is one of your Practices, and the class itself is shared by both.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "One Class|Gestalt (d8)|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SFdcc99d56421655"
+		},
+		{
+			"name": "One Class",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d8)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Specialization",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"You have the class's normal spell slots and resource pools at your Gestalt level, exactly as a single-classed member of it. Your only limit on breadth is your selection budget, which must cover the base class's features and both subclasses."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF4807c50c9f8ebe"
+		},
+		{
+			"name": "Dual Class",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Class",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"You choose two different classes. Each class is one of your Practices.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Divided Power|Gestalt (d10)|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SFf5915a8368187d"
+		},
+		{
+			"name": "Divided Power",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Class",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Your spell slots come from the Gestalt Spell Slots table, and every resource pool your Practices give you is halved, rounded up.",
+				{
+					"type": "entries",
+					"name": "Resource Pools",
+					"entries": [
+						"A resource pool is any number of uses, points, or charges that you spend and regain on a rest, such as Rage uses, ki points, sorcery points, superiority dice, Bardic Inspiration uses, Channel Divinity uses, Wild Shape uses, Lay on Hands hit points, the slot levels Arcane Recovery restores, Consume Magic uses, and a Thaumaphage's mana. A pool of 1 stays 1.",
+						"Die sizes, damage, dice that apply per hit or per turn (such as Sneak Attack, Rage damage, and the Martial Arts die), numbers of attacks, and anything that isn't spent are not halved."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Spell Slots",
+					"entries": [
+						"You use the Gestalt Spell Slots table whether one of your Practices casts spells or both. Your Gestalt caster level depends on the best caster among the Practices whose Spellcasting you have: your Gestalt level for a full caster (Bard, Cleric, Druid, Sorcerer, Wizard, Occultist); half your Gestalt level, rounded down, for a Paladin or Ranger; and one third, rounded down, for a one-third-caster subclass such as the Eldritch Knight, Arcane Trickster, or Path of the Shaman.",
+						"You can cast spells from either Practice with these slots. A slot above the highest spell level you know can only be used to cast a lower-level spell at a higher level.",
+						{
+							"type": "table",
+							"caption": "Gestalt Spell Slots",
+							"colLabels": [
+								"Caster Level",
+								"1st",
+								"2nd",
+								"3rd",
+								"4th",
+								"5th",
+								"6th",
+								"7th",
+								"8th",
+								"9th"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center"
+							],
+							"rows": [
+								[
+									1,
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									2,
+									"2",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									3,
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									4,
+									"2",
+									"2",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									5,
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									6,
+									"2",
+									"2",
+									"2",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									7,
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									8,
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									9,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									10,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									11,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									12,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									13,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"—",
+									"—"
+								],
+								[
+									14,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"—",
+									"—"
+								],
+								[
+									15,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1",
+									"—"
+								],
+								[
+									16,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1",
+									"—"
+								],
+								[
+									17,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1",
+									"1"
+								],
+								[
+									18,
+									"2",
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1"
+								],
+								[
+									19,
+									"2",
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1"
+								],
+								[
+									20,
+									"2",
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1"
+								]
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Pact Magic",
+					"entries": [
+						"A Warlock Practice's pact slots use your Gestalt level, halved and rounded up: 1 slot from 1st through 10th level and 2 slots from 11th level. They are kept alongside any Gestalt Spell Slots."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Thaumaphage Mana",
+					"entries": [
+						"You gain Mana Capacity with your first Thaumaphage feature that spends or regains mana; it isn't a selection. Your mana maximum is halved, rounded up, but never below your current Mana Exertion Limit, so you can always cast at least one spell of your highest level. Your Mana Crystal's charges follow your mana maximum. Thaumaphage spells use mana, and other spells use spell slots."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF1f7c5422ad6d0f"
+		},
+		{
+			"name": "Dual Specialization",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Specialization",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"With the DM's permission, you choose one class and two of its subclasses. Each subclass is one of your Practices, and the class itself is shared by both.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "One Class|Gestalt (d10)|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF953d0fabd42b04"
+		},
+		{
+			"name": "One Class",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d10)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Specialization",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"You have the class's normal spell slots and resource pools at your Gestalt level, exactly as a single-classed member of it. Your only limit on breadth is your selection budget, which must cover the base class's features and both subclasses."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF780f15ecb9caad"
+		},
+		{
+			"name": "Dual Class",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Class",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"You choose two different classes. Each class is one of your Practices.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Divided Power|Gestalt (d12)|VeiledOmens|Dual Class|VeiledOmens|1|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF412e2054f430d0"
+		},
+		{
+			"name": "Divided Power",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Class",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"Your spell slots come from the Gestalt Spell Slots table, and every resource pool your Practices give you is halved, rounded up.",
+				{
+					"type": "entries",
+					"name": "Resource Pools",
+					"entries": [
+						"A resource pool is any number of uses, points, or charges that you spend and regain on a rest, such as Rage uses, ki points, sorcery points, superiority dice, Bardic Inspiration uses, Channel Divinity uses, Wild Shape uses, Lay on Hands hit points, the slot levels Arcane Recovery restores, Consume Magic uses, and a Thaumaphage's mana. A pool of 1 stays 1.",
+						"Die sizes, damage, dice that apply per hit or per turn (such as Sneak Attack, Rage damage, and the Martial Arts die), numbers of attacks, and anything that isn't spent are not halved."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Spell Slots",
+					"entries": [
+						"You use the Gestalt Spell Slots table whether one of your Practices casts spells or both. Your Gestalt caster level depends on the best caster among the Practices whose Spellcasting you have: your Gestalt level for a full caster (Bard, Cleric, Druid, Sorcerer, Wizard, Occultist); half your Gestalt level, rounded down, for a Paladin or Ranger; and one third, rounded down, for a one-third-caster subclass such as the Eldritch Knight, Arcane Trickster, or Path of the Shaman.",
+						"You can cast spells from either Practice with these slots. A slot above the highest spell level you know can only be used to cast a lower-level spell at a higher level.",
+						{
+							"type": "table",
+							"caption": "Gestalt Spell Slots",
+							"colLabels": [
+								"Caster Level",
+								"1st",
+								"2nd",
+								"3rd",
+								"4th",
+								"5th",
+								"6th",
+								"7th",
+								"8th",
+								"9th"
+							],
+							"colStyles": [
+								"col-2 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center",
+								"col-1 text-center"
+							],
+							"rows": [
+								[
+									1,
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									2,
+									"2",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									3,
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									4,
+									"2",
+									"2",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									5,
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									6,
+									"2",
+									"2",
+									"2",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									7,
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									8,
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									9,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									10,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"—",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									11,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									12,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"—",
+									"—",
+									"—"
+								],
+								[
+									13,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"—",
+									"—"
+								],
+								[
+									14,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"—",
+									"—"
+								],
+								[
+									15,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1",
+									"—"
+								],
+								[
+									16,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1",
+									"—"
+								],
+								[
+									17,
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1",
+									"1"
+								],
+								[
+									18,
+									"2",
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1"
+								],
+								[
+									19,
+									"2",
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1"
+								],
+								[
+									20,
+									"2",
+									"2",
+									"2",
+									"2",
+									"2",
+									"1",
+									"1",
+									"1",
+									"1"
+								]
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Pact Magic",
+					"entries": [
+						"A Warlock Practice's pact slots use your Gestalt level, halved and rounded up: 1 slot from 1st through 10th level and 2 slots from 11th level. They are kept alongside any Gestalt Spell Slots."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Thaumaphage Mana",
+					"entries": [
+						"You gain Mana Capacity with your first Thaumaphage feature that spends or regains mana; it isn't a selection. Your mana maximum is halved, rounded up, but never below your current Mana Exertion Limit, so you can always cast at least one spell of your highest level. Your Mana Crystal's charges follow your mana maximum. Thaumaphage spells use mana, and other spells use spell slots."
+					]
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-class.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SFd3efef0bd49321"
+		},
+		{
+			"name": "Dual Specialization",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Specialization",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"With the DM's permission, you choose one class and two of its subclasses. Each subclass is one of your Practices, and the class itself is shared by both.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "One Class|Gestalt (d12)|VeiledOmens|Dual Specialization|VeiledOmens|1|VeiledOmens"
+				}
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SFc26d93073a5b4e"
+		},
+		{
+			"name": "One Class",
+			"source": "VeiledOmens",
+			"page": 0,
+			"className": "Gestalt (d12)",
+			"classSource": "VeiledOmens",
+			"subclassShortName": "Dual Specialization",
+			"subclassSource": "VeiledOmens",
+			"level": 1,
+			"entries": [
+				"You have the class's normal spell slots and resource pools at your Gestalt level, exactly as a single-classed member of it. Your only limit on breadth is your selection budget, which must cover the base class's features and both subclasses."
+			],
+			"foundryImg": "https://raw.githubusercontent.com/Daxiongmao87/veiled-omens-plutonium/main/img/VeiledOmens/icons/dual-specialization.webp",
+			"__prop": "subclassFeature",
+			"_foundryId": "SF7ae3d399800c89"
 		}
 	],
 	"spell": [

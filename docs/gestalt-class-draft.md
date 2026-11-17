@@ -378,7 +378,9 @@ Controls (checks that the tests can actually fail):
 
 ## Data format notes
 - **Encodes as an ordinary class record, like Thaumaphage:** the chassis and a table with a Selections column.
+- **One class per Hit Die (2026-11-16):** Plutonium's Charactermancer computes level-up hit points from the class record's single Hit Die, so the class ships as **Gestalt (d6), (d8), (d10) and (d12)**. They are generated from one hand-edited template (`templates/gestalt-class.json`) by `tools/generate-gestalt-variants.py`, and the pre-commit hook checks they are current. Players import the variant matching their Gestalt Hit Die. A dnd5e Enchant activity was tested as an alternative and works in Foundry, but Charactermancer's Roll, Min and Max hit point modes ignore it.
 - **Prose that the importer won't enforce:** Convergence, selections, dependencies, Improvements, halving and the slot table. The format has no construct for picking features.
+- **Verified in Charactermancer (2026-11-16, Foundry 14.364, dnd5e 5.3.3, Plutonium 2.15.10, Gestalt (d6) via Custom URL import):** level 1 asks "Choose two" saves from all six and "Choose two" skills from all 18; both land on the sheet. HP 6 at level 1. Starting equipment imports. Levelling to 4 with Dual Class gives HP 18 (Take Average), 9 (Minimum), 24 (Maximum), and 6 plus three d6 rolls (Roll); current HP rises with max. Armor and weapon proficiencies are not granted (the class lists none); players set them by hand from their two classes.
 - **Untested:** how a Foundry sheet should represent a Gestalt character.
 
 ## Sources

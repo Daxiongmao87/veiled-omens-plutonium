@@ -21,3 +21,6 @@ python3 tools/validate-prose-mechanics.py
 
 echo "[pre-commit] validating Foundry advancement coverage"
 python3 tools/validate-foundry-advancements.py
+
+echo "[pre-commit] checking generated Gestalt Hit Die variants"
+python3 tools/generate-gestalt-variants.py --check
